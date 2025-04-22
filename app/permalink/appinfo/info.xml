@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>permalink</id>
+	<name>Permalink</name>
+	<summary>permalink</summary>
+	<description>permalink</description>
+	<version>1.0.0</version>
+	<licence>agpl</licence>
+	<author mail="benjamin.perraudin@ulb.be" homepage="">Benjamin</author>
+	<namespace>Permalink</namespace>
+	<category>tools</category>
+	<bugs>https://github.com/bperraud/nc-permalink</bugs>
+	<dependencies>
+		<nextcloud min-version="29" max-version="29"/>
+	</dependencies>
+	<navigations>
+		<navigation>
+			<id>permalink</id>
+			<name>Permalink</name>
+			<route>permalink.page.index</route>
+			<icon>app.svg</icon>
+			<type>link</type>
+		</navigation>
+	</navigations>
+</info>
