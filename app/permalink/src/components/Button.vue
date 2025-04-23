@@ -1,21 +1,21 @@
-// src/components/ShareLinkButton.vue
 <template>
-  <button @click="shareLink" class="btn btn-primary">Create Share Link</button>
+	<button class="btn btn-primary" @click="shareLink">
+		Create Share Link
+	</button>
 </template>
 
 <script>
 export default {
-  methods: {
-    shareLink() {
-      alert('Create Perma Link Button Clicked');
-    }
-  }
-};
+	methods: {
+		shareLink() {
+			alert('Create Perma Link Button Clicked')
+		},
+	},
+}
 </script>
 
 <style scoped>
 .btn {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 </style>
-
