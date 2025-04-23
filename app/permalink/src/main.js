@@ -10,7 +10,7 @@ let sectionInstance = null
 let props = null
 const View = Vue.extend(ShareLinkButton)
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', function() {
 	if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
 		OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
 			if (!el || !fileInfo) return
@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 				props = Vue.observable({
 					...sectionInstance._props,
-					fileInfo
+					fileInfo,
 				})
 				sectionInstance._props = props
 
@@ -35,4 +35,3 @@ window.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 })
-
