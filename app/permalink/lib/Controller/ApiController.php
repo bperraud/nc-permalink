@@ -28,4 +28,15 @@ class ApiController extends OCSController {
 			['message' => 'Hello world!']
 		);
 	}
+
+	#[NoAdminRequired]
+	#[ApiRoute(verb: 'POST', url: '/api/link')]
+	public function post(): DataResponse {
+        /* [ */
+			/* 'path' => $path, 'tokenCandidate' => $tokenCandidate, 'password' => $password, */
+		/* ] = $this->request->getParams(); */
+		return new DataResponse(
+			['message' => 'Link created !']
+		);
+	}
 }
