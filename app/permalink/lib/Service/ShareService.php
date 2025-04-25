@@ -1,0 +1,216 @@
+<?php
+
+/**
+ * Configurable Share Links for Nextcloud
+ *
+ * @copyright Copyright (C) 2022  Filip Joska <filip@joska.dev>
+ *
+ * @author Filip Joska <filip@joska.dev>
+ *
+ * @license AGPL-3.0-or-later
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+namespace OCA\Permalink\Service;
+
+use Exception as BaseException;
+use OC\User\NoUserException;
+use OCA\Files_Sharing\Exceptions\SharingRightsException;
+use OCP\Files\InvalidPathException;
+use OCP\Files\IRootFolder;
+use OCP\Files\Node;
+use OCP\Files\NotFoundException;
+use OCP\Files\NotPermittedException;
+use OCP\Share\IManager;
+use OCP\Share\IShare;
+use TypeError as BaseTypeError;
+
+/***
+ * Based on ShareAPIController (From Nextcloud's core app files_sharing)
+ */
+class ShareService {
+	/** @var Node */
+	private Node $lockedNode;
+   
+	public function __construct(
+		private readonly IManager $shareManager,
+		private readonly IRootFolder $rootFolder,
+		private ?string $currentUserId = null,
+	) {
+	}
+
+    public function getSharedLink(string $userId, string $filePath) {
+        /* $node   = $service->getUserFolder($this->$userId)->get(fileLink); */
+        /* $shares = $this->shareManager->getSharesInFolder($user->getUID(), $node); */
+        /* $shares = $this->shareManager->getSharesByPath($user->getUID(), $node); */
+        $userFolder = $this->rootFolder->getUserFolder($userId);
+        $node =  $userFolder->get($filePath);
+        
+        $share = $this->shareManager->getShareById('ocinternal:15');
+
+        /* $link = $shares ? $shares->getLink() : 'empty'; */
+        /* $link = $share->getId(); */
+        
+        $link = $share ? $share->getId() : 'empty';
+        /* $link = $share ? $share->getToken() : 'empty'; */
+        return $link;
+
+    }
+
+
+	public function create(?string $path, int $shareType, ?string $userId, string $password = ''): array {
+		if ($userId != null && $this->currentUserId != $userId) {
+			$this->currentUserId = $userId;
+		}
+
+		if ($shareType != IShare::TYPE_LINK) {
+			// TRANSLATORS function to create link with custom share token is expecting type link (but received some other type)
+			throw new OCSBadRequestException($this->l10n->t('Invalid share type'));
+		}
+
+		// Can we even share links?
+		if (!$this->shareManager->shareApiAllowLinks()) {
+			throw new OCSForbiddenException($this->l10n->t('Public link sharing is disabled by the administrator'));
+		}
+
+		// Verify path
+		if ($path === null) {
+			// TRANSLATORS function to create link received empty (null) path
+			throw new OCSNotFoundException($this->l10n->t('Please specify a file or folder path'));
+		}
+
+		$userFolder = $this->rootFolder->getUserFolder($this->currentUserId);
+		try {
+			$node = $userFolder->get($path);
+		} catch (NotFoundException) {
+			throw new OCSNotFoundException($this->l10n->t('Wrong path, file/folder does not exist'));
+		}
+
+		$share = $this->shareManager->newShare();
+		$share->setNode($node);
+
+		try {
+			$this->lock($share->getNode());
+		} catch (NotFoundException|LockedException) {
+			throw new OCSNotFoundException($this->l10n->t('Could not create share'));
+		}
+
+		$permissions = Constants::PERMISSION_READ;
+		// TODO: It might make sense to have a dedicated setting to allow/deny converting link shares into federated ones
+		if (($permissions & Constants::PERMISSION_READ) && $this->shareManager->outgoingServer2ServerSharesAllowed()) {
+			$permissions |= Constants::PERMISSION_SHARE;
+		}
+		$share->setPermissions($permissions);
+
+		$share->setShareType($shareType);
+		$share->setSharedBy($this->currentUserId);
+
+		// Set password
+		if ($password !== '') {
+			$share->setPassword($password);
+		}
+
+		// Create share in the database
+		try {
+			$share = $this->shareManager->createShare($share);
+		} catch (GenericShareException $e) {
+			$this->logger->warning('Error creating share: ' . $e->getMessage(), ['trace' => $e->getTrace()]);
+			$code = $e->getCode() === 0 ? 403 : $e->getCode();
+			throw new OCSException($e->getHint(), $code);
+		} catch (BaseException $e) {
+			$this->logger->warning('Error creating share: ' . $e->getMessage(), ['trace' => $e->getTrace()]);
+			throw new OCSForbiddenException($e->getMessage(), $e);
+		}
+
+		return $this->serializeShare($share);
+	}
+
+    private function serializeShare(IShare $share): array {
+		return [
+			'id' => $share->getId(),
+			'share_type' => $share->getShareType(),
+			'uid_owner' => $share->getSharedBy(),
+			'displayname_owner' => $share->getSharedBy(),
+			// recipient permissions
+			'permissions' => $share->getPermissions(),
+			// current user permissions on this share
+			'stime' => $share->getShareTime()->getTimestamp(),
+			'parent' => null,
+			'expiration' => $share->getExpirationDate()?->getTimestamp(),
+			'token' => $share->getToken(),
+			'uid_file_owner' => $share->getShareOwner(),
+			'note' => $share->getNote(),
+			'label' => $share->getLabel(),
+			'displayname_file_owner' => $share->getShareOwner(),
+		];
+	}
+
+
+	private function tokenChecks(string $tokenCandidate): void {
+		// Validity check
+		$this->raiseIfTokenIsInvalid($tokenCandidate);
+
+		// Unique check
+		try {
+			$share = $this->shareManager->getShareByToken($tokenCandidate);
+			if ($this->appConfig->getAppValueBool(SettingsKey::DeleteRemovedShareConflicts->value, $this->appConstants::DEFAULT_DELETE_REMOVED_SHARE_CONFLICTS)) {
+				try {
+					$share->getNode();
+				} catch (NotFoundException) {
+					// Remove share if the file/folder does not exist
+					$this->logger->debug('Conflicting token, but node does not exist. Removing conflicting share.');
+					$this->shareManager->deleteShare($share);
+					return;
+				}
+			}
+			throw new TokenNotUniqueException($this->l10n->t('Token is not unique'));
+		} catch (ShareNotFound) {
+		}
+	}
+
+	/**
+	 * @throws InvalidTokenException
+	 */
+	public function raiseIfTokenIsInvalid(string $token): void {
+		$min_length = 10;
+		/* $min_length = $this->appConfig->getAppValueInt(SettingsKey::MinTokenLength->value, $this->appConstants::DEFAULT_MIN_TOKEN_LENGTH); */
+
+		if ($token == null || strlen($token) < $min_length) {
+			throw new InvalidTokenException($this->l10n->t('Token is not long enough'));
+		}
+
+		if (strlen($token) > $this->appConstants::MAX_TOKEN_LENGTH) {
+			throw new InvalidTokenException($this->l10n->t('Token cannot be longer than %1$s characters', [$this->appConstants::MAX_TOKEN_LENGTH]));
+		}
+
+		$valid = preg_match($this->appConstants::DEFAULT_VALID_TOKEN_REGEX, $token);
+
+		if ($valid != 1) {
+			throw new InvalidTokenException($this->l10n->t('Token contains invalid characters'));
+		}
+
+		$username_conflict_candidates = $this->userManager->searchDisplayName($token);
+		foreach ($username_conflict_candidates as $user) {
+			// Check if it is an exact match
+			if ($user->getDisplayName() == $token) {
+				throw new InvalidTokenException($this->l10n->t('This token cannot be used'));
+			}
+		}
+	}
+
+
+}
+
