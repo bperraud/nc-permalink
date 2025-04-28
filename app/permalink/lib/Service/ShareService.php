@@ -55,7 +55,6 @@ class ShareService {
 		private readonly IManager $shareManager,
 		private readonly IRootFolder $rootFolder,
         private readonly IL10N $l10n,
-		private ?string $currentUserId = null,
 	) {
 	}
 
@@ -78,10 +77,7 @@ class ShareService {
     }
 
 
-	public function create(?string $path, int $shareType, ?string $userId, string $password = ''): array {
-		if ($userId != null && $this->currentUserId != $userId) {
-			$this->currentUserId = $userId;
-		}
+	public function create(?string $path, int $shareType, string $userId, string $password = ''): array {
 
 		if ($shareType != IShare::TYPE_LINK) {
 			// TRANSLATORS function to create link with custom share token is expecting type link (but received some other type)
@@ -99,7 +95,7 @@ class ShareService {
 			throw new OCSNotFoundException($this->l10n->t('Please specify a file or folder path'));
 		}
 
-		$userFolder = $this->rootFolder->getUserFolder($this->currentUserId);
+		$userFolder = $this->rootFolder->getUserFolder($userId);
 		try {
 			$node = $userFolder->get($path);
 		} catch (NotFoundException) {
@@ -123,7 +119,7 @@ class ShareService {
 		$share->setPermissions($permissions);
 
 		$share->setShareType($shareType);
-		$share->setSharedBy($this->currentUserId);
+		$share->setSharedBy($userId);
 
 		// Set password
 		if ($password !== '') {

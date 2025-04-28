@@ -57,7 +57,7 @@ class ApiController extends OCSController {
         /* $link = $this->getSharedLink('Media/Big_Buck_Bunny_1080_10s_10MB.mkv'); */
         $user = $this->userSession->getUser();
         /* $link = $this->service->getSharedLink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
-        $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 1, 'new_token', $user->getUID());
+        $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 3, 'new_token', $user->getUID());
 
         return $share;
         
