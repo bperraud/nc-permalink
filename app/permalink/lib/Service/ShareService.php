@@ -36,12 +36,16 @@ use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
 use OCP\Share\IManager;
 use OCP\Share\IShare;
+use OCP\Constants;
 use TypeError as BaseTypeError;
 use OCP\IL10N;
 use OCP\AppFramework\OCS\OCSBadRequestException;
 use OCP\AppFramework\OCS\OCSException;
 use OCP\AppFramework\OCS\OCSForbiddenException;
 use OCP\AppFramework\OCS\OCSNotFoundException;
+use OCP\Lock\ILockingProvider;
+use OCP\Lock\LockedException;
+
 
 
 /***
@@ -159,6 +163,27 @@ class ShareService {
 			'label' => $share->getLabel(),
 			'displayname_file_owner' => $share->getShareOwner(),
 		];
+	}
+
+    	/**
+	 * Lock a Node
+	 *
+	 * @param Node $node
+	 * @throws LockedException
+	 */
+	private function lock(Node $node): void {
+		$node->lock(ILockingProvider::LOCK_SHARED);
+		$this->lockedNode = $node;
+	}
+
+	/**
+	 * Cleanup the remaining locks
+	 * @throws LockedException
+	 */
+	public function cleanup(): void {
+		if (!empty($this->lockedNode)) {
+			$this->lockedNode->unlock(ILockingProvider::LOCK_SHARED);
+		}
 	}
 
 
