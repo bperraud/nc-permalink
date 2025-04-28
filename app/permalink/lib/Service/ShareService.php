@@ -37,6 +37,12 @@ use OCP\Files\NotPermittedException;
 use OCP\Share\IManager;
 use OCP\Share\IShare;
 use TypeError as BaseTypeError;
+use OCP\IL10N;
+use OCP\AppFramework\OCS\OCSBadRequestException;
+use OCP\AppFramework\OCS\OCSException;
+use OCP\AppFramework\OCS\OCSForbiddenException;
+use OCP\AppFramework\OCS\OCSNotFoundException;
+
 
 /***
  * Based on ShareAPIController (From Nextcloud's core app files_sharing)
@@ -48,6 +54,7 @@ class ShareService {
 	public function __construct(
 		private readonly IManager $shareManager,
 		private readonly IRootFolder $rootFolder,
+        private readonly IL10N $l10n,
 		private ?string $currentUserId = null,
 	) {
 	}
