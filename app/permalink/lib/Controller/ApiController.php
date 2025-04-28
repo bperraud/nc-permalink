@@ -20,6 +20,7 @@ use OCA\Permalink\Service\ShareService;
 
 use OCP\Http\Client\IClient;
 use OCP\Http\Client\IClientService;
+use OCP\IConfig;
 
 /**
  * @psalm-suppress UnusedClass
@@ -32,6 +33,7 @@ class ApiController extends OCSController {
         private readonly ShareService $service,
 		private readonly IRootFolder $rootFolder,
 		private readonly ?string $userId,
+		private IConfig $config,
         private IUserSession $userSession,
 		private readonly IClientService $clientService,
 	) {
@@ -56,24 +58,41 @@ class ApiController extends OCSController {
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): DataResponse {
         $user = $this->userSession->getUser();
-        /* $link = $this->service->getSharedLink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
-        $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 3, $user->getUID());
+        $share = $this->service->getSharedLink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg');
+        /* $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 3, $user->getUID()); */
 
-        $client = $this->clientService->newClient();
 
-        $response = $client->post('http://localhost:80/link/api/create', [
-            'body' => [
-                "target_url" => "https://example.com/dashboard"
-            ],
-        ]);
+        /* $share_link = get_sharelink_from_token($share->getToken()); */
 
-		return new DataResponse(
-			['response' => $response->getBody()]
-		);
+        /* $response = create_permalink($share_link); */
 
 		return new DataResponse(
 			['share' => $share]
 		);
 	}
+
+    private function get_sharelink_from_token(string $token) : string {
+
+        $currentOverwriteCliUrl = $this->config->getSystemValue('overwrite.cli.url', '');
+		/* $suggestedOverwriteCliUrl = $this->request->getServerProtocol() . '://' . $this->request->getInsecureServerHost() . \OC::$WEBROOT; */
+        return $currentOverwriteCliUrl . "/index.php/s/" . $token;
+    }
+
+    private function create_permalink(string $target_url) : DataResponse {
+
+        $client = $this->clientService->newClient();
+
+        $response = $client->post('http://localhost:80/link/api/create', [
+            'headers' => [
+                'Authorization' => 'Bearer your_token_here',
+                'Accept'        => 'application/json',
+            ],
+            'json' => [
+                "target_url" => "https://example.com/dashboard"
+            ],
+        ]);
+
+    }
+
 
 }

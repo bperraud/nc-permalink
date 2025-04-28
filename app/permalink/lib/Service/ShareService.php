@@ -46,6 +46,7 @@ use OCP\AppFramework\OCS\OCSNotFoundException;
 use OCP\Lock\ILockingProvider;
 use OCP\Lock\LockedException;
 
+use OCP\DB\QueryBuilder\IQueryBuilder;
 
 
 /***
@@ -62,26 +63,59 @@ class ShareService {
 	) {
 	}
 
+	private function getSharesByPath(Node $node) {
+		$qb = \OC::$server->getDatabaseConnection()->getQueryBuilder();
+
+		$cursor = $qb->select('*')
+            ->from('share')
+            ->andWhere($qb->expr()->eq('file_source', $qb->createNamedParameter($node->getId())))
+            ->andWhere($qb->expr()->in('share_type', $qb->createNamedParameter([0, 1, 3], IQueryBuilder::PARAM_INT_ARRAY)))
+            ->andWhere($qb->expr()->in('item_type', $qb->createNamedParameter(['file', 'folder'], IQueryBuilder::PARAM_STR_ARRAY)))
+            ->orderBy('id', 'ASC')
+            ->executeQuery();
+
+        $shares = $cursor->fetchAll();
+
+        return $shares;
+	}
+
+
     public function getSharedLink(string $userId, string $filePath) {
-        /* $node   = $service->getUserFolder($this->$userId)->get(fileLink); */
+        /* $node   = $service->getUserFolder($this->$userId)->get(fileLink); */
         /* $shares = $this->shareManager->getSharesInFolder($user->getUID(), $node); */
         /* $shares = $this->shareManager->getSharesByPath($user->getUID(), $node); */
+        /* $subFolder = $userFolder->get('Media/'); */
         $userFolder = $this->rootFolder->getUserFolder($userId);
-        $node =  $userFolder->get($filePath);
+        $node = $userFolder->get($filePath);
+        $shares = $this->getSharesByPath($node);
+        /* $shares = $this->shareManager->getSharesByPath($node); */
+
+        /* return $node->getId(); */
+
+        /* $node = $this->rootFolder->getNodeById("ocinternal:15"); */
+
+
+        /* $shares = $this->shareManager->getSharesBy($userId, 3, $node); */
+        /* $shares = $this->shareManager->getSharesInFolder($userId, $node->getParent()); */
+
+        /* $fileNode = $userFolder->getNodeById($fileId); */
+
+        /* getSharesBy */
         
-        $share = $this->shareManager->getShareById('ocinternal:15');
+        /* $share = $this->shareManager->getShareById('ocinternal:15'); */
+
 
         /* $link = $shares ? $shares->getLink() : 'empty'; */
         /* $link = $share->getId(); */
         
-        $link = $share ? $share->getId() : 'empty';
+        /* $link = $share ? $share->getId() : 'empty'; */
         /* $link = $share ? $share->getToken() : 'empty'; */
-        return $link;
+        return $shares;
 
     }
 
 
-	public function create(?string $path, int $shareType, string $userId, string $password = ''): array {
+	public function create(?string $path, int $shareType, string $userId, string $password = ''): IShare {
 
 		if ($shareType != IShare::TYPE_LINK) {
 			// TRANSLATORS function to create link with custom share token is expecting type link (but received some other type)
@@ -142,7 +176,12 @@ class ShareService {
 			throw new OCSForbiddenException($e->getMessage(), $e);
 		}
 
-		return $this->serializeShare($share);
+        /* $node = $share->getNode(); */
+        /* $shares = $this->shareManager->getSharesByPath($node); */
+
+		/* return $shares[0]; */
+		return $share;
+		/* return $this->serializeShare($share); */
 	}
 
     private function serializeShare(IShare $share): array {
