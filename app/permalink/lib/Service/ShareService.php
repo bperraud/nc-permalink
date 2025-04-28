@@ -63,10 +63,10 @@ class ShareService {
 	) {
 	}
 
-	private function getSharesByPath(Node $node) {
+	private function getSharesIdByPath(Node $node) : array {
 		$qb = \OC::$server->getDatabaseConnection()->getQueryBuilder();
 
-		$cursor = $qb->select('*')
+		$cursor = $qb->select('id')
             ->from('share')
             ->andWhere($qb->expr()->eq('file_source', $qb->createNamedParameter($node->getId())))
             ->andWhere($qb->expr()->in('share_type', $qb->createNamedParameter([0, 1, 3], IQueryBuilder::PARAM_INT_ARRAY)))
@@ -75,47 +75,38 @@ class ShareService {
             ->executeQuery();
 
         $shares = $cursor->fetchAll();
-
-        return $shares;
+        $ids = array_column($shares, 'id');
+        return $ids;
 	}
 
 
-    public function getSharedLink(string $userId, string $filePath) {
-        /* $node   = $service->getUserFolder($this->$userId)->get(fileLink); */
-        /* $shares = $this->shareManager->getSharesInFolder($user->getUID(), $node); */
-        /* $shares = $this->shareManager->getSharesByPath($user->getUID(), $node); */
-        /* $subFolder = $userFolder->get('Media/'); */
+    private function getSharedLink(string $userId, string $filePath) {
         $userFolder = $this->rootFolder->getUserFolder($userId);
         $node = $userFolder->get($filePath);
         $shares = $this->getSharesByPath($node);
         /* $shares = $this->shareManager->getSharesByPath($node); */
-
-        /* return $node->getId(); */
-
-        /* $node = $this->rootFolder->getNodeById("ocinternal:15"); */
-
-
-        /* $shares = $this->shareManager->getSharesBy($userId, 3, $node); */
-        /* $shares = $this->shareManager->getSharesInFolder($userId, $node->getParent()); */
-
-        /* $fileNode = $userFolder->getNodeById($fileId); */
-
-        /* getSharesBy */
-        
         /* $share = $this->shareManager->getShareById('ocinternal:15'); */
 
-
-        /* $link = $shares ? $shares->getLink() : 'empty'; */
-        /* $link = $share->getId(); */
-        
-        /* $link = $share ? $share->getId() : 'empty'; */
-        /* $link = $share ? $share->getToken() : 'empty'; */
         return $shares;
 
     }
 
+    public function get_or_create_sharelink(string $userId, string $filePath) : IShare {
 
-	public function create(?string $path, int $shareType, string $userId, string $password = ''): IShare {
+        $userFolder = $this->rootFolder->getUserFolder($userId);
+        $node = $userFolder->get($filePath);
+        $shares = $this->getSharesIdByPath($node);
+
+        if (empty($shares)) {
+            $share = $this->create($filePath, 3, $userId);
+        } else {
+            $share = $this->shareManager->getShareById('ocinternal:' . $shares[0]);
+        }
+        return $share;
+    }
+
+
+	private function create(?string $path, int $shareType, string $userId, string $password = ''): IShare {
 
 		if ($shareType != IShare::TYPE_LINK) {
 			// TRANSLATORS function to create link with custom share token is expecting type link (but received some other type)
