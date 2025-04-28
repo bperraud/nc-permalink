@@ -63,9 +63,13 @@ class ApiController extends OCSController {
         /* $share_link = get_sharelink_from_token($share->getToken()); */
         /* $response = create_permalink($share_link); */
 
+        $sharelink = $this->get_sharelink_from_token($share->getToken());
+
+        $permalink = $this->create_permalink($sharelink);
+
 		return new DataResponse(
-			['share' => $share->getToken()]
-			/* ['share' => $share] */
+			['share' => $permalink]
+			/* ['share' => $share->getToken()] */
 		);
 	}
 
@@ -77,20 +81,31 @@ class ApiController extends OCSController {
     }
 
     private function create_permalink(string $target_url) : DataResponse {
+        try {
+            $client = $this->clientService->newClient();
+            
+            $response = $client->post('http://localhost:80/link/api/create', [
+                'headers' => [
+                    'Authorization' => 'Bearer your_token_here',
+                    'Accept'        => 'application/json',
+                ],
+                'json' => [
+                    "target_url" => $target_url
+                ],
+            ]);
 
-        $client = $this->clientService->newClient();
-
-        $response = $client->post('http://localhost:80/link/api/create', [
-            'headers' => [
-                'Authorization' => 'Bearer your_token_here',
-                'Accept'        => 'application/json',
-            ],
-            'json' => [
-                "target_url" => "https://example.com/dashboard"
-            ],
-        ]);
-
-    }
-
-
+            $data = json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $e) {
+            if ($e->hasResponse()) {
+                $errorBody = (string) $e->getResponse()->getBody();
+                $statusCode = $e->getResponse()->getStatusCode();
+                $data = $errorBody;
+            } else {
+                $data = "Server Unreachable";
+            }
+        }
+        catch (\Exception $e) {
+            $data = "Unexpected error: " . $e->getMessage();
+        }
+        return $data;
 }
