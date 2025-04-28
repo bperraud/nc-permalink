@@ -17,6 +17,10 @@ use OCP\Share\IManager;
 use OCP\IUserSession;
 use OCA\Permalink\Service\ShareService;
 
+
+use OCP\Http\Client\IClient;
+use OCP\Http\Client\IClientService;
+
 /**
  * @psalm-suppress UnusedClass
  */
@@ -29,6 +33,7 @@ class ApiController extends OCSController {
 		private readonly IRootFolder $rootFolder,
 		private readonly ?string $userId,
         private IUserSession $userSession,
+		private readonly IClientService $clientService,
 	) {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
 	}
@@ -53,6 +58,18 @@ class ApiController extends OCSController {
         $user = $this->userSession->getUser();
         /* $link = $this->service->getSharedLink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
         $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 3, $user->getUID());
+
+        $client = $this->clientService->newClient();
+
+        $response = $client->post('http://localhost:80/link/api/create', [
+            'body' => [
+                "target_url" => "https://example.com/dashboard"
+            ],
+        ]);
+
+		return new DataResponse(
+			['response' => $response->getBody()]
+		);
 
 		return new DataResponse(
 			['share' => $share]
