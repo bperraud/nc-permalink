@@ -50,13 +50,6 @@ class ApiController extends OCSController {
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): DataResponse {
-        /* [ */
-			/* 'path' => $path, 'tokenCandidate' => $tokenCandidate, 'password' => $password, */
-		/* ] = $this->request->getParams(); */
-
-        /* $userFolder = $this->rootFolder->getUserFolder($userId); */
-        
-        /* $link = $this->getSharedLink('Media/Big_Buck_Bunny_1080_10s_10MB.mkv'); */
         $user = $this->userSession->getUser();
         /* $link = $this->service->getSharedLink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
         $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 3, $user->getUID());
@@ -64,13 +57,6 @@ class ApiController extends OCSController {
 		return new DataResponse(
 			['share' => $share]
 		);
-
-        /* return $share; */
-        
-		/* return new DataResponse( */
-		/* 	['link' => $link] */
-		/* ); */
 	}
-
 
 }
