@@ -64,7 +64,7 @@ class ApiController extends OCSController {
         /* $response = create_permalink($share_link); */
 
 		return new DataResponse(
-			['share' => $share->getId()]
+			['share' => $share->getToken()]
 			/* ['share' => $share] */
 		);
 	}

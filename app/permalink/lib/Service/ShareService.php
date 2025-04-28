@@ -65,7 +65,6 @@ class ShareService {
 
 	private function getSharesIdByPath(Node $node) : array {
 		$qb = \OC::$server->getDatabaseConnection()->getQueryBuilder();
-
 		$cursor = $qb->select('id')
             ->from('share')
             ->andWhere($qb->expr()->eq('file_source', $qb->createNamedParameter($node->getId())))
@@ -73,8 +72,8 @@ class ShareService {
             ->andWhere($qb->expr()->in('item_type', $qb->createNamedParameter(['file', 'folder'], IQueryBuilder::PARAM_STR_ARRAY)))
             ->orderBy('id', 'ASC')
             ->executeQuery();
-
         $shares = $cursor->fetchAll();
+
         $ids = array_column($shares, 'id');
         return $ids;
 	}
@@ -84,15 +83,10 @@ class ShareService {
         $userFolder = $this->rootFolder->getUserFolder($userId);
         $node = $userFolder->get($filePath);
         $shares = $this->getSharesByPath($node);
-        /* $shares = $this->shareManager->getSharesByPath($node); */
-        /* $share = $this->shareManager->getShareById('ocinternal:15'); */
-
         return $shares;
-
     }
 
     public function get_or_create_sharelink(string $userId, string $filePath) : IShare {
-
         $userFolder = $this->rootFolder->getUserFolder($userId);
         $node = $userFolder->get($filePath);
         $shares = $this->getSharesIdByPath($node);
