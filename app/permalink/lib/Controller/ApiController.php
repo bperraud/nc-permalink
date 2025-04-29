@@ -22,6 +22,13 @@ use OCP\Http\Client\IClient;
 use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 
+
+# JWT
+require_once \OC_App::getAppPath('permalink') . '/vendor/autoload.php';
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+
 /**
  * @psalm-suppress UnusedClass
  */
@@ -65,10 +72,12 @@ class ApiController extends OCSController {
 
         $sharelink = $this->get_sharelink_from_token($share->getToken());
 
-        $permalink = $this->create_permalink($sharelink);
+        /* $permalink = $this->create_permalink($sharelink); */
+        $jwt = $this->encode_jwt_token();
 
 		return new DataResponse(
-			['share' => $permalink]
+			['share' => $jwt]
+			/* ['share' => $permalink] */
 			/* ['share' => $share->getToken()] */
 		);
 	}
@@ -80,13 +89,32 @@ class ApiController extends OCSController {
         return $currentOverwriteCliUrl . "/index.php/s/" . $token;
     }
 
+    private function encode_jwt_token() : string {
+        $user = $this->userSession->getUser();
+
+        $payload = [
+            'sub' => $user->getUID(),      // Subject (user)
+            'iat' => time(),               // Issued at
+            'exp' => time() + 3600,        // Expiration time (1 hour)
+            'iss' => 'nextcloud-app',      // Issuer
+        ];
+
+        $secretKey = 'django-t=55_t5&e(l@ne*(r2x34-44wch895qsr4v2nsjteq2br2e(s)';
+
+        $jwt = JWT::encode($payload, $secretKey, 'HS256');
+
+        return $jwt;
+    }
+
     private function create_permalink(string $target_url) : DataResponse {
+        $jwt = $this->encode_jwt_token();
+
         try {
             $client = $this->clientService->newClient();
             
             $response = $client->post('http://localhost:80/link/api/create', [
                 'headers' => [
-                    'Authorization' => 'Bearer your_token_here',
+                    'Authorization' => $jwt,
                     'Accept'        => 'application/json',
                 ],
                 'json' => [
