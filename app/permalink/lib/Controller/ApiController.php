@@ -16,10 +16,6 @@ use OCP\Constants;
 use OCP\Share\IManager;
 use OCP\IUserSession;
 use OCA\Permalink\Service\ShareService;
-
-
-use OCP\Http\Client\IClient;
-use OCP\Http\Client\IClientService;
 use OCP\IConfig;
 
 
@@ -42,9 +38,11 @@ class ApiController extends OCSController {
 		private readonly ?string $userId,
 		private IConfig $config,
         private IUserSession $userSession,
-		private readonly IClientService $clientService,
+
 	) {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
+        $this->httpClient = $httpClient; // Assign the HTTP client
+
 	}
 	/**
 	 * An example API endpoint
@@ -66,18 +64,13 @@ class ApiController extends OCSController {
 	public function post(): DataResponse {
         $user = $this->userSession->getUser();
         $share = $this->service->get_or_create_sharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg');
-        /* $share = $this->service->create('/Media/photo-1527668441211-67a036f77ab4.jpeg', 3, $user->getUID()); */
-        /* $share_link = get_sharelink_from_token($share->getToken()); */
-        /* $response = create_permalink($share_link); */
-
         $sharelink = $this->get_sharelink_from_token($share->getToken());
 
-        /* $permalink = $this->create_permalink($sharelink); */
+        $permalink = $this->create_permalink($sharelink);
         $jwt = $this->encode_jwt_token();
 
 		return new DataResponse(
-			['share' => $jwt]
-			/* ['share' => $permalink] */
+			['share' => $permalink]
 			/* ['share' => $share->getToken()] */
 		);
 	}
@@ -100,41 +93,45 @@ class ApiController extends OCSController {
         ];
 
         $secretKey = 'django-t=55_t5&e(l@ne*(r2x34-44wch895qsr4v2nsjteq2br2e(s)';
-
         $jwt = JWT::encode($payload, $secretKey, 'HS256');
 
         return $jwt;
     }
 
-    private function create_permalink(string $target_url) : DataResponse {
+    private function create_permalink(string $target_url) {
         $jwt = $this->encode_jwt_token();
 
-        try {
-            $client = $this->clientService->newClient();
-            
-            $response = $client->post('http://localhost:80/link/api/create', [
-                'headers' => [
-                    'Authorization' => $jwt,
-                    'Accept'        => 'application/json',
-                ],
-                'json' => [
-                    "target_url" => $target_url
-                ],
-            ]);
+        $ch = curl_init("http://host.docker.internal:8080/link/api/create/");
 
-            $data = json_decode($response->getBody()->getContents(), true);
-        } catch (RequestException $e) {
-            if ($e->hasResponse()) {
-                $errorBody = (string) $e->getResponse()->getBody();
-                $statusCode = $e->getResponse()->getStatusCode();
-                $data = $errorBody;
-            } else {
-                $data = "Server Unreachable";
-            }
+        $headers = [
+            'Authorization: Bearer ' . $jwt,
+            'Accept: application/json',
+            'Content-Type: application/json',
+        ];
+
+        $data = [
+            "target_url" => $target_url,
+        ];
+
+        $jsonData = json_encode($data);
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            $error = curl_error($ch);
+            curl_close($ch);
+            return ['error' => $error]; // Return the error message if request failed
         }
-        catch (\Exception $e) {
-            $data = "Unexpected error: " . $e->getMessage();
-        }
-        return $data;
+
+        curl_close($ch);
+
+        return json_decode($response, true);
     }
+
 }
