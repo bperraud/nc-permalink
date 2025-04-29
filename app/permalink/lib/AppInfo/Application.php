@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OCA\Permalink\AppInfo;
 
 use OCP\AppFramework\App;
+use OCP\Util;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
@@ -21,5 +22,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function boot(IBootContext $context): void {
+        Util::addScript(self::APP_ID, 'main');   // -> /apps/permalink/js/main.js
+        Util::addStyle(self::APP_ID, 'main');    // if you built a css file
 	}
 }
