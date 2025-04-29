@@ -108,4 +108,5 @@ class ApiController extends OCSController {
             $data = "Unexpected error: " . $e->getMessage();
         }
         return $data;
+    }
 }

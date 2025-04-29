@@ -6117,7 +6117,7 @@ var render = function render() {
     on: {
       click: _vm.shareLink
     }
-  }, [_vm._v("\n\tCreate Perma Link\n")]);
+  }, [_vm._v("\n\tCreate Share Link\n")]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -8425,7 +8425,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `
 .btn[data-v-015de462] {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 `, ""]);
 // Exports

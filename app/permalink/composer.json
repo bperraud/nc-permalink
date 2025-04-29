@@ -5,8 +5,7 @@
 	"authors": [
 		{
 			"name": "Benjamin",
-			"email": "benjamin.perraudin@ulb.be",
-			"homepage": ""
+			"email": "benjamin.perraudin@ulb.be"
 		}
 	],
 	"autoload": {
@@ -29,8 +28,9 @@
 		"openapi": "generate-spec"
 	},
 	"require": {
+		"php": "^8.1",
 		"bamarni/composer-bin-plugin": "^1.8",
-		"php": "^8.1"
+		"firebase/php-jwt": "^6.11"
 	},
 	"require-dev": {
 		"nextcloud/ocp": "dev-stable29",
