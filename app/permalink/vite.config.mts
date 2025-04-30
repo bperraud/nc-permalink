@@ -6,8 +6,8 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 export default createAppConfig(
 	{
-		settingsAdmin: 'src/settings_admin.js',
-		main: 'src/main.js',
+		settingsAdmin: 'src/settings_admin.ts',
+		main: 'src/main.ts',
 	},
 	{
 		config: {
