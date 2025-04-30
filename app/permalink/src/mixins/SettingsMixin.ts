@@ -14,7 +14,7 @@ export default {
 		async fetchSettings(): Promise<void> {
 			try {
 				const response = await axios.get(
-					generateUrl('/apps/cfg_share_links/settings'),
+					generateUrl('/apps/permalink/settings'),
 				)
 				if (response.data) {
 					this.settings = response.data

@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\CfgShareLinks\Enums;
+namespace OCA\Permalink\Enums;
 
 enum SettingsKey: string {
 	case DefaultLabelMode = 'default_label_mode';

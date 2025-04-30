@@ -1,22 +1,22 @@
 <template>
-	<div id="cfgshare-admin-settings">
+	<div id="permalink-admin-settings">
 		<NcSettingsSection
-			:name="t('cfg_share_links', 'Default share label')"
+			:name="t('permalink', 'Default share label')"
 			:description="
 				t(
-					'cfg_share_links',
+					'permalink',
 					'Configure whether a default label should be set to custom links and what that label should be',
 				)
 			">
 			<div>
 				<h3>
-					{{ t('cfg_share_links', 'Default label') }}:
+					{{ t('permalink', 'Default label') }}:
 					<span
 						v-if="updating.key === SettingsKey.DefaultLabelMode"
 						class="status-icon">
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
-							:name="t('cfg_share_links', 'Saving...')"
+							:name="t('permalink', 'Saving...')"
 							:size="20" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
@@ -34,18 +34,18 @@
 					:multiple="false"
 					:allow-empty="false"
 					:disabled="updating.status === UpdateState.Updating || loading"
-					:placeholder="t('cfg_share_links', 'Select label type')"
+					:placeholder="t('permalink', 'Select label type')"
 					@option:selected="onLabelModeChange" />
 			</div>
 			<div v-if="labelMode.id === LabelMode.UserSpecified">
 				<h3>
-					{{ t('cfg_share_links', 'Custom label') }}:
+					{{ t('permalink', 'Custom label') }}:
 					<span
 						v-if="updating.key === SettingsKey.DefaultCustomLabel"
 						class="status-icon">
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
-							:name="t('cfg_share_links', 'Saving...')"
+							:name="t('permalink', 'Saving...')"
 							:size="20" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
@@ -68,17 +68,17 @@
 			</div>
 		</NcSettingsSection>
 		<NcSettingsSection
-			:name="t('cfg_share_links', 'Token settings')"
-			:description="t('cfg_share_links', 'Configure requirements for tokens')">
+			:name="t('permalink', 'Token settings')"
+			:description="t('permalink', 'Configure requirements for tokens')">
 			<div>
 				<h3>
-					{{ t('cfg_share_links', 'Minimal token length') }}:
+					{{ t('permalink', 'Minimal token length') }}:
 					<span
 						v-if="updating.key === SettingsKey.MinTokenLength"
 						class="status-icon">
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
-							:name="t('cfg_share_links', 'Saving...')"
+							:name="t('permalink', 'Saving...')"
 							:size="20" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
@@ -100,13 +100,13 @@
 			</div>
 		</NcSettingsSection>
 		<NcSettingsSection
-			:name="t('cfg_share_links', 'Miscellaneous')"
-			:description="t('cfg_share_links', 'Miscellaneous tweaks')">
+			:name="t('permalink', 'Miscellaneous')"
+			:description="t('permalink', 'Miscellaneous tweaks')">
 			<div>
 				<NcCheckboxRadioSwitch
 					v-tooltip="{
 						content: t(
-							'cfg_share_links',
+							'permalink',
 							'Keep this option off if you did not use versions lower than 1.2.0',
 						),
 						placement: 'top-start',
@@ -118,7 +118,7 @@
 					@update:checked="onDeleteConflictsChange">
 					{{
 						t(
-							'cfg_share_links',
+							'permalink',
 							'Delete shares of deleted files during token checks (when creating/updating share)',
 						)
 					}}
@@ -129,7 +129,7 @@
 						class="status-icon">
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
-							:name="t('cfg_share_links', 'Saving...')"
+							:name="t('permalink', 'Saving...')"
 							:size="20" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
@@ -169,9 +169,9 @@ import SettingsMixin from '../mixins/SettingsMixin.ts'
 import '@nextcloud/dialogs/style.css'
 
 const labelOptions = [
-	{ id: LabelMode.NoLabel, label: t('cfg_share_links', 'None') },
-	{ id: LabelMode.SameAsToken, label: t('cfg_share_links', 'Same as token') },
-	{ id: LabelMode.UserSpecified, label: t('cfg_share_links', 'Custom') },
+	{ id: LabelMode.NoLabel, label: t('permalink', 'None') },
+	{ id: LabelMode.SameAsToken, label: t('permalink', 'Same as token') },
+	{ id: LabelMode.UserSpecified, label: t('permalink', 'Custom') },
 ]
 
 export default {
@@ -222,11 +222,11 @@ export default {
 			const parsedMinLength = parseInt(this.minLength)
 
 			if (isNaN(parsedMinLength)) {
-				return t('cfg_share_links', 'Entered length is not a number')
+				return t('permalink', 'Entered length is not a number')
 			}
 
 			if (parsedMinLength < 1) {
-				return t('cfg_share_links', 'Minimum length must be at least 1')
+				return t('permalink', 'Minimum length must be at least 1')
 			}
 
 			return null
@@ -252,7 +252,7 @@ export default {
 		},
 		async onLabelSubmit() {
 			if (this.customLabel == null || this.customLabel.length === 0) {
-				showError(t('cfg_share_links', 'Label cannot be empty'))
+				showError(t('permalink', 'Label cannot be empty'))
 				return
 			}
 			// validity check?
@@ -293,16 +293,16 @@ export default {
 			this.setUpdate(key, UpdateState.Updating)
 			try {
 				await axios.post(
-					generateUrl('/apps/cfg_share_links/settings/save'),
+					generateUrl('/apps/permalink/settings/save'),
 					data,
 				)
 				this.setUpdate(key, UpdateState.Completed)
 			} catch (e) {
 				if (e.response.data && e.response.data.message) {
-					showError(t('cfg_share_links', e.response.data.message))
+					showError(t('permalink', e.response.data.message))
 				} else {
 					showError(
-						t('cfg_share_links', 'Error occurred while saving settings'),
+						t('permalink', 'Error occurred while saving settings'),
 					)
 					console.error(e.response)
 				}

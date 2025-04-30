@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\CfgShareLinks\Enums;
+namespace OCA\Permalink\Enums;
 
 enum LinkLabelMode: int {
 	case NoLabel = 0;
