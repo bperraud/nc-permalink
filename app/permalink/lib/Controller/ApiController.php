@@ -63,15 +63,15 @@ class ApiController extends OCSController {
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): DataResponse {
         $user = $this->userSession->getUser();
-        $share = $this->service->get_or_create_sharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg');
-        $sharelink = $this->get_sharelink_from_token($share->getToken());
-        /* $permalink = $this->create_permalink($sharelink); */
-        /* $permalink = $this->get_permalink_from_sharelink($sharelink); */
+        $share = $this->service->getOrCreateSharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg');
+
+        /* $share = $this->service->getSharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
+        $sharelink = $this->getSharelinkFromToken($share->getToken());
         
         $data = [
             "target_url" => $sharelink,
         ];
-        
+
         /* $permalink = $this->curl_get("http://host.docker.internal:8080/link/api/create/?target_url=" . urlencode($sharelink)); */
         $permalink = $this->curl_post("http://host.docker.internal:8080/link/api/create/", $data);
 
@@ -80,13 +80,43 @@ class ApiController extends OCSController {
 		);
 	}
 
-    private function get_sharelink_from_token(string $token) : string {
+	#[NoAdminRequired]
+	#[ApiRoute(verb: 'GET', url: '/api/link')]
+	public function get(string $path): DataResponse {
+        $user = $this->userSession->getUser();
+        $share = $this->service->getSharelink($user->getUID(), $path);
+
+        // no share means no permalink
+        if ($share === null) {
+            return new DataResponse(
+                ['permalink' => null]
+            );
+        }
+
+        $sharelink = $this->getSharelinkFromToken($share->getToken());
+        $data = [
+            "target_url" => $sharelink,
+        ];
+        $response = $this->curl_get("http://host.docker.internal:8080/link/api/create/?target_url=" . urlencode($sharelink));
+
+        if ($response['status_code'] != 200) {
+            return new DataResponse(
+                ['permalink' => null]
+            );
+        }
+
+		return new DataResponse(
+			$response
+		);
+	}
+
+    private function getSharelinkFromToken(string $token) : string {
 
         $currentOverwriteCliUrl = $this->config->getSystemValue('overwrite.cli.url', '');
         return $currentOverwriteCliUrl . "/index.php/s/" . $token;
     }
 
-    private function encode_jwt_token() : string {
+    private function encoreJwtToken() : string {
         $user = $this->userSession->getUser();
 
         $payload = [
@@ -115,7 +145,7 @@ class ApiController extends OCSController {
         $ch = curl_init($url);
 
         $headers = [
-            'Authorization: Bearer ' . $this->encode_jwt_token(),
+            'Authorization: Bearer ' . $this->encoreJwtToken(),
             'Accept: application/json',
         ];
 

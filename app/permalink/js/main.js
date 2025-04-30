@@ -6091,6 +6091,22 @@ __webpack_require__.r(__webpack_exports__);
           console.error(e);
         }
       }
+    },
+    async getPermalink() {
+      const link = encodeURIComponent('/Media/photo-1527668441211-67a036f77ab4.jpeg');
+      try {
+        const response = await _nextcloud_axios__WEBPACK_IMPORTED_MODULE_0__["default"].get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`);
+        // Handle success
+        console.log('Response:', response.data);
+      } catch (e) {
+        // Handle error
+        if (e.response && e.response.data && e.response.data.message) {
+          alert(`Error: ${e.response.data.message}`);
+        } else {
+          alert('An error occurred while creating the link');
+          console.error(e);
+        }
+      }
     }
   }
 });
@@ -6112,12 +6128,17 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("button", {
+  return _c("div", [_c("button", {
     staticClass: "btn btn-primary",
     on: {
       click: _vm.shareLink
     }
-  }, [_vm._v("\n\tCreate Share Link\n")]);
+  }, [_vm._v("\n\t\tCreate Share Link\n\t")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-secondary",
+    on: {
+      click: _vm.getPermalink
+    }
+  }, [_vm._v("\n\t\tGet PermaLink\n\t")])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -18331,7 +18352,6 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].mixin({
     n
   }
 });
-console.info('MyApp: ShareLinkButton init');
 let sectionInstance = null;
 let props = null;
 const View = vue__WEBPACK_IMPORTED_MODULE_1__["default"].extend(_components_Button_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);

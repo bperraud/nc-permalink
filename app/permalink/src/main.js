@@ -4,8 +4,6 @@ import ShareLinkButton from './components/Button.vue'
 Vue.prototype.OCA = window.OCA
 Vue.mixin({ methods: { t, n } })
 
-console.info('MyApp: ShareLinkButton init')
-
 let sectionInstance = null
 let props = null
 const View = Vue.extend(ShareLinkButton)
