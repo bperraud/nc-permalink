@@ -65,7 +65,15 @@ class ApiController extends OCSController {
         $user = $this->userSession->getUser();
         $share = $this->service->get_or_create_sharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg');
         $sharelink = $this->get_sharelink_from_token($share->getToken());
-        $permalink = $this->create_permalink($sharelink);
+        /* $permalink = $this->create_permalink($sharelink); */
+        /* $permalink = $this->get_permalink_from_sharelink($sharelink); */
+        
+        $data = [
+            "target_url" => $sharelink,
+        ];
+        
+        /* $permalink = $this->curl_get("http://host.docker.internal:8080/link/api/create/?target_url=" . urlencode($sharelink)); */
+        $permalink = $this->curl_post("http://host.docker.internal:8080/link/api/create/", $data);
 
 		return new DataResponse(
 			['share' => $permalink]
@@ -94,27 +102,34 @@ class ApiController extends OCSController {
         return $jwt;
     }
 
-    private function get_permalink_from_filepath(string $filepath) {
-        $jwt = $this->encode_jwt_token();
 
-        // Encode the filepath for use in a URL
-        $encodedPath = urlencode($filepath);
+    private function curl_get(string $url) : array {
+        return $this->mycurl($url, false);
+    }
 
-        // Append the filepath as a GET query param
-        $url = "http://host.docker.internal:8080/link/api/create/?target_url=" . $encodedPath;
+    private function curl_post(string $url, array $data) : array {
+        return $this->mycurl($url, true, $data);
+    }
 
+    private function mycurl(string $url, bool $is_post, array $data = []) : array {
         $ch = curl_init($url);
 
         $headers = [
-            'Authorization: Bearer ' . $jwt,
+            'Authorization: Bearer ' . $this->encode_jwt_token(),
             'Accept: application/json',
         ];
 
-        // Set cURL options for GET
+        if ($is_post) {
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $headers[] = 'Content-Type: application/json';
+        }
+
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if ($response === false) {
             $error = curl_error($ch);
@@ -124,44 +139,10 @@ class ApiController extends OCSController {
 
         curl_close($ch);
 
-        return json_decode($response, true);
-    }
-
-
-    private function create_permalink(string $target_url) {
-        $jwt = $this->encode_jwt_token();
-
-        $ch = curl_init("http://host.docker.internal:8080/link/api/create/");
-
-        $headers = [
-            'Authorization: Bearer ' . $jwt,
-            'Accept: application/json',
-            'Content-Type: application/json',
+        return [
+            'status_code' => $httpCode,
+            'data' => json_decode($response, true)
         ];
-
-        $data = [
-            "target_url" => $target_url,
-        ];
-
-        $jsonData = json_encode($data);
-
-        // Set cURL options
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
-
-        $response = curl_exec($ch);
-
-        if ($response === false) {
-            $error = curl_error($ch);
-            curl_close($ch);
-            return ['error' => $error]; // Return the error message if request failed
-        }
-
-        curl_close($ch);
-
-        return json_decode($response, true);
     }
 
 }
