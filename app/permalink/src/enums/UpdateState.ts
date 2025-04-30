@@ -4,4 +4,3 @@ export enum UpdateState {
 	Completed,
 	Error,
 }
-

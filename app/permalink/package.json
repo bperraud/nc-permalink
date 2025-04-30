@@ -1,49 +1,60 @@
 {
-  "name": "permalink",
-  "version": "1.0.0",
-  "license": "AGPL-3.0-or-later",
-  "engines": {
-    "node": "^20.0.0",
-    "npm": "^10.0.0"
-  },
-  "type": "module",
-  "scripts": {
-    "build": "NODE_ENV=production vite build --mode production",
-    "dev": "NODE_ENV=development vite build --mode development",
-    "watch": "NODE_ENV=development vite build --watch --mode development",
-    "serve": "NODE_ENV=development vite serve",
-    "lint": "eslint --ext .js,.vue src",
-    "lint:fix": "eslint --ext .js,.vue src --fix",
-    "stylelint": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue",
-    "stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
-  },
-  "browserslist": [
-    "extends @nextcloud/browserslist-config"
-  ],
-  "dependencies": {
-    "@nextcloud/axios": "^2.5.1",
-    "@nextcloud/vue": "^8.11.2",
-    "vue": "^2.7.16",
-    "vue-loader": "^17.4.2"
-  },
-  "devDependencies": {
-    "@nextcloud/browserslist-config": "^3.0.1",
-    "@nextcloud/eslint-config": "^8.3.0",
-    "@nextcloud/stylelint-config": "^2.4.0",
-    "@nextcloud/vite-config": "^2.3.3",
-    "@nextcloud/webpack-vue-config": "^6.0.1",
-    "css-loader": "^7.1.2",
-    "eslint-webpack-plugin": "^4.1.0",
-    "stylelint-webpack-plugin": "^5.0.0",
-    "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-stylelint": "^6.0.0"
-  },
-  "description": "A template to get started with Nextcloud app development.",
-  "main": ".eslintrc.js",
-  "directories": {
-    "lib": "lib",
-    "test": "tests"
-  },
-  "keywords": [],
-  "author": ""
+    "name": "permalink",
+    "description": "",
+    "version": "0.0.0",
+    "author": "",
+    "contributors": [],
+    "bugs": {
+        "url": "https://github.com/bperraud/nc_permalink/issues"
+    },
+    "repository": {
+        "url": "https://github.com/bperraud/nc_permalink",
+        "type": "git"
+    },
+    "type": "module",
+    "homepage": "https://github.com/bperraud/nc_permalink",
+    "license": "agpl",
+    "private": true,
+    "scripts": {
+        "build": "NODE_ENV=production vite build --mode production",
+        "dev": "NODE_ENV=development vite build --mode development",
+        "watch": "NODE_ENV=development vite build --watch --mode development",
+        "serve": "NODE_ENV=development vite serve",
+        "lint": "eslint --ext .js,.vue src",
+        "lint:fix": "eslint --ext .js,.vue src --fix",
+        "stylelint": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue",
+        "stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
+    },
+    "dependencies": {
+        "@nextcloud/auth": "^2.4.0",
+        "@nextcloud/axios": "^2.5.1",
+        "@nextcloud/dialogs": "^6.1.1",
+        "@nextcloud/l10n": "^3.1.0",
+        "@nextcloud/router": "^3.0.1",
+        "@nextcloud/sharing": "^0.2.4",
+        "@nextcloud/vue": "^8.26.0",
+        "vue": "^2.7.16",
+        "vue-material-design-icons": "^5.3.1"
+    },
+    "browserslist": [
+        "extends @nextcloud/browserslist-config"
+    ],
+    "engines": {
+        "node": "^20",
+        "npm": "^10"
+    },
+    "devDependencies": {
+        "@nextcloud/babel-config": "^1.2.0",
+        "@nextcloud/browserslist-config": "^3.0.1",
+        "@nextcloud/eslint-config": "^8.4.1",
+        "@nextcloud/prettier-config": "^1.1.0",
+        "@nextcloud/stylelint-config": "^3.0.1",
+        "@nextcloud/vite-config": "^1.4.2",
+        "@vue/tsconfig": "^0.5.1",
+        "eslint-config-prettier": "^10.1.1",
+        "prettier": "^3.5.3",
+        "vite": "^5.4.11",
+        "vite-plugin-eslint": "^1.8.1",
+        "vite-plugin-stylelint": "^5.3.1"
+    }
 }

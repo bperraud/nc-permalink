@@ -3,4 +3,3 @@ export enum LabelMode {
 	SameAsToken = 1,
 	UserSpecified = 2,
 }
-
