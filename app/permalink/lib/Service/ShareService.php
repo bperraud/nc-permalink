@@ -93,7 +93,7 @@ class ShareService {
     }
 
     public function getOrCreateSharelink(string $userId, string $filePath) : IShare {
-        $share = getSharelink($userId, $filePath);
+        $share = $this->getSharelink($userId, $filePath);
         if ($share === null) {
             $share = $this->create($filePath, 3, $userId);
         }

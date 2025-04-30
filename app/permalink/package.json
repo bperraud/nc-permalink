@@ -6,12 +6,16 @@
     "node": "^20.0.0",
     "npm": "^10.0.0"
   },
+  "type": "module",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.js --progress",
-    "dev": "NODE_ENV=development webpack --config webpack.js --progress",
-    "watch": "NODE_ENV=development webpack --config webpack.js --progress --watch",
-    "lint": "eslint src",
-    "stylelint": "stylelint src/**/*.vue src/**/*.scss src/**/*.css"
+    "build": "NODE_ENV=production vite build --mode production",
+    "dev": "NODE_ENV=development vite build --mode development",
+    "watch": "NODE_ENV=development vite build --watch --mode development",
+    "serve": "NODE_ENV=development vite serve",
+    "lint": "eslint --ext .js,.vue src",
+    "lint:fix": "eslint --ext .js,.vue src --fix",
+    "stylelint": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue",
+    "stylelint:fix": "stylelint css/*.css css/*.scss src/**/*.scss src/**/*.vue --fix"
   },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
@@ -26,10 +30,13 @@
     "@nextcloud/browserslist-config": "^3.0.1",
     "@nextcloud/eslint-config": "^8.3.0",
     "@nextcloud/stylelint-config": "^2.4.0",
+    "@nextcloud/vite-config": "^2.3.3",
     "@nextcloud/webpack-vue-config": "^6.0.1",
     "css-loader": "^7.1.2",
     "eslint-webpack-plugin": "^4.1.0",
-    "stylelint-webpack-plugin": "^5.0.0"
+    "stylelint-webpack-plugin": "^5.0.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-stylelint": "^6.0.0"
   },
   "description": "A template to get started with Nextcloud app development.",
   "main": ".eslintrc.js",
