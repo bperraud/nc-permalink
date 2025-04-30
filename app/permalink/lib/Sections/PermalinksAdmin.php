@@ -7,7 +7,7 @@ use OCP\IL10N;
 use OCP\IURLGenerator;
 use OCP\Settings\IIconSection;
 
-class LinksAdmin implements IIconSection {
+class PermalinksAdmin implements IIconSection {
 
 	public function __construct(
 		private readonly IL10N $l10n,
@@ -20,7 +20,7 @@ class LinksAdmin implements IIconSection {
 	}
 
 	public function getName(): string {
-		return $this->l10n->t('Configurable Share Links');
+		return $this->l10n->t('Permalink');
 	}
 
 	public function getPriority(): int {

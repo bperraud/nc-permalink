@@ -10,7 +10,7 @@ use OCP\AppFramework\Services\IAppConfig;
 use OCP\Settings\ISettings;
 use OCP\Util;
 
-class LinksAdmin implements ISettings {
+class PermalinksAdmin implements ISettings {
 	public function __construct(
 		private readonly IAppConfig $appConfig,
 		private readonly AppConstants $appConstants,
