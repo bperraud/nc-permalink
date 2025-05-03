@@ -50,26 +50,13 @@ class SettingsController extends Controller {
 		try {
 			$settings_key = SettingsKey::from($key);
 			switch ($settings_key) {
-				case SettingsKey::DefaultLabelMode:
-					$this->appConfig->setAppValueInt($settings_key->value, LinkLabelMode::from($value)->value);
-					return new DataResponse(['message' => 'Saved'], Http::STATUS_OK);
-				case SettingsKey::DefaultCustomLabel:
-					if (strlen($value) >= 1) {
-						$this->appConfig->setAppValueString($settings_key->value, $value);
-						return new DataResponse(['message' => 'Saved'], Http::STATUS_OK);
-					}
+				case SettingsKey::JwtSecretKey:
+                    $this->appConfig->setAppValueString($settings_key->value, $value);
+                    return new DataResponse(['message' => 'Saved : ' . $value], Http::STATUS_OK);
 					break;
-				case SettingsKey::MinTokenLength:
-					if (is_numeric($value) && (int)$value >= 1) {
-						$this->appConfig->setAppValueInt($settings_key->value, (int)$value);
-						return new DataResponse(['message' => 'Saved'], Http::STATUS_OK);
-					}
-					break;
-				case SettingsKey::DeleteRemovedShareConflicts:
-					if (is_numeric($value) && (int)$value >= 0) {
-						$this->appConfig->setAppValueBool($settings_key->value, (int)$value > 0);
-						return new DataResponse(['message' => 'Saved'], Http::STATUS_OK);
-					}
+				case SettingsKey::PermalinkApiEndpoint:
+                    $this->appConfig->setAppValueString($settings_key->value, $value);
+                    return new DataResponse(['message' => 'Saved : ' . $value], Http::STATUS_OK);
 					break;
 			}
 		} catch (ValueError) {
@@ -79,10 +66,8 @@ class SettingsController extends Controller {
 
 	public function fetch(): DataResponse {
 		$settings = [
-			'defaultLabelMode' => $this->appConfig->getAppValueInt(SettingsKey::DefaultLabelMode->value, $this->appConstants::DEFAULT_LABEL_MODE),
-			'defaultLabel' => $this->appConfig->getAppValueString(SettingsKey::DefaultCustomLabel->value, $this->appConstants::DEFAULT_CUSTOM_LABEL),
-			'minTokenLength' => $this->appConfig->getAppValueInt(SettingsKey::MinTokenLength->value, $this->appConstants::DEFAULT_MIN_TOKEN_LENGTH),
-			'deleteRemovedShareConflicts' => $this->appConfig->getAppValueBool(SettingsKey::DeleteRemovedShareConflicts->value, $this->appConstants::DEFAULT_DELETE_REMOVED_SHARE_CONFLICTS)
+			'jwtSecretKey' => $this->appConfig->getAppValueString(SettingsKey::JwtSecretKey->value, ""),
+			'permalinkApiEndpoint' => $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "")
 		];
 
 		return new DataResponse($settings, Http::STATUS_OK);

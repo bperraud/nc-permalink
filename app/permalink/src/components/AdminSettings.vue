@@ -24,7 +24,7 @@
 				<NcSettingsInputText
 					id="jwt-secret-key"
 					label=""
-					:value.sync="minLength"
+					:value.sync="jwtSecretKey"
 					:disabled="updating.status === UpdateState.Updating || loading"
 					@submit="onSecretKeySubmit" />
 			</div>
@@ -98,7 +98,7 @@ export default {
 	async mounted() {
 		this.loading = true
 
-		this.jwtSecretKey = await this.getMinTokenLength()
+		this.jwtSecretKey = await this.getJwtSecret()
 		this.deleteConflicts = await this.getDeleteRemovedShareConflicts()
 
 		this.loading = false
@@ -119,7 +119,7 @@ export default {
 			await this.saveSettings(SettingsKey.DefaultCustomLabel, this.customLabel)
 		},
 		async onSecretKeySubmit() {
-			await this.saveSettings(SettingsKey.jwtSecretKey)
+			await this.saveSettings(SettingsKey.JwtSecretKey, this.jwtSecretKey)
 		},
 		async onLabelModeChange(value) {
 			if (value == null) {

@@ -4,4 +4,5 @@ export interface AppSettings {
 	minTokenLength: number
 	deleteRemovedShareConflicts: boolean
     jwtSecretKey: string
+    permalinkApiEndpoint: string
 }
