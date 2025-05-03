@@ -7,5 +7,7 @@ enum SettingsKey: string {
 	case DefaultCustomLabel = 'default_label';
 	case MinTokenLength = 'min_token_length';
 	case DeleteRemovedShareConflicts = 'deleteRemovedShareConflicts';
+	case JwtSecretKey = 'jwt_secret_key';
+	case PermalinkApiEndpoint = 'permalink_api_endpoint';
 }
 

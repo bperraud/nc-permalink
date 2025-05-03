@@ -1,78 +1,11 @@
 <template>
 	<div id="permalink-admin-settings">
 		<NcSettingsSection
-			:name="t('permalink', 'Default share label')"
-			:description="
-				t(
-					'permalink',
-					'Configure whether a default label should be set to custom links and what that label should be',
-				)
-			">
+			:name="t('permalink', 'Jwt secret key')"
+			:description="t('permalink', 'Jwt secret key')">
 			<div>
 				<h3>
-					{{ t('permalink', 'Default label') }}:
-					<span
-						v-if="updating.key === SettingsKey.DefaultLabelMode"
-						class="status-icon">
-						<NcLoadingIcon
-							v-if="updating.status === UpdateState.Updating"
-							:name="t('permalink', 'Saving...')"
-							:size="20" />
-						<CheckIcon
-							v-else-if="updating.status === UpdateState.Completed"
-							:size="20" />
-						<AlertIcon
-							v-else-if="updating.status === UpdateState.Error"
-							:size="20" />
-					</span>
-				</h3>
-				<NcSelect
-					v-model="labelMode"
-					:options="labelOptions"
-					track-by="id"
-					label="label"
-					:multiple="false"
-					:allow-empty="false"
-					:disabled="updating.status === UpdateState.Updating || loading"
-					:placeholder="t('permalink', 'Select label type')"
-					@option:selected="onLabelModeChange" />
-			</div>
-			<div v-if="labelMode.id === LabelMode.UserSpecified">
-				<h3>
-					{{ t('permalink', 'Custom label') }}:
-					<span
-						v-if="updating.key === SettingsKey.DefaultCustomLabel"
-						class="status-icon">
-						<NcLoadingIcon
-							v-if="updating.status === UpdateState.Updating"
-							:name="t('permalink', 'Saving...')"
-							:size="20" />
-						<CheckIcon
-							v-else-if="updating.status === UpdateState.Completed"
-							:size="20" />
-						<AlertIcon
-							v-else-if="updating.status === UpdateState.Error"
-							:size="20" />
-					</span>
-				</h3>
-				<NcSettingsInputText
-					id="default-label"
-					label=""
-					:value.sync="customLabel"
-					:disabled="
-						updating.status === UpdateState.Updating ||
-							loading ||
-							labelMode.id !== LabelMode.UserSpecified
-					"
-					@submit="onLabelSubmit" />
-			</div>
-		</NcSettingsSection>
-		<NcSettingsSection
-			:name="t('permalink', 'Token settings')"
-			:description="t('permalink', 'Configure requirements for tokens')">
-			<div>
-				<h3>
-					{{ t('permalink', 'Minimal token length') }}:
+					{{ t('permalink', 'Jwt secret key') }}:
 					<span
 						v-if="updating.key === SettingsKey.MinTokenLength"
 						class="status-icon">
@@ -89,56 +22,11 @@
 					</span>
 				</h3>
 				<NcSettingsInputText
-					id="min-len"
+					id="jwt-secret-key"
 					label=""
 					:value.sync="minLength"
 					:disabled="updating.status === UpdateState.Updating || loading"
-					@submit="onMinLengthSubmit" />
-				<span v-if="isMinLenValid" class="form-error">
-					{{ isMinLenValid }}
-				</span>
-			</div>
-		</NcSettingsSection>
-		<NcSettingsSection
-			:name="t('permalink', 'Miscellaneous')"
-			:description="t('permalink', 'Miscellaneous tweaks')">
-			<div>
-				<NcCheckboxRadioSwitch
-					v-tooltip="{
-						content: t(
-							'permalink',
-							'Keep this option off if you did not use versions lower than 1.2.0',
-						),
-						placement: 'top-start',
-					}"
-					:disabled="updating.status === UpdateState.Updating || loading"
-					:loading="updating.status === UpdateState.Updating || loading"
-					:checked.sync="deleteConflicts"
-					type="switch"
-					@update:checked="onDeleteConflictsChange">
-					{{
-						t(
-							'permalink',
-							'Delete shares of deleted files during token checks (when creating/updating share)',
-						)
-					}}
-					<span
-						v-if="
-							updating.key === SettingsKey.DeleteRemovedShareConflicts
-						"
-						class="status-icon">
-						<NcLoadingIcon
-							v-if="updating.status === UpdateState.Updating"
-							:name="t('permalink', 'Saving...')"
-							:size="20" />
-						<CheckIcon
-							v-else-if="updating.status === UpdateState.Completed"
-							:size="20" />
-						<AlertIcon
-							v-else-if="updating.status === UpdateState.Error"
-							:size="20" />
-					</span>
-				</NcCheckboxRadioSwitch>
+					@submit="onSecretKeySubmit" />
 			</div>
 		</NcSettingsSection>
 	</div>
@@ -150,9 +38,7 @@ import { showError } from '@nextcloud/dialogs'
 import { t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
 import {
-	NcCheckboxRadioSwitch,
 	NcLoadingIcon,
-	NcSelect,
 	NcSettingsInputText,
 	NcSettingsSection,
 	Tooltip,
@@ -168,20 +54,12 @@ import SettingsMixin from '../mixins/SettingsMixin.ts'
 
 import '@nextcloud/dialogs/style.css'
 
-const labelOptions = [
-	{ id: LabelMode.NoLabel, label: t('permalink', 'None') },
-	{ id: LabelMode.SameAsToken, label: t('permalink', 'Same as token') },
-	{ id: LabelMode.UserSpecified, label: t('permalink', 'Custom') },
-]
-
 export default {
 	name: 'AdminSettings',
 
 	components: {
-		NcSelect,
 		NcSettingsSection,
 		NcSettingsInputText,
-		NcCheckboxRadioSwitch,
 		NcLoadingIcon,
 		CheckIcon,
 		AlertIcon,
@@ -200,10 +78,7 @@ export default {
 				key: null,
 			},
 			loading: true,
-			labelMode: labelOptions[0],
-			labelOptions,
-			customLabel: 'Custom link',
-			minLength: '3',
+			jwtSecretKey: '',
 			deleteConflicts: false,
 		}
 	},
@@ -218,27 +93,12 @@ export default {
 		SettingsKey() {
 			return SettingsKey
 		},
-		isMinLenValid() {
-			const parsedMinLength = parseInt(this.minLength)
-
-			if (isNaN(parsedMinLength)) {
-				return t('permalink', 'Entered length is not a number')
-			}
-
-			if (parsedMinLength < 1) {
-				return t('permalink', 'Minimum length must be at least 1')
-			}
-
-			return null
-		},
 	},
 
 	async mounted() {
 		this.loading = true
 
-		this.customLabel = await this.getCustomLabel()
-		this.minLength = await this.getMinTokenLength()
-		this.labelMode = labelOptions[await this.getLabelMode()]
+		this.jwtSecretKey = await this.getMinTokenLength()
 		this.deleteConflicts = await this.getDeleteRemovedShareConflicts()
 
 		this.loading = false
@@ -258,16 +118,8 @@ export default {
 			// validity check?
 			await this.saveSettings(SettingsKey.DefaultCustomLabel, this.customLabel)
 		},
-		async onMinLengthSubmit() {
-			const minLength = this.minLength
-			const minLenError = this.isMinLenValid
-
-			if (minLenError) {
-				showError(minLenError)
-				return
-			}
-
-			await this.saveSettings(SettingsKey.MinTokenLength, minLength)
+		async onSecretKeySubmit() {
+			await this.saveSettings(SettingsKey.jwtSecretKey)
 		},
 		async onLabelModeChange(value) {
 			if (value == null) {

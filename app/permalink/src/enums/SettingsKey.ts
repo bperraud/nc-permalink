@@ -3,4 +3,5 @@ export enum SettingsKey {
 	DefaultCustomLabel = 'default_label',
 	MinTokenLength = 'min_token_length',
 	DeleteRemovedShareConflicts = 'deleteRemovedShareConflicts',
+	JwtSecretKey = 'jwt_secret_key',
 }

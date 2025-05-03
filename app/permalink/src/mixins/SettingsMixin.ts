@@ -31,6 +31,12 @@ export default {
 				return this.settings
 			}
 		},
+		async getJwtSecret(): Promise<string> {
+			const settings = await this.getSettings()
+			return settings && settings.jwtSecretKey
+				? settings.jwtSecretKey
+				: ''
+		},
 		async getLabelMode(): Promise<number> {
 			const settings = await this.getSettings()
 			return settings

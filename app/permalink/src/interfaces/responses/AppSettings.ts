@@ -3,4 +3,5 @@ export interface AppSettings {
 	defaultLabel: string
 	minTokenLength: number
 	deleteRemovedShareConflicts: boolean
+    jwtSecretKey: string
 }
