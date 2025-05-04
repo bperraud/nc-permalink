@@ -65,8 +65,12 @@ class ApiController extends OCSController {
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): DataResponse {
+        [
+			'path' => $path
+		] = $this->request->getParams();
+
         $user = $this->userSession->getUser();
-        $share = $this->service->getOrCreateSharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg');
+        $share = $this->service->getOrCreateSharelink($user->getUID(), $path);
 
         /* $share = $this->service->getSharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
         $sharelink = $this->getSharelinkFromToken($share->getToken());

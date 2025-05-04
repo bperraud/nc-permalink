@@ -15,11 +15,29 @@
 import axios from '@nextcloud/axios'
 
 export default {
+
+	props: {
+		fileInfo: {
+			type: Object,
+			default: () => {},
+			required: true,
+		},
+	},
+
+	computed: {
+		fullFilePath() {
+			if (!this.fileInfo) return ''
+			return this.fileInfo.path.endsWith('/')
+				? this.fileInfo.path + this.fileInfo.name
+				: this.fileInfo.path + '/' + this.fileInfo.name
+		},
+	},
+
 	methods: {
 
 		async shareLink() {
 			const data = {
-				link: 'http://nextcloud.local/index.php/s/nNbbmBxrGoNTeCT',
+				path: this.fullFilePath,
 			}
 
 			try {
@@ -39,7 +57,8 @@ export default {
 
 		async getPermalink() {
 
-			const link = encodeURIComponent('/Media/photo-1527668441211-67a036f77ab4.jpeg')
+			const link = encodeURIComponent(this.fullFilePath)
+			// const link = encodeURIComponent('/Media/photo-1527668441211-67a036f77ab4.jpeg')
 
 			try {
 				const response = await axios.get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
