@@ -75,8 +75,7 @@ class ApiController extends OCSController {
             "target_url" => $sharelink,
         ];
 
-        /* $permalink = $this->curl_get("http://host.docker.internal:8080/link/api/create/?target_url=" . urlencode($sharelink)); */
-        $permalink = $this->curl_post("http://host.docker.internal:8080/link/api/create/", $data);
+        $permalink = $this->curl_post("link/api/create/", $data);
 
 		return new DataResponse(
 			['share' => $permalink]
@@ -100,7 +99,7 @@ class ApiController extends OCSController {
         $data = [
             "target_url" => $sharelink,
         ];
-        $response = $this->curl_get("http://host.docker.internal:8080/link/api/create/?target_url=" . urlencode($sharelink));
+        $response = $this->curl_get("link/api/create/?target_url=" . urlencode($sharelink));
 
         if ($response['status_code'] != 200) {
             return new DataResponse(
@@ -114,7 +113,6 @@ class ApiController extends OCSController {
 	}
 
     private function getSharelinkFromToken(string $token) : string {
-
         $currentOverwriteCliUrl = $this->config->getSystemValue('overwrite.cli.url', '');
         return $currentOverwriteCliUrl . "/index.php/s/" . $token;
     }
@@ -145,6 +143,10 @@ class ApiController extends OCSController {
     }
 
     private function mycurl(string $url, bool $is_post, array $data = []) : array {
+        $baseUrl = $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "");
+        
+        $url = $baseUrl . '/' . $url;
+    
         $ch = curl_init($url);
 
         $headers = [
