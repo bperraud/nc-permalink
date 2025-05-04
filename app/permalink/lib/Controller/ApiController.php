@@ -18,6 +18,9 @@ use OCP\IUserSession;
 use OCA\Permalink\Service\ShareService;
 use OCP\IConfig;
 
+use OCA\Permalink\Enums\SettingsKey;
+use OCP\AppFramework\Services\IAppConfig;
+
 
 # JWT
 require_once \OC_App::getAppPath('permalink') . '/vendor/autoload.php';
@@ -35,10 +38,10 @@ class ApiController extends OCSController {
 		IRequest $request,
         private readonly ShareService $service,
 		private readonly IRootFolder $rootFolder,
+		private readonly IAppConfig $appConfig,
 		private readonly ?string $userId,
 		private IConfig $config,
         private IUserSession $userSession,
-
 	) {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
         $this->httpClient = $httpClient; // Assign the HTTP client
@@ -116,7 +119,7 @@ class ApiController extends OCSController {
         return $currentOverwriteCliUrl . "/index.php/s/" . $token;
     }
 
-    private function encoreJwtToken() : string {
+    private function encodeJwtToken() : string {
         $user = $this->userSession->getUser();
 
         $payload = [
@@ -126,7 +129,7 @@ class ApiController extends OCSController {
             'iss' => 'nextcloud-app',      // Issuer
         ];
 
-        $secretKey = 'django-t=55_t5&e(l@ne*(r2x34-44wch895qsr4v2nsjteq2br2e(s)';
+        $secretKey = $this->appConfig->getAppValueString(SettingsKey::JwtSecretKey->value, "");
         $jwt = JWT::encode($payload, $secretKey, 'HS256');
 
         return $jwt;
@@ -145,7 +148,7 @@ class ApiController extends OCSController {
         $ch = curl_init($url);
 
         $headers = [
-            'Authorization: Bearer ' . $this->encoreJwtToken(),
+            'Authorization: Bearer ' . $this->encodeJwtToken(),
             'Accept: application/json',
         ];
 
