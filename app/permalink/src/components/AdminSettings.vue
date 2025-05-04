@@ -12,13 +12,13 @@
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
 							:name="t('permalink', 'Saving...')"
-							:size="40" />
+							:size="20" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
-							:size="40" />
+							:size="20" />
 						<AlertIcon
 							v-else-if="updating.status === UpdateState.Error"
-							:size="40" />
+							:size="20" />
 					</span>
 				</h3>
 				<NcSettingsInputText
@@ -41,13 +41,13 @@
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
 							:name="t('permalink', 'Saving...')"
-							:size="40" />
+							:size="20" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
-							:size="40" />
+							:size="20" />
 						<AlertIcon
 							v-else-if="updating.status === UpdateState.Error"
-							:size="40" />
+							:size="20" />
 					</span>
 				</h3>
 				<NcSettingsInputText
@@ -107,6 +107,7 @@ export default {
 			},
 			loading: true,
 			jwtSecretKey: '',
+			permalinkApiEndpoint: '',
 			deleteConflicts: false,
 		}
 	},
@@ -186,4 +187,10 @@ export default {
 	display: inline-block;
 	margin-left: 6px;
 }
+
+::v-deep(input#permalink-api-endpoint),
+::v-deep(input#jwt-secret-key) {
+	width: 300px !important;
+}
+
 </style>
