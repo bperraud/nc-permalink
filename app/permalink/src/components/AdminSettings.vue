@@ -5,7 +5,6 @@
 			:description="t('permalink', 'base URL of the external Permalink API that handles link creation')">
 			<div>
 				<h3>
-					{{ t('permalink', 'Permalink api endpoint') }}:
 					<span
 						v-if="updating.key === SettingsKey.PermalinkApiEndpoint"
 						class="status-icon">
@@ -34,7 +33,6 @@
 			:description="t('permalink', 'Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API\'s configuration')">
 			<div>
 				<h3>
-					{{ t('permalink', 'Jwt secret key') }}:
 					<span
 						v-if="updating.key === SettingsKey.MinTokenLength"
 						class="status-icon">
