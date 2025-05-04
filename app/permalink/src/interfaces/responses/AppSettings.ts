@@ -1,8 +1,4 @@
 export interface AppSettings {
-	defaultLabelMode: number
-	defaultLabel: string
-	minTokenLength: number
-	deleteRemovedShareConflicts: boolean
     jwtSecretKey: string
     permalinkApiEndpoint: string
 }

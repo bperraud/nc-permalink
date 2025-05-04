@@ -1,6 +1,5 @@
 import axios from '@nextcloud/axios'
 import { generateUrl } from '@nextcloud/router'
-import { LabelMode } from '../enums/LabelMode'
 import type { AppSettings } from '../interfaces/responses/AppSettings'
 
 export default {
@@ -37,34 +36,11 @@ export default {
 				? settings.jwtSecretKey
 				: ''
 		},
-		async getLabelMode(): Promise<number> {
+		async getPermalinkApiEndpoint(): Promise<string> {
 			const settings = await this.getSettings()
-			return settings
-				&& settings.defaultLabelMode
-				&& settings.defaultLabelMode >= 0
-				&& settings.defaultLabelMode <= 2
-				? settings.defaultLabelMode
-				: LabelMode.NoLabel
-		},
-		async getCustomLabel(): Promise<string> {
-			const settings = await this.getSettings()
-			return settings && settings.defaultLabel
-				? settings.defaultLabel
-				: 'Custom link'
-		},
-		async getMinTokenLength(): Promise<string> {
-			const settings = await this.getSettings()
-			return settings && settings.minTokenLength
-				? settings.minTokenLength.toString()
-				: '3'
-		},
-		async getMinTokenLengthInt(): Promise<number> {
-			const length = parseInt(await this.getMinTokenLength())
-			return isNaN(length) ? 3 : length
-		},
-		async getDeleteRemovedShareConflicts(): Promise<boolean> {
-			const settings = await this.getSettings()
-			return !!(settings && settings.deleteRemovedShareConflicts)
+			return settings && settings.permalinkApiEndpoint
+				? settings.permalinkApiEndpoint
+				: ''
 		},
 	},
 }

@@ -1,8 +1,37 @@
 <template>
 	<div id="permalink-admin-settings">
 		<NcSettingsSection
+			:name="t('permalink', 'API Endpoint')"
+			:description="t('permalink', 'base URL of the external Permalink API that handles link creation')">
+			<div>
+				<h3>
+					{{ t('permalink', 'Permalink api endpoint') }}:
+					<span
+						v-if="updating.key === SettingsKey.PermalinkApiEndpoint"
+						class="status-icon">
+						<NcLoadingIcon
+							v-if="updating.status === UpdateState.Updating"
+							:name="t('permalink', 'Saving...')"
+							:size="40" />
+						<CheckIcon
+							v-else-if="updating.status === UpdateState.Completed"
+							:size="40" />
+						<AlertIcon
+							v-else-if="updating.status === UpdateState.Error"
+							:size="40" />
+					</span>
+				</h3>
+				<NcSettingsInputText
+					id="permalink-api-endpoint"
+					label=""
+					:value.sync="permalinkApiEndpoint"
+					:disabled="updating.status === UpdateState.Updating || loading"
+					@submit="onApiEndpointSubmit" />
+			</div>
+		</NcSettingsSection>
+		<NcSettingsSection
 			:name="t('permalink', 'Jwt secret key')"
-			:description="t('permalink', 'Jwt secret key')">
+			:description="t('permalink', 'Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API\'s configuration')">
 			<div>
 				<h3>
 					{{ t('permalink', 'Jwt secret key') }}:
@@ -12,13 +41,13 @@
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
 							:name="t('permalink', 'Saving...')"
-							:size="20" />
+							:size="40" />
 						<CheckIcon
 							v-else-if="updating.status === UpdateState.Completed"
-							:size="20" />
+							:size="40" />
 						<AlertIcon
 							v-else-if="updating.status === UpdateState.Error"
-							:size="20" />
+							:size="40" />
 					</span>
 				</h3>
 				<NcSettingsInputText
@@ -46,7 +75,6 @@ import {
 import AlertIcon from 'vue-material-design-icons/AlertCircle.vue'
 
 import CheckIcon from 'vue-material-design-icons/Check.vue'
-import { LabelMode } from '../enums/LabelMode.ts'
 import { SettingsKey } from '../enums/SettingsKey.ts'
 import { UpdateState } from '../enums/UpdateState.ts'
 
@@ -84,9 +112,6 @@ export default {
 	},
 
 	computed: {
-		LabelMode() {
-			return LabelMode
-		},
 		UpdateState() {
 			return UpdateState
 		},
@@ -99,7 +124,7 @@ export default {
 		this.loading = true
 
 		this.jwtSecretKey = await this.getJwtSecret()
-		this.deleteConflicts = await this.getDeleteRemovedShareConflicts()
+		this.permalinkApiEndpoint = await this.getPermalinkApiEndpoint()
 
 		this.loading = false
 	},
@@ -110,25 +135,11 @@ export default {
 			this.updating.status = status
 			this.updating.key = key
 		},
-		async onLabelSubmit() {
-			if (this.customLabel == null || this.customLabel.length === 0) {
-				showError(t('permalink', 'Label cannot be empty'))
-				return
-			}
-			// validity check?
-			await this.saveSettings(SettingsKey.DefaultCustomLabel, this.customLabel)
-		},
 		async onSecretKeySubmit() {
 			await this.saveSettings(SettingsKey.JwtSecretKey, this.jwtSecretKey)
 		},
-		async onLabelModeChange(value) {
-			if (value == null) {
-				return
-			}
-			await this.saveSettings(
-				SettingsKey.DefaultLabelMode,
-				value.id.toString(),
-			)
+		async onApiEndpointSubmit() {
+			await this.saveSettings(SettingsKey.PermalinkApiEndpoint, this.permalinkApiEndpoint)
 		},
 		async onDeleteConflictsChange(value) {
 			await this.saveSettings(
