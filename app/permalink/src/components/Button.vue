@@ -1,8 +1,5 @@
 <template>
 	<div>
-		<button class="btn btn-secondary" @click="getPermalink">
-			Get PermaLink
-		</button>
 		<component :is="activeButtonComponent"
 			v-if="activeButtonComponent"
 			:file-info="fileInfo"
@@ -28,7 +25,6 @@ export default {
 	props: {
 		fileInfo: {
 			type: Object,
-			default: () => {},
 			required: true,
 		},
 	},
@@ -40,21 +36,25 @@ export default {
 		}
 	},
 
-	computed: {
+	mounted() {
+		this.getPermalink()
+	},
+
+	updated() {
+		this.getPermalink()
+	},
+
+	methods: {
+
 		fullFilePath() {
 			if (!this.fileInfo) return ''
 			return this.fileInfo.path.endsWith('/')
 				? this.fileInfo.path + this.fileInfo.name
 				: this.fileInfo.path + '/' + this.fileInfo.name
 		},
-	},
-
-	methods: {
 
 		async getPermalink() {
-			const link = encodeURIComponent(this.fullFilePath)
-
-			console.log('fileInfo:', this.fileInfo)
+			const link = encodeURIComponent(this.fullFilePath())
 			console.log('call to getPermalink with link', link)
 
 			try {
@@ -62,15 +62,12 @@ export default {
 				// Handle success
 				console.log('Response:', response.data)
 
-				console.log('response permalink:', response.data.ocs.data.permalink)
-
 				if (response.data.ocs.data.permalink) {
 					this.permalink = response.data.ocs.data.permalink
 					this.activeButtonComponent = PermalinkVue
 				} else {
 					this.activeButtonComponent = CreateButton
 				}
-				// this.activeButtonComponent =''
 
 			} catch (e) {
 				// Handle error

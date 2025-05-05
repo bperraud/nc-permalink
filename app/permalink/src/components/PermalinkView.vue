@@ -2,10 +2,10 @@
 	<div class="sharing-entry__summary">
 		<div class="sharing-entry__desc">
 			<span class="sharing-entry__title" :title="title">
-				titre
+				permalink :
 			</span>
 			<p v-if="subtitle">
-				sous-titre
+                {{ permalink }}
 			</p>
 		</div>
 
