@@ -79,17 +79,15 @@ class ShareService {
 	}
 
 
-    public function getSharelink(string $userId, string $filePath) : IShare {
+    public function getSharelink(string $userId, string $filePath) : ?IShare {
         $userFolder = $this->rootFolder->getUserFolder($userId);
         $node = $userFolder->get($filePath);
         $shares = $this->getSharesIdByPath($node);
 
         if (empty($shares)) {
-            $share = null;
-        } else {
-            $share = $this->shareManager->getShareById('ocinternal:' . $shares[0]);
-        }
-        return $share;
+            return null;
+        } 
+        return  $this->shareManager->getShareById('ocinternal:' . $shares[0]);;
     }
 
     public function getOrCreateSharelink(string $userId, string $filePath) : IShare {
