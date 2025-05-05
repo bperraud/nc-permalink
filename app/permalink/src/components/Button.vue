@@ -5,6 +5,7 @@
 		</button>
 		<component :is="activeButtonComponent"
 			v-if="activeButtonComponent"
+			:file-info="fileInfo"
 			:permalink="permalink" />
 	</div>
 </template>
@@ -64,10 +65,10 @@ export default {
 				console.log('response permalink:', response.data.ocs.data.permalink)
 
 				if (response.data.ocs.data.permalink) {
-					this.activeButtonComponent = CreateButton
-				} else {
 					this.permalink = response.data.ocs.data.permalink
 					this.activeButtonComponent = PermalinkVue
+				} else {
+					this.activeButtonComponent = CreateButton
 				}
 				// this.activeButtonComponent =''
 
