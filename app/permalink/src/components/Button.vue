@@ -1,11 +1,11 @@
 <template>
 	<div>
-		<button class="btn btn-primary" @click="shareLink">
-			Create Share Link
-		</button>
 		<button class="btn btn-secondary" @click="getPermalink">
 			Get PermaLink
 		</button>
+		<component :is="activeButtonComponent"
+			v-if="activeButtonComponent"
+			:permalink="permalink" />
 	</div>
 </template>
 
@@ -14,7 +14,15 @@
 
 import axios from '@nextcloud/axios'
 
+import CreateButton from './CreateButton.vue'
+import PermalinkVue from './PermalinkView.vue'
+
 export default {
+
+	components: {
+		CreateButton,
+		PermalinkVue,
+	},
 
 	props: {
 		fileInfo: {
@@ -22,6 +30,13 @@ export default {
 			default: () => {},
 			required: true,
 		},
+	},
+
+	data() {
+		return {
+			activeButtonComponent: null,
+			permalink: '',
+		}
 	},
 
 	computed: {
@@ -35,45 +50,37 @@ export default {
 
 	methods: {
 
-		async shareLink() {
-			const data = {
-				path: this.fullFilePath,
-			}
-
-			try {
-				const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
-				// Handle success
-				console.log('Response:', response.data)
-			} catch (e) {
-				// Handle error
-				if (e.response && e.response.data && e.response.data.message) {
-					alert(`Error: ${e.response.data.message}`)
-				} else {
-					alert('An error occurred while creating the link')
-					console.error(e)
-				}
-			}
-		},
-
 		async getPermalink() {
-
 			const link = encodeURIComponent(this.fullFilePath)
-			// const link = encodeURIComponent('/Media/photo-1527668441211-67a036f77ab4.jpeg')
+
+			console.log('fileInfo:', this.fileInfo)
+			console.log('call to getPermalink with link', link)
 
 			try {
 				const response = await axios.get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
 				// Handle success
 				console.log('Response:', response.data)
+
+				if (response.data.permalink) {
+					this.activeButtonComponent = CreateButton
+				} else {
+					this.permalink = response.data.permalink
+					this.activeButtonComponent = PermalinkVue
+				}
+				// this.activeButtonComponent =''
+
 			} catch (e) {
 				// Handle error
 				if (e.response && e.response.data && e.response.data.message) {
 					alert(`Error: ${e.response.data.message}`)
+					console.error(e)
 				} else {
 					alert('An error occurred while creating the link')
 					console.error(e)
 				}
 			}
 		},
+
 	},
 }
 </script>

@@ -28,9 +28,6 @@ require_once \OC_App::getAppPath('permalink') . '/vendor/autoload.php';
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-/**
- * @psalm-suppress UnusedClass
- */
 class ApiController extends OCSController {
 
     public function __construct(
@@ -44,22 +41,6 @@ class ApiController extends OCSController {
         private IUserSession $userSession,
 	) {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
-        $this->httpClient = $httpClient; // Assign the HTTP client
-
-	}
-	/**
-	 * An example API endpoint
-	 *
-	 * @return DataResponse<Http::STATUS_OK, array{message: string}, array{}>
-	 *
-	 * 200: Data returned
-	 */
-	#[NoAdminRequired]
-	#[ApiRoute(verb: 'GET', url: '/api')]
-	public function index(): DataResponse {
-		return new DataResponse(
-			['message' => 'Hello world!']
-		);
 	}
 
 	#[NoAdminRequired]
@@ -71,8 +52,6 @@ class ApiController extends OCSController {
 
         $user = $this->userSession->getUser();
         $share = $this->service->getOrCreateSharelink($user->getUID(), $path);
-
-        /* $share = $this->service->getSharelink($user->getUID(), '/Media/photo-1527668441211-67a036f77ab4.jpeg'); */
         $sharelink = $this->getSharelinkFromToken($share->getToken());
         
         $data = [
@@ -82,7 +61,7 @@ class ApiController extends OCSController {
         $permalink = $this->curl_post("link/api/create/", $data);
 
 		return new DataResponse(
-			['share' => $permalink]
+			['permalink' => $permalink]
 		);
 	}
 
