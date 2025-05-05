@@ -61,10 +61,12 @@ export default {
 				// Handle success
 				console.log('Response:', response.data)
 
-				if (response.data.permalink) {
+				console.log('response permalink:', response.data.ocs.data.permalink)
+
+				if (response.data.ocs.data.permalink) {
 					this.activeButtonComponent = CreateButton
 				} else {
-					this.permalink = response.data.permalink
+					this.permalink = response.data.ocs.data.permalink
 					this.activeButtonComponent = PermalinkVue
 				}
 				// this.activeButtonComponent =''

@@ -91,7 +91,7 @@ class ApiController extends OCSController {
         }
 
 		return new DataResponse(
-			$response
+			$response['data']
 		);
 	}
 

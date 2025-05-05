@@ -79,6 +79,7 @@ export default {
 
 		async copyLink() {
 			try {
+				console.log('Copied permalink : ', this.permalink)
 				await navigator.clipboard.writeText(this.permalink)
 				showSuccess(t('files_sharing', 'Link copied'))
 				// focus and show the tooltip
