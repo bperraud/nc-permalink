@@ -1,11 +1,8 @@
 <template>
 	<div class="sharing-entry__summary">
 		<div class="sharing-entry__desc">
-			<span class="sharing-entry__title" :title="title">
-				permalink :
-			</span>
-			<p v-if="subtitle">
-                {{ permalink }}
+			<p>
+				{{ permalink }}
 			</p>
 		</div>
 

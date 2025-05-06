@@ -40,7 +40,7 @@ export default {
 			try {
 				const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
 				// Handle success
-				console.log('Response:', response.data)
+				console.log('Response:', response)
 			} catch (e) {
 				// Handle error
 				if (e.response && e.response.data && e.response.data.message) {

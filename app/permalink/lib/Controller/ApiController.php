@@ -52,16 +52,22 @@ class ApiController extends OCSController {
 
         $user = $this->userSession->getUser();
         $share = $this->service->getOrCreateSharelink($user->getUID(), $path);
-        $sharelink = $this->getSharelinkFromToken($share->getToken());
+        $sharelink = $this->fullSharelinkPathByToken($share->getToken());
         
         $data = [
             "target_url" => $sharelink,
         ];
 
-        $permalink = $this->curl_post("link/api/create/", $data);
+        $response = $this->curl_post("link/api/create/", $data);
 
-		return new DataResponse(
-			['permalink' => $permalink]
+        if ($response['status_code'] != 200) {
+            return new DataResponse(
+                ['permalink' => null]
+            );
+        }
+
+        return new DataResponse(
+			$response['data']
 		);
 	}
 
@@ -78,7 +84,7 @@ class ApiController extends OCSController {
             );
         }
 
-        $sharelink = $this->getSharelinkFromToken($share->getToken());
+        $sharelink = $this->fullSharelinkPathByToken($share->getToken());
         $data = [
             "target_url" => $sharelink,
         ];
@@ -89,13 +95,26 @@ class ApiController extends OCSController {
                 ['permalink' => null]
             );
         }
+		
+        $response_data = $response['data'];
+        $target_url = $response_data['target_url'];
+        $last_segment = basename($target_url);
+
+        $data_share = $this->service->getShareByToken($last_segment);
+
+        if ($data_share === null) {
+            // delete permalink in django app
+            return new DataResponse(
+                ['permalink' => null]
+            );
+        }
 
 		return new DataResponse(
 			$response['data']
 		);
 	}
 
-    private function getSharelinkFromToken(string $token) : string {
+    private function fullSharelinkPathByToken(string $token) : string {
         $currentOverwriteCliUrl = $this->config->getSystemValue('overwrite.cli.url', '');
         return $currentOverwriteCliUrl . "/index.php/s/" . $token;
     }

@@ -63,6 +63,13 @@ class ShareService {
 	) {
 	}
 
+
+    public function getShareByToken(string $token) : ?IShare {
+		$share = $this->shareManager->getShareByToken($token);
+        return $share;
+    }
+
+
 	private function getSharesIdByPath(Node $node) : array {
 		$qb = \OC::$server->getDatabaseConnection()->getQueryBuilder();
 		$cursor = $qb->select('id')
@@ -209,57 +216,6 @@ class ShareService {
 	}
 
 
-	private function tokenChecks(string $tokenCandidate): void {
-		// Validity check
-		$this->raiseIfTokenIsInvalid($tokenCandidate);
-
-		// Unique check
-		try {
-			$share = $this->shareManager->getShareByToken($tokenCandidate);
-			if ($this->appConfig->getAppValueBool(SettingsKey::DeleteRemovedShareConflicts->value, $this->appConstants::DEFAULT_DELETE_REMOVED_SHARE_CONFLICTS)) {
-				try {
-					$share->getNode();
-				} catch (NotFoundException) {
-					// Remove share if the file/folder does not exist
-					$this->logger->debug('Conflicting token, but node does not exist. Removing conflicting share.');
-					$this->shareManager->deleteShare($share);
-					return;
-				}
-			}
-			throw new TokenNotUniqueException($this->l10n->t('Token is not unique'));
-		} catch (ShareNotFound) {
-		}
-	}
-
-	/**
-	 * @throws InvalidTokenException
-	 */
-	public function raiseIfTokenIsInvalid(string $token): void {
-		$min_length = 10;
-		/* $min_length = $this->appConfig->getAppValueInt(SettingsKey::MinTokenLength->value, $this->appConstants::DEFAULT_MIN_TOKEN_LENGTH); */
-
-		if ($token == null || strlen($token) < $min_length) {
-			throw new InvalidTokenException($this->l10n->t('Token is not long enough'));
-		}
-
-		if (strlen($token) > $this->appConstants::MAX_TOKEN_LENGTH) {
-			throw new InvalidTokenException($this->l10n->t('Token cannot be longer than %1$s characters', [$this->appConstants::MAX_TOKEN_LENGTH]));
-		}
-
-		$valid = preg_match($this->appConstants::DEFAULT_VALID_TOKEN_REGEX, $token);
-
-		if ($valid != 1) {
-			throw new InvalidTokenException($this->l10n->t('Token contains invalid characters'));
-		}
-
-		$username_conflict_candidates = $this->userManager->searchDisplayName($token);
-		foreach ($username_conflict_candidates as $user) {
-			// Check if it is an exact match
-			if ($user->getDisplayName() == $token) {
-				throw new InvalidTokenException($this->l10n->t('This token cannot be used'));
-			}
-		}
-	}
 
 
 }
