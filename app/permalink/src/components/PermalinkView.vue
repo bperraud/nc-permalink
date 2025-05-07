@@ -55,6 +55,8 @@ import CloseIcon from 'vue-material-design-icons/Close.vue'
 import CheckIcon from 'vue-material-design-icons/CheckBold.vue'
 import ClipboardIcon from 'vue-material-design-icons/ContentCopy.vue'
 
+import RequestMixin from '../mixins/RequestMixin.ts'
+
 export default {
 
     components: {
@@ -64,6 +66,8 @@ export default {
         ClipboardIcon,
         CloseIcon,
     },
+
+    mixins: [RequestMixin],
 
     props: {
         permalink: {
@@ -120,6 +124,8 @@ export default {
             try {
                 const response = await axios.delete(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
                 console.log('Response:', response)
+                // this.refreshSidebar(this.fileInfo)
+                this.$emit('refresh')
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {
                     console.error(e.response.data)

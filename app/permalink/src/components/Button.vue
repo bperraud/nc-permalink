@@ -3,7 +3,8 @@
 		<component :is="activeButtonComponent"
 			v-if="activeButtonComponent"
 			:file-info="fileInfo"
-			:permalink="permalink" />
+			:permalink="permalink"
+			@refresh="getPermalink" />
 	</div>
 </template>
 
