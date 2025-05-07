@@ -1,44 +1,45 @@
 <template>
-	<div class="sharing-entry__summary">
-		<div class="sharing-entry__desc">
-			<p>
-				{{ permalink }}
-			</p>
-		</div>
 
-		<div class="sharing-entry__actions">
-			<!-- clipboard -->
-			<div>
-				<NcActions ref="copyButton" class="sharing-entry__copy">
-					<NcActionButton :aria-label="copyLinkTooltip()"
-						:title="copyLinkTooltip()"
-						:href="permalink"
-						@click.prevent="copyLink">
-						<template #icon>
-							<CheckIcon v-if="copied && copySuccess"
-								:size="20"
-								class="icon-checkmark-color" />
-							<ClipboardIcon v-else :size="20" />
-						</template>
-					</NcActionButton>
-				</NcActions>
 
-				<NcActions
-					class="sharing-entry__actions"
-					:aria-label="t('files_sharing', 'Actions for permalink')"
-					menu-align="right"
-					:open.sync="open">
-					<NcActionButton
-						@click.prevent="onDelete">
-						<template #icon>
-							<CloseIcon :size="20" />
-						</template>
-						{{ t('files_sharing', 'Delete permalink') }}
-					</NcActionButton>
-				</NcActions>
-			</div>
-		</div>
-	</div>
+    <li class="sharing-entry sharing-entry__link">
+
+        <div class="sharing-entry__summary">
+            <div class="sharing-entry__desc">
+                <p>
+                    {{ permalink }}
+                </p>
+            </div>
+                <!-- clipboard -->
+            <div class="sharing-entry__actions">
+                    <NcActions ref="copyButton" class="sharing-entry__copy">
+                        <NcActionButton :aria-label="copyLinkTooltip()"
+                            :title="copyLinkTooltip()"
+                            :href="permalink"
+                            @click.prevent="copyLink">
+                            <template #icon>
+                                <CheckIcon v-if="copied && copySuccess"
+                                    :size="20"
+                                    class="icon-checkmark-color" />
+                                <ClipboardIcon v-else :size="20" />
+                            </template>
+                        </NcActionButton>
+                    </NcActions>
+            </div>
+        </div>
+
+            <NcActions
+                class="sharing-entry__actions"
+                :aria-label="t('files_sharing', 'Actions for permalink')"
+                menu-align="right">
+                <NcActionButton
+                    @click.prevent="onDelete">
+                    <template #icon>
+                        <CloseIcon :size="20" />
+                    </template>
+                    {{ t('files_sharing', 'Delete permalink') }}
+                </NcActionButton>
+            </NcActions>
+    </li>
 </template>
 
 <script>
@@ -153,8 +154,95 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .btn {
 	margin-top: 10px;
 }
+
+.sharing-entry {
+	display: flex;
+	align-items: center;
+	min-height: 44px;
+
+	&__summary {
+		padding: 8px;
+		padding-inline-start: 10px;
+		display: flex;
+		justify-content: space-between;
+		flex: 1 0;
+		min-width: 0;
+	}
+
+		&__desc {
+			display: flex;
+			flex-direction: column;
+			line-height: 1.2em;
+
+			p {
+				color: var(--color-text-maxcontrast);
+			}
+
+			&__title {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+		}
+
+		&__actions {
+			display: flex;
+			align-items: center;
+			margin-inline-start: auto;
+		}
+
+	&:not(.sharing-entry--share) &__actions {
+		.new-share-link {
+			border-top: 1px solid var(--color-border);
+		}
+	}
+
+	:deep(.avatar-link-share) {
+		background-color: var(--color-primary-element);
+	}
+
+	.sharing-entry__action--public-upload {
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	&__loading {
+		width: 44px;
+		height: 44px;
+		margin: 0;
+		padding: 14px;
+		margin-inline-start: auto;
+	}
+
+	// put menus to the left
+	// but only the first one
+	.action-item {
+
+		~.action-item,
+		~.sharing-entry__loading {
+			margin-inline-start: 0;
+		}
+	}
+
+	.icon-checkmark-color {
+		opacity: 1;
+		color: var(--color-success);
+	}
+}
+
+// styling for the qr-code container
+.qr-code-dialog {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+
+	&__img {
+		width: 100%;
+		height: auto;
+	}
+}
 </style>
+
