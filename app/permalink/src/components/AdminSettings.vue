@@ -65,10 +65,10 @@ import { showError } from '@nextcloud/dialogs'
 import { t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
 import {
-	NcLoadingIcon,
-	NcSettingsInputText,
-	NcSettingsSection,
-	Tooltip,
+    NcLoadingIcon,
+    NcSettingsInputText,
+    NcSettingsSection,
+    Tooltip,
 } from '@nextcloud/vue'
 import AlertIcon from 'vue-material-design-icons/AlertCircle.vue'
 
@@ -81,97 +81,97 @@ import SettingsMixin from '../mixins/SettingsMixin.ts'
 import '@nextcloud/dialogs/style.css'
 
 export default {
-	name: 'AdminSettings',
+    name: 'AdminSettings',
 
-	components: {
-		NcSettingsSection,
-		NcSettingsInputText,
-		NcLoadingIcon,
-		CheckIcon,
-		AlertIcon,
-	},
+    components: {
+        NcSettingsSection,
+        NcSettingsInputText,
+        NcLoadingIcon,
+        CheckIcon,
+        AlertIcon,
+    },
 
-	directives: {
-		Tooltip,
-	},
+    directives: {
+        Tooltip,
+    },
 
-	mixins: [SettingsMixin],
+    mixins: [SettingsMixin],
 
-	data() {
-		return {
-			updating: {
-				status: UpdateState.Idle,
-				key: null,
-			},
-			loading: true,
-			jwtSecretKey: '',
-			permalinkApiEndpoint: '',
-			deleteConflicts: false,
-		}
-	},
+    data() {
+        return {
+            updating: {
+                status: UpdateState.Idle,
+                key: null,
+            },
+            loading: true,
+            jwtSecretKey: '',
+            permalinkApiEndpoint: '',
+            deleteConflicts: false,
+        }
+    },
 
-	computed: {
-		UpdateState() {
-			return UpdateState
-		},
-		SettingsKey() {
-			return SettingsKey
-		},
-	},
+    computed: {
+        UpdateState() {
+            return UpdateState
+        },
+        SettingsKey() {
+            return SettingsKey
+        },
+    },
 
-	async mounted() {
-		this.loading = true
+    async mounted() {
+        this.loading = true
 
-		this.jwtSecretKey = await this.getJwtSecret()
-		this.permalinkApiEndpoint = await this.getPermalinkApiEndpoint()
+        this.jwtSecretKey = await this.getJwtSecret()
+        this.permalinkApiEndpoint = await this.getPermalinkApiEndpoint()
 
-		this.loading = false
-	},
+        this.loading = false
+    },
 
-	methods: {
-		t,
-		setUpdate(key, status) {
-			this.updating.status = status
-			this.updating.key = key
-		},
-		async onSecretKeySubmit() {
-			await this.saveSettings(SettingsKey.JwtSecretKey, this.jwtSecretKey)
-		},
-		async onApiEndpointSubmit() {
-			await this.saveSettings(SettingsKey.PermalinkApiEndpoint, this.permalinkApiEndpoint)
-		},
-		async onDeleteConflictsChange(value) {
-			await this.saveSettings(
-				SettingsKey.DeleteRemovedShareConflicts,
-				value ? '1' : '0',
-			)
-		},
-		async saveSettings(key, value) {
-			const data = {
-				key,
-				value,
-			}
+    methods: {
+        t,
+        setUpdate(key, status) {
+            this.updating.status = status
+            this.updating.key = key
+        },
+        async onSecretKeySubmit() {
+            await this.saveSettings(SettingsKey.JwtSecretKey, this.jwtSecretKey)
+        },
+        async onApiEndpointSubmit() {
+            await this.saveSettings(SettingsKey.PermalinkApiEndpoint, this.permalinkApiEndpoint)
+        },
+        async onDeleteConflictsChange(value) {
+            await this.saveSettings(
+                SettingsKey.DeleteRemovedShareConflicts,
+                value ? '1' : '0',
+            )
+        },
+        async saveSettings(key, value) {
+            const data = {
+                key,
+                value,
+            }
 
-			this.setUpdate(key, UpdateState.Updating)
-			try {
-				await axios.post(
-					generateUrl('/apps/permalink/settings/save'),
-					data,
-				)
-				this.setUpdate(key, UpdateState.Completed)
-			} catch (e) {
-				if (e.response.data && e.response.data.message) {
-					showError(t('permalink', e.response.data.message))
-				} else {
-					showError(
-						t('permalink', 'Error occurred while saving settings'),
-					)
-					console.error(e.response)
-				}
-				this.setUpdate(key, UpdateState.Error)
-			}
-		},
-	},
+            this.setUpdate(key, UpdateState.Updating)
+            try {
+                await axios.post(
+                    generateUrl('/apps/permalink/settings/save'),
+                    data,
+                )
+                this.setUpdate(key, UpdateState.Completed)
+            } catch (e) {
+                if (e.response.data && e.response.data.message) {
+                    showError(t('permalink', e.response.data.message))
+                } else {
+                    showError(
+                        t('permalink', 'Error occurred while saving settings'),
+                    )
+                    console.error(e.response)
+                }
+                this.setUpdate(key, UpdateState.Error)
+            }
+        },
+    },
 }
 </script>
 

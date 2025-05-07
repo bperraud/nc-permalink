@@ -57,70 +57,65 @@ import ClipboardIcon from 'vue-material-design-icons/ContentCopy.vue'
 
 export default {
 
-	components: {
-		NcActions,
-		NcActionButton,
-		CheckIcon,
-		ClipboardIcon,
-	},
+    components: {
+        NcActions,
+        NcActionButton,
+        CheckIcon,
+        ClipboardIcon,
+    },
 
-	props: {
-		permalink: {
-			type: String,
-			default: '',
-		},
-	},
+    props: {
+        permalink: {
+            type: String,
+            default: '',
+        },
+    },
 
-	data() {
-		return {
-			copySuccess: true,
-			copied: false,
-		}
-	},
+    data() {
+        return {
+            copySuccess: true,
+            copied: false,
+        }
+    },
 
-	methods: {
+    methods: {
 
-		async copyLink() {
-			try {
-				console.log('Copied permalink : ', this.permalink)
-				await navigator.clipboard.writeText(this.permalink)
-				showSuccess(t('files_sharing', 'Link copied'))
-				// focus and show the tooltip
-				this.$refs.copyButton.$el.focus()
-				this.copySuccess = true
-				this.copied = true
-			} catch (error) {
-				this.copySuccess = false
-				this.copied = true
-				console.error(error)
-			} finally {
-				setTimeout(() => {
-					this.copySuccess = false
-					this.copied = false
-				}, 4000)
-			}
-		},
+        async copyLink() {
+            try {
+                console.log('Copied permalink : ', this.permalink)
+                await navigator.clipboard.writeText(this.permalink)
+                showSuccess(t('files_sharing', 'Link copied'))
+                // focus and show the tooltip
+                this.$refs.copyButton.$el.focus()
+                this.copySuccess = true
+                this.copied = true
+            } catch (error) {
+                this.copySuccess = false
+                this.copied = true
+                console.error(error)
+            } finally {
+                setTimeout(() => {
+                    this.copySuccess = false
+                    this.copied = false
+                }, 4000)
+            }
+        },
 
-		copyLinkTooltip() {
-			if (this.copied) {
-				if (this.copySuccess) {
-					return ''
-				}
-				return t('files_sharing', 'Cannot copy, please copy the link manually')
-			}
-			return t('files_sharing', 'Copy permalink to clipboard')
-		},
+        copyLinkTooltip() {
+            if (this.copied) {
+                if (this.copySuccess) {
+                    return ''
+                }
+                return t('files_sharing', 'Cannot copy, please copy the link manually')
+            }
+            return t('files_sharing', 'Copy permalink to clipboard')
+        },
 
-        		/**
-           * Tooltip message for actions button
-           *
-           * @return {string}
-           */
-		actionsTooltip() {
-			return t('files_sharing', 'Actions for permalink')
-		},
+        actionsTooltip() {
+            return t('files_sharing', 'Actions for permalink')
+        },
 
-	},
+    },
 }
 </script>
 

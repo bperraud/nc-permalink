@@ -10,10 +10,10 @@
 import NcAppContent from '@nextcloud/vue/dist/Components/NcAppContent.js'
 
 export default {
-	name: 'App',
-	components: {
-		NcAppContent,
-	},
+    name: 'App',
+    components: {
+        NcAppContent,
+    },
 }
 </script>
 

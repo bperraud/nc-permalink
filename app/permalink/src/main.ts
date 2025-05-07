@@ -9,27 +9,27 @@ let props = null
 const View = Vue.extend(ShareLinkButton)
 
 window.addEventListener('DOMContentLoaded', function() {
-	if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
-		OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
-			if (!el || !fileInfo) return
+    if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
+        OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
+            if (!el || !fileInfo) return
 
-			if (sectionInstance && document.contains(sectionInstance.$el) && props) {
-				props.fileInfo = fileInfo
-			} else {
-				if (sectionInstance) {
-					sectionInstance.$destroy()
-				}
+            if (sectionInstance && document.contains(sectionInstance.$el) && props) {
+                props.fileInfo = fileInfo
+            } else {
+                if (sectionInstance) {
+                    sectionInstance.$destroy()
+                }
 
-				sectionInstance = new View({ props: { fileInfo } })
+                sectionInstance = new View({ props: { fileInfo } })
 
-				props = Vue.observable({
-					...sectionInstance._props,
-					fileInfo,
-				})
-				sectionInstance._props = props
+                props = Vue.observable({
+                    ...sectionInstance._props,
+                    fileInfo,
+                })
+                sectionInstance._props = props
 
-				sectionInstance.$mount(el[0])
-			}
-		})
-	}
+                sectionInstance.$mount(el[0])
+            }
+        })
+    }
 })

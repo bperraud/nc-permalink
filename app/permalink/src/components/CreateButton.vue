@@ -13,46 +13,46 @@ import axios from '@nextcloud/axios'
 
 export default {
 
-	props: {
-		fileInfo: {
-			type: Object,
-			default: () => {},
-			required: true,
-		},
-	},
+    props: {
+        fileInfo: {
+            type: Object,
+            default: () => {},
+            required: true,
+        },
+    },
 
-	computed: {
-		fullFilePath() {
-			if (!this.fileInfo) return ''
-			return this.fileInfo.path.endsWith('/')
-				? this.fileInfo.path + this.fileInfo.name
-				: this.fileInfo.path + '/' + this.fileInfo.name
-		},
-	},
+    computed: {
+        fullFilePath() {
+            if (!this.fileInfo) return ''
+            return this.fileInfo.path.endsWith('/')
+                ? this.fileInfo.path + this.fileInfo.name
+                : this.fileInfo.path + '/' + this.fileInfo.name
+        },
+    },
 
-	methods: {
+    methods: {
 
-		async createPermalink() {
-			const data = {
-				path: this.fullFilePath,
-			}
+        async createPermalink() {
+            const data = {
+                path: this.fullFilePath,
+            }
 
-			try {
-				const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
-				// Handle success
-				console.log('Response:', response)
-			} catch (e) {
-				// Handle error
-				if (e.response && e.response.data && e.response.data.message) {
-					alert(`Error: ${e.response.data.message}`)
-				} else {
-					alert('An error occurred while creating the link')
-					console.error(e)
-				}
-			}
-		},
+            try {
+                const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
+                // Handle success
+                console.log('Response:', response)
+            } catch (e) {
+                // Handle error
+                if (e.response && e.response.data && e.response.data.message) {
+                    alert(`Error: ${e.response.data.message}`)
+                } else {
+                    alert('An error occurred while creating the link')
+                    console.error(e)
+                }
+            }
+        },
 
-	},
+    },
 }
 </script>
 
