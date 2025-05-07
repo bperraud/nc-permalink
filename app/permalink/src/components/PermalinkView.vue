@@ -28,16 +28,13 @@
 					:aria-label="t('files_sharing', 'Actions for permalink')"
 					menu-align="right"
 					:open.sync="open">
-					<template v-if="share">
-						<NcActionButton
-							:disabled="saving"
-							@click.prevent="onDelete">
-							<template #icon>
-								<CloseIcon :size="20" />
-							</template>
-							{{ t('files_sharing', 'Unshare') }}
-						</NcActionButton>
-					</template>
+					<NcActionButton
+						@click.prevent="onDelete">
+						<template #icon>
+							<CloseIcon :size="20" />
+						</template>
+						{{ t('files_sharing', 'Delete permalink') }}
+					</NcActionButton>
 				</NcActions>
 			</div>
 		</div>
@@ -47,11 +44,14 @@
 <script>
 /* eslint-disable no-console */
 
+import axios from '@nextcloud/axios'
+
 import NcActionButton from '@nextcloud/vue/components/NcActionButton'
 import NcActions from '@nextcloud/vue/components/NcActions'
 
 import { showSuccess } from '@nextcloud/dialogs'
 
+import CloseIcon from 'vue-material-design-icons/Close.vue'
 import CheckIcon from 'vue-material-design-icons/CheckBold.vue'
 import ClipboardIcon from 'vue-material-design-icons/ContentCopy.vue'
 
@@ -62,12 +62,18 @@ export default {
         NcActionButton,
         CheckIcon,
         ClipboardIcon,
+        CloseIcon,
     },
 
     props: {
         permalink: {
             type: String,
             default: '',
+        },
+        fileInfo: {
+            type: Object,
+            default: () => {},
+            required: true,
         },
     },
 
@@ -79,6 +85,13 @@ export default {
     },
 
     methods: {
+
+        fullFilePath() {
+            if (!this.fileInfo) return ''
+            return this.fileInfo.path.endsWith('/')
+                ? this.fileInfo.path + this.fileInfo.name
+                : this.fileInfo.path + '/' + this.fileInfo.name
+        },
 
         async copyLink() {
             try {
@@ -98,6 +111,21 @@ export default {
                     this.copySuccess = false
                     this.copied = false
                 }, 4000)
+            }
+        },
+
+        async onDelete() {
+            const link = encodeURIComponent(this.fullFilePath())
+            console.log('onDelete with link', link)
+            try {
+                const response = await axios.delete(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
+                console.log('Response:', response)
+            } catch (e) {
+                if (e.response && e.response.data && e.response.data.message) {
+                    console.error(e.response.data)
+                } else {
+                    console.error(e)
+                }
             }
         },
 

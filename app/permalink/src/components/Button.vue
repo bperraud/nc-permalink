@@ -68,14 +68,10 @@ export default {
                 } else {
                     this.activeButtonComponent = CreateButton
                 }
-
             } catch (e) {
-                // Handle error
                 if (e.response && e.response.data && e.response.data.message) {
-                    alert(`Error: ${e.response.data.message}`)
-                    console.error(e)
+                    console.error(e.response.data)
                 } else {
-                    alert('An error occurred while creating the link')
                     console.error(e)
                 }
             }
