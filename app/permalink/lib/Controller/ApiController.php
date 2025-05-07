@@ -10,6 +10,12 @@ use OCP\AppFramework\Http\Attribute\ApiRoute;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\OCSController;
+
+use OCP\AppFramework\OCS\OCSBadRequestException;
+use OCP\AppFramework\OCS\OCSException;
+use OCP\AppFramework\OCS\OCSForbiddenException;
+use OCP\AppFramework\OCS\OCSNotFoundException;
+
 use OCP\Files\IRootFolder;
 use OCP\IRequest;
 use OCP\Constants;
@@ -72,6 +78,33 @@ class ApiController extends OCSController {
 	}
 
 	#[NoAdminRequired]
+	#[ApiRoute(verb: 'DELETE', url: '/api/link')]
+	public function delete(string $path): DataResponse {
+        $user = $this->userSession->getUser();
+        $share = $this->service->getSharelink($user->getUID(), $path);
+
+        // no share means no permalink
+        if ($share === null) {
+            return new DataResponse(
+                ['permalink' => null]
+            );
+        }
+
+        $sharelink_path = $this->fullSharelinkPathByToken($share->getToken());
+
+        // delete permalink in django app
+        $response = $this->curl_delete("link/api/create/?target_url=" . urlencode($sharelink_path));
+
+        if ($response['status_code'] != 200) {
+            throw new OCSNotFoundException($this->l10n->t('Delete Error'));
+        }
+		
+		return new DataResponse(
+			$response['data']
+		);
+    }
+
+	#[NoAdminRequired]
 	#[ApiRoute(verb: 'GET', url: '/api/link')]
 	public function get(string $path): DataResponse {
         $user = $this->userSession->getUser();
@@ -96,19 +129,6 @@ class ApiController extends OCSController {
             );
         }
 		
-        $response_data = $response['data'];
-        $target_url = $response_data['target_url'];
-        $last_segment = basename($target_url);
-
-        $data_share = $this->service->getShareByToken($last_segment);
-
-        if ($data_share === null) {
-            // delete permalink in django app
-            return new DataResponse(
-                ['permalink' => null]
-            );
-        }
-
 		return new DataResponse(
 			$response['data']
 		);
@@ -137,18 +157,22 @@ class ApiController extends OCSController {
 
 
     private function curl_get(string $url) : array {
-        return $this->mycurl($url, false);
+        return $this->mycurl($url, 'GET');
     }
 
     private function curl_post(string $url, array $data) : array {
-        return $this->mycurl($url, true, $data);
+        return $this->mycurl($url, 'POST', $data);
     }
 
-    private function mycurl(string $url, bool $is_post, array $data = []) : array {
+    private function curl_delete(string $url) : array {
+        return $this->mycurl($url, 'DELETE');
+    }
+
+
+    private function mycurl(string $url, string $method, array $data = []) : array {
         $baseUrl = $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "");
-        
         $url = $baseUrl . '/' . $url;
-    
+
         $ch = curl_init($url);
 
         $headers = [
@@ -156,10 +180,13 @@ class ApiController extends OCSController {
             'Accept: application/json',
         ];
 
-        if ($is_post) {
+        // Set method-specific options
+        if ($method === 'POST') {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
             $headers[] = 'Content-Type: application/json';
+        } elseif ($method === 'DELETE') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
         }
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -181,5 +208,6 @@ class ApiController extends OCSController {
             'data' => json_decode($response, true)
         ];
     }
+
 
 }

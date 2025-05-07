@@ -22,6 +22,23 @@
 						</template>
 					</NcActionButton>
 				</NcActions>
+
+				<NcActions
+					class="sharing-entry__actions"
+					:aria-label="t('files_sharing', 'Actions for permalink')"
+					menu-align="right"
+					:open.sync="open">
+					<template v-if="share">
+						<NcActionButton
+							:disabled="saving"
+							@click.prevent="onDelete">
+							<template #icon>
+								<CloseIcon :size="20" />
+							</template>
+							{{ t('files_sharing', 'Unshare') }}
+						</NcActionButton>
+					</template>
+				</NcActions>
 			</div>
 		</div>
 	</div>
@@ -61,17 +78,6 @@ export default {
 		}
 	},
 
-	computed: {
-
-		title() {
-			return 'titre'
-		},
-
-		subtitle() {
-			return 'subtitle'
-		},
-	},
-
 	methods: {
 
 		async copyLink() {
@@ -102,7 +108,16 @@ export default {
 				}
 				return t('files_sharing', 'Cannot copy, please copy the link manually')
 			}
-			return t('files_sharing', 'Copy public link of "{title}" to clipboard', { title: this.title })
+			return t('files_sharing', 'Copy permalink to clipboard')
+		},
+
+        		/**
+           * Tooltip message for actions button
+           *
+           * @return {string}
+           */
+		actionsTooltip() {
+			return t('files_sharing', 'Actions for permalink')
 		},
 
 	},
