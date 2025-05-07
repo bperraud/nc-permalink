@@ -8,9 +8,9 @@ export default {
             )
             if (shareTab) {
                 shareTab.update(fileInfo)
-                console.debug('CfgShareLinks: Updated share tab')
+                console.debug('Permalink: Updated share tab')
             } else {
-                console.debug('CfgShareLinks: No share tab to update')
+                console.debug('Permalink: No share tab to update')
             }
         },
     },

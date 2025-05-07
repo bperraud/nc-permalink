@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<button class="btn btn-primary" @click="createPermalink">
-			Create Share Link
+			{{ permalink }}
 		</button>
 	</div>
 </template>
@@ -14,6 +14,10 @@ import axios from '@nextcloud/axios'
 export default {
 
     props: {
+        permalink: {
+            type: String,
+            default: '',
+        },
         fileInfo: {
             type: Object,
             default: () => {},

@@ -11,6 +11,8 @@
 <script>
 /* eslint-disable no-console */
 
+import { t } from '@nextcloud/l10n'
+
 import axios from '@nextcloud/axios'
 
 import CreateButton from './CreateButton.vue'
@@ -67,6 +69,7 @@ export default {
                     this.permalink = response.data.ocs.data.permalink
                     this.activeButtonComponent = PermalinkVue
                 } else {
+                    this.permalink = t('files_sharing', 'Create Permalink')
                     this.activeButtonComponent = CreateButton
                 }
             } catch (e) {

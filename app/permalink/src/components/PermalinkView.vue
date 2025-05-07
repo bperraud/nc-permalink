@@ -1,45 +1,42 @@
 <template>
+	<li class="sharing-entry sharing-entry__link">
+		<div class="sharing-entry__summary">
+			<div class="sharing-entry__desc">
+				<p>
+					{{ permalink }}
+				</p>
+			</div>
+			<!-- clipboard -->
+			<div class="sharing-entry__actions">
+				<NcActions ref="copyButton" class="sharing-entry__copy">
+					<NcActionButton :aria-label="copyLinkTooltip()"
+						:title="copyLinkTooltip()"
+						:href="permalink"
+						@click.prevent="copyLink">
+						<template #icon>
+							<CheckIcon v-if="copied && copySuccess"
+								:size="20"
+								class="icon-checkmark-color" />
+							<ClipboardIcon v-else :size="20" />
+						</template>
+					</NcActionButton>
+				</NcActions>
+			</div>
+		</div>
 
-
-    <li class="sharing-entry sharing-entry__link">
-
-        <div class="sharing-entry__summary">
-            <div class="sharing-entry__desc">
-                <p>
-                    {{ permalink }}
-                </p>
-            </div>
-                <!-- clipboard -->
-            <div class="sharing-entry__actions">
-                    <NcActions ref="copyButton" class="sharing-entry__copy">
-                        <NcActionButton :aria-label="copyLinkTooltip()"
-                            :title="copyLinkTooltip()"
-                            :href="permalink"
-                            @click.prevent="copyLink">
-                            <template #icon>
-                                <CheckIcon v-if="copied && copySuccess"
-                                    :size="20"
-                                    class="icon-checkmark-color" />
-                                <ClipboardIcon v-else :size="20" />
-                            </template>
-                        </NcActionButton>
-                    </NcActions>
-            </div>
-        </div>
-
-            <NcActions
-                class="sharing-entry__actions"
-                :aria-label="t('files_sharing', 'Actions for permalink')"
-                menu-align="right">
-                <NcActionButton
-                    @click.prevent="onDelete">
-                    <template #icon>
-                        <CloseIcon :size="20" />
-                    </template>
-                    {{ t('files_sharing', 'Delete permalink') }}
-                </NcActionButton>
-            </NcActions>
-    </li>
+		<NcActions
+			class="sharing-entry__actions"
+			:aria-label="t('permalink', 'Actions for permalink')"
+			menu-align="right">
+			<NcActionButton
+				@click.prevent="onDelete">
+				<template #icon>
+					<CloseIcon :size="20" />
+				</template>
+				{{ t('permalink', 'Delete permalink') }}
+			</NcActionButton>
+		</NcActions>
+	</li>
 </template>
 
 <script>
@@ -51,6 +48,7 @@ import NcActionButton from '@nextcloud/vue/components/NcActionButton'
 import NcActions from '@nextcloud/vue/components/NcActions'
 
 import { showSuccess } from '@nextcloud/dialogs'
+import { t } from '@nextcloud/l10n'
 
 import CloseIcon from 'vue-material-design-icons/Close.vue'
 import CheckIcon from 'vue-material-design-icons/CheckBold.vue'
@@ -102,7 +100,7 @@ export default {
             try {
                 console.log('Copied permalink : ', this.permalink)
                 await navigator.clipboard.writeText(this.permalink)
-                showSuccess(t('files_sharing', 'Link copied'))
+                showSuccess(t('permalink', 'Link copied'))
                 // focus and show the tooltip
                 this.$refs.copyButton.$el.focus()
                 this.copySuccess = true
@@ -141,13 +139,13 @@ export default {
                 if (this.copySuccess) {
                     return ''
                 }
-                return t('files_sharing', 'Cannot copy, please copy the link manually')
+                return t('permalink', 'Cannot copy, please copy the link manually')
             }
-            return t('files_sharing', 'Copy permalink to clipboard')
+            return t('permalink', 'Copy permalink to clipboard')
         },
 
         actionsTooltip() {
-            return t('files_sharing', 'Actions for permalink')
+            return t('permalink', 'Actions for permalink')
         },
 
     },
@@ -245,4 +243,3 @@ export default {
 	}
 }
 </style>
-
