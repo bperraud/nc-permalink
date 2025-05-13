@@ -45,6 +45,7 @@ use OCP\AppFramework\OCS\OCSForbiddenException;
 use OCP\AppFramework\OCS\OCSNotFoundException;
 use OCP\Lock\ILockingProvider;
 use OCP\Lock\LockedException;
+use Psr\Log\LoggerInterface;
 
 use OCP\DB\QueryBuilder\IQueryBuilder;
 
@@ -59,6 +60,7 @@ class ShareService {
 	public function __construct(
 		private readonly IManager $shareManager,
 		private readonly IRootFolder $rootFolder,
+		private LoggerInterface $logger,
         private readonly IL10N $l10n,
 	) {
 	}
@@ -166,12 +168,7 @@ class ShareService {
 			throw new OCSForbiddenException($e->getMessage(), $e);
 		}
 
-        /* $node = $share->getNode(); */
-        /* $shares = $this->shareManager->getSharesByPath($node); */
-
-		/* return $shares[0]; */
 		return $share;
-		/* return $this->serializeShare($share); */
 	}
 
     private function serializeShare(IShare $share): array {

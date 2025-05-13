@@ -2,7 +2,7 @@
 	<div id="permalink-admin-settings">
 		<NcSettingsSection
 			:name="t('permalink', 'API Endpoint')"
-			:description="t('permalink', 'base URL of the external Permalink API that handles link creation')">
+			:description="t('permalink', 'Base URL of the external Permalink API that handles link creation')">
 			<div>
 				<h3>
 					<span

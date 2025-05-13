@@ -20,7 +20,8 @@ class PermalinksAdmin implements IIconSection {
 	}
 
 	public function getName(): string {
-		return $this->l10n->t('Permalink');
+		return 'Permalink';
+		/* return $this->l10n->t('Permalink'); */
 	}
 
 	public function getPriority(): int {
