@@ -45,7 +45,7 @@ export default {
             try {
                 const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
                 console.log('Response:', response)
-                showSuccess(t('permalink', 'Permalink created'));
+                showSuccess(t('permalink', 'Permalink created'))
                 this.$emit('refresh')
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {
