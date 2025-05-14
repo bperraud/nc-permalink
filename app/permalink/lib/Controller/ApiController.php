@@ -55,7 +55,7 @@ class ApiController extends OCSController {
             "target_url" => $sharelink,
         ];
 
-        $response = $this->httpService->curl_post("link/api/create/", $data);
+        $response = $this->httpService->curl_post("link/api/external/", $data);
 
         if ($response['status_code'] != 200) {
             return new DataResponse(
@@ -84,7 +84,7 @@ class ApiController extends OCSController {
         $sharelink_path = $this->fullSharelinkPathByToken($share->getToken());
 
         // delete permalink in django app
-        $response = $this->httpService->curl_delete("link/api/create/?target_url=" . urlencode($sharelink_path));
+        $response = $this->httpService->curl_delete("link/api/external/?target_url=" . urlencode($sharelink_path));
 
         if ($response['status_code'] != 200) {
             throw new OCSNotFoundException($this->l10n->t('Delete Error'));
@@ -112,7 +112,7 @@ class ApiController extends OCSController {
         $data = [
             "target_url" => $sharelink,
         ];
-        $response = $this->httpService->curl_get("link/api/create/?target_url=" . urlencode($sharelink));
+        $response = $this->httpService->curl_get("link/api/external/?target_url=" . urlencode($sharelink));
 
         if ($response['status_code'] != 200) {
             return new DataResponse(

@@ -40,7 +40,7 @@ class SettingsController extends Controller {
                         return new DataResponse(['message' => 'Saved : ' . $value], Http::STATUS_OK);
                     }
                     $this->appConfig->setAppValueString($settings_key->value, $old_value);
-                    return new DataResponse(['message' => 'Error, endpoint is not reachable ' . $value], Http::STATUS_BAD_REQUEST);
+                    return new DataResponse(['message' => 'Error, endpoint is not reachable ' . $value], Http::STATUS_BAD_GATEWAY);
 					break;
 			}
 		} catch (ValueError) {

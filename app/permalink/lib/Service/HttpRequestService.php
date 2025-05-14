@@ -61,6 +61,10 @@ class HttpRequestService {
         return $this->mycurl($url, 'DELETE');
     }
 
+    public function curl_put(string $url, array $data) : array {
+        return $this->mycurl($url, 'PUT', $data);
+    }
+
     private function mycurl(string $url, string $method, array $data = []) : array {
         $baseUrl = $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "");
         $url = $baseUrl . '/' . $url;
@@ -79,6 +83,10 @@ class HttpRequestService {
             $headers[] = 'Content-Type: application/json';
         } elseif ($method === 'DELETE') {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        } elseif ($method === 'PUT') {
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+            $headers[] = 'Content-Type: application/json';
         }
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
