@@ -90,7 +90,7 @@ class HttpRequestService {
         if ($response === false) {
             $error = curl_error($ch);
             curl_close($ch);
-            return ['error' => $error];
+            return ['status_code' => 503];
         }
 
         curl_close($ch);

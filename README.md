@@ -2,6 +2,6 @@
 
 TODO : 
 
-- JWT implementation in backend
-- permalink in frontend (if exist)
 - QUIDAM in django app
+- refresh section permalink on create/delete 
+- add listener when deleting sharelink

@@ -10,6 +10,9 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
+use OCP\Share\Events\ShareDeletedEvent;
+use OCA\Permalink\Listener\ShareDeletedListener;
+
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'permalink';
 
@@ -18,8 +21,14 @@ class Application extends App implements IBootstrap {
 		parent::__construct(self::APP_ID);
 	}
 
-	public function register(IRegistrationContext $context): void {
+
+    public function register(IRegistrationContext $context): void {
+		/**
+		 * Listen for ShareDeletedEvent (force recreation if link to a permalink)
+		 */
+		$context->registerEventListener(ShareDeletedEvent::class, ShareDeletedListener::class);
 	}
+
 
 	public function boot(IBootContext $context): void {
         Util::addScript(self::APP_ID, 'permalink-main');
