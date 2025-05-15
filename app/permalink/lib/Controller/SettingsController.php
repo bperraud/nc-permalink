@@ -36,7 +36,7 @@ class SettingsController extends Controller {
                     $old_value = $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "");
                     $this->appConfig->setAppValueString($settings_key->value, $value);
                     $response = $this->httpService->curl_get("status/");
-                    if ($response["status_code"] == 200) {
+                    if ($response->getStatus() == 200) {
                         return new DataResponse(['message' => 'Saved : ' . $value], Http::STATUS_OK);
                     }
                     $this->appConfig->setAppValueString($settings_key->value, $old_value);

@@ -3,7 +3,7 @@
 		<NcSettingsSection
 			:name="t('permalink', 'API Endpoint')"
 			:description="t('permalink', 'Base URL of the external Permalink API that handles link creation')">
-			<div>
+			<div class="input-with-icon">
 				<h3>
 					<span
 						v-if="updating.key === SettingsKey.PermalinkApiEndpoint"
@@ -31,10 +31,10 @@
 		<NcSettingsSection
 			:name="t('permalink', 'Jwt secret key')"
 			:description="t('permalink', 'Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API\'s configuration')">
-			<div>
+			<div class="input-with-icon">
 				<h3>
 					<span
-						v-if="updating.key === SettingsKey.MinTokenLength"
+						v-if="updating.key === SettingsKey.JwtSecretKey"
 						class="status-icon">
 						<NcLoadingIcon
 							v-if="updating.status === UpdateState.Updating"
@@ -60,6 +60,7 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable no-console */
 import axios from '@nextcloud/axios'
 import { showError } from '@nextcloud/dialogs'
 import { t } from '@nextcloud/l10n'
@@ -147,6 +148,7 @@ export default {
             )
         },
         async saveSettings(key, value) {
+
             const data = {
                 key,
                 value,
@@ -182,7 +184,6 @@ export default {
 }
 
 .status-icon {
-	display: inline-block;
 	margin-left: 6px;
 }
 
@@ -191,4 +192,14 @@ export default {
 	width: 300px !important;
 }
 
+.input-with-icon {
+	display: flex;
+	align-items: center;
+
+	.status-icon {
+		margin-bottom: 10px;
+		display: flex;
+		align-items: center;
+	}
+}
 </style>
