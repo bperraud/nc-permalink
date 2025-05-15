@@ -123,9 +123,9 @@ export default {
             try {
                 const response = await axios.delete(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
                 console.log('Response:', response)
-                // this.refreshSidebar(this.fileInfo)
                 showSuccess(t('permalink', 'Permalink deleted'))
-                this.$emit('refresh')
+                this.refreshSidebar(this.fileInfo)
+                // this.$emit('refresh')
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {
                     console.error(e.response.data)

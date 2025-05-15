@@ -11,8 +11,11 @@
 
 import axios from '@nextcloud/axios'
 import { showSuccess } from '@nextcloud/dialogs'
+import RequestMixin from '../mixins/RequestMixin.ts'
 
 export default {
+
+    mixins: [RequestMixin],
 
     props: {
         permalink: {
@@ -46,6 +49,7 @@ export default {
                 const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
                 console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink created'))
+                this.refreshSidebar(this.fileInfo)
                 // this.$emit('refresh')
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {

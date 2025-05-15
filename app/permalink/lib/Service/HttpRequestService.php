@@ -13,7 +13,7 @@ use OCP\AppFramework\OCS\OCSNotFoundException;
 use Psr\Log\LoggerInterface;
 use OCP\IUserSession;
 use OCA\Permalink\Enums\SettingsKey;
-
+use OCP\AppFramework\Http\DataResponse;
 
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\AppFramework\Services\IAppConfig;
@@ -49,23 +49,23 @@ class HttpRequestService {
         return $jwt;
     }
 
-    public function curl_get(string $url) : array {
+    public function curl_get(string $url) : DataResponse {
         return $this->mycurl($url, 'GET');
     }
 
-    public function curl_post(string $url, array $data) : array {
+    public function curl_post(string $url, array $data) : DataResponse {
         return $this->mycurl($url, 'POST', $data);
     }
 
-    public function curl_delete(string $url) : array {
+    public function curl_delete(string $url) : DataResponse {
         return $this->mycurl($url, 'DELETE');
     }
 
-    public function curl_put(string $url, array $data) : array {
+    public function curl_put(string $url, array $data) : DataResponse {
         return $this->mycurl($url, 'PUT', $data);
     }
 
-    private function mycurl(string $url, string $method, array $data = []) : array {
+    private function mycurl(string $url, string $method, array $data = []) : DataResponse {
         $baseUrl = $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "");
         $url = $baseUrl . '/' . $url;
 
@@ -98,14 +98,10 @@ class HttpRequestService {
         if ($response === false) {
             $error = curl_error($ch);
             curl_close($ch);
-            return ['status_code' => 503];
+            return new DataResponse(['error' => 'Server Unreachable'], 503);
         }
 
         curl_close($ch);
-
-        return [
-            'status_code' => $httpCode,
-            'data' => json_decode($response, true)
-        ];
+        return new DataResponse(json_decode($response, true), $httpCode);
     }
 }
