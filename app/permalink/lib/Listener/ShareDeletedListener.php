@@ -24,6 +24,7 @@ class ShareDeletedListener implements IEventListener {
 			return;
 		}
 
+		return;
 		$share = $event->getShare();
 		$shareId = $share->getId();
 		$sharedBy = $share->getSharedBy();

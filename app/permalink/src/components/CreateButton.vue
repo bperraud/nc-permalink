@@ -50,7 +50,7 @@ export default {
                 console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink created'))
                 this.refreshSidebar(this.fileInfo)
-                // this.$emit('refresh')
+                this.$emit('refresh')
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {
                     console.error(e.response.data)

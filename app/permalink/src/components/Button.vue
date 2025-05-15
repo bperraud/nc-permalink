@@ -44,6 +44,7 @@ export default {
     },
 
     updated() {
+        console.log('updated Button.vue')
         this.getPermalink()
     },
 

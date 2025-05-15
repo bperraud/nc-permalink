@@ -125,7 +125,7 @@ export default {
                 console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink deleted'))
                 this.refreshSidebar(this.fileInfo)
-                // this.$emit('refresh')
+                this.$emit('refresh')
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {
                     console.error(e.response.data)
