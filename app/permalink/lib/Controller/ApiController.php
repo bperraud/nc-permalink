@@ -40,6 +40,16 @@ class ApiController extends OCSController {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
 	}
 
+	#[NoAdminRequired,NoCSRFRequired]
+	#[ApiRoute(verb: 'POST', url: '/api/update')]
+	public function update(): DataResponse {
+        $params = $this->request->getParams();
+
+        /* $response = $this->httpService->curl_post("link/api/external/", $data); */
+
+        return new DataResponse(['success' => true]);
+	}
+
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): DataResponse {
