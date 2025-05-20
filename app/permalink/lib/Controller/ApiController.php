@@ -44,9 +44,6 @@ class ApiController extends OCSController {
 	#[ApiRoute(verb: 'POST', url: '/api/update')]
 	public function update(): DataResponse {
         $params = $this->request->getParams();
-
-        /* $response = $this->httpService->curl_post("link/api/external/", $data); */
-
         return new DataResponse(['success' => true]);
 	}
 
@@ -63,6 +60,9 @@ class ApiController extends OCSController {
         
         $data = [
             "target_url" => $sharelink,
+            "path" => $path,
+            "uid" => $share->getId(),
+            "expiration" => $share->getExpirationDate()?->getTimestamp()
         ];
 
         $response = $this->httpService->curl_post("link/api/external/", $data);
