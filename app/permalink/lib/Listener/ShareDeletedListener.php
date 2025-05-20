@@ -24,38 +24,19 @@ class ShareDeletedListener implements IEventListener {
 			return;
 		}
 
-		return;
 		$share = $event->getShare();
-		$shareId = $share->getId();
-		$sharedBy = $share->getSharedBy();
         $sharelink = $this->fullSharelinkPathByToken($share->getToken());
         $response = $this->httpService->curl_get("link/api/external/?target_url=" . urlencode($sharelink));
 
         # no permalink
-        if ($response['status_code'] != 200) {
+        if ($response->getStatus() != 200) {
             $this->logger->error("no permalink");
             return;
         }
 
-        $old_token = $response["data"]["token"];
-        $path = substr($share->getNode()->getInternalPath(), strlen('files/'));
-        $this->logger->error("Share with ID $shareId and path $path");
-
-        try {
-            $new_share = $this->shareService->getOrCreateSharelink($sharedBy, $path);
-        } catch (\Throwable $e) {
-            $this->logger->error('Failed to recreate share: ' . $e->getMessage());
-            return ;
-        }
-
-        $sharelink = $this->fullSharelinkPathByToken($new_share->getToken());
-
-        $data = [
-            "target_url" => $sharelink,
-            "token" => $old_token,
-        ];
-
-        $response = $this->httpService->curl_put("link/api/external/", $data);
+        # delete permalink in django app
+        $sharelink_path = $this->fullSharelinkPathByToken($share->getToken());
+        $response = $this->httpService->curl_delete("link/api/external/?target_url=" . urlencode($sharelink_path));
 
 	}
 
