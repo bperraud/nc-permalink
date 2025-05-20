@@ -62,7 +62,7 @@ class ApiController extends OCSController {
             "target_url" => $sharelink,
             "path" => $path,
             "uid" => $share->getId(),
-            "expiration" => $share->getExpirationDate()?->getTimestamp()
+            "expiration" => $share->getExpirationDate()?->format(\DateTime::ATOM)
         ];
 
         $response = $this->httpService->curl_post("link/api/external/", $data);
