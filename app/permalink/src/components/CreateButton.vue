@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button class="btn btn-primary" @click="createPermalink">
+		<button class="btn btn-primary" @click.prevent="createPermalink">
 			{{ permalink }}
 		</button>
 	</div>
