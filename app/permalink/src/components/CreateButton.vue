@@ -10,7 +10,7 @@
 /* eslint-disable no-console */
 
 import axios from '@nextcloud/axios'
-import { showSuccess } from '@nextcloud/dialogs'
+import { showSuccess, showError } from '@nextcloud/dialogs'
 import RequestMixin from '../mixins/RequestMixin.ts'
 
 export default {
@@ -52,6 +52,7 @@ export default {
                 this.refreshSidebar(this.fileInfo)
                 this.$emit('refresh')
             } catch (e) {
+                showError(t('permalink', 'Error creating permalink'))
                 if (e.response && e.response.data && e.response.data.message) {
                     console.error(e.response.data)
                 } else {
