@@ -17,6 +17,7 @@ import axios from '@nextcloud/axios'
 
 import CreateButton from './CreateButton.vue'
 import PermalinkVue from './PermalinkView.vue'
+import RequestMixin from '../mixins/RequestMixin.ts'
 
 export default {
 
@@ -24,6 +25,8 @@ export default {
         CreateButton,
         PermalinkVue,
     },
+
+    mixins: [RequestMixin],
 
     props: {
         fileInfo: {
@@ -41,6 +44,7 @@ export default {
 
     mounted() {
         this.getPermalink()
+        this.refreshSidebar(this.fileInfo)
     },
 
     methods: {
@@ -54,11 +58,9 @@ export default {
 
         async getPermalink() {
             const link = encodeURIComponent(this.fullFilePath())
-            console.log('call to getPermalink with link', link)
 
             try {
                 const response = await axios.get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
-                // Handle success
                 console.log('Response:', response.data)
 
                 if (response.data.ocs.data.permalink) {
