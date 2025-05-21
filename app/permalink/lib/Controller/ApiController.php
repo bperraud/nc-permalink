@@ -40,13 +40,6 @@ class ApiController extends OCSController {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
 	}
 
-	#[NoAdminRequired,NoCSRFRequired]
-	#[ApiRoute(verb: 'POST', url: '/api/update')]
-	public function update(): DataResponse {
-        $params = $this->request->getParams();
-        return new DataResponse(['success' => true]);
-	}
-
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): DataResponse {
@@ -60,14 +53,20 @@ class ApiController extends OCSController {
         
         $data = [
             "target_url" => $sharelink,
+            "expiration" => $share->getExpirationDate()?->getTimestamp(),
             "path" => $path,
-            "uid" => $share->getId(),
-            "expiration" => $share->getExpirationDate()?->format(\DateTime::ATOM)
+            "uid" => $share->getId()
         ];
 
         $response = $this->httpService->curl_post("link/api/external/", $data);
 
-        return $response;
+        if ($response->getStatus() != 200) {
+            return new DataResponse(
+                ['permalink' => null]
+            );
+        }
+
+		return $response;
 	}
 
 	#[NoAdminRequired]
@@ -91,7 +90,7 @@ class ApiController extends OCSController {
         if ($response->getStatus() != 200) {
             throw new OCSNotFoundException($this->l10n->t('Delete Error'));
         }
-
+		
         return $response;
     }
 
