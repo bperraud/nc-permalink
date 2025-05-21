@@ -43,11 +43,6 @@ export default {
         this.getPermalink()
     },
 
-    updated() {
-        console.log('updated Button.vue')
-        // this.getPermalink()
-    },
-
     methods: {
 
         fullFilePath() {
