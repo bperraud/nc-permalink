@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'nextcloud/permalink',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '4d1776ca51cbb96a78da050b0a1df2d3527b6a0f',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'bamarni/composer-bin-plugin' => array(
+            'pretty_version' => '1.8.2',
+            'version' => '1.8.2.0',
+            'reference' => '92fd7b1e6e9cdae19b0d57369d8ad31a37b6a880',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../bamarni/composer-bin-plugin',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'firebase/php-jwt' => array(
+            'pretty_version' => 'v6.11.1',
+            'version' => '6.11.1.0',
+            'reference' => 'd1e91ecf8c598d073d0995afa8cd5c75c6e19e66',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../firebase/php-jwt',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'nextcloud/permalink' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '4d1776ca51cbb96a78da050b0a1df2d3527b6a0f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

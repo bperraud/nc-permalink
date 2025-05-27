@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Nextcloud contributors
+# SPDX-License-Identifier: MIT
+version = 1
+SPDX-PackageName = "nextcloud-prettier-config"
+SPDX-PackageSupplier = "Ferdinand Thiessen <opensource@fthiessen.de>"
+SPDX-PackageDownloadLocation = "https://github.com/nextcloud-libraries/nextcloud-prettier-config"
+
+[[annotations]]
+path = ["package-lock.json", "package.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Nextcloud contributors"
+SPDX-License-Identifier = "MIT"

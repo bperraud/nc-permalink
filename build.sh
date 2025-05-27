@@ -10,3 +10,10 @@ rm -f $ARCHIVE_NAME
 git archive --format=tar.gz --output="$ARCHIVE_NAME" HEAD:$APP_NAME
 
 echo "✅ Beta archive created: $ARCHIVE_NAME"
+
+git tag $VERSION
+git push origin main --tags
+
+gh release create $VERSION "${APP_NAME}-${VERSION}.tar.gz"
+
+echo "✅ Release pushed to git"
