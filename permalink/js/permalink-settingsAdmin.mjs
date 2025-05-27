@@ -34742,7 +34742,7 @@ var __component__$2 = /* @__PURE__ */ normalizeComponent$2(
   null,
   null
 );
-__component__$2.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/node_modules/vue-material-design-icons/AlertCircle.vue";
+__component__$2.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/node_modules/vue-material-design-icons/AlertCircle.vue";
 const AlertIcon = __component__$2.exports;
 const _sfc_main$1 = {
   name: "CheckIcon",
@@ -34777,7 +34777,7 @@ var __component__$1 = /* @__PURE__ */ normalizeComponent$2(
   null,
   null
 );
-__component__$1.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/node_modules/vue-material-design-icons/Check.vue";
+__component__$1.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/node_modules/vue-material-design-icons/Check.vue";
 const CheckIcon = __component__$1.exports;
 /*! third party licenses: js/vendor.LICENSE.txt */
 var SettingsKey = /* @__PURE__ */ ((SettingsKey2) => {
@@ -34933,7 +34933,7 @@ var __component__ = /* @__PURE__ */ normalizeComponent$2(
   null,
   "e8c7e823"
 );
-__component__.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/src/components/AdminSettings.vue";
+__component__.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/src/components/AdminSettings.vue";
 const AdminSettings = __component__.exports;
 /*! third party licenses: js/vendor.LICENSE.txt */
 console.debug("Permalink: SettingsAdmin init");

@@ -89,7 +89,7 @@ var __component__$5 = /* @__PURE__ */ normalizeComponent(
   null,
   "d4e7d39f"
 );
-__component__$5.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/src/components/CreateButton.vue";
+__component__$5.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/src/components/CreateButton.vue";
 const CreateButton = __component__$5.exports;
 const _sfc_main$4 = {
   name: "CloseIcon",
@@ -124,7 +124,7 @@ var __component__$4 = /* @__PURE__ */ normalizeComponent(
   null,
   null
 );
-__component__$4.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/node_modules/vue-material-design-icons/Close.vue";
+__component__$4.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/node_modules/vue-material-design-icons/Close.vue";
 const CloseIcon = __component__$4.exports;
 const _sfc_main$3 = {
   name: "CheckBoldIcon",
@@ -159,7 +159,7 @@ var __component__$3 = /* @__PURE__ */ normalizeComponent(
   null,
   null
 );
-__component__$3.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/node_modules/vue-material-design-icons/CheckBold.vue";
+__component__$3.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/node_modules/vue-material-design-icons/CheckBold.vue";
 const CheckIcon = __component__$3.exports;
 const _sfc_main$2 = {
   name: "ContentCopyIcon",
@@ -194,7 +194,7 @@ var __component__$2 = /* @__PURE__ */ normalizeComponent(
   null,
   null
 );
-__component__$2.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/node_modules/vue-material-design-icons/ContentCopy.vue";
+__component__$2.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/node_modules/vue-material-design-icons/ContentCopy.vue";
 const ClipboardIcon = __component__$2.exports;
 const _sfc_main$1 = {
   components: {
@@ -302,7 +302,7 @@ var __component__$1 = /* @__PURE__ */ normalizeComponent(
   null,
   "103bb8db"
 );
-__component__$1.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/src/components/PermalinkView.vue";
+__component__$1.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/src/components/PermalinkView.vue";
 const PermalinkVue = __component__$1.exports;
 const _sfc_main = {
   components: {
@@ -323,7 +323,6 @@ const _sfc_main = {
     };
   },
   mounted() {
-    console.log("mounted");
     this.getPermalink();
     this.refreshSidebar(this.fileInfo);
   },
@@ -334,10 +333,10 @@ const _sfc_main = {
     },
     async getPermalink() {
       const link = encodeURIComponent(this.fullFilePath());
-      console.log("call to getPermalink with link", link);
       try {
         const response = await cancelableClient.get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`);
-        console.log("Response:", response.data);
+        console.log("Response:", response);
+        console.log("Response data:", response.data);
         if (response.data.ocs.data.permalink) {
           this.permalink = response.data.ocs.data.permalink;
           this.activeButtonComponent = PermalinkVue;
@@ -369,7 +368,7 @@ var __component__ = /* @__PURE__ */ normalizeComponent(
   null,
   "3c9d0845"
 );
-__component__.options.__file = "/home/bperraud/code/nc-permalink/app/permalink/src/components/Button.vue";
+__component__.options.__file = "/home/bperraud/Documents/code/nc-permalink/permalink/src/components/Button.vue";
 const ShareLinkButton = __component__.exports;
 /*! third party licenses: js/vendor.LICENSE.txt */
 Vue.prototype.OCA = window.OCA;

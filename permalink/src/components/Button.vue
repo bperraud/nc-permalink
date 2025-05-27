@@ -61,7 +61,8 @@ export default {
 
             try {
                 const response = await axios.get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
-                console.log('Response:', response.data)
+                console.log('Response:', response)
+                console.log('Response data:', response.data)
 
                 if (response.data.ocs.data.permalink) {
                     this.permalink = response.data.ocs.data.permalink

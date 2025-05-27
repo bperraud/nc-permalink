@@ -107,12 +107,6 @@ class ApiController extends OCSController {
         ];
         $response = $this->httpService->curl_get("link/api/external/?target_url=" . urlencode($sharelink));
 
-        if ($response->getStatus() != 200) {
-            return new DataResponse(
-                ['permalink' => null]
-            );
-        }
-
         return $response;
 	}
 
