@@ -1,10 +1,8 @@
 /.idea/
 /*.iml
 
-permalink/permalink/vendor/
-permalink/permalink/vendor-bin/*/vendor/
-permalink/permalink/node_modules
+# permalink/permalink/vendor/
+# permalink/permalink/vendor-bin/*/vendor/
+permalink/permalink/node_modules/
 
 /.php-cs-fixer.cache
-
-/node_modules/
