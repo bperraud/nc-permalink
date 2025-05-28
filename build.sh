@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_NAME="permalink"
-VERSION=$(xmllint --xpath "string(//version)" $APP_NAME/appinfo/info.xml)
+VERSION=$(xmllint --xpath "string(//version)" $APP_NAME/permalink/appinfo/info.xml)
 ARCHIVE_NAME="${APP_NAME}-${VERSION}.tar.gz"
 
 # Clean previous builds
