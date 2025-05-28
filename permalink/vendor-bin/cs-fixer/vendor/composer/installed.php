@@ -1,0 +1,56 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '43192aa0b0f4721bd519ab9cf15ddd58da140c2e',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '43192aa0b0f4721bd519ab9cf15ddd58da140c2e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'friendsofphp/php-cs-fixer' => array(
+            'dev_requirement' => true,
+            'replaced' => array(
+                0 => 'v3.75.0',
+            ),
+        ),
+        'kubawerlos/php-cs-fixer-custom-fixers' => array(
+            'pretty_version' => 'v3.24.0',
+            'version' => '3.24.0.0',
+            'reference' => '93222100a91399314c3726857e249e76c4a7d760',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kubawerlos/php-cs-fixer-custom-fixers',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'nextcloud/coding-standard' => array(
+            'pretty_version' => 'v1.3.2',
+            'version' => '1.3.2.0',
+            'reference' => '9c719c4747fa26efc12f2e8b21c14a9a75c6ba6d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../nextcloud/coding-standard',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'php-cs-fixer/shim' => array(
+            'pretty_version' => 'v3.75.0',
+            'version' => '3.75.0.0',
+            'reference' => 'eea219a577085bd13ff0cb644a422c20798316c7',
+            'type' => 'application',
+            'install_path' => __DIR__ . '/../php-cs-fixer/shim',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+    ),
+);
