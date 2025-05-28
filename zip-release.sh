@@ -6,8 +6,8 @@ ARCHIVE_NAME="${APP_NAME}-${VERSION}.tar.gz"
 
 
 # Build
-# rm -rf js/*
-# make build-js-production
+rm -rf js/*
+make build-js-production
 
 # Clean previous builds
 rm -f $ARCHIVE_NAME
