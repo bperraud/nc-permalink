@@ -48,6 +48,7 @@ import NcActionButton from '@nextcloud/vue/components/NcActionButton'
 import NcActions from '@nextcloud/vue/components/NcActions'
 
 import { showSuccess } from '@nextcloud/dialogs'
+import { generateUrl } from '@nextcloud/router'
 import { t } from '@nextcloud/l10n'
 
 import CloseIcon from 'vue-material-design-icons/Close.vue'
@@ -121,7 +122,7 @@ export default {
             const link = encodeURIComponent(this.fullFilePath())
             console.log('onDelete with link', link)
             try {
-                const response = await axios.delete(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
+                const response = await axios.delete(generateUrl('apps/permalink/api/link') + `?path=${link}`)
                 console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink deleted'))
                 this.refreshSidebar(this.fileInfo)

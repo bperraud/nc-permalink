@@ -10,6 +10,7 @@
 /* eslint-disable no-console */
 
 import axios from '@nextcloud/axios'
+import { generateUrl } from '@nextcloud/router'
 import { showSuccess, showError } from '@nextcloud/dialogs'
 import RequestMixin from '../mixins/RequestMixin.ts'
 
@@ -46,7 +47,7 @@ export default {
             }
 
             try {
-                const response = await axios.post('/ocs/v2.php/apps/permalink/api/link', data)
+                const response = await axios.post(generateUrl('apps/permalink/api/link'), data)
                 console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink created'))
                 this.refreshSidebar(this.fileInfo)

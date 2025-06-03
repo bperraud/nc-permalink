@@ -12,6 +12,7 @@
 /* eslint-disable no-console */
 
 import { t } from '@nextcloud/l10n'
+import { generateUrl } from '@nextcloud/router'
 
 import axios from '@nextcloud/axios'
 
@@ -60,7 +61,7 @@ export default {
             const link = encodeURIComponent(this.fullFilePath())
 
             try {
-                const response = await axios.get(`/ocs/v2.php/apps/permalink/api/link?path=${link}`)
+                const response = await axios.get(generateUrl('apps/permalink/api/link') + `?path=${link}`)
                 console.log('Response:', response)
 
                 if (response.data.ocs.data.permalink) {
