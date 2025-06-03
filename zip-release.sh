@@ -12,7 +12,7 @@ make build-js-production
 # Clean previous builds
 rm -f $ARCHIVE_NAME
 
-git archive --format=tar.gz --prefix="${APP_NAME}/${APP_NAME}/" --output="$ARCHIVE_NAME" HEAD
+git archive --format=tar.gz --prefix="${APP_NAME}/" --output="$ARCHIVE_NAME" HEAD
 
 echo "✅ Beta archive created: $ARCHIVE_NAME"
 
