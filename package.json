@@ -29,7 +29,7 @@
     "dependencies": {
         "@nextcloud/auth": "^2.4.0",
         "@nextcloud/axios": "^2.5.1",
-        "@nextcloud/dialogs": "^6.1.1",
+        "@nextcloud/dialogs": "^3.1.2",
         "@nextcloud/router": "^3.0.1",
         "@nextcloud/sharing": "^0.2.4",
         "@nextcloud/vue": "^8.26.0",
@@ -52,13 +52,13 @@
         "@nextcloud/l10n": "^3.2.0",
         "@nextcloud/prettier-config": "^1.1.0",
         "@nextcloud/stylelint-config": "^3.0.1",
-        "@nextcloud/vite-config": "^1.4.2",
+        "@nextcloud/vite-config": "^2.3.5",
         "@vue/tsconfig": "^0.5.1",
         "esbuild": "^0.25.5",
         "eslint-config-prettier": "^10.1.1",
         "prettier": "^3.5.3",
         "vite": "^6.3.5",
         "vite-plugin-eslint": "^1.8.1",
-        "vite-plugin-stylelint": "^5.3.1"
+        "vite-plugin-stylelint": "^6.0.0"
     }
 }
