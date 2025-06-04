@@ -52,7 +52,7 @@ import { generateUrl } from '@nextcloud/router'
 import { t } from '@nextcloud/l10n'
 
 import CloseIcon from 'vue-material-design-icons/Close.vue'
-import CheckIcon from 'vue-material-design-icons/CheckBold.vue'
+import CheckIcon from 'vue-material-design-icons/Check.vue'
 import ClipboardIcon from 'vue-material-design-icons/ContentCopy.vue'
 
 import RequestMixin from '../mixins/RequestMixin.ts'
