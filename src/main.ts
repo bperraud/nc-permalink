@@ -10,6 +10,7 @@ const View = Vue.extend(ShareLinkButton)
 
 window.addEventListener('DOMContentLoaded', function() {
     if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
+
         OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
             if (!el || !fileInfo) return
 
