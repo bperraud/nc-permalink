@@ -92,6 +92,10 @@ class HttpRequestService {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
+        // ❗ Disabling SSL certificate validation (use only in dev/test)
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable peer verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // Don't verify the host
+
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
