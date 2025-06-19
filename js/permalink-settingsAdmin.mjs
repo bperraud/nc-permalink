@@ -870,29 +870,29 @@ li:first-child > .action-input[data-v-d174eb12]:not(.action-input--visible-label
   background-color: #f3f3f3;
 }
 
-.mx-datepicker[data-v-6d5f1cd] {
+.mx-datepicker[data-v-0ace0de] {
   user-select: none;
   color: var(--color-main-text);
   /* INPUT CONTAINER */
 }
-.mx-datepicker[data-v-6d5f1cd] svg {
+.mx-datepicker[data-v-0ace0de] svg {
   fill: var(--color-main-text);
 }
-.mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper .mx-input {
+.mx-datepicker[data-v-0ace0de] .mx-input-wrapper .mx-input {
   width: 100%;
   border: 2px solid var(--color-border-maxcontrast);
   background-color: var(--color-main-background);
   background-clip: content-box;
 }
-.mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper .mx-input:active:not(.disabled), .mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper .mx-input:hover:not(.disabled), .mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper .mx-input:focus:not(.disabled) {
+.mx-datepicker[data-v-0ace0de] .mx-input-wrapper .mx-input:active:not(.disabled), .mx-datepicker[data-v-0ace0de] .mx-input-wrapper .mx-input:hover:not(.disabled), .mx-datepicker[data-v-0ace0de] .mx-input-wrapper .mx-input:focus:not(.disabled) {
   border-color: var(--color-primary-element);
 }
-.mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper:disabled, .mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper.disabled {
+.mx-datepicker[data-v-0ace0de] .mx-input-wrapper:disabled, .mx-datepicker[data-v-0ace0de] .mx-input-wrapper.disabled {
   cursor: not-allowed;
   opacity: 0.7;
 }
-.mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper .mx-icon-calendar,
-.mx-datepicker[data-v-6d5f1cd] .mx-input-wrapper .mx-icon-clear {
+.mx-datepicker[data-v-0ace0de] .mx-input-wrapper .mx-icon-calendar,
+.mx-datepicker[data-v-0ace0de] .mx-input-wrapper .mx-icon-clear {
   color: var(--color-text-lighter);
 }
 
@@ -1870,15 +1870,7 @@ li.action[data-v-30c015f0]:hover {
   overflow: hidden;
   white-space: nowrap;
   max-width: 100%;
-  display: block;
-}
-.action-link__description[data-v-30c015f0] {
-  display: block;
-  white-space: pre-wrap;
-  font-size: var(--font-size-small);
-  line-height: var(--default-line-height);
-  color: var(--color-text-maxcontrast);
-  cursor: pointer;
+  display: inline-block;
 }
 .action-link__menu-icon[data-v-30c015f0] {
   margin-inline: auto calc((var(--default-clickable-area) - 16px) / 2 * -1);
@@ -1971,15 +1963,7 @@ li.action[data-v-579c6b4d]:hover {
   overflow: hidden;
   white-space: nowrap;
   max-width: 100%;
-  display: block;
-}
-.action-router__description[data-v-579c6b4d] {
-  display: block;
-  white-space: pre-wrap;
-  font-size: var(--font-size-small);
-  line-height: var(--default-line-height);
-  color: var(--color-text-maxcontrast);
-  cursor: pointer;
+  display: inline-block;
 }
 .action-router__menu-icon[data-v-579c6b4d] {
   margin-inline: auto calc((var(--default-clickable-area) - 16px) / 2 * -1);
@@ -2083,15 +2067,7 @@ li.action[data-v-824615f4]:hover {
   overflow: hidden;
   white-space: nowrap;
   max-width: 100%;
-  display: block;
-}
-.action-text__description[data-v-824615f4] {
-  display: block;
-  white-space: pre-wrap;
-  font-size: var(--font-size-small);
-  line-height: var(--default-line-height);
-  color: var(--color-text-maxcontrast);
-  cursor: pointer;
+  display: inline-block;
 }
 .action-text__menu-icon[data-v-824615f4] {
   margin-inline: auto calc((var(--default-clickable-area) - 16px) / 2 * -1);
@@ -2152,21 +2128,21 @@ li.action[data-v-824615f4]:hover {
 /*
 * Ensure proper alignment of the vue material icons
 */
-.material-design-icon[data-v-9e776556] {
+.material-design-icon[data-v-a606e088] {
   display: flex;
   align-self: center;
   justify-self: center;
   align-items: center;
   justify-content: center;
 }
-.native-datetime-picker[data-v-9e776556] {
+.native-datetime-picker[data-v-a606e088] {
   display: flex;
   flex-direction: column;
 }
-.native-datetime-picker .native-datetime-picker--label[data-v-9e776556] {
+.native-datetime-picker .native-datetime-picker--label[data-v-a606e088] {
   margin-block-end: 2px;
 }
-.native-datetime-picker .native-datetime-picker--input[data-v-9e776556] {
+.native-datetime-picker .native-datetime-picker--input[data-v-a606e088] {
   --input-border-width-offset: calc(var(--border-width-input-focused, 2px) - var(--border-width-input, 2px));
   width: 100%;
   flex: 0 0 auto;
@@ -2175,29 +2151,29 @@ li.action[data-v-824615f4]:hover {
   padding-inline-end: calc(var(--default-grid-baseline) + var(--input-border-width-offset));
   border: var(--border-width-input, 2px) solid var(--color-border-maxcontrast);
 }
-.native-datetime-picker .native-datetime-picker--input[data-v-9e776556]:active:not([disabled]), .native-datetime-picker .native-datetime-picker--input[data-v-9e776556]:hover:not([disabled]), .native-datetime-picker .native-datetime-picker--input[data-v-9e776556]:focus:not([disabled]), .native-datetime-picker .native-datetime-picker--input[data-v-9e776556]:focus-within:not([disabled]) {
+.native-datetime-picker .native-datetime-picker--input[data-v-a606e088]:active:not([disabled]), .native-datetime-picker .native-datetime-picker--input[data-v-a606e088]:hover:not([disabled]), .native-datetime-picker .native-datetime-picker--input[data-v-a606e088]:focus:not([disabled]), .native-datetime-picker .native-datetime-picker--input[data-v-a606e088]:focus-within:not([disabled]) {
   border-color: var(--color-main-text);
   border-width: var(--border-width-input-focused, 2px);
   box-shadow: 0 0 0 2px var(--color-main-background) !important;
   --input-border-width-offset: 0px;
 }
-[data-theme-light] .native-datetime-picker--input[data-v-9e776556],
-[data-themes*=light] .native-datetime-picker--input[data-v-9e776556] {
+[data-theme-light] .native-datetime-picker--input[data-v-a606e088],
+[data-themes*=light] .native-datetime-picker--input[data-v-a606e088] {
   color-scheme: light;
 }
-[data-theme-dark] .native-datetime-picker--input[data-v-9e776556],
-[data-themes*=dark] .native-datetime-picker--input[data-v-9e776556] {
+[data-theme-dark] .native-datetime-picker--input[data-v-a606e088],
+[data-themes*=dark] .native-datetime-picker--input[data-v-a606e088] {
   color-scheme: dark;
 }
 @media (prefers-color-scheme: light) {
-[data-theme-default] .native-datetime-picker--input[data-v-9e776556],
-  [data-themes*=default] .native-datetime-picker--input[data-v-9e776556] {
+[data-theme-default] .native-datetime-picker--input[data-v-a606e088],
+  [data-themes*=default] .native-datetime-picker--input[data-v-a606e088] {
     color-scheme: light;
 }
 }
 @media (prefers-color-scheme: dark) {
-[data-theme-default] .native-datetime-picker--input[data-v-9e776556],
-  [data-themes*=default] .native-datetime-picker--input[data-v-9e776556] {
+[data-theme-default] .native-datetime-picker--input[data-v-a606e088],
+  [data-themes*=default] .native-datetime-picker--input[data-v-a606e088] {
     color-scheme: dark;
 }
 }/**
@@ -2500,7 +2476,7 @@ li.action[data-v-8ddd08c0]:hover {
 /*
 * Ensure proper alignment of the vue material icons
 */
-.material-design-icon[data-v-a4505289] {
+.material-design-icon[data-v-a9c08a7c] {
   display: flex;
   align-self: center;
   justify-self: center;
@@ -2518,9 +2494,9 @@ li.action[data-v-8ddd08c0]:hover {
  * color-text-maxcontrast 	disabled state
  */
 /* Default global values */
-button[data-v-a4505289]:not(.button-vue),
-input[data-v-a4505289]:not([type=range]),
-textarea[data-v-a4505289] {
+button[data-v-a9c08a7c]:not(.button-vue),
+input[data-v-a9c08a7c]:not([type=range]),
+textarea[data-v-a9c08a7c] {
   margin: 0;
   padding: 7px 6px;
   cursor: text;
@@ -2532,69 +2508,69 @@ textarea[data-v-a4505289] {
   font-size: 13px;
   /* Primary action button, use sparingly */
 }
-button[data-v-a4505289]:not(.button-vue):not(:disabled):not(.primary):hover, button[data-v-a4505289]:not(.button-vue):not(:disabled):not(.primary):focus, button:not(.button-vue):not(:disabled):not(.primary).active[data-v-a4505289],
-input[data-v-a4505289]:not([type=range]):not(:disabled):not(.primary):hover,
-input[data-v-a4505289]:not([type=range]):not(:disabled):not(.primary):focus,
-input:not([type=range]):not(:disabled):not(.primary).active[data-v-a4505289],
-textarea[data-v-a4505289]:not(:disabled):not(.primary):hover,
-textarea[data-v-a4505289]:not(:disabled):not(.primary):focus,
-textarea:not(:disabled):not(.primary).active[data-v-a4505289] {
+button[data-v-a9c08a7c]:not(.button-vue):not(:disabled):not(.primary):hover, button[data-v-a9c08a7c]:not(.button-vue):not(:disabled):not(.primary):focus, button:not(.button-vue):not(:disabled):not(.primary).active[data-v-a9c08a7c],
+input[data-v-a9c08a7c]:not([type=range]):not(:disabled):not(.primary):hover,
+input[data-v-a9c08a7c]:not([type=range]):not(:disabled):not(.primary):focus,
+input:not([type=range]):not(:disabled):not(.primary).active[data-v-a9c08a7c],
+textarea[data-v-a9c08a7c]:not(:disabled):not(.primary):hover,
+textarea[data-v-a9c08a7c]:not(:disabled):not(.primary):focus,
+textarea:not(:disabled):not(.primary).active[data-v-a9c08a7c] {
   /* active class used for multiselect */
   border-color: var(--color-primary-element);
   outline: none;
 }
-button[data-v-a4505289]:not(.button-vue):not(:disabled):not(.primary):active,
-input[data-v-a4505289]:not([type=range]):not(:disabled):not(.primary):active,
-textarea[data-v-a4505289]:not(:disabled):not(.primary):active {
+button[data-v-a9c08a7c]:not(.button-vue):not(:disabled):not(.primary):active,
+input[data-v-a9c08a7c]:not([type=range]):not(:disabled):not(.primary):active,
+textarea[data-v-a9c08a7c]:not(:disabled):not(.primary):active {
   color: var(--color-text-light);
   outline: none;
   background-color: var(--color-main-background);
 }
-button[data-v-a4505289]:not(.button-vue):disabled,
-input[data-v-a4505289]:not([type=range]):disabled,
-textarea[data-v-a4505289]:disabled {
+button[data-v-a9c08a7c]:not(.button-vue):disabled,
+input[data-v-a9c08a7c]:not([type=range]):disabled,
+textarea[data-v-a9c08a7c]:disabled {
   cursor: default;
   opacity: 0.5;
   color: var(--color-text-maxcontrast);
   background-color: var(--color-background-dark);
 }
-button[data-v-a4505289]:not(.button-vue):required,
-input[data-v-a4505289]:not([type=range]):required,
-textarea[data-v-a4505289]:required {
+button[data-v-a9c08a7c]:not(.button-vue):required,
+input[data-v-a9c08a7c]:not([type=range]):required,
+textarea[data-v-a9c08a7c]:required {
   box-shadow: none;
 }
-button[data-v-a4505289]:not(.button-vue):invalid,
-input[data-v-a4505289]:not([type=range]):invalid,
-textarea[data-v-a4505289]:invalid {
+button[data-v-a9c08a7c]:not(.button-vue):invalid,
+input[data-v-a9c08a7c]:not([type=range]):invalid,
+textarea[data-v-a9c08a7c]:invalid {
   border-color: var(--color-error);
   box-shadow: none !important;
 }
-button:not(.button-vue).primary[data-v-a4505289],
-input:not([type=range]).primary[data-v-a4505289],
-textarea.primary[data-v-a4505289] {
+button:not(.button-vue).primary[data-v-a9c08a7c],
+input:not([type=range]).primary[data-v-a9c08a7c],
+textarea.primary[data-v-a9c08a7c] {
   cursor: pointer;
   color: var(--color-primary-element-text);
   border-color: var(--color-primary-element);
   background-color: var(--color-primary-element);
 }
-button:not(.button-vue).primary[data-v-a4505289]:not(:disabled):hover, button:not(.button-vue).primary[data-v-a4505289]:not(:disabled):focus, button:not(.button-vue).primary[data-v-a4505289]:not(:disabled):active,
-input:not([type=range]).primary[data-v-a4505289]:not(:disabled):hover,
-input:not([type=range]).primary[data-v-a4505289]:not(:disabled):focus,
-input:not([type=range]).primary[data-v-a4505289]:not(:disabled):active,
-textarea.primary[data-v-a4505289]:not(:disabled):hover,
-textarea.primary[data-v-a4505289]:not(:disabled):focus,
-textarea.primary[data-v-a4505289]:not(:disabled):active {
+button:not(.button-vue).primary[data-v-a9c08a7c]:not(:disabled):hover, button:not(.button-vue).primary[data-v-a9c08a7c]:not(:disabled):focus, button:not(.button-vue).primary[data-v-a9c08a7c]:not(:disabled):active,
+input:not([type=range]).primary[data-v-a9c08a7c]:not(:disabled):hover,
+input:not([type=range]).primary[data-v-a9c08a7c]:not(:disabled):focus,
+input:not([type=range]).primary[data-v-a9c08a7c]:not(:disabled):active,
+textarea.primary[data-v-a9c08a7c]:not(:disabled):hover,
+textarea.primary[data-v-a9c08a7c]:not(:disabled):focus,
+textarea.primary[data-v-a9c08a7c]:not(:disabled):active {
   border-color: var(--color-primary-element-light);
   background-color: var(--color-primary-element-light);
 }
-button:not(.button-vue).primary[data-v-a4505289]:not(:disabled):active,
-input:not([type=range]).primary[data-v-a4505289]:not(:disabled):active,
-textarea.primary[data-v-a4505289]:not(:disabled):active {
+button:not(.button-vue).primary[data-v-a9c08a7c]:not(:disabled):active,
+input:not([type=range]).primary[data-v-a9c08a7c]:not(:disabled):active,
+textarea.primary[data-v-a9c08a7c]:not(:disabled):active {
   color: var(--color-primary-element-text-dark);
 }
-button:not(.button-vue).primary[data-v-a4505289]:disabled,
-input:not([type=range]).primary[data-v-a4505289]:disabled,
-textarea.primary[data-v-a4505289]:disabled {
+button:not(.button-vue).primary[data-v-a9c08a7c]:disabled,
+input:not([type=range]).primary[data-v-a9c08a7c]:disabled,
+textarea.primary[data-v-a9c08a7c]:disabled {
   cursor: default;
   color: var(--color-primary-element-text-dark);
   background-color: var(--color-primary-element);
@@ -2604,25 +2580,25 @@ textarea.primary[data-v-a4505289]:disabled {
  * SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
-li.action[data-v-a4505289]:hover, li.action.active[data-v-a4505289] {
+li.action[data-v-a9c08a7c]:hover, li.action.active[data-v-a9c08a7c] {
   border-radius: 6px;
   padding: 0;
 }
-li.action[data-v-a4505289]:hover {
+li.action[data-v-a9c08a7c]:hover {
   background-color: var(--color-background-hover);
 }
-.action--disabled[data-v-a4505289] {
+.action--disabled[data-v-a9c08a7c] {
   pointer-events: none;
   opacity: 0.5;
 }
-.action--disabled[data-v-a4505289]:hover, .action--disabled[data-v-a4505289]:focus {
+.action--disabled[data-v-a9c08a7c]:hover, .action--disabled[data-v-a9c08a7c]:focus {
   cursor: default;
   opacity: 0.5;
 }
-.action--disabled *[data-v-a4505289] {
+.action--disabled *[data-v-a9c08a7c] {
   opacity: 1 !important;
 }
-.action-text-editable[data-v-a4505289] {
+.action-text-editable[data-v-a9c08a7c] {
   display: flex;
   align-items: flex-start;
   width: 100%;
@@ -2640,11 +2616,11 @@ li.action[data-v-a4505289]:hover {
   line-height: var(--default-clickable-area);
   /* Inputs inside popover supports text, submit & reset */
 }
-.action-text-editable > span[data-v-a4505289] {
+.action-text-editable > span[data-v-a9c08a7c] {
   cursor: pointer;
   white-space: nowrap;
 }
-.action-text-editable__icon[data-v-a4505289] {
+.action-text-editable__icon[data-v-a9c08a7c] {
   min-width: 0; /* Overwrite icons*/
   min-height: 0;
   /* Keep padding to define the width to
@@ -2653,15 +2629,15 @@ li.action[data-v-a4505289]:hover {
   background-position: calc((var(--default-clickable-area) - 16px) / 2) center;
   background-size: 16px;
 }
-.action-text-editable[data-v-a4505289] .material-design-icon {
+.action-text-editable[data-v-a9c08a7c] .material-design-icon {
   width: var(--default-clickable-area);
   height: var(--default-clickable-area);
   opacity: 1;
 }
-.action-text-editable[data-v-a4505289] .material-design-icon .material-design-icon__svg {
+.action-text-editable[data-v-a9c08a7c] .material-design-icon .material-design-icon__svg {
   vertical-align: middle;
 }
-.action-text-editable__form[data-v-a4505289] {
+.action-text-editable__form[data-v-a9c08a7c] {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -2669,7 +2645,7 @@ li.action[data-v-a4505289]:hover {
   margin: 4px 0;
   padding-inline-end: calc((var(--default-clickable-area) - 16px) / 2);
 }
-.action-text-editable__submit[data-v-a4505289] {
+.action-text-editable__submit[data-v-a9c08a7c] {
   position: absolute;
   inset-inline-start: 0;
   top: auto;
@@ -2679,7 +2655,7 @@ li.action[data-v-a4505289]:hover {
   z-index: -1;
   opacity: 0;
 }
-.action-text-editable__label[data-v-a4505289] {
+.action-text-editable__label[data-v-a9c08a7c] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2697,10 +2673,10 @@ li.action[data-v-a4505289]:hover {
   background-color: var(--color-main-background);
   background-clip: padding-box;
 }
-.action-text-editable__label[data-v-a4505289], .action-text-editable__label *[data-v-a4505289] {
+.action-text-editable__label[data-v-a9c08a7c], .action-text-editable__label *[data-v-a9c08a7c] {
   cursor: pointer;
 }
-.action-text-editable__textarea[data-v-a4505289] {
+.action-text-editable__textarea[data-v-a9c08a7c] {
   flex: 1 1 auto;
   color: inherit;
   border-color: var(--color-border-maxcontrast);
@@ -2711,26 +2687,26 @@ li.action[data-v-a4505289]:hover {
   margin: 0;
   /* only show confirm borders if input is not focused */
 }
-.action-text-editable__textarea[data-v-a4505289]:disabled {
+.action-text-editable__textarea[data-v-a9c08a7c]:disabled {
   cursor: default;
 }
-.action-text-editable__textarea:not(:active):not(:hover):not(:focus):invalid + .action-text-editable__label[data-v-a4505289] {
+.action-text-editable__textarea:not(:active):not(:hover):not(:focus):invalid + .action-text-editable__label[data-v-a9c08a7c] {
   background-color: var(--color-error);
 }
-.action-text-editable__textarea:not(:active):not(:hover):not(:focus):not(:disabled) + .action-text-editable__label[data-v-a4505289]:active, .action-text-editable__textarea:not(:active):not(:hover):not(:focus):not(:disabled) + .action-text-editable__label[data-v-a4505289]:hover, .action-text-editable__textarea:not(:active):not(:hover):not(:focus):not(:disabled) + .action-text-editable__label[data-v-a4505289]:focus {
+.action-text-editable__textarea:not(:active):not(:hover):not(:focus):not(:disabled) + .action-text-editable__label[data-v-a9c08a7c]:active, .action-text-editable__textarea:not(:active):not(:hover):not(:focus):not(:disabled) + .action-text-editable__label[data-v-a9c08a7c]:hover, .action-text-editable__textarea:not(:active):not(:hover):not(:focus):not(:disabled) + .action-text-editable__label[data-v-a9c08a7c]:focus {
   background-color: var(--color-primary-element);
   color: var(--color-primary-element-text);
 }
-.action-text-editable__textarea:active:not(:disabled) + .action-text-editable__label[data-v-a4505289], .action-text-editable__textarea:hover:not(:disabled) + .action-text-editable__label[data-v-a4505289], .action-text-editable__textarea:focus:not(:disabled) + .action-text-editable__label[data-v-a4505289] {
+.action-text-editable__textarea:active:not(:disabled) + .action-text-editable__label[data-v-a9c08a7c], .action-text-editable__textarea:hover:not(:disabled) + .action-text-editable__label[data-v-a9c08a7c], .action-text-editable__textarea:focus:not(:disabled) + .action-text-editable__label[data-v-a9c08a7c] {
   /* above previous input */
   z-index: 2;
   border-color: var(--color-primary-element);
   border-inline-start-color: transparent;
 }
-li:last-child > .action-text-editable[data-v-a4505289] {
+li:last-child > .action-text-editable[data-v-a9c08a7c] {
   margin-bottom: calc((var(--default-clickable-area) - 16px) / 2 - 4px);
 }
-li:first-child > .action-text-editable[data-v-a4505289] {
+li:first-child > .action-text-editable[data-v-a9c08a7c] {
   margin-top: calc((var(--default-clickable-area) - 16px) / 2 - 4px);
 }/**
  * SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
@@ -2889,14 +2865,14 @@ li:first-child > .action-text-editable[data-v-a4505289] {
 /*
 * Ensure proper alignment of the vue material icons
 */
-.material-design-icon[data-v-6d2acd3d] {
+.material-design-icon[data-v-e8d5a9e1] {
   display: flex;
   align-self: center;
   justify-self: center;
   align-items: center;
   justify-content: center;
 }
-.app-navigation[data-v-6d2acd3d] {
+.app-navigation[data-v-e8d5a9e1] {
   --color-text-maxcontrast: var(--color-text-maxcontrast-background-blur, var(--color-text-maxcontrast-default));
   transition: transform var(--animation-quick), margin var(--animation-quick);
   width: 300px;
@@ -2919,16 +2895,16 @@ li:first-child > .action-text-editable[data-v-a4505289] {
   -webkit-backdrop-filter: var(--filter-background-blur, none);
   backdrop-filter: var(--filter-background-blur, none);
 }
-.app-navigation--close[data-v-6d2acd3d] {
+.app-navigation--close[data-v-e8d5a9e1] {
   margin-inline-start: calc(-1 * min(300px, var(--app-navigation-max-width)));
 }
-.app-navigation__search[data-v-6d2acd3d] {
+.app-navigation__search[data-v-e8d5a9e1] {
   width: 100%;
 }
-.app-navigation__body[data-v-6d2acd3d] {
+.app-navigation__body[data-v-e8d5a9e1] {
   overflow-y: scroll;
 }
-.app-navigation__content > ul[data-v-6d2acd3d] {
+.app-navigation__content > ul[data-v-e8d5a9e1] {
   position: relative;
   width: 100%;
   overflow-x: hidden;
@@ -2939,30 +2915,30 @@ li:first-child > .action-text-editable[data-v-a4505289] {
   gap: var(--default-grid-baseline, 4px);
   padding: var(--app-navigation-padding);
 }
-.app-navigation .app-navigation__list[data-v-6d2acd3d] {
+.app-navigation .app-navigation__list[data-v-e8d5a9e1] {
   height: 100%;
 }
-.app-navigation__body--no-list[data-v-6d2acd3d] {
+.app-navigation__body--no-list[data-v-e8d5a9e1] {
   flex: 1 1 auto;
   overflow: auto;
   height: 100%;
 }
-.app-navigation__content[data-v-6d2acd3d] {
+.app-navigation__content[data-v-e8d5a9e1] {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-[data-themes*=highcontrast] .app-navigation[data-v-6d2acd3d] {
+[data-themes*=highcontrast] .app-navigation[data-v-e8d5a9e1] {
   border-inline-end: 1px solid var(--color-border);
 }
 @media only screen and (max-width: 1024px) {
-.app-navigation[data-v-6d2acd3d] {
+.app-navigation[data-v-e8d5a9e1] {
     position: absolute;
     border-inline-end: 1px solid var(--color-border);
 }
 }
 @media only screen and (max-width: 512px) {
-.app-navigation[data-v-6d2acd3d] {
+.app-navigation[data-v-e8d5a9e1] {
     z-index: 1400;
 }
 }/**
@@ -3926,7 +3902,7 @@ button.app-navigation-toggle[data-v-f7da2749] {
 /*
 * Ensure proper alignment of the vue material icons
 */
-.material-design-icon[data-v-034b862f] {
+.material-design-icon[data-v-d114a7f1] {
   display: flex;
   align-self: center;
   justify-self: center;
@@ -3938,7 +3914,7 @@ button.app-navigation-toggle[data-v-f7da2749] {
 	Sidebar: to be used within #content
 	app-content will be shrinked properly
 */
-.app-sidebar[data-v-034b862f] {
+.app-sidebar[data-v-d114a7f1] {
   --app-sidebar-width: clamp(300px, 27vw, 500px);
   width: var(--app-sidebar-width);
   z-index: 1500;
@@ -3954,27 +3930,33 @@ button.app-navigation-toggle[data-v-f7da2749] {
   background: var(--color-main-background);
   position: relative;
 }
-.app-sidebar__toggle[data-v-034b862f] {
+.app-sidebar__toggle[data-v-d114a7f1] {
   position: absolute !important;
   inset-block-start: var(--app-sidebar-padding);
   inset-inline-end: var(--app-sidebar-padding);
   z-index: 1001;
 }
-.app-sidebar .app-sidebar-header[data-v-034b862f] {
+.app-sidebar .app-sidebar-header[data-v-d114a7f1] {
   --app-sidebar-close-button-offset: calc(var(--default-clickable-area) + calc(var(--default-grid-baseline, 4px) * 2));
 }
-.app-sidebar .app-sidebar-header > .app-sidebar__close[data-v-034b862f] {
+.app-sidebar .app-sidebar-header > .app-sidebar__close[data-v-d114a7f1] {
   position: absolute;
   z-index: 100;
   top: calc(var(--default-grid-baseline, 4px) * 2);
   inset-inline-end: calc(var(--default-grid-baseline, 4px) * 2);
   width: var(--default-clickable-area);
   height: var(--default-clickable-area);
+  opacity: 0.7;
+  border-radius: calc(var(--default-clickable-area) / 2);
 }
-.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info[data-v-034b862f] {
+.app-sidebar .app-sidebar-header > .app-sidebar__close[data-v-d114a7f1]:hover, .app-sidebar .app-sidebar-header > .app-sidebar__close[data-v-d114a7f1]:active, .app-sidebar .app-sidebar-header > .app-sidebar__close[data-v-d114a7f1]:focus {
+  opacity: 1;
+  background-color: rgba(127, 127, 127, 0.25);
+}
+.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info[data-v-d114a7f1] {
   flex-direction: row;
 }
-.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__figure[data-v-034b862f] {
+.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__figure[data-v-d114a7f1] {
   --figure-size: calc($desc-height + var(--app-sidebar-padding));
   z-index: 2;
   width: var(--figure-size);
@@ -3983,44 +3965,44 @@ button.app-navigation-toggle[data-v-f7da2749] {
   border-radius: 3px;
   flex: 0 0 auto;
 }
-.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc[data-v-034b862f] {
+.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc[data-v-d114a7f1] {
   padding-inline-start: 0;
   flex: 1 1 auto;
   min-width: 0;
   padding-inline-end: calc(var(--default-clickable-area) + var(--app-sidebar-close-button-offset));
   padding-top: var(--app-sidebar-padding);
 }
-.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc.app-sidebar-header__desc--without-actions[data-v-034b862f] {
+.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc.app-sidebar-header__desc--without-actions[data-v-d114a7f1] {
   padding-inline-end: var(--app-sidebar-close-button-offset);
 }
-.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc .app-sidebar-header__tertiary-actions[data-v-034b862f] {
+.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc .app-sidebar-header__tertiary-actions[data-v-d114a7f1] {
   z-index: 3;
   position: absolute;
   top: calc(var(--app-sidebar-padding) / 2);
   inset-inline-start: calc(-1 * var(--default-clickable-area));
   gap: 0;
 }
-.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc .app-sidebar-header__menu[data-v-034b862f] {
+.app-sidebar .app-sidebar-header--compact.app-sidebar-header--with-figure .app-sidebar-header__info .app-sidebar-header__desc .app-sidebar-header__menu[data-v-d114a7f1] {
   top: calc(var(--default-grid-baseline, 4px) * 2);
   inset-inline-end: var(--app-sidebar-close-button-offset);
   position: absolute;
 }
-.app-sidebar .app-sidebar-header:not(.app-sidebar-header--with-figure) .app-sidebar-header__menu[data-v-034b862f] {
+.app-sidebar .app-sidebar-header:not(.app-sidebar-header--with-figure) .app-sidebar-header__menu[data-v-d114a7f1] {
   position: absolute;
   top: calc(var(--default-grid-baseline, 4px) * 2);
   inset-inline-end: var(--app-sidebar-close-button-offset);
 }
-.app-sidebar .app-sidebar-header:not(.app-sidebar-header--with-figure) .app-sidebar-header__desc[data-v-034b862f] {
+.app-sidebar .app-sidebar-header:not(.app-sidebar-header--with-figure) .app-sidebar-header__desc[data-v-d114a7f1] {
   padding-inline-end: calc(var(--default-clickable-area) + var(--app-sidebar-close-button-offset));
 }
-.app-sidebar .app-sidebar-header:not(.app-sidebar-header--with-figure) .app-sidebar-header__desc.app-sidebar-header__desc--without-actions[data-v-034b862f] {
+.app-sidebar .app-sidebar-header:not(.app-sidebar-header--with-figure) .app-sidebar-header__desc.app-sidebar-header__desc--without-actions[data-v-d114a7f1] {
   padding-inline-end: var(--app-sidebar-close-button-offset);
 }
-.app-sidebar .app-sidebar-header .app-sidebar-header__info[data-v-034b862f] {
+.app-sidebar .app-sidebar-header .app-sidebar-header__info[data-v-d114a7f1] {
   display: flex;
   flex-direction: column;
 }
-.app-sidebar .app-sidebar-header__figure[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__figure[data-v-d114a7f1] {
   width: 100%;
   height: 250px;
   max-height: 250px;
@@ -4028,10 +4010,10 @@ button.app-navigation-toggle[data-v-f7da2749] {
   background-position: center;
   background-size: contain;
 }
-.app-sidebar .app-sidebar-header__figure--with-action[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__figure--with-action[data-v-d114a7f1] {
   cursor: pointer;
 }
-.app-sidebar .app-sidebar-header__desc[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc[data-v-d114a7f1] {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -4041,85 +4023,85 @@ button.app-navigation-toggle[data-v-f7da2749] {
   padding-block: calc(var(--default-grid-baseline, 4px) * 2) calc(var(--app-sidebar-padding) / 2);
   gap: 0 4px;
 }
-.app-sidebar .app-sidebar-header__desc--with-tertiary-action[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc--with-tertiary-action[data-v-d114a7f1] {
   padding-inline-start: 6px;
 }
-.app-sidebar .app-sidebar-header__desc--editable .app-sidebar-header__mainname-form[data-v-034b862f], .app-sidebar .app-sidebar-header__desc--with-subname--editable .app-sidebar-header__mainname-form[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc--editable .app-sidebar-header__mainname-form[data-v-d114a7f1], .app-sidebar .app-sidebar-header__desc--with-subname--editable .app-sidebar-header__mainname-form[data-v-d114a7f1] {
   margin-top: -2px;
   margin-bottom: -2px;
 }
-.app-sidebar .app-sidebar-header__desc--with-subname--editable .app-sidebar-header__subname[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc--with-subname--editable .app-sidebar-header__subname[data-v-d114a7f1] {
   margin-top: -2px;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__tertiary-actions[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__tertiary-actions[data-v-d114a7f1] {
   display: flex;
   height: var(--default-clickable-area);
   width: var(--default-clickable-area);
   justify-content: center;
   flex: 0 0 auto;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__tertiary-actions .app-sidebar-header__star[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__tertiary-actions .app-sidebar-header__star[data-v-d114a7f1] {
   box-shadow: none;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__tertiary-actions .app-sidebar-header__star[data-v-034b862f]:not([aria-pressed=true]):hover {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__tertiary-actions .app-sidebar-header__star[data-v-d114a7f1]:not([aria-pressed=true]):hover {
   box-shadow: none;
   background-color: var(--color-background-hover);
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container[data-v-d114a7f1] {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 0;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container[data-v-d114a7f1] {
   display: flex;
   align-items: center;
   min-height: var(--default-clickable-area);
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname[data-v-d114a7f1] {
   padding: 0;
   min-height: 30px;
   font-size: 20px;
   line-height: 30px;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname[data-v-034b862f] .linkified {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname[data-v-d114a7f1] .linkified {
   cursor: pointer;
   text-decoration: underline;
   margin: 0;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname-form[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname-form[data-v-d114a7f1] {
   display: flex;
   flex: 1 1 auto;
   align-items: center;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname-form input.app-sidebar-header__mainname-input[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__mainname-form input.app-sidebar-header__mainname-input[data-v-d114a7f1] {
   flex: 1 1 auto;
   margin: 0;
   padding: 7px;
   font-size: 20px;
   font-weight: bold;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__menu[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname-container .app-sidebar-header__menu[data-v-d114a7f1] {
   margin-inline-start: 5px;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname[data-v-034b862f],
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__subname[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__mainname[data-v-d114a7f1],
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__subname[data-v-d114a7f1] {
   overflow: hidden;
   width: 100%;
   margin: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__subname[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__subname[data-v-d114a7f1] {
   color: var(--color-text-maxcontrast);
   font-size: var(--default-font-size);
   padding: 0;
 }
-.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__subname *[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__desc .app-sidebar-header__name-container .app-sidebar-header__subname *[data-v-d114a7f1] {
   vertical-align: text-bottom;
 }
-.app-sidebar .app-sidebar-header .app-sidebar-header__mainname--hidden[data-v-034b862f] {
+.app-sidebar .app-sidebar-header .app-sidebar-header__mainname--hidden[data-v-d114a7f1] {
   position: absolute;
   top: 0;
   inset-inline-start: 0;
@@ -4128,28 +4110,28 @@ button.app-navigation-toggle[data-v-f7da2749] {
   height: 1px;
   overflow: hidden;
 }
-.app-sidebar .app-sidebar-header__description[data-v-034b862f] {
+.app-sidebar .app-sidebar-header__description[data-v-d114a7f1] {
   display: flex;
   align-items: center;
   margin: 0 10px;
 }
 @media only screen and (max-width: 512px) {
-.app-sidebar[data-v-034b862f] {
+.app-sidebar[data-v-d114a7f1] {
     position: absolute;
     --app-sidebar-width: 100vw;
 }
 }
-.slide-right-leave-active[data-v-034b862f],
-.slide-right-enter-active[data-v-034b862f] {
+.slide-right-leave-active[data-v-d114a7f1],
+.slide-right-enter-active[data-v-d114a7f1] {
   transition-duration: var(--animation-quick);
   transition-property: margin-inline-end;
 }
-.slide-right-enter-to[data-v-034b862f],
-.slide-right-leave[data-v-034b862f] {
+.slide-right-enter-to[data-v-d114a7f1],
+.slide-right-leave[data-v-d114a7f1] {
   margin-inline-end: 0;
 }
-.slide-right-enter[data-v-034b862f],
-.slide-right-leave-to[data-v-034b862f] {
+.slide-right-enter[data-v-d114a7f1],
+.slide-right-leave-to[data-v-d114a7f1] {
   margin-inline-end: calc(-1 * var(--app-sidebar-width));
 }/**
  * SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
@@ -4383,27 +4365,26 @@ button.app-navigation-toggle[data-v-f7da2749] {
 /*
 * Ensure proper alignment of the vue material icons
 */
-.material-design-icon[data-v-8aaa3146] {
+.material-design-icon[data-v-12126d08] {
   display: flex;
   align-self: center;
   justify-self: center;
   align-items: center;
   justify-content: center;
 }
-.empty-content[data-v-8aaa3146] {
+.empty-content[data-v-12126d08] {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   /* In case of using in a flex container - flex in advance */
   flex-grow: 1;
-  padding: var(--default-grid-baseline);
 }
-.modal-wrapper .empty-content[data-v-8aaa3146] {
+.modal-wrapper .empty-content[data-v-12126d08] {
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
-.empty-content__icon[data-v-8aaa3146] {
+.empty-content__icon[data-v-12126d08] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4415,28 +4396,26 @@ button.app-navigation-toggle[data-v-f7da2749] {
   background-position: center;
   background-size: 64px;
 }
-.empty-content__icon[data-v-8aaa3146] svg {
+.empty-content__icon[data-v-12126d08] svg {
   width: 64px !important;
   height: 64px !important;
   max-width: 64px !important;
   max-height: 64px !important;
 }
-.empty-content__name[data-v-8aaa3146] {
+.empty-content__name[data-v-12126d08] {
   margin-bottom: 10px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
 }
-.empty-content__description[data-v-8aaa3146] {
+.empty-content__description[data-v-12126d08] {
   color: var(--color-text-maxcontrast);
-  text-align: center;
-  text-wrap-style: balance;
 }
-.empty-content__action[data-v-8aaa3146] {
+.empty-content__action[data-v-12126d08] {
   margin-top: 8px;
 }
-.modal-wrapper .empty-content__action[data-v-8aaa3146] {
+.modal-wrapper .empty-content__action[data-v-12126d08] {
   margin-top: 20px;
   display: flex;
 }/**
@@ -6721,7 +6700,7 @@ div.avatar[data-v-efe8beb8] {
 /*
 * Ensure proper alignment of the vue material icons
 */
-.material-design-icon[data-v-ddd5e67e] {
+.material-design-icon[data-v-d7087beb] {
   display: flex;
   align-self: center;
   justify-self: center;
@@ -6742,193 +6721,193 @@ div.avatar[data-v-efe8beb8] {
 * and reworked to use with Nextcloud dark and light theme
 */
 /* Plain text styles */
-.rich-text--wrapper[data-v-ddd5e67e] {
+.rich-text--wrapper[data-v-d7087beb] {
   word-break: break-word;
   line-height: 1.5;
 }
-.rich-text--wrapper .rich-text--fallback[data-v-ddd5e67e], .rich-text--wrapper .rich-text-component[data-v-ddd5e67e] {
+.rich-text--wrapper .rich-text--fallback[data-v-d7087beb], .rich-text--wrapper .rich-text-component[data-v-d7087beb] {
   display: inline;
 }
-.rich-text--wrapper .rich-text--external-link[data-v-ddd5e67e] {
+.rich-text--wrapper .rich-text--external-link[data-v-d7087beb] {
   text-decoration: underline;
 }
-.rich-text--wrapper .rich-text--external-link[data-v-ddd5e67e]:after {
+.rich-text--wrapper .rich-text--external-link[data-v-d7087beb]:after {
   content: " ↗";
 }
 
 /* Markdown styles */
-.rich-text--wrapper-markdown[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown[data-v-d7087beb] {
   tab-size: 4;
   /* Flavored Markdown styles */
 }
-.rich-text--wrapper-markdown div > *[data-v-ddd5e67e]:first-child,
-.rich-text--wrapper-markdown blockquote > *[data-v-ddd5e67e]:first-child {
+.rich-text--wrapper-markdown div > *[data-v-d7087beb]:first-child,
+.rich-text--wrapper-markdown blockquote > *[data-v-d7087beb]:first-child {
   margin-top: 0 !important;
 }
-.rich-text--wrapper-markdown div > *[data-v-ddd5e67e]:last-child,
-.rich-text--wrapper-markdown blockquote > *[data-v-ddd5e67e]:last-child {
+.rich-text--wrapper-markdown div > *[data-v-d7087beb]:last-child,
+.rich-text--wrapper-markdown blockquote > *[data-v-d7087beb]:last-child {
   margin-block-end: 0 !important;
 }
-.rich-text--wrapper-markdown blockquote[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown blockquote[data-v-d7087beb] {
   padding-inline-start: 13px;
   border-inline-start: 2px solid var(--color-border-dark);
   color: var(--color-text-lighter);
 }
-.rich-text--wrapper-markdown h1[data-v-ddd5e67e], .rich-text--wrapper-markdown h2[data-v-ddd5e67e], .rich-text--wrapper-markdown h3[data-v-ddd5e67e], .rich-text--wrapper-markdown h4[data-v-ddd5e67e], .rich-text--wrapper-markdown h5[data-v-ddd5e67e], .rich-text--wrapper-markdown h6[data-v-ddd5e67e], .rich-text--wrapper-markdown p[data-v-ddd5e67e], .rich-text--wrapper-markdown ul[data-v-ddd5e67e], .rich-text--wrapper-markdown ol[data-v-ddd5e67e], .rich-text--wrapper-markdown blockquote[data-v-ddd5e67e], .rich-text--wrapper-markdown pre[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown h1[data-v-d7087beb], .rich-text--wrapper-markdown h2[data-v-d7087beb], .rich-text--wrapper-markdown h3[data-v-d7087beb], .rich-text--wrapper-markdown h4[data-v-d7087beb], .rich-text--wrapper-markdown h5[data-v-d7087beb], .rich-text--wrapper-markdown h6[data-v-d7087beb], .rich-text--wrapper-markdown p[data-v-d7087beb], .rich-text--wrapper-markdown ul[data-v-d7087beb], .rich-text--wrapper-markdown ol[data-v-d7087beb], .rich-text--wrapper-markdown blockquote[data-v-d7087beb], .rich-text--wrapper-markdown pre[data-v-d7087beb] {
   margin-top: 0;
   margin-block-end: 1em;
 }
-.rich-text--wrapper-markdown h1[data-v-ddd5e67e], .rich-text--wrapper-markdown h2[data-v-ddd5e67e], .rich-text--wrapper-markdown h3[data-v-ddd5e67e], .rich-text--wrapper-markdown h4[data-v-ddd5e67e], .rich-text--wrapper-markdown h5[data-v-ddd5e67e], .rich-text--wrapper-markdown h6[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown h1[data-v-d7087beb], .rich-text--wrapper-markdown h2[data-v-d7087beb], .rich-text--wrapper-markdown h3[data-v-d7087beb], .rich-text--wrapper-markdown h4[data-v-d7087beb], .rich-text--wrapper-markdown h5[data-v-d7087beb], .rich-text--wrapper-markdown h6[data-v-d7087beb] {
   font-weight: bold;
 }
-.rich-text--wrapper-markdown h1[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown h1[data-v-d7087beb] {
   font-size: 30px;
 }
-.rich-text--wrapper-markdown ul[data-v-ddd5e67e], .rich-text--wrapper-markdown ol[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown ul[data-v-d7087beb], .rich-text--wrapper-markdown ol[data-v-d7087beb] {
   padding-inline-start: 4ch;
 }
-.rich-text--wrapper-markdown ul[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown ul[data-v-d7087beb] {
   list-style-type: disc;
 }
-.rich-text--wrapper-markdown ul.contains-task-list[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown ul.contains-task-list[data-v-d7087beb] {
   list-style-type: none;
   padding: 0;
 }
-.rich-text--wrapper-markdown li.task-list-item > ul[data-v-ddd5e67e],
-.rich-text--wrapper-markdown li.task-list-item > ol[data-v-ddd5e67e],
-.rich-text--wrapper-markdown li.task-list-item > li[data-v-ddd5e67e],
-.rich-text--wrapper-markdown li.task-list-item > blockquote[data-v-ddd5e67e],
-.rich-text--wrapper-markdown li.task-list-item > pre[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown li.task-list-item > ul[data-v-d7087beb],
+.rich-text--wrapper-markdown li.task-list-item > ol[data-v-d7087beb],
+.rich-text--wrapper-markdown li.task-list-item > li[data-v-d7087beb],
+.rich-text--wrapper-markdown li.task-list-item > blockquote[data-v-d7087beb],
+.rich-text--wrapper-markdown li.task-list-item > pre[data-v-d7087beb] {
   margin-inline-start: 15px;
   margin-block-end: 0;
 }
-.rich-text--wrapper-markdown table[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown table[data-v-d7087beb] {
   border-collapse: collapse;
   border: 2px solid var(--color-border-maxcontrast);
 }
-.rich-text--wrapper-markdown table th[data-v-ddd5e67e],
-.rich-text--wrapper-markdown table td[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown table th[data-v-d7087beb],
+.rich-text--wrapper-markdown table td[data-v-d7087beb] {
   padding: var(--default-grid-baseline);
   border: 1px solid var(--color-border-maxcontrast);
 }
-.rich-text--wrapper-markdown table th[data-v-ddd5e67e]:first-child,
-.rich-text--wrapper-markdown table td[data-v-ddd5e67e]:first-child {
+.rich-text--wrapper-markdown table th[data-v-d7087beb]:first-child,
+.rich-text--wrapper-markdown table td[data-v-d7087beb]:first-child {
   border-inline-start: 0;
 }
-.rich-text--wrapper-markdown table th[data-v-ddd5e67e]:last-child,
-.rich-text--wrapper-markdown table td[data-v-ddd5e67e]:last-child {
+.rich-text--wrapper-markdown table th[data-v-d7087beb]:last-child,
+.rich-text--wrapper-markdown table td[data-v-d7087beb]:last-child {
   border-inline-end: 0;
 }
-.rich-text--wrapper-markdown table tr:first-child th[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown table tr:first-child th[data-v-d7087beb] {
   border-top: 0;
 }
-.rich-text--wrapper-markdown table tr:last-child td[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown table tr:last-child td[data-v-d7087beb] {
   border-block-end: 0;
 }
 
 /* Highlight code syntax in code blocks */
 /* stylelint-disable-next-line no-duplicate-selectors */
-.rich-text--wrapper-markdown pre[data-v-ddd5e67e]:has(.hljs) {
+.rich-text--wrapper-markdown pre[data-v-d7087beb]:has(.hljs) {
   color: var(--hljs-color);
   background: var(--hljs-background-color);
 }
-.rich-text--wrapper-markdown .hljs-doctag[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-keyword[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-meta .hljs-keyword[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-template-tag[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-template-variable[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-type[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-variable.language_[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-doctag[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-keyword[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-meta .hljs-keyword[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-template-tag[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-template-variable[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-type[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-variable.language_[data-v-d7087beb] {
   /* prettylights-syntax-keyword */
   color: var(--hljs-syntax-keyword-color);
 }
-.rich-text--wrapper-markdown .hljs-title[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-title.class_[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-title.class_.inherited__[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-title.function_[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-title[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-title.class_[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-title.class_.inherited__[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-title.function_[data-v-d7087beb] {
   /* prettylights-syntax-entity */
   color: var(--hljs-syntax-entity-color);
 }
-.rich-text--wrapper-markdown .hljs-attr[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-attribute[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-literal[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-meta[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-number[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-operator[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-variable[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-selector-attr[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-selector-class[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-selector-id[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-attr[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-attribute[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-literal[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-meta[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-number[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-operator[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-variable[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-selector-attr[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-selector-class[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-selector-id[data-v-d7087beb] {
   /* prettylights-syntax-constant */
   color: var(--hljs-syntax-constant-color);
 }
-.rich-text--wrapper-markdown .hljs-regexp[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-string[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-meta .hljs-string[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-regexp[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-string[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-meta .hljs-string[data-v-d7087beb] {
   /* prettylights-syntax-string */
   color: var(--hljs-syntax-string-color);
 }
-.rich-text--wrapper-markdown .hljs-built_in[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-symbol[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-built_in[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-symbol[data-v-d7087beb] {
   /* prettylights-syntax-variable */
   color: var(--hljs-syntax-variable-color);
 }
-.rich-text--wrapper-markdown .hljs-comment[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-code[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-formula[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-comment[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-code[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-formula[data-v-d7087beb] {
   /* prettylights-syntax-comment */
   color: var(--hljs-syntax-comment-color);
 }
-.rich-text--wrapper-markdown .hljs-name[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-quote[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-selector-tag[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-selector-pseudo[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-name[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-quote[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-selector-tag[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-selector-pseudo[data-v-d7087beb] {
   /* prettylights-syntax-entity-tag */
   color: var(--hljs-syntax-entity-tag-color);
 }
-.rich-text--wrapper-markdown .hljs-subst[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-subst[data-v-d7087beb] {
   /* prettylights-syntax-storage-modifier-import */
   color: var(--hljs-syntax-storage-modifier-import-color);
 }
-.rich-text--wrapper-markdown .hljs-section[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-section[data-v-d7087beb] {
   /* prettylights-syntax-markup-heading */
   color: var(--hljs-syntax-markup-heading-color);
   font-weight: bold;
 }
-.rich-text--wrapper-markdown .hljs-bullet[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-bullet[data-v-d7087beb] {
   /* prettylights-syntax-markup-list */
   color: var(--hljs-syntax-markup-list-color);
 }
-.rich-text--wrapper-markdown .hljs-emphasis[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-emphasis[data-v-d7087beb] {
   /* prettylights-syntax-markup-italic */
   color: var(--hljs-syntax-markup-italic-color);
   font-style: italic;
 }
-.rich-text--wrapper-markdown .hljs-strong[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-strong[data-v-d7087beb] {
   /* prettylights-syntax-markup-bold */
   color: var(--hljs-syntax-markup-bold-color);
   font-weight: bold;
 }
-.rich-text--wrapper-markdown .hljs-addition[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-addition[data-v-d7087beb] {
   /* prettylights-syntax-markup-inserted */
   color: var(--hljs-syntax-markup-inserted-color);
   background-color: var(--hljs-syntax-markup-inserted-background-color);
 }
-.rich-text--wrapper-markdown .hljs-deletion[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-deletion[data-v-d7087beb] {
   /* prettylights-syntax-markup-deleted */
   color: var(--hljs-syntax-markup-deleted-color);
   background-color: var(--hljs-syntax-markup-deleted-background-color);
 }
-.rich-text--wrapper-markdown .hljs-char.escape_[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-link[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-params[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-property[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-punctuation[data-v-ddd5e67e],
-.rich-text--wrapper-markdown .hljs-tag[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown .hljs-char.escape_[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-link[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-params[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-property[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-punctuation[data-v-d7087beb],
+.rich-text--wrapper-markdown .hljs-tag[data-v-d7087beb] {
   /* purposely ignored */
 }
 @media (prefers-color-scheme: light) {
-.rich-text--wrapper-markdown[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown[data-v-d7087beb] {
     --hljs-color: var(--color-main-text, #24292e);
     --hljs-background-color: var(--color-background-dark, #ffffff);
     --hljs-syntax-keyword-color: #d73a49;
@@ -6948,7 +6927,7 @@ div.avatar[data-v-efe8beb8] {
     --hljs-syntax-markup-deleted-color: #b31d28;
     --hljs-syntax-markup-deleted-background-color: #ffeef0;
 }
-[data-theme-dark] .rich-text--wrapper-markdown[data-v-ddd5e67e] {
+[data-theme-dark] .rich-text--wrapper-markdown[data-v-d7087beb] {
     --hljs-color: var(--color-main-text, #c9d1d9);
     --hljs-background-color: var(--color-background-dark, #0d1117);
     --hljs-syntax-keyword-color: #ff7b72;
@@ -6970,7 +6949,7 @@ div.avatar[data-v-efe8beb8] {
 }
 }
 @media (prefers-color-scheme: dark) {
-.rich-text--wrapper-markdown[data-v-ddd5e67e] {
+.rich-text--wrapper-markdown[data-v-d7087beb] {
     --hljs-color: var(--color-main-text, #c9d1d9);
     --hljs-background-color: var(--color-background-dark, #0d1117);
     --hljs-syntax-keyword-color: #ff7b72;
@@ -6990,7 +6969,7 @@ div.avatar[data-v-efe8beb8] {
     --hljs-syntax-markup-deleted-color: #ffdcd7;
     --hljs-syntax-markup-deleted-background-color: #67060c;
 }
-[data-theme-light] .rich-text--wrapper-markdown[data-v-ddd5e67e] {
+[data-theme-light] .rich-text--wrapper-markdown[data-v-d7087beb] {
     --hljs-color: var(--color-main-text, #24292e);
     --hljs-background-color: var(--color-background-dark, #ffffff);
     --hljs-syntax-keyword-color: #d73a49;
@@ -7011,7 +6990,7 @@ div.avatar[data-v-efe8beb8] {
     --hljs-syntax-markup-deleted-background-color: #ffeef0;
 }
 }
-a[data-v-ddd5e67e]:not(.rich-text--component) {
+a[data-v-d7087beb]:not(.rich-text--component) {
   text-decoration: underline;
 }/**
  * SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
@@ -7813,7 +7792,7 @@ a[data-v-ddd5e67e]:not(.rich-text--component) {
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
 const appVersion = "1.0.0";
-import { g as getCanonicalLocale, n as normalizeComponent$1, r as register, a as getCurrentInstance, V as Vue, c as computed, b as commonjsGlobal, A as ActionTextMixin, t as t10, d as t50, e as t, f as cancelableClient, v, h as t3, i as getDefaultExportFromCjs, _, j as getCurrentUser, w, k as f, l as ref$1, m as readonly, o as directiveHooks, p as noop$1, q as isIOS, s as isClient, u as watch, x as toValue, y as isObject$1, z as toRef, B as tryOnScopeDispose, C as t9, D as getBuilder_1, N as NcIconSvgWrapper, E as NcButton, F as NcActions, G as DotsHorizontal, H as unsubscribe, I as subscribe, J as NcActionButton, K as t35, L as t15, M as GenRandomId, O as Close, P as t24, Q as t41, R as t37, S as ScopeComponent, T as NcPopover, U as t27, W as t49, X as t16, Y as t47, Z as isRTL$1, $ as t25, a0 as t18, a1 as t12, a2 as t19, a3 as t20, a4 as t42, a5 as t14, a6 as useSlots, a7 as useFocusWithin, a8 as nextTick, a9 as t45, aa as t46, ab as t13, ac as t6, ad as t26, ae as t1, af as t28, ag as t32, ah as t2, ai as t40, aj as t34, ak as t5, al as useCssVars, am as t39, an as t36, ao as t8, ap as t21, aq as t7, ar as h, as as t44, at as t38, au as t22, av as t29, aw as t17, ax as t11, ay as t31, az as t0, aA as t43, aB as t23, aC as t48, aD as options, aE as normalizeComponent$2, aF as translate, aG as VTooltip, aH as CheckIcon, aI as showError } from "./style-aflcjX6b.chunk.mjs";
+import { g as getCanonicalLocale, n as normalizeComponent$1, r as register, a as getCurrentInstance, V as Vue, c as computed, b as commonjsGlobal, A as ActionTextMixin, t as t10, d as t50, e as t, f as cancelableClient, v, h as t3, i as getDefaultExportFromCjs, _, j as getCurrentUser, w, k as f, l as ref$1, m as readonly, o as directiveHooks, p as noop$1, q as isIOS, s as isClient, u as watch, x as toValue, y as isObject$1, z as toRef, B as tryOnScopeDispose, C as t9, D as getBuilder_1, N as NcIconSvgWrapper, E as NcButton, F as NcActions, G as DotsHorizontal, H as unsubscribe, I as subscribe, J as NcActionButton, K as t35, L as t15, M as GenRandomId, O as Close, P as t24, Q as t41, R as t37, S as ScopeComponent, T as NcPopover, U as Check, W as t27, X as t49, Y as t16, Z as t47, $ as t25, a0 as t18, a1 as t12, a2 as t19, a3 as t20, a4 as t42, a5 as t14, a6 as useSlots, a7 as useFocusWithin, a8 as nextTick, a9 as t45, aa as t46, ab as t13, ac as t6, ad as t26, ae as t1, af as t28, ag as t32, ah as t2, ai as t40, aj as t34, ak as t5, al as useCssVars, am as t39, an as t36, ao as t8, ap as t21, aq as t7, ar as h, as as t44, at as t38, au as t22, av as t29, aw as t17, ax as t11, ay as t31, az as t0, aA as t43, aB as t23, aC as t48, aD as options, aE as normalizeComponent$2, aF as translate, aG as VTooltip, aH as CheckIcon, aI as showError } from "./style-CcVbWovW.chunk.mjs";
 /*!
  * SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7914,7 +7893,7 @@ function getMonthNamesShort() {
     (/* @__PURE__ */ new Date("1970-12-01T00:00:00.000Z")).toLocaleDateString(locale3, { month: "short" })
   ];
 }
-const _sfc_main$k = {
+const _sfc_main$j = {
   name: "NcLoadingIcon",
   props: {
     /**
@@ -7956,20 +7935,20 @@ const _sfc_main$k = {
     }
   }
 };
-var _sfc_render$k = function render() {
+var _sfc_render$j = function render() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", { staticClass: "material-design-icon loading-icon", attrs: { "aria-label": _vm.name, "role": "img" } }, [_c("svg", { attrs: { "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "fill": _vm.colors[0], "d": "M12,4V2A10,10 0 1,0 22,12H20A8,8 0 1,1 12,4Z" } }), _c("path", { attrs: { "fill": _vm.colors[1], "d": "M12,4V2A10,10 0 0,1 22,12H20A8,8 0 0,0 12,4Z" } }, [_vm.name ? _c("title", [_vm._v(_vm._s(_vm.name))]) : _vm._e()])])]);
 };
-var _sfc_staticRenderFns$k = [];
-var __component__$k = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$k,
-  _sfc_render$k,
-  _sfc_staticRenderFns$k,
+var _sfc_staticRenderFns$j = [];
+var __component__$j = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$j,
+  _sfc_render$j,
+  _sfc_staticRenderFns$j,
   false,
   null,
   "551209a3"
 );
-const NcLoadingIcon = __component__$k.exports;
+const NcLoadingIcon = __component__$j.exports;
 register();
 function useModelMigration(oldModelName, oldModelEvent, required = false) {
   const vm = getCurrentInstance().proxy;
@@ -15201,48 +15180,51 @@ var ICALmodule = {
 };
 class Timezone2 {
   /**
-   * Id of the timezone.
+   * Constructor
+   *
+   * @param {string | ICAL.Timezone | ICAL.Component} timezoneId Id of the timezone
+   * @param {string?} ics The iCalendar timezone definition
    */
-  _timezoneId;
-  /**
-   * ICS representation of the timezone
-   */
-  _ics;
-  _timezone;
-  _initialized;
   constructor(timezoneId, ics) {
+    this._timezoneId = null;
+    this._ics = null;
+    this._innerValue = null;
+    this._initialized = false;
     if (timezoneId instanceof ICALmodule.Timezone) {
-      this._timezone = timezoneId;
+      this._innerValue = timezoneId;
       this._initialized = true;
     } else if (timezoneId instanceof ICALmodule.Component) {
-      this._timezone = new ICALmodule.Timezone(timezoneId);
+      this._innerValue = new ICALmodule.Timezone(timezoneId);
       this._initialized = true;
     } else {
       this._timezoneId = timezoneId;
       this._ics = ics;
-      this._initialized = false;
     }
   }
   /**
-   * Get the timezone id
+   * Gets the timezone id
+   *
+   * @return {string}
    */
   get timezoneId() {
     if (this._initialized) {
-      return this._timezone.tzid;
+      return this._innerValue.tzid;
     }
     return this._timezoneId;
   }
   /**
-   * Get the UTC Offset for a given date in this timezone.
+   * Gets the UTC Offset for a given date in this timezone
    *
-   * @param year - Year of the date
-   * @param month - Month of the date (1-based)
-   * @param day - Day of the date
-   * @param hour - Hour of the date
-   * @param minute - Minute of the date
-   * @param second - Second of the date
+   * @param {number} year Year of the date
+   * @param {number} month Month of the date (1-based)
+   * @param {number} day Day of the date
+   * @param {number} hour Hour of the date
+   * @param {number} minute Minute of the date
+   * @param {number} second Second of the date
+   * @return {number}
    */
   offsetForArray(year, month, day, hour, minute, second) {
+    this._initialize();
     const time = new ICALmodule.Time({
       year,
       month,
@@ -15252,7 +15234,7 @@ class Timezone2 {
       second,
       isDate: false
     });
-    return this.timezone.utcOffset(time);
+    return this._innerValue.utcOffset(time);
   }
   /**
    * Converts a timestamp to an array of year, month, day, hour, minute, second.
@@ -15261,6 +15243,7 @@ class Timezone2 {
    * @return {number[]}
    */
   timestampToArray(ms) {
+    this._initialize();
     const time = ICALmodule.Time.fromData({
       year: 1970,
       month: 1,
@@ -15270,7 +15253,7 @@ class Timezone2 {
       second: 0
     });
     time.fromUnixTime(Math.floor(ms / 1e3));
-    const local = time.convertToZone(this.timezone);
+    const local = time.convertToZone(this._innerValue);
     return [
       local.year,
       local.month,
@@ -15281,34 +15264,40 @@ class Timezone2 {
       local.second
     ];
   }
+  /**
+   * Returns
+   *
+   * @return {ICAL.Timezone}
+   */
   toICALTimezone() {
-    return this.timezone;
+    this._initialize();
+    return this._innerValue;
   }
   /**
    * Returns the corresponding ICAL.
+   *
+   * @return {ICAL.Component}
    */
   toICALJs() {
-    return this.timezone.component;
+    this._initialize();
+    return this._innerValue.component;
   }
   /**
-   * Initializes the inner ICAL.Timezone component if not already done.
+   * Initialises the inner ICAL.Timezone component
+   *
+   * @private
    */
-  get timezone() {
+  _initialize() {
     if (!this._initialized) {
       const jCal = ICALmodule.parse(this._ics);
-      const iCalComponent = new ICALmodule.Component(jCal);
-      this._timezone = new ICALmodule.Timezone(iCalComponent);
+      const icalComp = new ICALmodule.Component(jCal);
+      this._innerValue = new ICALmodule.Timezone(icalComp);
       this._initialized = true;
     }
-    return this._timezone;
-  }
-  static get utc() {
-    return new Timezone2(ICALmodule.Timezone.utcTimezone);
-  }
-  static get floating() {
-    return new Timezone2(ICALmodule.Timezone.localTimezone);
   }
 }
+Timezone2.utc = new Timezone2(ICALmodule.Timezone.utcTimezone);
+Timezone2.floating = new Timezone2(ICALmodule.Timezone.localTimezone);
 const version = "2.2024a";
 const aliases = {
   "AUS Central Standard Time": {
@@ -19113,60 +19102,59 @@ const tzData = {
 };
 class TimezoneManager {
   /**
-   * Map of aliases
-   * Alias name => timezoneId
+   * Constructor
    */
-  _aliases = /* @__PURE__ */ new Map();
+  constructor() {
+    this._aliases = /* @__PURE__ */ new Map();
+    this._pendingAliases = [];
+    this._timezones = /* @__PURE__ */ new Map();
+  }
   /**
-   * Map of Timezones
-   * timezoneId => Timezone
-   */
-  _timezones = /* @__PURE__ */ new Map();
-  /**
-   * List of aliases that were registered while their targets were missing
-   * [[aliasName, timezoneId], ...]
-   */
-  _pendingAliases = [];
-  /**
-   * Gets a timezone for the given id.
+   * Gets a timezone for the given id
    *
-   * @param timezoneId - The id of the timezone
+   * @param {string} timezoneId The id of the timezone
+   * @return {Timezone|null}
    */
   getTimezoneForId(timezoneId) {
-    let level = 0;
-    while (level++ < 20) {
-      if (this._timezones.has(timezoneId)) {
-        return this._timezones.get(timezoneId);
-      }
-      if (this._aliases.has(timezoneId)) {
-        timezoneId = this._aliases.get(timezoneId);
-      } else {
-        return null;
-      }
+    return this._getTimezoneForIdRec(timezoneId, 0);
+  }
+  _getTimezoneForIdRec(timezoneId, level) {
+    if (this._timezones.has(timezoneId)) {
+      return this._timezones.get(timezoneId);
     }
-    console.error("TimezoneManager.getTimezoneForIdRec() exceeds recursion limits");
+    if (level >= 20) {
+      console.error("TimezoneManager.getTimezoneForIdRec() exceeds recursion limits");
+      return null;
+    }
+    if (this._aliases.has(timezoneId)) {
+      const resolvedTimezoneId = this._aliases.get(timezoneId);
+      return this._getTimezoneForIdRec(resolvedTimezoneId, level + 1);
+    }
     return null;
   }
   /**
-   * Checks if there is a timezone for the given id stored in this manager.
+   * Checks if there is a timezone for the given id stored in this manager
    *
-   * @param timezoneId - The id of the timezone
+   * @param {string} timezoneId The id of the timezone
+   * @return {boolean}
    */
   hasTimezoneForId(timezoneId) {
     return this._timezones.has(timezoneId) || this._aliases.has(timezoneId);
   }
   /**
-   * Checks if the given timezone id is an alias.
+   * Checks if the given timezone id is an alias
    *
-   * @param timezoneId - The id of the timezone
+   * @param {string} timezoneId The id of the timezone
+   * @return {boolean}
    */
   isAlias(timezoneId) {
     return !this._timezones.has(timezoneId) && this._aliases.has(timezoneId);
   }
   /**
-   * Lists all timezones.
+   * Lists all timezones
    *
-   * @param includeAliases - Whether or not to include aliases
+   * @param {boolean=} includeAliases Whether or not to include aliases
+   * @return {string[]}
    */
   listAllTimezones(includeAliases = false) {
     const timezones = Array.from(this._timezones.keys());
@@ -19178,39 +19166,43 @@ class TimezoneManager {
   /**
    * Registers a timezone
    *
-   * @param timezone - The timezone-object to register
+   * @param {Timezone} timezone The timezone-object to register
    */
   registerTimezone(timezone) {
     this._timezones.set(timezone.timezoneId, timezone);
-    ICALmodule.TimezoneService.register(timezone.toICALTimezone(), timezone.timezoneId);
+    ICALmodule.TimezoneService.register(timezone.timezoneId, timezone.toICALTimezone());
     this._pendingAliases = this._pendingAliases.filter(([aliasName, timezoneId]) => {
       if (timezoneId !== timezone.timezoneId) {
         return true;
       }
-      ICALmodule.TimezoneService.register(timezone.toICALTimezone(), aliasName);
+      ICALmodule.TimezoneService.register(aliasName, timezone.toICALTimezone());
       return false;
     });
   }
   registerDefaultTimezones() {
     console.debug(`@nextcloud/calendar-js app is using version ${tzData.version} of the timezone database`);
     for (const tzid in tzData.zones) {
-      const ics = [
-        "BEGIN:VTIMEZONE",
-        "TZID:" + tzid,
-        ...tzData.zones[tzid].ics,
-        "END:VTIMEZONE"
-      ].join("\r\n");
-      this.registerTimezoneFromICS(tzid, ics);
+      if (Object.prototype.hasOwnProperty.call(tzData.zones, [tzid])) {
+        const ics = [
+          "BEGIN:VTIMEZONE",
+          "TZID:" + tzid,
+          ...tzData.zones[tzid].ics,
+          "END:VTIMEZONE"
+        ].join("\r\n");
+        this.registerTimezoneFromICS(tzid, ics);
+      }
     }
     for (const tzid in tzData.aliases) {
-      this.registerAlias(tzid, tzData.aliases[tzid].aliasTo);
+      if (Object.prototype.hasOwnProperty.call(tzData.aliases, [tzid])) {
+        this.registerAlias(tzid, tzData.aliases[tzid].aliasTo);
+      }
     }
   }
   /**
-   * Registers a timezone based on ics data.
+   * Registers a timezone based on ics data
    *
-   * @param timezoneId - The id of the timezone
-   * @param ics - The iCalendar timezone definition
+   * @param {string} timezoneId The id of the timezone
+   * @param {string} ics The iCalendar timezone definition
    */
   registerTimezoneFromICS(timezoneId, ics) {
     const timezone = new Timezone2(timezoneId, ics);
@@ -19219,8 +19211,8 @@ class TimezoneManager {
   /**
    * Registers a new timezone-alias
    *
-   * @param aliasName - The timezone-id of the alias
-   * @param timezoneId - The timezone-id to resolve the alias to
+   * @param {string} aliasName The timezone-id of the alias
+   * @param {string} timezoneId The timezone-id to resolve the alias to
    */
   registerAlias(aliasName, timezoneId) {
     this._aliases.set(aliasName, timezoneId);
@@ -19229,21 +19221,21 @@ class TimezoneManager {
       this._pendingAliases.push([aliasName, timezoneId]);
       return;
     }
-    ICALmodule.TimezoneService.register(resolvedTimezone.toICALTimezone(), aliasName);
+    ICALmodule.TimezoneService.register(aliasName, resolvedTimezone.toICALTimezone());
   }
   /**
-   * Unregisters a timezone.
+   * Unregisters a timezone
    *
-   * @param timezoneId - Unregisters a timezone by Id
+   * @param {string} timezoneId Unregisters a timezone by Id
    */
   unregisterTimezones(timezoneId) {
     this._timezones.delete(timezoneId);
     ICALmodule.TimezoneService.remove(timezoneId);
   }
   /**
-   * Unregisters a timezone-alias.
+   * Unregisters a timezone-alias
    *
-   * @param aliasName - The alias to unregister
+   * @param {string} aliasName The alias to unregister
    */
   unregisterAlias(aliasName) {
     this._aliases.delete(aliasName);
@@ -20055,20 +20047,15 @@ const flip$1 = function(options2) {
         const nextIndex = (((_middlewareData$flip2 = middlewareData.flip) == null ? void 0 : _middlewareData$flip2.index) || 0) + 1;
         const nextPlacement = placements[nextIndex];
         if (nextPlacement) {
-          const ignoreCrossAxisOverflow = checkCrossAxis === "alignment" ? initialSideAxis !== getSideAxis(nextPlacement) : false;
-          if (!ignoreCrossAxisOverflow || // We leave the current main axis only if every placement on that axis
-          // overflows the main axis.
-          overflowsData.every((d2) => d2.overflows[0] > 0 && getSideAxis(d2.placement) === initialSideAxis)) {
-            return {
-              data: {
-                index: nextIndex,
-                overflows: overflowsData
-              },
-              reset: {
-                placement: nextPlacement
-              }
-            };
-          }
+          return {
+            data: {
+              index: nextIndex,
+              overflows: overflowsData
+            },
+            reset: {
+              placement: nextPlacement
+            }
+          };
         }
         let resetPlacement = (_overflowsData$filter = overflowsData.filter((d2) => d2.overflows[0] <= 0).sort((a2, b) => a2.overflows[1] - b.overflows[1])[0]) == null ? void 0 : _overflowsData$filter.placement;
         if (!resetPlacement) {
@@ -20790,9 +20777,6 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
     scrollTop: 0
   };
   const offsets = createCoords(0);
-  function setLeftRTLScrollbarOffset() {
-    offsets.x = getWindowScrollBarX(documentElement);
-  }
   if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
     if (getNodeName(offsetParent) !== "body" || isOverflowElement(documentElement)) {
       scroll = getNodeScroll(offsetParent);
@@ -20802,11 +20786,8 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
       offsets.x = offsetRect.x + offsetParent.clientLeft;
       offsets.y = offsetRect.y + offsetParent.clientTop;
     } else if (documentElement) {
-      setLeftRTLScrollbarOffset();
+      offsets.x = getWindowScrollBarX(documentElement);
     }
-  }
-  if (isFixed && !isOffsetParentAnElement && documentElement) {
-    setLeftRTLScrollbarOffset();
   }
   const htmlOffset = documentElement && !isOffsetParentAnElement && !isFixed ? getHTMLOffset(documentElement, scroll) : createCoords(0);
   const x2 = rect.left + scroll.scrollLeft - offsets.x - htmlOffset.x;
@@ -20956,7 +20937,7 @@ function observeMove(element, onMove) {
         // Handle <iframe>s
         root: root.ownerDocument
       });
-    } catch (_e) {
+    } catch (e2) {
       io = new IntersectionObserver(handleObserve, options2);
     }
     io.observe(element);
@@ -21051,7 +21032,7 @@ const computePosition = (reference, floating, options2) => {
     platform: platformWithCache
   });
 };
-const _sfc_main$j = {
+const _sfc_main$i = {
   name: "ChevronDownIcon",
   emits: ["click"],
   props: {
@@ -21068,22 +21049,22 @@ const _sfc_main$j = {
     }
   }
 };
-var _sfc_render$j = function render2() {
+var _sfc_render$i = function render2() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._b({ staticClass: "material-design-icon chevron-down-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
     return _vm.$emit("click", $event);
   } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
 };
-var _sfc_staticRenderFns$j = [];
-var __component__$j = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$j,
-  _sfc_render$j,
-  _sfc_staticRenderFns$j,
+var _sfc_staticRenderFns$i = [];
+var __component__$i = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$i,
+  _sfc_render$i,
+  _sfc_staticRenderFns$i,
   false,
   null,
   null
 );
-const ChevronDown = __component__$j.exports;
+const ChevronDown = __component__$i.exports;
 const FindRanges = (text3, search) => {
   const ranges = [];
   let currentIndex = 0;
@@ -21097,7 +21078,7 @@ const FindRanges = (text3, search) => {
   }
   return ranges;
 };
-const _sfc_main$i = {
+const _sfc_main$h = {
   name: "NcHighlight",
   props: {
     /**
@@ -21242,18 +21223,18 @@ const _sfc_main$i = {
     }));
   }
 };
-const _sfc_render$i = null;
-const _sfc_staticRenderFns$i = null;
-var __component__$i = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$i,
-  _sfc_render$i,
-  _sfc_staticRenderFns$i,
+const _sfc_render$h = null;
+const _sfc_staticRenderFns$h = null;
+var __component__$h = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$h,
+  _sfc_render$h,
+  _sfc_staticRenderFns$h,
   false,
   null,
   null
 );
-const NcHighlight = __component__$i.exports;
-const _sfc_main$h = {
+const NcHighlight = __component__$h.exports;
+const _sfc_main$g = {
   name: "NcEllipsisedOption",
   components: {
     NcHighlight
@@ -21327,21 +21308,21 @@ const _sfc_main$h = {
     }
   }
 };
-var _sfc_render$h = function render3() {
+var _sfc_render$g = function render3() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", { staticClass: "name-parts", attrs: { "dir": "auto", "title": _vm.name } }, [_c("NcHighlight", { staticClass: "name-parts__first", attrs: { "text": _vm.part1, "search": _vm.search, "highlight": _vm.highlight1 } }), _vm.part2 ? _c("NcHighlight", { staticClass: "name-parts__last", attrs: { "text": _vm.part2, "search": _vm.search, "highlight": _vm.highlight2 } }) : _vm._e()], 1);
 };
-var _sfc_staticRenderFns$h = [];
-var __component__$h = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$h,
-  _sfc_render$h,
-  _sfc_staticRenderFns$h,
+var _sfc_staticRenderFns$g = [];
+var __component__$g = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$g,
+  _sfc_render$g,
+  _sfc_staticRenderFns$g,
   false,
   null,
   "f6384352"
 );
-const NcEllipsisedOption = __component__$h.exports;
-const _sfc_main$g = {
+const NcEllipsisedOption = __component__$g.exports;
+const _sfc_main$f = {
   name: "NcActionLink",
   mixins: [ActionTextMixin],
   inject: {
@@ -21401,23 +21382,23 @@ const _sfc_main$g = {
     }
   }
 };
-var _sfc_render$g = function render4() {
+var _sfc_render$f = function render4() {
   var _vm = this, _c = _vm._self._c;
   return _c("li", { staticClass: "action", attrs: { "role": _vm.isInSemanticMenu && "presentation" } }, [_c("a", { staticClass: "action-link focusable", attrs: { "download": _vm.download, "href": _vm.href, "aria-label": _vm.ariaLabel, "target": _vm.target, "title": _vm.title, "rel": "nofollow noreferrer noopener", "role": _vm.isInSemanticMenu && "menuitem" }, on: { "click": _vm.onClick } }, [_vm._t("icon", function() {
     return [_c("span", { staticClass: "action-link__icon", class: [_vm.isIconUrl ? "action-link__icon--url" : _vm.icon], style: { backgroundImage: _vm.isIconUrl ? `url(${_vm.icon})` : null }, attrs: { "aria-hidden": "true" } })];
   }), _vm.name ? _c("span", { staticClass: "action-link__longtext-wrapper" }, [_c("strong", { staticClass: "action-link__name" }, [_vm._v(" " + _vm._s(_vm.name) + " ")]), _c("br"), _c("span", { staticClass: "action-link__longtext", domProps: { "textContent": _vm._s(_vm.text) } })]) : _vm.isLongText ? _c("span", { staticClass: "action-link__longtext", domProps: { "textContent": _vm._s(_vm.text) } }) : _c("span", { staticClass: "action-link__text" }, [_vm._v(_vm._s(_vm.text))]), _vm._e()], 2)]);
 };
-var _sfc_staticRenderFns$g = [];
-var __component__$g = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$g,
-  _sfc_render$g,
-  _sfc_staticRenderFns$g,
+var _sfc_staticRenderFns$f = [];
+var __component__$f = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$f,
+  _sfc_render$f,
+  _sfc_staticRenderFns$f,
   false,
   null,
   "30c015f0"
 );
-const NcActionLink = __component__$g.exports;
-const _sfc_main$f = {
+const NcActionLink = __component__$f.exports;
+const _sfc_main$e = {
   name: "NcActionRouter",
   mixins: [ActionTextMixin],
   inject: {
@@ -21444,7 +21425,7 @@ const _sfc_main$f = {
     }
   }
 };
-var _sfc_render$f = function render5() {
+var _sfc_render$e = function render5() {
   var _vm = this, _c = _vm._self._c;
   return _c("li", { staticClass: "action", attrs: { "role": _vm.isInSemanticMenu && "presentation" } }, [_c("RouterLink", { staticClass: "action-router focusable", attrs: { "to": _vm.to, "aria-label": _vm.ariaLabel, "exact": _vm.exact, "title": _vm.title, "rel": "nofollow noreferrer noopener", "role": _vm.isInSemanticMenu && "menuitem" }, nativeOn: { "click": function($event) {
     return _vm.onClick.apply(null, arguments);
@@ -21452,17 +21433,17 @@ var _sfc_render$f = function render5() {
     return [_c("span", { staticClass: "action-router__icon", class: [_vm.isIconUrl ? "action-router__icon--url" : _vm.icon], style: { backgroundImage: _vm.isIconUrl ? `url(${_vm.icon})` : null }, attrs: { "aria-hidden": "true" } })];
   }), _vm.name ? _c("span", { staticClass: "action-router__longtext-wrapper" }, [_c("strong", { staticClass: "action-router__name" }, [_vm._v(" " + _vm._s(_vm.name) + " ")]), _c("br"), _c("span", { staticClass: "action-router__longtext", domProps: { "textContent": _vm._s(_vm.text) } })]) : _vm.isLongText ? _c("span", { staticClass: "action-router__longtext", domProps: { "textContent": _vm._s(_vm.text) } }) : _c("span", { staticClass: "action-router__text" }, [_vm._v(_vm._s(_vm.text))]), _vm._e()], 2)], 1);
 };
-var _sfc_staticRenderFns$f = [];
-var __component__$f = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$f,
-  _sfc_render$f,
-  _sfc_staticRenderFns$f,
+var _sfc_staticRenderFns$e = [];
+var __component__$e = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$e,
+  _sfc_render$e,
+  _sfc_staticRenderFns$e,
   false,
   null,
   "579c6b4d"
 );
-const NcActionRouter = __component__$f.exports;
-const _sfc_main$e = {
+const NcActionRouter = __component__$e.exports;
+const _sfc_main$d = {
   name: "NcActionText",
   mixins: [ActionTextMixin],
   inject: {
@@ -21472,22 +21453,22 @@ const _sfc_main$e = {
     }
   }
 };
-var _sfc_render$e = function render6() {
+var _sfc_render$d = function render6() {
   var _vm = this, _c = _vm._self._c;
   return _c("li", { staticClass: "action", attrs: { "role": _vm.isInSemanticMenu && "presentation" } }, [_c("span", { staticClass: "action-text", on: { "click": _vm.onClick } }, [_vm._t("icon", function() {
     return [_vm.icon !== "" ? _c("span", { staticClass: "action-text__icon", class: [_vm.isIconUrl ? "action-text__icon--url" : _vm.icon], style: { backgroundImage: _vm.isIconUrl ? `url(${_vm.icon})` : null }, attrs: { "aria-hidden": "true" } }) : _vm._e()];
   }), _vm.name ? _c("span", { staticClass: "action-text__longtext-wrapper" }, [_c("strong", { staticClass: "action-text__name" }, [_vm._v(" " + _vm._s(_vm.name) + " ")]), _c("br"), _c("span", { staticClass: "action-text__longtext", domProps: { "textContent": _vm._s(_vm.text) } })]) : _vm.isLongText ? _c("span", { staticClass: "action-text__longtext", domProps: { "textContent": _vm._s(_vm.text) } }) : _c("span", { staticClass: "action-text__text" }, [_vm._v(_vm._s(_vm.text))]), _vm._e()], 2)]);
 };
-var _sfc_staticRenderFns$e = [];
-var __component__$e = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$e,
-  _sfc_render$e,
-  _sfc_staticRenderFns$e,
+var _sfc_staticRenderFns$d = [];
+var __component__$d = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$d,
+  _sfc_render$d,
+  _sfc_staticRenderFns$d,
   false,
   null,
   "824615f4"
 );
-const NcActionText = __component__$e.exports;
+const NcActionText = __component__$d.exports;
 function loadState(app, key, fallback) {
   const elem = document.querySelector(`#initial-state-${app}-${key}`);
   if (elem === null) {
@@ -21533,7 +21514,7 @@ const getUserStatusText = (status) => {
   }
 };
 register(t50);
-const _sfc_main$d = {
+const _sfc_main$c = {
   name: "NcUserStatusIcon",
   props: {
     /**
@@ -21619,22 +21600,22 @@ const _sfc_main$d = {
     }
   }
 };
-var _sfc_render$d = function render7() {
+var _sfc_render$c = function render7() {
   var _vm = this, _c = _vm._self._c;
   return _vm.activeStatus ? _c("span", { staticClass: "user-status-icon", class: {
     "user-status-icon--invisible": ["invisible", "offline"].includes(_vm.status)
   }, attrs: { "role": "img", "aria-hidden": _vm.ariaHidden, "aria-label": _vm.ariaLabel }, domProps: { "innerHTML": _vm._s(_vm.activeSvg) } }) : _vm._e();
 };
-var _sfc_staticRenderFns$d = [];
-var __component__$d = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$d,
-  _sfc_render$d,
-  _sfc_staticRenderFns$d,
+var _sfc_staticRenderFns$c = [];
+var __component__$c = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$c,
+  _sfc_render$c,
+  _sfc_staticRenderFns$c,
   false,
   null,
   "0555d8d0"
 );
-const NcUserStatusIcon = __component__$d.exports;
+const NcUserStatusIcon = __component__$c.exports;
 register(t3);
 class Color {
   /**
@@ -22225,13 +22206,11 @@ const getRoute = (router, url) => {
   }
   return route.fullPath;
 };
+const checkIfIsFullscreen = () => window.outerHeight === screen.height;
 const isFullscreen = ref$1(checkIfIsFullscreen());
 window.addEventListener("resize", () => {
   isFullscreen.value = checkIfIsFullscreen();
 });
-function checkIfIsFullscreen() {
-  return window.outerHeight === window.screen.height;
-}
 readonly(isFullscreen);
 const MOBILE_BREAKPOINT = 1024;
 const MOBILE_SMALL_BREAKPOINT = MOBILE_BREAKPOINT / 2;
@@ -22718,7 +22697,7 @@ function setUserHasAvatar(userId, flag) {
     browserStorage.setItem("user-has-avatar." + userId, flag);
   }
 }
-const _sfc_main$c = {
+const _sfc_main$b = {
   name: "NcAvatar",
   directives: {
     ClickOutside: vOnClickOutside
@@ -23200,7 +23179,7 @@ const _sfc_main$c = {
     }
   }
 };
-var _sfc_render$c = function render8() {
+var _sfc_render$b = function render8() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", { directives: [{ name: "click-outside", rawName: "v-click-outside", value: _vm.closeMenu, expression: "closeMenu" }], ref: "main", staticClass: "avatardiv popovermenu-wrapper", class: {
     "avatardiv--unknown": _vm.userDoesNotExist,
@@ -23220,19 +23199,19 @@ var _sfc_render$c = function render8() {
     }, proxy: true } : null], null, true) }, "component", item.ncActionComponentProps, false), item.ncActionComponentHandlers), [_vm._v(" " + _vm._s(item.text) + " ")]);
   }), 1) : _vm._e(), _vm.showUserStatusIconOnAvatar ? _c("span", { staticClass: "avatardiv__user-status avatardiv__user-status--icon" }, [_vm._v(" " + _vm._s(_vm.userStatus.icon) + " ")]) : _vm.canDisplayUserStatus ? _c("NcUserStatusIcon", { staticClass: "avatardiv__user-status", attrs: { "status": _vm.userStatus.status, "aria-hidden": String(_vm.hasMenu) } }) : _vm._e(), _vm.showInitials ? _c("span", { staticClass: "avatardiv__initials-wrapper", style: _vm.initialsWrapperStyle }, [_c("span", { staticClass: "avatardiv__initials", style: _vm.initialsStyle }, [_vm._v(" " + _vm._s(_vm.initials) + " ")])]) : _vm._e()], 2);
 };
-var _sfc_staticRenderFns$c = [];
-var __component__$c = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$c,
-  _sfc_render$c,
-  _sfc_staticRenderFns$c,
+var _sfc_staticRenderFns$b = [];
+var __component__$b = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$b,
+  _sfc_render$b,
+  _sfc_staticRenderFns$b,
   false,
   null,
   "f132fa9c"
 );
-const NcAvatar = __component__$c.exports;
+const NcAvatar = __component__$b.exports;
 const margin = 8;
 const defaultSize = 32;
-const _sfc_main$b = {
+const _sfc_main$a = {
   name: "NcListItemIcon",
   components: {
     NcAvatar,
@@ -23371,24 +23350,24 @@ const _sfc_main$b = {
     }
   }
 };
-var _sfc_render$b = function render9() {
+var _sfc_render$a = function render9() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._g({ staticClass: "option", class: { "option--compact": _vm.avatarSize < _vm.defaultSize }, style: _vm.cssVars, attrs: { "id": _vm.id } }, _vm.$listeners), [_c("NcAvatar", _vm._b({ staticClass: "option__avatar", attrs: { "disable-menu": true, "disable-tooltip": true, "display-name": _vm.displayName || _vm.name, "is-no-user": _vm.isNoUser, "size": _vm.avatarSize } }, "NcAvatar", _vm.$attrs, false)), _c("div", { staticClass: "option__details" }, [_c("NcHighlight", { staticClass: "option__lineone", attrs: { "text": _vm.name, "search": _vm.searchParts[0] } }), _vm.isValidSubname && _vm.isSizeBigEnough ? _c("NcHighlight", { staticClass: "option__linetwo", attrs: { "text": _vm.subname, "search": _vm.searchParts[1] } }) : _vm.hasStatus ? _c("span", [_c("span", [_vm._v(_vm._s(_vm.userStatus.icon))]), _c("span", [_vm._v(_vm._s(_vm.userStatus.message))])]) : _vm._e()], 1), _vm._t("default", function() {
     return [_vm.hasIconSvg ? _c("NcIconSvgWrapper", { staticClass: "option__icon", attrs: { "svg": _vm.iconSvg, "name": _vm.iconName } }) : _vm.hasIcon ? _c("span", { staticClass: "icon option__icon", class: _vm.icon, attrs: { "aria-label": _vm.iconName } }) : _vm._e()];
   })], 2);
 };
-var _sfc_staticRenderFns$b = [];
-var __component__$b = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$b,
-  _sfc_render$b,
-  _sfc_staticRenderFns$b,
+var _sfc_staticRenderFns$a = [];
+var __component__$a = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$a,
+  _sfc_render$a,
+  _sfc_staticRenderFns$a,
   false,
   null,
   "a0f4d73a"
 );
-const NcListItemIcon = __component__$b.exports;
+const NcListItemIcon = __component__$a.exports;
 register(t15, t35);
-const _sfc_main$a = {
+const _sfc_main$9 = {
   name: "NcSelect",
   components: {
     ChevronDown,
@@ -23907,7 +23886,7 @@ const _sfc_main$a = {
     t
   }
 };
-var _sfc_render$a = function render10() {
+var _sfc_render$9 = function render10() {
   var _vm = this, _c = _vm._self._c;
   return _c("VueSelect", _vm._g(_vm._b({ staticClass: "select", class: {
     "select--no-wrap": _vm.noWrap,
@@ -23938,16 +23917,16 @@ var _sfc_render$a = function render10() {
     } };
   })], null, true) }, "VueSelect", _vm.propsToForward, false), _vm.listenersToForward));
 };
-var _sfc_staticRenderFns$a = [];
-var __component__$a = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$a,
-  _sfc_render$a,
-  _sfc_staticRenderFns$a,
+var _sfc_staticRenderFns$9 = [];
+var __component__$9 = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$9,
+  _sfc_render$9,
+  _sfc_staticRenderFns$9,
   false,
   null,
   null
 );
-const NcSelect = __component__$a.exports;
+const NcSelect = __component__$9.exports;
 register(t24);
 function getSortedTimezoneList(timezoneList = [], additionalTimezones = []) {
   const sortedByContinent = {};
@@ -24014,7 +23993,7 @@ function getTimezoneManager() {
   return timezoneManager;
 }
 register(t41);
-const _sfc_main$9 = {
+const _sfc_main$8 = {
   name: "NcTimezonePicker",
   components: {
     NcSelect
@@ -24139,20 +24118,20 @@ const _sfc_main$9 = {
     }
   }
 };
-var _sfc_render$9 = function render11() {
+var _sfc_render$8 = function render11() {
   var _vm = this, _c = _vm._self._c;
   return _c("NcSelect", { attrs: { "aria-label-combobox": _vm.t("Search for time zone"), "clearable": false, "filter-by": _vm.filterBy, "multiple": false, "options": _vm.options, "placeholder": _vm.placeholder, "selectable": _vm.isSelectable, "uid": _vm.uid, "value": _vm.selectedTimezone, "label": "label" }, on: { "option:selected": _vm.change } });
 };
-var _sfc_staticRenderFns$9 = [];
-var __component__$9 = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$9,
-  _sfc_render$9,
-  _sfc_staticRenderFns$9,
+var _sfc_staticRenderFns$8 = [];
+var __component__$8 = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$8,
+  _sfc_render$8,
+  _sfc_staticRenderFns$8,
   false,
   null,
   null
 );
-const NcTimezonePicker = __component__$9.exports;
+const NcTimezonePicker = __component__$8.exports;
 function isDate(value3) {
   return value3 instanceof Date || Object.prototype.toString.call(value3) === "[object Date]";
 }
@@ -28112,7 +28091,7 @@ const formatMap = {
   time: "H:mm:ss",
   week: "w"
 };
-const _sfc_main$8 = {
+const _sfc_main$7 = {
   name: "NcDateTimePicker",
   components: {
     CalendarBlank,
@@ -28351,7 +28330,7 @@ const _sfc_main$8 = {
     }
   }
 };
-var _sfc_render$8 = function render32() {
+var _sfc_render$7 = function render32() {
   var _vm = this, _c = _vm._self._c;
   return _c("DatePicker", _vm._g(_vm._b({ ref: "datepicker", attrs: { "append-to-body": _vm.appendToBody, "clearable": _vm.clearable, "format": _vm.internalFormat, "formatter": _vm.internalFormatter, "lang": _vm.lang ? _vm.lang : _vm.defaultLang, "minute-step": _vm.minuteStep, "placeholder": _vm.placeholder ? _vm.placeholder : _vm.defaultPlaceholder, "popup-class": { "show-week-number": _vm.showWeekNumber }, "range": _vm.internalRange, "show-week-number": _vm.showWeekNumber, "type": _vm.realType, "value": _vm.model }, on: { "select-year": _vm.handleSelectYear, "select-month": _vm.handleSelectMonth, "input": function($event) {
     _vm.model = $event;
@@ -28376,19 +28355,19 @@ var _sfc_render$8 = function render32() {
     } };
   })], null, true) }, "DatePicker", _vm.$attrs, false), _vm.$listeners));
 };
-var _sfc_staticRenderFns$8 = [];
-var __component__$8 = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$8,
-  _sfc_render$8,
-  _sfc_staticRenderFns$8,
+var _sfc_staticRenderFns$7 = [];
+var __component__$7 = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$7,
+  _sfc_render$7,
+  _sfc_staticRenderFns$7,
   false,
   null,
   "9cec8c69"
 );
-const NcDateTimePicker = __component__$8.exports;
+const NcDateTimePicker = __component__$7.exports;
 ScopeComponent(NcDateTimePicker);
 const inputDateTypes = ["date", "datetime-local", "month", "time", "week"];
-const _sfc_main$7 = {
+const _sfc_main$6 = {
   name: "NcDateTimePickerNative",
   inheritAttrs: false,
   model: {
@@ -28517,7 +28496,8 @@ const _sfc_main$7 = {
         /**
          * Handle the input event
          *
-         * @param {InputEvent} $event input event payloads
+         * @param {InputEvent} $event input event payload
+         * @return {Date|string} new chosen Date() or an empty string
          */
         input: ($event) => {
           if (isNaN($event.target.valueAsNumber)) {
@@ -28595,20 +28575,20 @@ const _sfc_main$7 = {
     }
   }
 };
-var _sfc_render$7 = function render19() {
+var _sfc_render$6 = function render19() {
   var _vm = this, _c = _vm._self._c;
   return _c("div", { staticClass: "native-datetime-picker" }, [_c("label", { staticClass: "native-datetime-picker--label", class: { "hidden-visually": _vm.hideLabel }, attrs: { "for": _vm.id } }, [_vm._v(" " + _vm._s(_vm.label) + " ")]), _c("input", _vm._g(_vm._b({ staticClass: "native-datetime-picker--input", class: _vm.inputClass, attrs: { "id": _vm.id, "type": _vm.type, "min": _vm.formattedMin, "max": _vm.formattedMax }, domProps: { "value": _vm.formattedValue } }, "input", _vm.$attrs, false), _vm.listeners))]);
 };
-var _sfc_staticRenderFns$7 = [];
-var __component__$7 = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$7,
-  _sfc_render$7,
-  _sfc_staticRenderFns$7,
+var _sfc_staticRenderFns$6 = [];
+var __component__$6 = /* @__PURE__ */ normalizeComponent$1(
+  _sfc_main$6,
+  _sfc_render$6,
+  _sfc_staticRenderFns$6,
   false,
   null,
-  "9e776556"
+  "a606e088"
 );
-const NcDateTimePickerNative = __component__$7.exports;
+const NcDateTimePickerNative = __component__$6.exports;
 ScopeComponent(NcDateTimePickerNative);
 var debounce$2 = { exports: {} };
 function debounce(function_, wait = 100, options2 = {}) {
@@ -28687,7 +28667,7 @@ debounce$2.exports.debounce = debounce;
 debounce$2.exports = debounce;
 var debounceExports = debounce$2.exports;
 const debounce$1 = /* @__PURE__ */ getDefaultExportFromCjs(debounceExports);
-const _sfc_main$6 = {
+const _sfc_main$5 = {
   name: "AlertCircleOutlineIcon",
   emits: ["click"],
   props: {
@@ -28704,44 +28684,11 @@ const _sfc_main$6 = {
     }
   }
 };
-var _sfc_render$6 = function render20() {
+var _sfc_render$5 = function render20() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._b({ staticClass: "material-design-icon alert-circle-outline-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
     return _vm.$emit("click", $event);
   } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
-};
-var _sfc_staticRenderFns$6 = [];
-var __component__$6 = /* @__PURE__ */ normalizeComponent$1(
-  _sfc_main$6,
-  _sfc_render$6,
-  _sfc_staticRenderFns$6,
-  false,
-  null,
-  null
-);
-const AlertCircle = __component__$6.exports;
-const _sfc_main$5 = {
-  name: "CheckIcon",
-  emits: ["click"],
-  props: {
-    title: {
-      type: String
-    },
-    fillColor: {
-      type: String,
-      default: "currentColor"
-    },
-    size: {
-      type: Number,
-      default: 24
-    }
-  }
-};
-var _sfc_render$5 = function render21() {
-  var _vm = this, _c = _vm._self._c;
-  return _c("span", _vm._b({ staticClass: "material-design-icon check-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
-    return _vm.$emit("click", $event);
-  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
 };
 var _sfc_staticRenderFns$5 = [];
 var __component__$5 = /* @__PURE__ */ normalizeComponent$1(
@@ -28752,7 +28699,7 @@ var __component__$5 = /* @__PURE__ */ normalizeComponent$1(
   null,
   null
 );
-const Check = __component__$5.exports;
+const AlertCircle = __component__$5.exports;
 const _sfc_main$4 = {
   name: "NcInputField",
   components: {
@@ -28970,7 +28917,7 @@ const _sfc_main$4 = {
     }
   }
 };
-var _sfc_render$4 = function render23() {
+var _sfc_render$4 = function render21() {
   var _vm = this, _c = _vm._self._c;
   return _c("div", { staticClass: "input-field", class: {
     "input-field--disabled": _vm.disabled,
@@ -29048,7 +28995,6 @@ register(t47);
     }
   }
 });
-isRTL$1();
 register(t25);
 getBuilder_1("nextcloud").persist().build();
 const { name: productName } = loadState("theming", "data", { name: "Nextcloud" });
@@ -29190,7 +29136,7 @@ var TargetContainer = Vue.extend({
       updatedNodes: vm.nodes
     };
   },
-  render: function render24(h3) {
+  render: function render23(h3) {
     var nodes = this.updatedNodes && this.updatedNodes();
     if (!nodes) return h3();
     return nodes.length === 1 && !nodes[0].text ? nodes : h3(this.tag || "DIV", nodes);
@@ -29220,7 +29166,7 @@ var Portal = Vue.extend({
       default: "DIV"
     }
   },
-  render: function render25(h3) {
+  render: function render24(h3) {
     if (this.disabled) {
       var nodes = this.$scopedSlots && this.$scopedSlots.default();
       if (!nodes) return h3();
@@ -29303,7 +29249,7 @@ if (typeof window !== "undefined" && window.Vue && window.Vue === Vue) {
   Vue.use(install2);
 }
 register();
-const encodedTlds = "aaa1rp3bb0ott3vie4c1le2ogado5udhabi7c0ademy5centure6ountant0s9o1tor4d0s1ult4e0g1ro2tna4f0l1rica5g0akhan5ency5i0g1rbus3force5tel5kdn3l0ibaba4pay4lfinanz6state5y2sace3tom5m0azon4ericanexpress7family11x2fam3ica3sterdam8nalytics7droid5quan4z2o0l2partments8p0le4q0uarelle8r0ab1mco4chi3my2pa2t0e3s0da2ia2sociates9t0hleta5torney7u0ction5di0ble3o3spost5thor3o0s4w0s2x0a2z0ure5ba0by2idu3namex4d1k2r0celona5laycard4s5efoot5gains6seball5ketball8uhaus5yern5b0c1t1va3cg1n2d1e0ats2uty4er2rlin4st0buy5t2f1g1h0arti5i0ble3d1ke2ng0o3o1z2j1lack0friday9ockbuster8g1omberg7ue3m0s1w2n0pparibas9o0ats3ehringer8fa2m1nd2o0k0ing5sch2tik2on4t1utique6x2r0adesco6idgestone9oadway5ker3ther5ussels7s1t1uild0ers6siness6y1zz3v1w1y1z0h3ca0b1fe2l0l1vinklein9m0era3p2non3petown5ital0one8r0avan4ds2e0er0s4s2sa1e1h1ino4t0ering5holic7ba1n1re3c1d1enter4o1rn3f0a1d2g1h0anel2nel4rity4se2t2eap3intai5ristmas6ome4urch5i0priani6rcle4sco3tadel4i0c2y3k1l0aims4eaning6ick2nic1que6othing5ud3ub0med6m1n1o0ach3des3ffee4llege4ogne5m0mbank4unity6pany2re3uter5sec4ndos3struction8ulting7tact3ractors9oking4l1p2rsica5untry4pon0s4rses6pa2r0edit0card4union9icket5own3s1uise0s6u0isinella9v1w1x1y0mru3ou3z2dad1nce3ta1e1ing3sun4y2clk3ds2e0al0er2s3gree4livery5l1oitte5ta3mocrat6ntal2ist5si0gn4v2hl2iamonds6et2gital5rect0ory7scount3ver5h2y2j1k1m1np2o0cs1tor4g1mains5t1wnload7rive4tv2ubai3nlop4pont4rban5vag2r2z2earth3t2c0o2deka3u0cation8e1g1mail3erck5nergy4gineer0ing9terprises10pson4quipment8r0icsson6ni3s0q1tate5t1u0rovision8s2vents5xchange6pert3osed4ress5traspace10fage2il1rwinds6th3mily4n0s2rm0ers5shion4t3edex3edback6rrari3ero6i0delity5o2lm2nal1nce1ial7re0stone6mdale6sh0ing5t0ness6j1k1lickr3ghts4r2orist4wers5y2m1o0o0d1tball6rd1ex2sale4um3undation8x2r0ee1senius7l1ogans4ntier7tr2ujitsu5n0d2rniture7tbol5yi3ga0l0lery3o1up4me0s3p1rden4y2b0iz3d0n2e0a1nt0ing5orge5f1g0ee3h1i0ft0s3ves2ing5l0ass3e1obal2o4m0ail3bh2o1x2n1odaddy5ld0point6f2o0dyear5g0le4p1t1v2p1q1r0ainger5phics5tis4een3ipe3ocery4up4s1t1u0cci3ge2ide2tars5ru3w1y2hair2mburg5ngout5us3bo2dfc0bank7ealth0care8lp1sinki6re1mes5iphop4samitsu7tachi5v2k0t2m1n1ockey4ldings5iday5medepot5goods5s0ense7nda3rse3spital5t0ing5t0els3mail5use3w2r1sbc3t1u0ghes5yatt3undai7ibm2cbc2e1u2d1e0ee3fm2kano4l1m0amat4db2mo0bilien9n0c1dustries8finiti5o2g1k1stitute6urance4e4t0ernational10uit4vestments10o1piranga7q1r0ish4s0maili5t0anbul7t0au2v3jaguar4va3cb2e0ep2tzt3welry6io2ll2m0p2nj2o0bs1urg4t1y2p0morgan6rs3uegos4niper7kaufen5ddi3e0rryhotels6properties14fh2g1h1i0a1ds2m1ndle4tchen5wi3m1n1oeln3matsu5sher5p0mg2n2r0d1ed3uokgroup8w1y0oto4z2la0caixa5mborghini8er3nd0rover6xess5salle5t0ino3robe5w0yer5b1c1ds2ease3clerc5frak4gal2o2xus4gbt3i0dl2fe0insurance9style7ghting6ke2lly3mited4o2ncoln4k2ve1ing5k1lc1p2oan0s3cker3us3l1ndon4tte1o3ve3pl0financial11r1s1t0d0a3u0ndbeck6xe1ury5v1y2ma0drid4if1son4keup4n0agement7go3p1rket0ing3s4riott5shalls7ttel5ba2c0kinsey7d1e0d0ia3et2lbourne7me1orial6n0u2rckmsd7g1h1iami3crosoft7l1ni1t2t0subishi9k1l0b1s2m0a2n1o0bi0le4da2e1i1m1nash3ey2ster5rmon3tgage6scow4to0rcycles9v0ie4p1q1r1s0d2t0n1r2u0seum3ic4v1w1x1y1z2na0b1goya4me2vy3ba2c1e0c1t0bank4flix4work5ustar5w0s2xt0direct7us4f0l2g0o2hk2i0co2ke1on3nja3ssan1y5l1o0kia3rton4w0ruz3tv4p1r0a1w2tt2u1yc2z2obi1server7ffice5kinawa6layan0group9lo3m0ega4ne1g1l0ine5oo2pen3racle3nge4g0anic5igins6saka4tsuka4t2vh3pa0ge2nasonic7ris2s1tners4s1y3y2ccw3e0t2f0izer5g1h0armacy6d1ilips5one2to0graphy6s4ysio5ics1tet2ures6d1n0g1k2oneer5zza4k1l0ace2y0station9umbing5s3m1n0c2ohl2ker3litie5rn2st3r0america6xi3ess3ime3o0d0uctions8f1gressive8mo2perties3y5tection8u0dential9s1t1ub2w0c2y2qa1pon3uebec3st5racing4dio4e0ad1lestate6tor2y4cipes5d0stone5umbrella9hab3ise0n3t2liance6n0t0als5pair3ort3ublican8st0aurant8view0s5xroth6ich0ardli6oh3l1o1p2o0cks3deo3gers4om3s0vp3u0gby3hr2n2w0e2yukyu6sa0arland6fe0ty4kura4le1on3msclub4ung5ndvik0coromant12ofi4p1rl2s1ve2xo3b0i1s2c0b1haeffler7midt4olarships8ol3ule3warz5ience5ot3d1e0arch3t2cure1ity6ek2lect4ner3rvices6ven3w1x0y3fr2g1h0angrila6rp3ell3ia1ksha5oes2p0ping5uji3w3i0lk2na1gles5te3j1k0i0n2y0pe4l0ing4m0art3ile4n0cf3o0ccer3ial4ftbank4ware6hu2lar2utions7ng1y2y2pa0ce3ort2t3r0l2s1t0ada2ples4r1tebank4farm7c0group6ockholm6rage3e3ream4udio2y3yle4u0cks3pplies3y2ort5rf1gery5zuki5v1watch4iss4x1y0dney4stems6z2tab1ipei4lk2obao4rget4tamotors6r2too4x0i3c0i2d0k2eam2ch0nology8l1masek5nnis4va3f1g1h0d1eater2re6iaa2ckets5enda4ps2res2ol4j0maxx4x2k0maxx5l1m0all4n1o0day3kyo3ols3p1ray3shiba5tal3urs3wn2yota3s3r0ade1ing4ining5vel0ers0insurance16ust3v2t1ube2i1nes3shu4v0s2w1z2ua1bank3s2g1k1nicom3versity8o2ol2ps2s1y1z2va0cations7na1guard7c1e0gas3ntures6risign5mögensberater2ung14sicherung10t2g1i0ajes4deo3g1king4llas4n1p1rgin4sa1ion4va1o3laanderen9n1odka3lvo3te1ing3o2yage5u2wales2mart4ter4ng0gou5tch0es6eather0channel12bcam3er2site5d0ding5ibo2r3f1hoswho6ien2ki2lliamhill9n0dows4e1ners6me2olterskluwer11odside6rk0s2ld3w2s1tc1f3xbox3erox4ihuan4n2xx2yz3yachts4hoo3maxun5ndex5e1odobashi7ga2kohama6u0tube6t1un3za0ppos4ra3ero3ip2m1one3uerich6w2";
+const encodedTlds = "aaa1rp3bb0ott3vie4c1le2ogado5udhabi7c0ademy5centure6ountant0s9o1tor4d0s1ult4e0g1ro2tna4f0l1rica5g0akhan5ency5i0g1rbus3force5tel5kdn3l0ibaba4pay4lfinanz6state5y2sace3tom5m0azon4ericanexpress7family11x2fam3ica3sterdam8nalytics7droid5quan4z2o0l2partments8p0le4q0uarelle8r0ab1mco4chi3my2pa2t0e3s0da2ia2sociates9t0hleta5torney7u0ction5di0ble3o3spost5thor3o0s4w0s2x0a2z0ure5ba0by2idu3namex4d1k2r0celona5laycard4s5efoot5gains6seball5ketball8uhaus5yern5b0c1t1va3cg1n2d1e0ats2uty4er2ntley5rlin4st0buy5t2f1g1h0arti5i0ble3d1ke2ng0o3o1z2j1lack0friday9ockbuster8g1omberg7ue3m0s1w2n0pparibas9o0ats3ehringer8fa2m1nd2o0k0ing5sch2tik2on4t1utique6x2r0adesco6idgestone9oadway5ker3ther5ussels7s1t1uild0ers6siness6y1zz3v1w1y1z0h3ca0b1fe2l0l1vinklein9m0era3p2non3petown5ital0one8r0avan4ds2e0er0s4s2sa1e1h1ino4t0ering5holic7ba1n1re3c1d1enter4o1rn3f0a1d2g1h0anel2nel4rity4se2t2eap3intai5ristmas6ome4urch5i0priani6rcle4sco3tadel4i0c2y3k1l0aims4eaning6ick2nic1que6othing5ud3ub0med6m1n1o0ach3des3ffee4llege4ogne5m0mbank4unity6pany2re3uter5sec4ndos3struction8ulting7tact3ractors9oking4l1p2rsica5untry4pon0s4rses6pa2r0edit0card4union9icket5own3s1uise0s6u0isinella9v1w1x1y0mru3ou3z2dad1nce3ta1e1ing3sun4y2clk3ds2e0al0er2s3gree4livery5l1oitte5ta3mocrat6ntal2ist5si0gn4v2hl2iamonds6et2gital5rect0ory7scount3ver5h2y2j1k1m1np2o0cs1tor4g1mains5t1wnload7rive4tv2ubai3nlop4pont4rban5vag2r2z2earth3t2c0o2deka3u0cation8e1g1mail3erck5nergy4gineer0ing9terprises10pson4quipment8r0icsson6ni3s0q1tate5t1u0rovision8s2vents5xchange6pert3osed4ress5traspace10fage2il1rwinds6th3mily4n0s2rm0ers5shion4t3edex3edback6rrari3ero6i0delity5o2lm2nal1nce1ial7re0stone6mdale6sh0ing5t0ness6j1k1lickr3ghts4r2orist4wers5y2m1o0o0d1tball6rd1ex2sale4um3undation8x2r0ee1senius7l1ogans4ntier7tr2ujitsu5n0d2rniture7tbol5yi3ga0l0lery3o1up4me0s3p1rden4y2b0iz3d0n2e0a1nt0ing5orge5f1g0ee3h1i0ft0s3ves2ing5l0ass3e1obal2o4m0ail3bh2o1x2n1odaddy5ld0point6f2o0dyear5g0le4p1t1v2p1q1r0ainger5phics5tis4een3ipe3ocery4up4s1t1u0cci3ge2ide2tars5ru3w1y2hair2mburg5ngout5us3bo2dfc0bank7ealth0care8lp1sinki6re1mes5iphop4samitsu7tachi5v2k0t2m1n1ockey4ldings5iday5medepot5goods5s0ense7nda3rse3spital5t0ing5t0els3mail5use3w2r1sbc3t1u0ghes5yatt3undai7ibm2cbc2e1u2d1e0ee3fm2kano4l1m0amat4db2mo0bilien9n0c1dustries8finiti5o2g1k1stitute6urance4e4t0ernational10uit4vestments10o1piranga7q1r0ish4s0maili5t0anbul7t0au2v3jaguar4va3cb2e0ep2tzt3welry6io2ll2m0p2nj2o0bs1urg4t1y2p0morgan6rs3uegos4niper7kaufen5ddi3e0rryhotels6logistics9properties14fh2g1h1i0a1ds2m1ndle4tchen5wi3m1n1oeln3matsu5sher5p0mg2n2r0d1ed3uokgroup8w1y0oto4z2la0caixa5mborghini8er3ncaster6d0rover6xess5salle5t0ino3robe5w0yer5b1c1ds2ease3clerc5frak4gal2o2xus4gbt3i0dl2fe0insurance9style7ghting6ke2lly3mited4o2ncoln4k2psy3ve1ing5k1lc1p2oan0s3cker3us3l1ndon4tte1o3ve3pl0financial11r1s1t0d0a3u0ndbeck6xe1ury5v1y2ma0drid4if1son4keup4n0agement7go3p1rket0ing3s4riott5shalls7ttel5ba2c0kinsey7d1e0d0ia3et2lbourne7me1orial6n0u2rckmsd7g1h1iami3crosoft7l1ni1t2t0subishi9k1l0b1s2m0a2n1o0bi0le4da2e1i1m1nash3ey2ster5rmon3tgage6scow4to0rcycles9v0ie4p1q1r1s0d2t0n1r2u0seum3ic4v1w1x1y1z2na0b1goya4me2vy3ba2c1e0c1t0bank4flix4work5ustar5w0s2xt0direct7us4f0l2g0o2hk2i0co2ke1on3nja3ssan1y5l1o0kia3rton4w0ruz3tv4p1r0a1w2tt2u1yc2z2obi1server7ffice5kinawa6layan0group9lo3m0ega4ne1g1l0ine5oo2pen3racle3nge4g0anic5igins6saka4tsuka4t2vh3pa0ge2nasonic7ris2s1tners4s1y3y2ccw3e0t2f0izer5g1h0armacy6d1ilips5one2to0graphy6s4ysio5ics1tet2ures6d1n0g1k2oneer5zza4k1l0ace2y0station9umbing5s3m1n0c2ohl2ker3litie5rn2st3r0america6xi3ess3ime3o0d0uctions8f1gressive8mo2perties3y5tection8u0dential9s1t1ub2w0c2y2qa1pon3uebec3st5racing4dio4e0ad1lestate6tor2y4cipes5d0stone5umbrella9hab3ise0n3t2liance6n0t0als5pair3ort3ublican8st0aurant8view0s5xroth6ich0ardli6oh3l1o1p2o0cks3deo3gers4om3s0vp3u0gby3hr2n2w0e2yukyu6sa0arland6fe0ty4kura4le1on3msclub4ung5ndvik0coromant12ofi4p1rl2s1ve2xo3b0i1s2c0b1haeffler7midt4olarships8ol3ule3warz5ience5ot3d1e0arch3t2cure1ity6ek2lect4ner3rvices6ven3w1x0y3fr2g1h0angrila6rp3ell3ia1ksha5oes2p0ping5uji3w3i0lk2na1gles5te3j1k0i0n2y0pe4l0ing4m0art3ile4n0cf3o0ccer3ial4ftbank4ware6hu2lar2utions7ng1y2y2pa0ce3ort2t3r0l2s1t0ada2ples4r1tebank4farm7c0group6ockholm6rage3e3ream4udio2y3yle4u0cks3pplies3y2ort5rf1gery5zuki5v1watch4iss4x1y0dney4stems6z2tab1ipei4lk2obao4rget4tamotors6r2too4x0i3c0i2d0k2eam2ch0nology8l1masek5nnis4va3f1g1h0d1eater2re6iaa2ckets5enda4ps2res2ol4j0maxx4x2k0maxx5l1m0all4n1o0day3kyo3ols3p1ray3shiba5tal3urs3wn2yota3s3r0ade1ing4ining5vel0ers0insurance16ust3v2t1ube2i1nes3shu4v0s2w1z2ua1bank3s2g1k1nicom3versity8o2ol2ps2s1y1z2va0cations7na1guard7c1e0gas3ntures6risign5mögensberater2ung14sicherung10t2g1i0ajes4deo3g1king4llas4n1p1rgin4sa1ion4va1o3laanderen9n1odka3lvo3te1ing3o2yage5u2wales2mart4ter4ng0gou5tch0es6eather0channel12bcam3er2site5d0ding5ibo2r3f1hoswho6ien2ki2lliamhill9n0dows4e1ners6me2olterskluwer11odside6rk0s2ld3w2s1tc1f3xbox3erox4ihuan4n2xx2yz3yachts4hoo3maxun5ndex5e1odobashi7ga2kohama6u0tube6t1un3za0ppos4ra3ero3ip2m1one3uerich6w2";
 const encodedUtlds = "ελ1υ2бг1ел3дети4ею2католик6ом3мкд2он1сква6онлайн5рг3рус2ф2сайт3рб3укр3қаз3հայ3ישראל5קום3ابوظبي5رامكو5لاردن4بحرين5جزائر5سعودية6عليان5مغرب5مارات5یران5بارت2زار4يتك3ھارت5تونس4سودان3رية5شبكة4عراق2ب2مان4فلسطين6قطر3كاثوليك6وم3مصر2ليسيا5وريتانيا7قع4همراه5پاکستان7ڀارت4कॉम3नेट3भारत0म्3ोत5संगठन5বাংলা5ভারত2ৰত4ਭਾਰਤ4ભારત4ଭାରତ4இந்தியா6லங்கை6சிங்கப்பூர்11భారత్5ಭಾರತ4ഭാരതം5ලංකා4คอม3ไทย3ລາວ3გე2みんな3アマゾン4クラウド4グーグル4コム2ストア3セール3ファッション6ポイント4世界2中信1国1國1文网3亚马逊3企业2佛山2信息2健康2八卦2公司1益2台湾1灣2商城1店1标2嘉里0大酒店5在线2大拿2天主教3娱乐2家電2广东2微博2慈善2我爱你3手机2招聘2政务1府2新加坡2闻2时尚2書籍2机构2淡马锡3游戏2澳門2点看2移动2组织机构4网址1店1站1络2联通2谷歌2购物2通販2集团2電訊盈科4飞利浦3食品2餐厅2香格里拉3港2닷넷1컴2삼성2한국2";
 const assign = (target, properties) => {
   for (const key in properties) {
@@ -29583,61 +29529,61 @@ const EMOJI$1 = "EMOJI";
 const SYM = "SYM";
 var tk = /* @__PURE__ */ Object.freeze({
   __proto__: null,
+  WORD,
+  UWORD,
+  ASCIINUMERICAL,
   ALPHANUMERICAL,
+  LOCALHOST,
+  TLD,
+  UTLD,
+  SCHEME,
+  SLASH_SCHEME,
+  NUM,
+  WS,
+  NL,
+  OPENBRACE,
+  CLOSEBRACE,
+  OPENBRACKET,
+  CLOSEBRACKET,
+  OPENPAREN,
+  CLOSEPAREN,
+  OPENANGLEBRACKET,
+  CLOSEANGLEBRACKET,
+  FULLWIDTHLEFTPAREN,
+  FULLWIDTHRIGHTPAREN,
+  LEFTCORNERBRACKET,
+  RIGHTCORNERBRACKET,
+  LEFTWHITECORNERBRACKET,
+  RIGHTWHITECORNERBRACKET,
+  FULLWIDTHLESSTHAN,
+  FULLWIDTHGREATERTHAN,
   AMPERSAND,
   APOSTROPHE,
-  ASCIINUMERICAL,
   ASTERISK,
   AT,
   BACKSLASH,
   BACKTICK,
   CARET,
-  CLOSEANGLEBRACKET,
-  CLOSEBRACE,
-  CLOSEBRACKET,
-  CLOSEPAREN,
   COLON,
   COMMA,
   DOLLAR,
   DOT,
-  EMOJI: EMOJI$1,
   EQUALS,
   EXCLAMATION,
-  FULLWIDTHGREATERTHAN,
-  FULLWIDTHLEFTPAREN,
-  FULLWIDTHLESSTHAN,
-  FULLWIDTHMIDDLEDOT,
-  FULLWIDTHRIGHTPAREN,
   HYPHEN,
-  LEFTCORNERBRACKET,
-  LEFTWHITECORNERBRACKET,
-  LOCALHOST,
-  NL,
-  NUM,
-  OPENANGLEBRACKET,
-  OPENBRACE,
-  OPENBRACKET,
-  OPENPAREN,
   PERCENT,
   PIPE,
   PLUS,
   POUND,
   QUERY,
   QUOTE,
-  RIGHTCORNERBRACKET,
-  RIGHTWHITECORNERBRACKET,
-  SCHEME,
+  FULLWIDTHMIDDLEDOT,
   SEMI,
   SLASH,
-  SLASH_SCHEME,
-  SYM,
   TILDE,
-  TLD,
   UNDERSCORE,
-  UTLD,
-  UWORD,
-  WORD,
-  WS
+  EMOJI: EMOJI$1,
+  SYM
 });
 const ASCII_LETTER = /[a-z]/;
 const LETTER = new RegExp("\\p{L}", "u");
@@ -30205,7 +30151,7 @@ function init$1({
   groups
 }) {
   const qsAccepting = groups.domain.concat([AMPERSAND, ASTERISK, AT, BACKSLASH, BACKTICK, CARET, DOLLAR, EQUALS, HYPHEN, NUM, PERCENT, PIPE, PLUS, POUND, SLASH, SYM, TILDE, UNDERSCORE]);
-  const qsNonAccepting = [APOSTROPHE, COLON, COMMA, DOT, EXCLAMATION, PERCENT, QUERY, QUOTE, SEMI, OPENANGLEBRACKET, CLOSEANGLEBRACKET, OPENBRACE, CLOSEBRACE, CLOSEBRACKET, OPENBRACKET, OPENPAREN, CLOSEPAREN, FULLWIDTHLEFTPAREN, FULLWIDTHRIGHTPAREN, LEFTCORNERBRACKET, RIGHTCORNERBRACKET, LEFTWHITECORNERBRACKET, RIGHTWHITECORNERBRACKET, FULLWIDTHLESSTHAN, FULLWIDTHGREATERTHAN];
+  const qsNonAccepting = [COLON, COMMA, DOT, EXCLAMATION, PERCENT, QUERY, QUOTE, SEMI, OPENANGLEBRACKET, CLOSEANGLEBRACKET, OPENBRACE, CLOSEBRACE, CLOSEBRACKET, OPENBRACKET, OPENPAREN, CLOSEPAREN, FULLWIDTHLEFTPAREN, FULLWIDTHRIGHTPAREN, LEFTCORNERBRACKET, RIGHTCORNERBRACKET, LEFTWHITECORNERBRACKET, RIGHTWHITECORNERBRACKET, FULLWIDTHLESSTHAN, FULLWIDTHGREATERTHAN];
   const localpartAccepting = [AMPERSAND, APOSTROPHE, ASTERISK, BACKSLASH, BACKTICK, CARET, DOLLAR, EQUALS, HYPHEN, OPENBRACE, CLOSEBRACE, PERCENT, PIPE, PLUS, POUND, QUERY, SLASH, SYM, TILDE, UNDERSCORE];
   const Start = makeState();
   const Localpart = tt(Start, TILDE);
@@ -34621,7 +34567,7 @@ const _sfc_main$3 = {
     }
   }
 };
-var _sfc_render$3 = function render26() {
+var _sfc_render$3 = function render25() {
   var _vm = this, _c = _vm._self._c;
   return _c("form", { ref: "form", attrs: { "disabled": _vm.disabled }, on: { "submit": function($event) {
     $event.preventDefault();
@@ -34657,7 +34603,7 @@ const _sfc_main$1$1 = {
     }
   }
 };
-var _sfc_render$1$1 = function render27() {
+var _sfc_render$1$1 = function render26() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._b({ staticClass: "material-design-icon help-circle-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
     return _vm.$emit("click", $event);
@@ -34726,7 +34672,7 @@ const _sfc_main$2 = {
     }
   }
 };
-var _sfc_render$2 = function render28() {
+var _sfc_render$2 = function render27() {
   var _vm = this, _c = _vm._self._c;
   return _c("div", { staticClass: "settings-section", class: { "settings-section--limit-width": _vm.forceLimitWidth } }, [_c("h2", { staticClass: "settings-section__name" }, [_vm._v(" " + _vm._s(_vm.name) + " "), _vm.hasDocUrl ? _c("a", { staticClass: "settings-section__info", attrs: { "href": _vm.docUrl, "title": _vm.docNameTranslated, "aria-label": _vm.docNameTranslated, "target": "_blank", "rel": "noreferrer nofollow" } }, [_c("HelpCircle", { attrs: { "size": 20 } })], 1) : _vm._e()]), _vm.hasDescription ? _c("p", { staticClass: "settings-section__desc" }, [_vm._v(" " + _vm._s(_vm.description) + " ")]) : _vm._e(), _vm._t("default")], 2);
 };
@@ -34780,7 +34726,7 @@ const _sfc_main$1 = {
     }
   }
 };
-var _sfc_render$1 = function render29() {
+var _sfc_render$1 = function render28() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._b({ staticClass: "material-design-icon alert-circle-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
     return _vm.$emit("click", $event);
@@ -34796,7 +34742,7 @@ var __component__$1 = /* @__PURE__ */ normalizeComponent$2(
   null,
   null
 );
-__component__$1.options.__file = "/home/bperraud/code/nc-permalink/node_modules/vue-material-design-icons/AlertCircle.vue";
+__component__$1.options.__file = "/home/bperraud/Documents/code/nc-permalink/node_modules/vue-material-design-icons/AlertCircle.vue";
 const AlertIcon = __component__$1.exports;
 /*! third party licenses: js/vendor.LICENSE.txt */
 var SettingsKey = /* @__PURE__ */ ((SettingsKey2) => {
@@ -34934,7 +34880,7 @@ const _sfc_main = {
     }
   }
 };
-var _sfc_render = function render30() {
+var _sfc_render = function render29() {
   var _vm = this, _c = _vm._self._c;
   return _c("div", { attrs: { "id": "permalink-admin-settings" } }, [_c("NcSettingsSection", { attrs: { "name": _vm.t("permalink", "API Endpoint"), "description": _vm.t("permalink", "Base URL of the external Permalink API that handles link creation") } }, [_c("div", { staticClass: "input-with-icon" }, [_c("h3", [_vm.updating.key === _vm.SettingsKey.PermalinkApiEndpoint ? _c("span", { staticClass: "status-icon" }, [_vm.updating.status === _vm.UpdateState.Updating ? _c("NcLoadingIcon", { attrs: { "name": _vm.t("permalink", "Saving..."), "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Completed ? _c("CheckIcon", { attrs: { "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Error ? _c("AlertIcon", { attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()]), _c("NcSettingsInputText", { attrs: { "id": "permalink-api-endpoint", "label": "", "value": _vm.permalinkApiEndpoint, "disabled": _vm.updating.status === _vm.UpdateState.Updating || _vm.loading }, on: { "update:value": function($event) {
     _vm.permalinkApiEndpoint = $event;
@@ -34952,7 +34898,7 @@ var __component__ = /* @__PURE__ */ normalizeComponent$2(
   null,
   "e8c7e823"
 );
-__component__.options.__file = "/home/bperraud/code/nc-permalink/src/components/AdminSettings.vue";
+__component__.options.__file = "/home/bperraud/Documents/code/nc-permalink/src/components/AdminSettings.vue";
 const AdminSettings = __component__.exports;
 /*! third party licenses: js/vendor.LICENSE.txt */
 console.debug("Permalink: SettingsAdmin init");

@@ -13,6 +13,7 @@
 
 import { t } from '@nextcloud/l10n'
 import { generateUrl } from '@nextcloud/router'
+import { showError } from '@nextcloud/dialogs'
 
 import axios from '@nextcloud/axios'
 
@@ -64,12 +65,18 @@ export default {
                 const response = await axios.get(generateUrl('apps/permalink/api/link') + `?path=${link}`)
                 console.log('Response:', response)
 
-                if (response.data.ocs.data.permalink) {
-                    this.permalink = response.data.ocs.data.permalink
-                    this.activeButtonComponent = PermalinkVue
+                const validStatus = [200, 100, 400]
+
+                if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
+                    showError(t('permalink', 'Permalink: ' + response.data.ocs.data.detail))
                 } else {
-                    this.permalink = t('files_sharing', 'Create Permalink')
-                    this.activeButtonComponent = CreateButton
+                    if (response.data.ocs.data.permalink) {
+                        this.permalink = response.data.ocs.data.permalink
+                        this.activeButtonComponent = PermalinkVue
+                    } else {
+                        this.permalink = t('files_sharing', 'Create Permalink')
+                        this.activeButtonComponent = CreateButton
+                    }
                 }
             } catch (e) {
                 if (e.response && e.response.data && e.response.data.message) {
