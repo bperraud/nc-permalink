@@ -8,11 +8,14 @@ use OCP\AppFramework\Http\Attribute\ApiRoute;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\OCSController;
+use OCP\AppFramework\Http;
+
 
 use OCP\AppFramework\OCS\OCSBadRequestException;
 use OCP\AppFramework\OCS\OCSException;
 use OCP\AppFramework\OCS\OCSForbiddenException;
 use OCP\AppFramework\OCS\OCSNotFoundException;
+
 
 use OCP\Files\IRootFolder;
 use OCP\IRequest;
@@ -82,7 +85,7 @@ class ApiController extends OCSController {
         $response = $this->httpService->curl_delete("link/api/external/?target_url=" . urlencode($sharelink_path));
 
         if ($response->getStatus() != 200) {
-            throw new OCSNotFoundException($this->l10n->t('Delete Error'));
+            throw new OCSNotFoundException('Delete Error');
         }
 		
         return $response;

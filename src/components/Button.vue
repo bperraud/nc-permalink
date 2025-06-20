@@ -1,7 +1,6 @@
 <template>
 	<div>
 		<component :is="activeButtonComponent"
-			v-if="activeButtonComponent"
 			:file-info="fileInfo"
 			:permalink="permalink"
 			@refresh="getPermalink" />
@@ -46,7 +45,6 @@ export default {
 
     mounted() {
         this.getPermalink()
-        this.refreshSidebar(this.fileInfo)
     },
 
     methods: {
@@ -66,16 +64,18 @@ export default {
                 console.log('Response:', response)
 
                 const validStatus = [200, 100, 400]
-
                 if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
-                    showError(t('permalink', 'Permalink: ' + response.data.ocs.data.detail))
+                    const error = response.data.ocs.data.message
+                        ? response.data.ocs.data.message
+                        : response.data.ocs.data.detail
+                    showError(t('permalink', 'Permalink: ' + error))
                 } else {
                     if (response.data.ocs.data.permalink) {
                         this.permalink = response.data.ocs.data.permalink
-                        this.activeButtonComponent = PermalinkVue
+                        this.activeButtonComponent = 'PermalinkVue'
                     } else {
                         this.permalink = t('files_sharing', 'Create Permalink')
-                        this.activeButtonComponent = CreateButton
+                        this.activeButtonComponent = 'CreateButton'
                     }
                 }
             } catch (e) {
@@ -91,8 +91,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .btn {
 	margin-top: 10px;
 }
+
+.sharingTab__additionalContent {
+  margin: 4px !important;
+}
+
 </style>

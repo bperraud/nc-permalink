@@ -3,7 +3,7 @@
   try {
     if (typeof document != "undefined") {
       var elementStyle = document.createElement("style");
-      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.btn[data-v-3c9d0845] {\n	margin-top: 10px;\n}"));
+      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.btn {\n	margin-top: 10px;\n}\n.sharingTab__additionalContent {\n  margin: 4px !important;\n}"));
       document.head.appendChild(elementStyle);
     }
   } catch (e) {
@@ -18,14 +18,15 @@ import { aE as normalizeComponent, f as cancelableClient, _, aJ as showSuccess, 
 const RequestMixin = {
   methods: {
     refreshSidebar(fileInfo) {
+      console.log("refreshSidebar");
       const shareTab = OCA.Files.Sidebar.state.tabs.find(
         (e) => e.id === "sharing"
       );
       if (shareTab) {
         shareTab.update(fileInfo);
-        console.debug("Permalink: Updated share tab");
+        console.log("Permalink: Updated share tab");
       } else {
-        console.debug("Permalink: No share tab to update");
+        console.log("Permalink: No share tab to update");
       }
     }
   }
@@ -289,7 +290,6 @@ const _sfc_main = {
   },
   mounted() {
     this.getPermalink();
-    this.refreshSidebar(this.fileInfo);
   },
   methods: {
     fullFilePath() {
@@ -303,14 +303,15 @@ const _sfc_main = {
         console.log("Response:", response);
         const validStatus = [200, 100, 400];
         if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
-          showError(translate("permalink", "Permalink: " + response.data.ocs.data.detail));
+          const error = response.data.ocs.data.message ? response.data.ocs.data.message : response.data.ocs.data.detail;
+          showError(translate("permalink", "Permalink: " + error));
         } else {
           if (response.data.ocs.data.permalink) {
             this.permalink = response.data.ocs.data.permalink;
-            this.activeButtonComponent = PermalinkVue;
+            this.activeButtonComponent = "PermalinkVue";
           } else {
             this.permalink = translate("files_sharing", "Create Permalink");
-            this.activeButtonComponent = CreateButton;
+            this.activeButtonComponent = "CreateButton";
           }
         }
       } catch (e) {
@@ -325,7 +326,7 @@ const _sfc_main = {
 };
 var _sfc_render = function render5() {
   var _vm = this, _c = _vm._self._c;
-  return _c("div", [_vm.activeButtonComponent ? _c(_vm.activeButtonComponent, { tag: "component", attrs: { "file-info": _vm.fileInfo, "permalink": _vm.permalink }, on: { "refresh": _vm.getPermalink } }) : _vm._e()], 1);
+  return _c("div", [_c(_vm.activeButtonComponent, { tag: "component", attrs: { "file-info": _vm.fileInfo, "permalink": _vm.permalink }, on: { "refresh": _vm.getPermalink } })], 1);
 };
 var _sfc_staticRenderFns = [];
 _sfc_render._withStripped = true;
@@ -335,7 +336,7 @@ var __component__ = /* @__PURE__ */ normalizeComponent(
   _sfc_staticRenderFns,
   false,
   null,
-  "3c9d0845"
+  null
 );
 __component__.options.__file = "/home/bperraud/Documents/code/nc-permalink/src/components/Button.vue";
 const ShareLinkButton = __component__.exports;
@@ -343,26 +344,19 @@ const ShareLinkButton = __component__.exports;
 Vue.prototype.OCA = window.OCA;
 Vue.mixin({ methods: { t, n } });
 let sectionInstance = null;
-let props = null;
 const View = Vue.extend(ShareLinkButton);
 window.addEventListener("DOMContentLoaded", function() {
   if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
     OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
       if (!el || !fileInfo) return;
-      if (sectionInstance && document.contains(sectionInstance.$el) && props) {
-        props.fileInfo = fileInfo;
-      } else {
-        if (sectionInstance) {
-          sectionInstance.$destroy();
-        }
-        sectionInstance = new View({ props: { fileInfo } });
-        props = Vue.observable({
-          ...sectionInstance._props,
-          fileInfo
-        });
-        sectionInstance._props = props;
-        sectionInstance.$mount(el[0]);
+      if (sectionInstance) {
+        sectionInstance.$destroy();
+        sectionInstance.$el.remove();
+        sectionInstance = null;
       }
+      sectionInstance = new View({ propsData: { fileInfo } });
+      sectionInstance.$mount();
+      el[0].appendChild(sectionInstance.$el);
     });
   }
 });
