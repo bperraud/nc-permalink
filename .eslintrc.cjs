@@ -1,11 +1,20 @@
 module.exports = {
-	extends: [
-		'@nextcloud',
-	],
+	globals: {
+		appVersion: true,
+	},
+	parserOptions: {
+		requireConfigFile: false,
+	},
+	extends: ['@nextcloud', 'prettier'],
 	rules: {
-		'jsdoc/require-jsdoc': 'off',
-		'vue/first-attribute-linebreak': 'off',
         "indent": ["error", 4],
-        "no-mixed-spaces-and-tabs": "error"
+		'jsdoc/require-jsdoc': 'off',
+		'jsdoc/tag-lines': 'off',
+		'vue/first-attribute-linebreak': 'off',
+		'import/extensions': 'off',
+        "no-mixed-spaces-and-tabs": "error",
+        "func-call-spacing": ["error", "never"],
+        "no-console": "warn"
 	},
 }
+

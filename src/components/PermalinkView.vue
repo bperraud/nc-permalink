@@ -24,12 +24,10 @@
 			</div>
 		</div>
 
-		<NcActions
-			class="sharing-entry__actions"
+		<NcActions class="sharing-entry__actions"
 			:aria-label="t('permalink', 'Actions for permalink')"
 			menu-align="right">
-			<NcActionButton
-				@click.prevent="onDelete">
+			<NcActionButton @click.prevent="onDelete">
 				<template #icon>
 					<CloseIcon :size="20" />
 				</template>

@@ -1,55 +1,43 @@
 <template>
 	<div id="permalink-admin-settings">
-		<NcSettingsSection
-			:name="t('permalink', 'API Endpoint')"
+		<NcSettingsSection :name="t('permalink', 'API Endpoint')"
 			:description="t('permalink', 'Base URL of the external Permalink API that handles link creation')">
 			<div class="input-with-icon">
 				<h3>
-					<span
-						v-if="updating.key === SettingsKey.PermalinkApiEndpoint"
+					<span v-if="updating.key === SettingsKey.PermalinkApiEndpoint"
 						class="status-icon">
-						<NcLoadingIcon
-							v-if="updating.status === UpdateState.Updating"
+						<NcLoadingIcon v-if="updating.status === UpdateState.Updating"
 							:name="t('permalink', 'Saving...')"
 							:size="20" />
-						<CheckIcon
-							v-else-if="updating.status === UpdateState.Completed"
+						<CheckIcon v-else-if="updating.status === UpdateState.Completed"
 							:size="20" />
-						<AlertIcon
-							v-else-if="updating.status === UpdateState.Error"
+						<AlertIcon v-else-if="updating.status === UpdateState.Error"
 							:size="20" />
 					</span>
 				</h3>
-				<NcSettingsInputText
-					id="permalink-api-endpoint"
+				<NcSettingsInputText id="permalink-api-endpoint"
 					label=""
 					:value.sync="permalinkApiEndpoint"
 					:disabled="updating.status === UpdateState.Updating || loading"
 					@submit="onApiEndpointSubmit" />
 			</div>
 		</NcSettingsSection>
-		<NcSettingsSection
-			:name="t('permalink', 'Jwt secret key')"
+		<NcSettingsSection :name="t('permalink', 'Jwt secret key')"
 			:description="t('permalink', 'Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API\'s configuration')">
 			<div class="input-with-icon">
 				<h3>
-					<span
-						v-if="updating.key === SettingsKey.JwtSecretKey"
+					<span v-if="updating.key === SettingsKey.JwtSecretKey"
 						class="status-icon">
-						<NcLoadingIcon
-							v-if="updating.status === UpdateState.Updating"
+						<NcLoadingIcon v-if="updating.status === UpdateState.Updating"
 							:name="t('permalink', 'Saving...')"
 							:size="20" />
-						<CheckIcon
-							v-else-if="updating.status === UpdateState.Completed"
+						<CheckIcon v-else-if="updating.status === UpdateState.Completed"
 							:size="20" />
-						<AlertIcon
-							v-else-if="updating.status === UpdateState.Error"
+						<AlertIcon v-else-if="updating.status === UpdateState.Error"
 							:size="20" />
 					</span>
 				</h3>
-				<NcSettingsInputText
-					id="jwt-secret-key"
+				<NcSettingsInputText id="jwt-secret-key"
 					label=""
 					:value.sync="jwtSecretKey"
 					:disabled="updating.status === UpdateState.Updating || loading"

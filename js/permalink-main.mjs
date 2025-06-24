@@ -1,4 +1,363 @@
-(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.appendChild(document.createTextNode(".btn[data-v-21737b32],.btn[data-v-8d91a2a5]{margin-top:10px}.sharing-entry[data-v-8d91a2a5]{display:flex;align-items:center;min-height:44px}.sharing-entry__summary[data-v-8d91a2a5]{padding:8px;padding-inline-start:10px;display:flex;justify-content:space-between;flex:1 0;min-width:0}.sharing-entry__desc[data-v-8d91a2a5]{display:flex;flex-direction:column;line-height:1.2em}.sharing-entry__desc p[data-v-8d91a2a5]{color:var(--color-text-maxcontrast)}.sharing-entry__desc__title[data-v-8d91a2a5]{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.sharing-entry__actions[data-v-8d91a2a5]{display:flex;align-items:center;margin-inline-start:auto}.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-8d91a2a5]{border-top:1px solid var(--color-border)}.sharing-entry[data-v-8d91a2a5] .avatar-link-share{background-color:var(--color-primary-element)}.sharing-entry .sharing-entry__action--public-upload[data-v-8d91a2a5]{border-bottom:1px solid var(--color-border)}.sharing-entry__loading[data-v-8d91a2a5]{width:44px;height:44px;margin:0;padding:14px;margin-inline-start:auto}.sharing-entry .action-item~.action-item[data-v-8d91a2a5],.sharing-entry .action-item~.sharing-entry__loading[data-v-8d91a2a5]{margin-inline-start:0}.sharing-entry .icon-checkmark-color[data-v-8d91a2a5]{opacity:1;color:var(--color-success)}.qr-code-dialog[data-v-8d91a2a5]{display:flex;width:100%;justify-content:center}.qr-code-dialog__img[data-v-8d91a2a5]{width:100%;height:auto}.btn{margin-top:10px}.sharingTab__additionalContent{margin:4px!important}")),document.head.appendChild(a)}}catch(t){console.error("vite-plugin-css-injected-by-js",t)}})();
+(function() {
+  "use strict";
+  try {
+    if (typeof document != "undefined") {
+      var elementStyle = document.createElement("style");
+      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.btn {\n	margin-top: 10px;\n}\n.sharingTab__additionalContent {\n  margin: 4px !important;\n}"));
+      document.head.appendChild(elementStyle);
+    }
+  } catch (e) {
+    console.error("vite-plugin-css-injected-by-js", e);
+  }
+})();
 /*! third party licenses: js/vendor.LICENSE.txt */
-import{aE as r,f as p,_ as h,aJ as l,aI as u,aH as m,J as d,F as k,aF as o,V as c}from"./style-Bg3yeD8g.chunk.mjs";const f={methods:{refreshSidebar(e){console.log("refreshSidebar");const i=OCA.Files.Sidebar.state.tabs.find(a=>a.id==="sharing");i?(i.update(e),console.log("Permalink: Updated share tab")):console.log("Permalink: No share tab to update")}}},y={mixins:[f],props:{permalink:{type:String,default:""},fileInfo:{type:Object,default:()=>{},required:!0}},computed:{fullFilePath(){return this.fileInfo?this.fileInfo.path.endsWith("/")?this.fileInfo.path+this.fileInfo.name:this.fileInfo.path+"/"+this.fileInfo.name:""}},methods:{async createPermalink(){const e={path:this.fullFilePath};try{const i=await p.post(h("apps/permalink/api/link"),e);console.log("Response:",i),l(t("permalink","Permalink created")),this.refreshSidebar(this.fileInfo),this.$emit("refresh")}catch(i){u(t("permalink","Error creating permalink")),i.response&&i.response.data&&i.response.data.message?console.error(i.response.data):console.error(i)}}}};var g=function(){var e=this,i=e._self._c;return i("div",[i("button",{staticClass:"btn btn-primary",on:{click:function(a){return a.preventDefault(),e.createPermalink.apply(null,arguments)}}},[e._v(" "+e._s(e.permalink)+" ")])])},C=[],_=r(y,g,C,!1,null,"21737b32");const v=_.exports,I={name:"CloseIcon",emits:["click"],props:{title:{type:String},fillColor:{type:String,default:"currentColor"},size:{type:Number,default:24}}};var b=function(){var e=this,i=e._self._c;return i("span",e._b({staticClass:"material-design-icon close-icon",attrs:{"aria-hidden":e.title?null:"true","aria-label":e.title,role:"img"},on:{click:function(a){return e.$emit("click",a)}}},"span",e.$attrs,!1),[i("svg",{staticClass:"material-design-icon__svg",attrs:{fill:e.fillColor,width:e.size,height:e.size,viewBox:"0 0 24 24"}},[i("path",{attrs:{d:"M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"}},[e.title?i("title",[e._v(e._s(e.title))]):e._e()])])])},S=[],L=r(I,b,S,!1,null,null);const A=L.exports,P={name:"ContentCopyIcon",emits:["click"],props:{title:{type:String},fillColor:{type:String,default:"currentColor"},size:{type:Number,default:24}}};var w=function(){var e=this,i=e._self._c;return i("span",e._b({staticClass:"material-design-icon content-copy-icon",attrs:{"aria-hidden":e.title?null:"true","aria-label":e.title,role:"img"},on:{click:function(a){return e.$emit("click",a)}}},"span",e.$attrs,!1),[i("svg",{staticClass:"material-design-icon__svg",attrs:{fill:e.fillColor,width:e.size,height:e.size,viewBox:"0 0 24 24"}},[i("path",{attrs:{d:"M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"}},[e.title?i("title",[e._v(e._s(e.title))]):e._e()])])])},x=[],$=r(P,w,x,!1,null,null);const B=$.exports,O={components:{NcActions:k,NcActionButton:d,CheckIcon:m,ClipboardIcon:B,CloseIcon:A},mixins:[f],props:{permalink:{type:String,default:""},fileInfo:{type:Object,default:()=>{},required:!0}},data(){return{copySuccess:!0,copied:!1}},methods:{fullFilePath(){return this.fileInfo?this.fileInfo.path.endsWith("/")?this.fileInfo.path+this.fileInfo.name:this.fileInfo.path+"/"+this.fileInfo.name:""},async copyLink(){try{console.log("Copied permalink : ",this.permalink),await navigator.clipboard.writeText(this.permalink),l(o("permalink","Link copied")),this.$refs.copyButton.$el.focus(),this.copySuccess=!0,this.copied=!0}catch(e){this.copySuccess=!1,this.copied=!0,console.error(e)}finally{setTimeout(()=>{this.copySuccess=!1,this.copied=!1},4e3)}},async onDelete(){const e=encodeURIComponent(this.fullFilePath());console.log("onDelete with link",e);try{const i=await p.delete(h("apps/permalink/api/link")+`?path=${e}`);console.log("Response:",i),l(o("permalink","Permalink deleted")),this.refreshSidebar(this.fileInfo),this.$emit("refresh")}catch(i){i.response&&i.response.data&&i.response.data.message?console.error(i.response.data):console.error(i)}},copyLinkTooltip(){return this.copied?this.copySuccess?"":o("permalink","Cannot copy, please copy the link manually"):o("permalink","Copy permalink to clipboard")},actionsTooltip(){return o("permalink","Actions for permalink")}}};var z=function(){var e=this,i=e._self._c;return i("li",{staticClass:"sharing-entry sharing-entry__link"},[i("div",{staticClass:"sharing-entry__summary"},[i("div",{staticClass:"sharing-entry__desc"},[i("p",[e._v(" "+e._s(e.permalink)+" ")])]),i("div",{staticClass:"sharing-entry__actions"},[i("NcActions",{ref:"copyButton",staticClass:"sharing-entry__copy"},[i("NcActionButton",{attrs:{"aria-label":e.copyLinkTooltip(),title:e.copyLinkTooltip(),href:e.permalink},on:{click:function(a){return a.preventDefault(),e.copyLink.apply(null,arguments)}},scopedSlots:e._u([{key:"icon",fn:function(){return[e.copied&&e.copySuccess?i("CheckIcon",{staticClass:"icon-checkmark-color",attrs:{size:20}}):i("ClipboardIcon",{attrs:{size:20}})]},proxy:!0}])})],1)],1)]),i("NcActions",{staticClass:"sharing-entry__actions",attrs:{"aria-label":e.t("permalink","Actions for permalink"),"menu-align":"right"}},[i("NcActionButton",{on:{click:function(a){return a.preventDefault(),e.onDelete.apply(null,arguments)}},scopedSlots:e._u([{key:"icon",fn:function(){return[i("CloseIcon",{attrs:{size:20}})]},proxy:!0}])},[e._v(" "+e._s(e.t("permalink","Delete permalink"))+" ")])],1)],1)},D=[],F=r(O,z,D,!1,null,"8d91a2a5");const N=F.exports,V={components:{CreateButton:v,PermalinkVue:N},mixins:[f],props:{fileInfo:{type:Object,required:!0}},data(){return{activeButtonComponent:null,permalink:""}},mounted(){this.getPermalink()},methods:{fullFilePath(){return this.fileInfo?this.fileInfo.path.endsWith("/")?this.fileInfo.path+this.fileInfo.name:this.fileInfo.path+"/"+this.fileInfo.name:""},async getPermalink(){const e=encodeURIComponent(this.fullFilePath());try{const i=await p.get(h("apps/permalink/api/link")+`?path=${e}`);if(console.log("Response:",i),[200,100,400].includes(i.data.ocs.meta.statuscode))i.data.ocs.data.permalink?(this.permalink=i.data.ocs.data.permalink,this.activeButtonComponent="PermalinkVue"):(this.permalink=o("files_sharing","Create Permalink"),this.activeButtonComponent="CreateButton");else{const a=i.data.ocs.data.message?i.data.ocs.data.message:i.data.ocs.data.detail;u(o("permalink","Permalink: "+a))}}catch(i){i.response&&i.response.data&&i.response.data.message?console.error(i.response.data):console.error(i)}}}};var H=function(){var e=this,i=e._self._c;return i("div",[i(e.activeButtonComponent,{tag:"component",attrs:{"file-info":e.fileInfo,permalink:e.permalink},on:{refresh:e.getPermalink}})],1)},T=[],M=r(V,H,T,!1,null,null);const R=M.exports;c.prototype.OCA=window.OCA,c.mixin({methods:{t,n}});let s=null;const j=c.extend(R);window.addEventListener("DOMContentLoaded",function(){OCA.Sharing&&OCA.Sharing.ShareTabSections&&OCA.Sharing.ShareTabSections.registerSection((e,i)=>{!e||!i||(s&&(s.$destroy(),s.$el.remove(),s=null),s=new j({propsData:{fileInfo:i}}),s.$mount(),e[0].appendChild(s.$el))})});
+const appName = "permalink";
+const appVersion = "1.1.0";
+import { aE as normalizeComponent, f as cancelableClient, _, aJ as showSuccess, aI as showError, aH as CheckIcon, J as NcActionButton, F as NcActions, aF as translate, V as Vue } from "./style-CCJgO256.chunk.mjs";
+/*! third party licenses: js/vendor.LICENSE.txt */
+const RequestMixin = {
+  methods: {
+    refreshSidebar(fileInfo) {
+      console.log("refreshSidebar");
+      const shareTab = OCA.Files.Sidebar.state.tabs.find(
+        (e) => e.id === "sharing"
+      );
+      if (shareTab) {
+        shareTab.update(fileInfo);
+        console.log("Permalink: Updated share tab");
+      } else {
+        console.log("Permalink: No share tab to update");
+      }
+    }
+  }
+};
+const _sfc_main$4 = {
+  mixins: [RequestMixin],
+  props: {
+    permalink: {
+      type: String,
+      default: ""
+    },
+    fileInfo: {
+      type: Object,
+      default: () => {
+      },
+      required: true
+    }
+  },
+  computed: {
+    fullFilePath() {
+      if (!this.fileInfo) return "";
+      return this.fileInfo.path.endsWith("/") ? this.fileInfo.path + this.fileInfo.name : this.fileInfo.path + "/" + this.fileInfo.name;
+    }
+  },
+  methods: {
+    async createPermalink() {
+      const data = {
+        path: this.fullFilePath
+      };
+      try {
+        const response = await cancelableClient.post(_("apps/permalink/api/link"), data);
+        console.log("Response:", response);
+        showSuccess(t("permalink", "Permalink created"));
+        this.refreshSidebar(this.fileInfo);
+        this.$emit("refresh");
+      } catch (e) {
+        showError(t("permalink", "Error creating permalink"));
+        if (e.response && e.response.data && e.response.data.message) {
+          console.error(e.response.data);
+        } else {
+          console.error(e);
+        }
+      }
+    }
+  }
+};
+var _sfc_render$4 = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("div", [_c("button", { staticClass: "btn btn-primary", on: { "click": function($event) {
+    $event.preventDefault();
+    return _vm.createPermalink.apply(null, arguments);
+  } } }, [_vm._v(" " + _vm._s(_vm.permalink) + " ")])]);
+};
+var _sfc_staticRenderFns$4 = [];
+_sfc_render$4._withStripped = true;
+var __component__$4 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$4,
+  _sfc_render$4,
+  _sfc_staticRenderFns$4,
+  false,
+  null,
+  "d4e7d39f"
+);
+__component__$4.options.__file = "/home/bperraud/code/nc-permalink/src/components/CreateButton.vue";
+const CreateButton = __component__$4.exports;
+const _sfc_main$3 = {
+  name: "CloseIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$3 = function render2() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon close-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$3 = [];
+_sfc_render$3._withStripped = true;
+var __component__$3 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$3,
+  _sfc_render$3,
+  _sfc_staticRenderFns$3,
+  false,
+  null,
+  null
+);
+__component__$3.options.__file = "/home/bperraud/code/nc-permalink/node_modules/vue-material-design-icons/Close.vue";
+const CloseIcon = __component__$3.exports;
+const _sfc_main$2 = {
+  name: "ContentCopyIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$2 = function render3() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon content-copy-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$2 = [];
+_sfc_render$2._withStripped = true;
+var __component__$2 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$2,
+  _sfc_render$2,
+  _sfc_staticRenderFns$2,
+  false,
+  null,
+  null
+);
+__component__$2.options.__file = "/home/bperraud/code/nc-permalink/node_modules/vue-material-design-icons/ContentCopy.vue";
+const ClipboardIcon = __component__$2.exports;
+const _sfc_main$1 = {
+  components: {
+    NcActions,
+    NcActionButton,
+    CheckIcon,
+    ClipboardIcon,
+    CloseIcon
+  },
+  mixins: [RequestMixin],
+  props: {
+    permalink: {
+      type: String,
+      default: ""
+    },
+    fileInfo: {
+      type: Object,
+      default: () => {
+      },
+      required: true
+    }
+  },
+  data() {
+    return {
+      copySuccess: true,
+      copied: false
+    };
+  },
+  methods: {
+    fullFilePath() {
+      if (!this.fileInfo) return "";
+      return this.fileInfo.path.endsWith("/") ? this.fileInfo.path + this.fileInfo.name : this.fileInfo.path + "/" + this.fileInfo.name;
+    },
+    async copyLink() {
+      try {
+        console.log("Copied permalink : ", this.permalink);
+        await navigator.clipboard.writeText(this.permalink);
+        showSuccess(translate("permalink", "Link copied"));
+        this.$refs.copyButton.$el.focus();
+        this.copySuccess = true;
+        this.copied = true;
+      } catch (error) {
+        this.copySuccess = false;
+        this.copied = true;
+        console.error(error);
+      } finally {
+        setTimeout(() => {
+          this.copySuccess = false;
+          this.copied = false;
+        }, 4e3);
+      }
+    },
+    async onDelete() {
+      const link = encodeURIComponent(this.fullFilePath());
+      console.log("onDelete with link", link);
+      try {
+        const response = await cancelableClient.delete(_("apps/permalink/api/link") + `?path=${link}`);
+        console.log("Response:", response);
+        showSuccess(translate("permalink", "Permalink deleted"));
+        this.refreshSidebar(this.fileInfo);
+        this.$emit("refresh");
+      } catch (e) {
+        if (e.response && e.response.data && e.response.data.message) {
+          console.error(e.response.data);
+        } else {
+          console.error(e);
+        }
+      }
+    },
+    copyLinkTooltip() {
+      if (this.copied) {
+        if (this.copySuccess) {
+          return "";
+        }
+        return translate("permalink", "Cannot copy, please copy the link manually");
+      }
+      return translate("permalink", "Copy permalink to clipboard");
+    },
+    actionsTooltip() {
+      return translate("permalink", "Actions for permalink");
+    }
+  }
+};
+var _sfc_render$1 = function render4() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("li", { staticClass: "sharing-entry sharing-entry__link" }, [_c("div", { staticClass: "sharing-entry__summary" }, [_c("div", { staticClass: "sharing-entry__desc" }, [_c("p", [_vm._v(" " + _vm._s(_vm.permalink) + " ")])]), _c("div", { staticClass: "sharing-entry__actions" }, [_c("NcActions", { ref: "copyButton", staticClass: "sharing-entry__copy" }, [_c("NcActionButton", { attrs: { "aria-label": _vm.copyLinkTooltip(), "title": _vm.copyLinkTooltip(), "href": _vm.permalink }, on: { "click": function($event) {
+    $event.preventDefault();
+    return _vm.copyLink.apply(null, arguments);
+  } }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_vm.copied && _vm.copySuccess ? _c("CheckIcon", { staticClass: "icon-checkmark-color", attrs: { "size": 20 } }) : _c("ClipboardIcon", { attrs: { "size": 20 } })];
+  }, proxy: true }]) })], 1)], 1)]), _c("NcActions", { staticClass: "sharing-entry__actions", attrs: { "aria-label": _vm.t("permalink", "Actions for permalink"), "menu-align": "right" } }, [_c("NcActionButton", { on: { "click": function($event) {
+    $event.preventDefault();
+    return _vm.onDelete.apply(null, arguments);
+  } }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_c("CloseIcon", { attrs: { "size": 20 } })];
+  }, proxy: true }]) }, [_vm._v(" " + _vm._s(_vm.t("permalink", "Delete permalink")) + " ")])], 1)], 1);
+};
+var _sfc_staticRenderFns$1 = [];
+_sfc_render$1._withStripped = true;
+var __component__$1 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$1,
+  _sfc_render$1,
+  _sfc_staticRenderFns$1,
+  false,
+  null,
+  "103bb8db"
+);
+__component__$1.options.__file = "/home/bperraud/code/nc-permalink/src/components/PermalinkView.vue";
+const PermalinkVue = __component__$1.exports;
+const _sfc_main = {
+  components: {
+    CreateButton,
+    PermalinkVue
+  },
+  mixins: [RequestMixin],
+  props: {
+    fileInfo: {
+      type: Object,
+      required: true
+    }
+  },
+  data() {
+    return {
+      activeButtonComponent: null,
+      permalink: ""
+    };
+  },
+  mounted() {
+    this.getPermalink();
+  },
+  methods: {
+    fullFilePath() {
+      if (!this.fileInfo) return "";
+      return this.fileInfo.path.endsWith("/") ? this.fileInfo.path + this.fileInfo.name : this.fileInfo.path + "/" + this.fileInfo.name;
+    },
+    async getPermalink() {
+      const link = encodeURIComponent(this.fullFilePath());
+      try {
+        const response = await cancelableClient.get(_("apps/permalink/api/link") + `?path=${link}`);
+        console.log("Response:", response);
+        const validStatus = [200, 100, 400];
+        if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
+          const error = response.data.ocs.data.message ? response.data.ocs.data.message : response.data.ocs.data.detail;
+          showError(translate("permalink", "Permalink: " + error));
+        } else {
+          if (response.data.ocs.data.permalink) {
+            this.permalink = response.data.ocs.data.permalink;
+            this.activeButtonComponent = "PermalinkVue";
+          } else {
+            this.permalink = translate("files_sharing", "Create Permalink");
+            this.activeButtonComponent = "CreateButton";
+          }
+        }
+      } catch (e) {
+        if (e.response && e.response.data && e.response.data.message) {
+          console.error(e.response.data);
+        } else {
+          console.error(e);
+        }
+      }
+    }
+  }
+};
+var _sfc_render = function render5() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("div", [_c(_vm.activeButtonComponent, { tag: "component", attrs: { "file-info": _vm.fileInfo, "permalink": _vm.permalink }, on: { "refresh": _vm.getPermalink } })], 1);
+};
+var _sfc_staticRenderFns = [];
+_sfc_render._withStripped = true;
+var __component__ = /* @__PURE__ */ normalizeComponent(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  null
+);
+__component__.options.__file = "/home/bperraud/code/nc-permalink/src/components/Button.vue";
+const ShareLinkButton = __component__.exports;
+/*! third party licenses: js/vendor.LICENSE.txt */
+Vue.prototype.OCA = window.OCA;
+Vue.mixin({ methods: { t, n } });
+let sectionInstance = null;
+const View = Vue.extend(ShareLinkButton);
+window.addEventListener("DOMContentLoaded", function() {
+  if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
+    OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
+      if (!el || !fileInfo) return;
+      if (sectionInstance) {
+        sectionInstance.$destroy();
+        sectionInstance.$el.remove();
+        sectionInstance = null;
+      }
+      sectionInstance = new View({ propsData: { fileInfo } });
+      sectionInstance.$mount();
+      el[0].appendChild(sectionInstance.$el);
+    });
+  }
+});
 //# sourceMappingURL=permalink-main.mjs.map
