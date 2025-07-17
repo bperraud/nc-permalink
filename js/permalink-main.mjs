@@ -345,18 +345,46 @@ Vue.prototype.OCA = window.OCA;
 Vue.mixin({ methods: { t, n } });
 let sectionInstance = null;
 const View = Vue.extend(ShareLinkButton);
+function waitForValidElement(elGetter, timeout = 2e3, interval = 50) {
+  return new Promise((resolve, reject) => {
+    let elapsed = 0;
+    const check = () => {
+      const el = elGetter();
+      if (el && el.length > 0 && el[0] instanceof HTMLElement) {
+        resolve(el[0]);
+      } else if ((elapsed += interval) >= timeout) {
+        reject(new Error("Timeout: el[0] not available"));
+      } else {
+        setTimeout(check, interval);
+      }
+    };
+    check();
+  });
+}
 window.addEventListener("DOMContentLoaded", function() {
   if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
     OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
-      if (!el || !fileInfo) return;
-      if (sectionInstance) {
-        sectionInstance.$destroy();
-        sectionInstance.$el.remove();
-        sectionInstance = null;
-      }
-      sectionInstance = new View({ propsData: { fileInfo } });
-      sectionInstance.$mount();
-      el[0].appendChild(sectionInstance.$el);
+      waitForValidElement(() => el).then((targetEl) => {
+        console.log("el is not empty");
+        console.log(targetEl);
+        el = targetEl;
+        console.log("typeof el:", typeof el);
+        console.log("Array.isArray(el):", Array.isArray(el));
+        console.log("el instanceof HTMLElement:", el instanceof HTMLElement);
+        console.log("el:", el);
+        if (!el || !fileInfo) return;
+        if (sectionInstance) {
+          sectionInstance.$destroy();
+          sectionInstance.$el.remove();
+          sectionInstance = null;
+        }
+        sectionInstance = new View({ propsData: { fileInfo } });
+        sectionInstance.$mount();
+        el.appendChild(sectionInstance.$el);
+        console.log("MOUNTED");
+      }).catch((err) => {
+        console.warn("Could not find valid mount element:", err);
+      });
     });
   }
 });
