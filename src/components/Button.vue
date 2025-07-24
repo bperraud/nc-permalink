@@ -97,7 +97,10 @@ export default {
 }
 
 .sharingTab__additionalContent {
-  margin: 4px !important;
+    margin-top: 4px !important;
 }
 
+.sharingTab__additionalContent .sharing-entry__summary {
+    padding-inline-start: 0px !important;
+}
 </style>

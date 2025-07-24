@@ -23,7 +23,6 @@
                             <span class="line-one__details">
                                 details
                             </span>
-
                         </div>
                     </div>
 
@@ -334,6 +333,7 @@ export default {
 }
 
 .line-one {
+    margin-top: -2px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
