@@ -2,10 +2,7 @@
 	<li class="sharing-entry sharing-entry__link">
 		<div class="sharing-entry__summary">
 			<div class="sharing-entry__desc">
-
-
                 <div class="list-item-content__wrapper">
-
                     <div class="list-item-content">
                         <NcAvatar
                               :is-no-user="true"
