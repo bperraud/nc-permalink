@@ -19,10 +19,10 @@ OC.L10N.register(
     "permalink" : "lien permanent",
     "Error occurred while saving settings" : "Une erreur s'est produite lors de l'enregistrement des paramètres",
     "Permalink: " : "Lien permanent : ",
-    "Create Permalink" : "Créer un lien permanent",
     "Link copied" : "Lien copié",
     "Permalink deleted" : "Lien permanent supprimé",
     "Cannot copy, please copy the link manually" : "Impossible de copier, veuillez copier le lien manuellement",
-    "Copy permalink to clipboard" : "Copier le lien permanent dans le presse-papiers"
+    "Copy permalink to clipboard" : "Copier le lien permanent dans le presse-papiers",
+    "Create Permalink" : "Créer un lien permanent"
 },
 "nplurals=2; plural=(n > 1);");

@@ -59,14 +59,12 @@ import {
     NcSettingsSection,
     Tooltip,
 } from '@nextcloud/vue'
-import AlertIcon from 'vue-material-design-icons/AlertCircle.vue'
 
+import AlertIcon from 'vue-material-design-icons/AlertCircle.vue'
 import CheckIcon from 'vue-material-design-icons/Check.vue'
 import { SettingsKey } from '../enums/SettingsKey.ts'
 import { UpdateState } from '../enums/UpdateState.ts'
-
 import SettingsMixin from '../mixins/SettingsMixin.ts'
-
 import '@nextcloud/dialogs/style.css'
 
 export default {
@@ -110,10 +108,8 @@ export default {
 
     async mounted() {
         this.loading = true
-
         this.jwtSecretKey = await this.getJwtSecret()
         this.permalinkApiEndpoint = await this.getPermalinkApiEndpoint()
-
         this.loading = false
     },
 

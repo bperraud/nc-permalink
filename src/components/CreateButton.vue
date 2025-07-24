@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<button class="btn btn-primary" @click.prevent="createPermalink">
-			{{ permalink }}
+            {{ t('permalink', 'Create Permalink') }}
 		</button>
 	</div>
 </template>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nextcloud 3.14159\n"
 "Report-Msgid-Bugs-To: translations\\@example.com\n"
-"POT-Creation-Date: 2025-07-24 16:22+0200\n"
+"POT-Creation-Date: 2025-07-24 16:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,56 +18,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:266
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:262
 msgid "Permalink created"
 msgstr ""
 
 #: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:270
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:266
 msgid "Error creating permalink"
 msgstr ""
 
 #. TRANSLATORS src/components/PermalinkView.vue:47
 #: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:397
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:404
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:393
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:400
 msgid "Actions for permalink"
 msgstr ""
 
 #. TRANSLATORS src/components/PermalinkView.vue:53
 #: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:406
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:402
 msgid "Delete permalink"
 msgstr ""
 
 #. TRANSLATORS src/components/AdminSettings.vue:3
 #: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:129
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:125
 msgid "API Endpoint"
 msgstr ""
 
 #. TRANSLATORS src/components/AdminSettings.vue:4
 #: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:131
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:127
 msgid "Base URL of the external Permalink API that handles link creation"
 msgstr ""
 
 #. TRANSLATORS src/components/AdminSettings.vue:10
 #: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:133
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:139
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:129
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:135
 msgid "Saving..."
 msgstr ""
 
 #. TRANSLATORS src/components/AdminSettings.vue:25
 #: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:135
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:131
 msgid "Jwt secret key"
 msgstr ""
 
 #. TRANSLATORS src/components/AdminSettings.vue:26
 #: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:137
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:133
 msgid ""
 "Secret key used to sign JWT tokens for authenticating requests to the "
 "Permalink API. Must match the API's configuration"
@@ -103,31 +103,31 @@ msgstr ""
 msgid "permalink"
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:118
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:114
 msgid "Error occurred while saving settings"
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:201
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:197
 msgid "Permalink: "
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:207
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:203
 msgid "Create Permalink"
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:351
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:347
 msgid "Link copied"
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:374
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:370
 msgid "Permalink deleted"
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:391
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:387
 msgid "Cannot copy, please copy the link manually"
 msgstr ""
 
-#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:393
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:389
 msgid "Copy permalink to clipboard"
 msgstr ""
 

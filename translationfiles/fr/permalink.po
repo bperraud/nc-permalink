@@ -71,9 +71,6 @@ msgstr "Une erreur s'est produite lors de l'enregistrement des paramètres"
 msgid "Permalink: "
 msgstr "Lien permanent : "
 
-msgid "Create Permalink"
-msgstr "Créer un lien permanent"
-
 msgid "Link copied"
 msgstr "Lien copié"
 
@@ -85,6 +82,9 @@ msgstr "Impossible de copier, veuillez copier le lien manuellement"
 
 msgid "Copy permalink to clipboard"
 msgstr "Copier le lien permanent dans le presse-papiers"
+
+msgid "Create Permalink"
+msgstr "Créer un lien permanent"
 
 #: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Federation/Exceptions/ActionNotSupportedException.php:43
 #, php-format
