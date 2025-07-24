@@ -2,8 +2,7 @@
 
 APP_NAME="permalink"
 VERSION=$(xmllint --xpath "string(//version)" appinfo/info.xml)
-ARCHIVE_NAME="${APP_NAME}-${VERSION}.tar.gz"
-
+ARCHIVE_NAME="${APP_NAME}.tar.gz"
 
 # Build
 rm -rf js/*
@@ -20,6 +19,6 @@ echo "✅ Beta archive created: $ARCHIVE_NAME"
 git tag $VERSION
 git push origin main --tags
 
-gh release create $VERSION "${APP_NAME}-${VERSION}.tar.gz"
+gh release create $VERSION "${APP_NAME}.tar.gz"
 
 echo "✅ Release pushed to git"

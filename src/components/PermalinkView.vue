@@ -2,9 +2,32 @@
 	<li class="sharing-entry sharing-entry__link">
 		<div class="sharing-entry__summary">
 			<div class="sharing-entry__desc">
-				<p>
-					{{ permalink }}
-				</p>
+
+
+                <div class="list-item-content__wrapper">
+
+                    <div class="list-item-content">
+                        <NcAvatar
+                              :is-no-user="true"
+                              icon-class="avatardiv"
+                              title="Permalink"
+                            >
+                              <template #icon>
+                                <LinkVariantIcon fill-color="white" :size="18" />
+                              </template>
+                        </NcAvatar>
+                        <div class="line-one">
+                            <span class="line-one__title">
+                                Permalink 
+                            </span>
+                            <span class="line-one__details">
+                                details
+                            </span>
+
+                        </div>
+                    </div>
+
+                </div>
 			</div>
 			<!-- clipboard -->
 			<div class="sharing-entry__actions">
@@ -42,6 +65,10 @@
 
 import axios from '@nextcloud/axios'
 
+import {
+    NcAvatar
+} from '@nextcloud/vue'
+
 import NcActionButton from '@nextcloud/vue/components/NcActionButton'
 import NcActions from '@nextcloud/vue/components/NcActions'
 
@@ -49,6 +76,7 @@ import { showSuccess } from '@nextcloud/dialogs'
 import { generateUrl } from '@nextcloud/router'
 import { t } from '@nextcloud/l10n'
 
+import LinkVariantIcon from 'vue-material-design-icons/LinkVariant.vue'
 import CloseIcon from 'vue-material-design-icons/Close.vue'
 import CheckIcon from 'vue-material-design-icons/Check.vue'
 import ClipboardIcon from 'vue-material-design-icons/ContentCopy.vue'
@@ -58,11 +86,13 @@ import RequestMixin from '../mixins/RequestMixin.ts'
 export default {
 
     components: {
+        NcAvatar,
         NcActions,
         NcActionButton,
         CheckIcon,
         ClipboardIcon,
         CloseIcon,
+        LinkVariantIcon,
     },
 
     mixins: [RequestMixin],
@@ -242,4 +272,111 @@ export default {
 		height: auto;
 	}
 }
+
+.avatardiv {
+	background-color: #c40c0c !important;
+}
+
+
+.list-item__wrapper {
+	position: relative;
+	width: 100%;
+}
+// NcListItem
+
+.list-item-content__wrapper {
+  padding-left: 0; /* or reduce this value */
+}
+
+.list-item {
+	display: block;
+	position: relative;
+	flex: 0 0 auto;
+	justify-content: flex-start;
+	border-radius: 32px;
+	width: 100%;
+	transition: background-color var(--animation-quick) ease-in-out;
+	list-style: none;
+	&-content__wrapper {
+		display: flex;
+		align-items: center;
+		&--compact {
+			height: 36px;
+			.line-one,
+			.line-two {
+				margin-top: -4px;
+				margin-bottom: -4px;
+			}
+		}
+	}
+	&-content {
+		display: flex;
+		flex: 1 1 auto;
+		justify-content: space-between;
+		&__main {
+			flex: 1 1 auto;
+			width: 0;
+			margin-left: auto 0;
+			&--oneline {
+				display: flex;
+			}
+		}
+		&__actions {
+			flex: 0 0 auto;
+			align-self: center;
+			justify-content: center;
+			margin-left: 4px;
+		}
+	}
+	&__extra {
+		margin-top: 4px;
+	}
+}
+
+.line-one {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	white-space: nowrap;
+	margin-left: 10px;
+	overflow: hidden;
+	&__title {
+		overflow: hidden;
+		flex-grow: 1;
+		text-overflow: ellipsis;
+		color: var(--color-main-text);
+		font-weight: normal;
+	}
+	&__details {
+		color: var(--color-text-maxcontrast);
+		margin: 0 8px;
+		font-weight: normal;
+	}
+}
+
+.line-two {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	white-space: nowrap;
+	&--bold {
+		font-weight: bold;
+	}
+	&__subtitle {
+		overflow: hidden;
+		flex-grow: 1;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: var(--color-text-maxcontrast);
+	}
+	&__additional_elements {
+		margin: 2px 4px 0 4px;
+		display: flex;
+		align-items: center;
+	}
+	&__indicator {
+		margin: 0 5px;
+	}
+}
+
 </style>

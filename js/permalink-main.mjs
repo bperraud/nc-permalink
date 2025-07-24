@@ -3,7 +3,7 @@
   try {
     if (typeof document != "undefined") {
       var elementStyle = document.createElement("style");
-      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.btn {\n	margin-top: 10px;\n}\n.sharingTab__additionalContent {\n  margin: 4px !important;\n}"));
+      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.avatardiv[data-v-103bb8db] {\n  background-color: #c40c0c !important;\n}\n.list-item__wrapper[data-v-103bb8db] {\n  position: relative;\n  width: 100%;\n}\n.list-item-content__wrapper[data-v-103bb8db] {\n  padding-left: 0; /* or reduce this value */\n}\n.list-item[data-v-103bb8db] {\n  display: block;\n  position: relative;\n  flex: 0 0 auto;\n  justify-content: flex-start;\n  border-radius: 32px;\n  width: 100%;\n  transition: background-color var(--animation-quick) ease-in-out;\n  list-style: none;\n}\n.list-item-content__wrapper[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n}\n.list-item-content__wrapper--compact[data-v-103bb8db] {\n  height: 36px;\n}\n.list-item-content__wrapper--compact .line-one[data-v-103bb8db],\n.list-item-content__wrapper--compact .line-two[data-v-103bb8db] {\n  margin-top: -4px;\n  margin-bottom: -4px;\n}\n.list-item-content[data-v-103bb8db] {\n  display: flex;\n  flex: 1 1 auto;\n  justify-content: space-between;\n}\n.list-item-content__main[data-v-103bb8db] {\n  flex: 1 1 auto;\n  width: 0;\n  margin-left: auto 0;\n}\n.list-item-content__main--oneline[data-v-103bb8db] {\n  display: flex;\n}\n.list-item-content__actions[data-v-103bb8db] {\n  flex: 0 0 auto;\n  align-self: center;\n  justify-content: center;\n  margin-left: 4px;\n}\n.list-item__extra[data-v-103bb8db] {\n  margin-top: 4px;\n}\n.line-one[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  white-space: nowrap;\n  margin-left: 10px;\n  overflow: hidden;\n}\n.line-one__title[data-v-103bb8db] {\n  overflow: hidden;\n  flex-grow: 1;\n  text-overflow: ellipsis;\n  color: var(--color-main-text);\n  font-weight: normal;\n}\n.line-one__details[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n  margin: 0 8px;\n  font-weight: normal;\n}\n.line-two[data-v-103bb8db] {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  white-space: nowrap;\n}\n.line-two--bold[data-v-103bb8db] {\n  font-weight: bold;\n}\n.line-two__subtitle[data-v-103bb8db] {\n  overflow: hidden;\n  flex-grow: 1;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--color-text-maxcontrast);\n}\n.line-two__additional_elements[data-v-103bb8db] {\n  margin: 2px 4px 0 4px;\n  display: flex;\n  align-items: center;\n}\n.line-two__indicator[data-v-103bb8db] {\n  margin: 0 5px;\n}\n.btn {\n	margin-top: 10px;\n}\n.sharingTab__additionalContent {\n  margin: 4px !important;\n}"));
       document.head.appendChild(elementStyle);
     }
   } catch (e) {
@@ -12,8 +12,8 @@
 })();
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
-const appVersion = "1.1.0";
-import { aE as normalizeComponent, f as cancelableClient, _, aJ as showSuccess, aI as showError, aH as CheckIcon, J as NcActionButton, F as NcActions, aF as translate, V as Vue } from "./style-CCJgO256.chunk.mjs";
+const appVersion = "1.1.1";
+import { n as normalizeComponent, c as cancelableClient, _, e as showSuccess, s as showError, C as CheckIcon, f as NcActionButton, g as NcActions, h as NcAvatar, t as translate, d as Vue } from "./style-C1t3WylI.chunk.mjs";
 /*! third party licenses: js/vendor.LICENSE.txt */
 const RequestMixin = {
   methods: {
@@ -31,7 +31,7 @@ const RequestMixin = {
     }
   }
 };
-const _sfc_main$4 = {
+const _sfc_main$5 = {
   mixins: [RequestMixin],
   props: {
     permalink: {
@@ -73,12 +73,47 @@ const _sfc_main$4 = {
     }
   }
 };
-var _sfc_render$4 = function render() {
+var _sfc_render$5 = function render() {
   var _vm = this, _c = _vm._self._c;
   return _c("div", [_c("button", { staticClass: "btn btn-primary", on: { "click": function($event) {
     $event.preventDefault();
     return _vm.createPermalink.apply(null, arguments);
   } } }, [_vm._v(" " + _vm._s(_vm.permalink) + " ")])]);
+};
+var _sfc_staticRenderFns$5 = [];
+_sfc_render$5._withStripped = true;
+var __component__$5 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$5,
+  _sfc_render$5,
+  _sfc_staticRenderFns$5,
+  false,
+  null,
+  "d4e7d39f"
+);
+__component__$5.options.__file = "/home/bperraud/code/nc-permalink/src/components/CreateButton.vue";
+const CreateButton = __component__$5.exports;
+const _sfc_main$4 = {
+  name: "LinkVariantIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$4 = function render2() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon link-variant-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M10.59,13.41C11,13.8 11,14.44 10.59,14.83C10.2,15.22 9.56,15.22 9.17,14.83C7.22,12.88 7.22,9.71 9.17,7.76V7.76L12.71,4.22C14.66,2.27 17.83,2.27 19.78,4.22C21.73,6.17 21.73,9.34 19.78,11.29L18.29,12.78C18.3,11.96 18.17,11.14 17.89,10.36L18.36,9.88C19.54,8.71 19.54,6.81 18.36,5.64C17.19,4.46 15.29,4.46 14.12,5.64L10.59,9.17C9.41,10.34 9.41,12.24 10.59,13.41M13.41,9.17C13.8,8.78 14.44,8.78 14.83,9.17C16.78,11.12 16.78,14.29 14.83,16.24V16.24L11.29,19.78C9.34,21.73 6.17,21.73 4.22,19.78C2.27,17.83 2.27,14.66 4.22,12.71L5.71,11.22C5.7,12.04 5.83,12.86 6.11,13.65L5.64,14.12C4.46,15.29 4.46,17.19 5.64,18.36C6.81,19.54 8.71,19.54 9.88,18.36L13.41,14.83C14.59,13.66 14.59,11.76 13.41,10.59C13,10.2 13,9.56 13.41,9.17Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
 };
 var _sfc_staticRenderFns$4 = [];
 _sfc_render$4._withStripped = true;
@@ -88,10 +123,10 @@ var __component__$4 = /* @__PURE__ */ normalizeComponent(
   _sfc_staticRenderFns$4,
   false,
   null,
-  "d4e7d39f"
+  null
 );
-__component__$4.options.__file = "/home/bperraud/code/nc-permalink/src/components/CreateButton.vue";
-const CreateButton = __component__$4.exports;
+__component__$4.options.__file = "/home/bperraud/code/nc-permalink/node_modules/vue-material-design-icons/LinkVariant.vue";
+const LinkVariantIcon = __component__$4.exports;
 const _sfc_main$3 = {
   name: "CloseIcon",
   emits: ["click"],
@@ -109,7 +144,7 @@ const _sfc_main$3 = {
     }
   }
 };
-var _sfc_render$3 = function render2() {
+var _sfc_render$3 = function render3() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._b({ staticClass: "material-design-icon close-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
     return _vm.$emit("click", $event);
@@ -144,7 +179,7 @@ const _sfc_main$2 = {
     }
   }
 };
-var _sfc_render$2 = function render3() {
+var _sfc_render$2 = function render4() {
   var _vm = this, _c = _vm._self._c;
   return _c("span", _vm._b({ staticClass: "material-design-icon content-copy-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
     return _vm.$emit("click", $event);
@@ -164,11 +199,13 @@ __component__$2.options.__file = "/home/bperraud/code/nc-permalink/node_modules/
 const ClipboardIcon = __component__$2.exports;
 const _sfc_main$1 = {
   components: {
+    NcAvatar,
     NcActions,
     NcActionButton,
     CheckIcon,
     ClipboardIcon,
-    CloseIcon
+    CloseIcon,
+    LinkVariantIcon
   },
   mixins: [RequestMixin],
   props: {
@@ -244,9 +281,11 @@ const _sfc_main$1 = {
     }
   }
 };
-var _sfc_render$1 = function render4() {
+var _sfc_render$1 = function render5() {
   var _vm = this, _c = _vm._self._c;
-  return _c("li", { staticClass: "sharing-entry sharing-entry__link" }, [_c("div", { staticClass: "sharing-entry__summary" }, [_c("div", { staticClass: "sharing-entry__desc" }, [_c("p", [_vm._v(" " + _vm._s(_vm.permalink) + " ")])]), _c("div", { staticClass: "sharing-entry__actions" }, [_c("NcActions", { ref: "copyButton", staticClass: "sharing-entry__copy" }, [_c("NcActionButton", { attrs: { "aria-label": _vm.copyLinkTooltip(), "title": _vm.copyLinkTooltip(), "href": _vm.permalink }, on: { "click": function($event) {
+  return _c("li", { staticClass: "sharing-entry sharing-entry__link" }, [_c("div", { staticClass: "sharing-entry__summary" }, [_c("div", { staticClass: "sharing-entry__desc" }, [_c("div", { staticClass: "list-item-content__wrapper" }, [_c("div", { staticClass: "list-item-content" }, [_c("NcAvatar", { attrs: { "is-no-user": true, "icon-class": "avatardiv", "title": "Permalink" }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
+    return [_c("LinkVariantIcon", { attrs: { "fill-color": "white", "size": 18 } })];
+  }, proxy: true }]) }), _vm._m(0)], 1)])]), _c("div", { staticClass: "sharing-entry__actions" }, [_c("NcActions", { ref: "copyButton", staticClass: "sharing-entry__copy" }, [_c("NcActionButton", { attrs: { "aria-label": _vm.copyLinkTooltip(), "title": _vm.copyLinkTooltip(), "href": _vm.permalink }, on: { "click": function($event) {
     $event.preventDefault();
     return _vm.copyLink.apply(null, arguments);
   } }, scopedSlots: _vm._u([{ key: "icon", fn: function() {
@@ -258,7 +297,10 @@ var _sfc_render$1 = function render4() {
     return [_c("CloseIcon", { attrs: { "size": 20 } })];
   }, proxy: true }]) }, [_vm._v(" " + _vm._s(_vm.t("permalink", "Delete permalink")) + " ")])], 1)], 1);
 };
-var _sfc_staticRenderFns$1 = [];
+var _sfc_staticRenderFns$1 = [function() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("div", { staticClass: "line-one" }, [_c("span", { staticClass: "line-one__title" }, [_vm._v(" Permalink ")]), _c("span", { staticClass: "line-one__details" }, [_vm._v(" details ")])]);
+}];
 _sfc_render$1._withStripped = true;
 var __component__$1 = /* @__PURE__ */ normalizeComponent(
   _sfc_main$1,
@@ -324,7 +366,7 @@ const _sfc_main = {
     }
   }
 };
-var _sfc_render = function render5() {
+var _sfc_render = function render6() {
   var _vm = this, _c = _vm._self._c;
   return _c("div", [_c(_vm.activeButtonComponent, { tag: "component", attrs: { "file-info": _vm.fileInfo, "permalink": _vm.permalink }, on: { "refresh": _vm.getPermalink } })], 1);
 };
@@ -365,13 +407,7 @@ window.addEventListener("DOMContentLoaded", function() {
   if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
     OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
       waitForValidElement(() => el).then((targetEl) => {
-        console.log("el is not empty");
-        console.log(targetEl);
         el = targetEl;
-        console.log("typeof el:", typeof el);
-        console.log("Array.isArray(el):", Array.isArray(el));
-        console.log("el instanceof HTMLElement:", el instanceof HTMLElement);
-        console.log("el:", el);
         if (!el || !fileInfo) return;
         if (sectionInstance) {
           sectionInstance.$destroy();
@@ -381,7 +417,6 @@ window.addEventListener("DOMContentLoaded", function() {
         sectionInstance = new View({ propsData: { fileInfo } });
         sectionInstance.$mount();
         el.appendChild(sectionInstance.$el);
-        console.log("MOUNTED");
       }).catch((err) => {
         console.warn("Could not find valid mount element:", err);
       });
