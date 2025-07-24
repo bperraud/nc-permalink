@@ -18,10 +18,7 @@
                         </NcAvatar>
                         <div class="line-one">
                             <span class="line-one__title">
-                                Permalink 
-                            </span>
-                            <span class="line-one__details">
-                                details
+                                Lien de partage permanent
                             </span>
                         </div>
                     </div>
@@ -333,7 +330,7 @@ export default {
 }
 
 .line-one {
-    margin-top: -2px;
+    margin-top: 5px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -349,8 +346,10 @@ export default {
 	}
 	&__details {
 		color: var(--color-text-maxcontrast);
-		margin: 0 8px;
 		font-weight: normal;
+          max-width: 200px;           /* Adjust to your needs */
+          white-space: normal;        /* Allows line breaks */
+          overflow-wrap: break-word;  /* Ensures long words wrap */
 	}
 }
 

@@ -12,8 +12,8 @@
 })();
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
-const appVersion = "1.1.1";
-import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, C as CheckIcon, N as NcLoadingIcon, a as NcSettingsInputText, b as NcSettingsSection, s as showError, d as Vue } from "./style-C1t3WylI.chunk.mjs";
+const appVersion = "1.1.2";
+import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, C as CheckIcon, N as NcLoadingIcon, a as NcSettingsInputText, b as NcSettingsSection, s as showError, d as Vue } from "./style-CIX0O_73.chunk.mjs";
 const _sfc_main$1 = {
   name: "AlertCircleIcon",
   emits: ["click"],
