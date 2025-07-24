@@ -1,13 +1,5 @@
-{
-  "Delete permalink": "Supprimer le lien permanent",
-  "Link copied": "Lien copié",
-  "Cannot copy, please copy the link manually": "Impossible de copier, veuillez copier le lien manuellement",
-  "Copy permalink to clipboard": "Copier le lien permanent dans le presse-papiers",
-  "Actions for permalink": "Actions pour le lien permanent",
-  "Jwt secret key": "Clé secrète JWT",
-  "Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API's configuration": "Clé secrète utilisée pour signer les jetons JWT afin d'authentifier les demandes à l'API Permalink. Doit correspondre à la configuration de l'API.",
-  "base URL of the external Permalink API that handles link creation": "URL de base de l'API Permalink externe qui gère la création des liens",
-  "API Endpoint": "Point de terminaison de l'API",
-  "Error occurred while saving settings": "Une erreur est survenue lors de l'enregistrement des paramètres"
+{ "translations": {
+    "permalink" : "erreur",
+    "files_sharing" : "file share"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
-
