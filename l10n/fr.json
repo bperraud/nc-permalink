@@ -1,5 +1,26 @@
 { "translations": {
-    "permalink" : "erreur",
-    "files_sharing" : "file share"
-},"pluralForm" :"nplurals=2; plural=(n != 1);"
+    "Permalink created" : "Lien permanent créé",
+    "Error creating permalink" : "Erreur lors de la création du lien permanent",
+    "Actions for permalink" : "Actions pour le lien permanent",
+    "Delete permalink" : "Supprimer le lien permanent",
+    "API Endpoint" : "Point d'accès API",
+    "Base URL of the external Permalink API that handles link creation" : "URL de base de l'API Permalink externe qui gère la création des liens",
+    "Saving..." : "Enregistrement...",
+    "Jwt secret key" : "Clé secrète JWT",
+    "Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API's configuration" : "Clé secrète utilisée pour signer les jetons JWT afin d'authentifier les requêtes vers l'API Permalink. Doit correspondre à la configuration de l'API",
+    "Invalid share type" : "Type de partage invalide",
+    "Public link sharing is disabled by the administrator" : "Le partage par lien public est désactivé par l'administrateur",
+    "Please specify a file or folder path" : "Veuillez spécifier un chemin de fichier ou de dossier",
+    "Wrong path, file/folder does not exist" : "Chemin incorrect, le fichier ou dossier n'existe pas",
+    "Could not create share" : "Impossible de créer le partage",
+    "Permalink" : "Lien permanent",
+    "permalink" : "lien permanent",
+    "Error occurred while saving settings" : "Une erreur s'est produite lors de l'enregistrement des paramètres",
+    "Permalink: " : "Lien permanent : ",
+    "Create Permalink" : "Créer un lien permanent",
+    "Link copied" : "Lien copié",
+    "Permalink deleted" : "Lien permanent supprimé",
+    "Cannot copy, please copy the link manually" : "Impossible de copier, veuillez copier le lien manuellement",
+    "Copy permalink to clipboard" : "Copier le lien permanent dans le presse-papiers"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
 }

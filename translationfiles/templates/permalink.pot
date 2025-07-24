@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Nextcloud package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 14:52+0200\n"
+"Project-Id-Version: Nextcloud 3.14159\n"
+"Report-Msgid-Bugs-To: translations\\@example.com\n"
+"POT-Creation-Date: 2025-07-24 16:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,360 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/components/CreateButton.vue:52 src/components/CreateButton.vue:56
-#: src/components/PermalinkView.vue:53 src/components/PermalinkView.vue:128
-#: src/components/PermalinkView.vue:151 src/components/PermalinkView.vue:168
-#: src/components/PermalinkView.vue:170 src/components/PermalinkView.vue:174
-#: src/components/Button.vue:71 src/components/AdminSettings.vue:154
-#: src/components/AdminSettings.vue:157
+#: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:266
+msgid "Permalink created"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:270
+msgid "Error creating permalink"
+msgstr ""
+
+#. TRANSLATORS src/components/PermalinkView.vue:47
+#: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:397
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:404
+msgid "Actions for permalink"
+msgstr ""
+
+#. TRANSLATORS src/components/PermalinkView.vue:53
+#: /home/bperraud/code/nc-permalink/js/permalink-main.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:406
+msgid "Delete permalink"
+msgstr ""
+
+#. TRANSLATORS src/components/AdminSettings.vue:3
+#: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:129
+msgid "API Endpoint"
+msgstr ""
+
+#. TRANSLATORS src/components/AdminSettings.vue:4
+#: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:131
+msgid "Base URL of the external Permalink API that handles link creation"
+msgstr ""
+
+#. TRANSLATORS src/components/AdminSettings.vue:10
+#: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:133
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:139
+msgid "Saving..."
+msgstr ""
+
+#. TRANSLATORS src/components/AdminSettings.vue:25
+#: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:135
+msgid "Jwt secret key"
+msgstr ""
+
+#. TRANSLATORS src/components/AdminSettings.vue:26
+#: /home/bperraud/code/nc-permalink/js/permalink-settingsAdmin.mjs:3
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:137
+msgid ""
+"Secret key used to sign JWT tokens for authenticating requests to the "
+"Permalink API. Must match the API's configuration"
+msgstr ""
+
+#. TRANSLATORS function to create link with custom share token is expecting type link (but received some other type)
+#: /home/bperraud/code/nc-permalink/lib/Service/ShareService.php:114
+msgid "Invalid share type"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/lib/Service/ShareService.php:119
+msgid "Public link sharing is disabled by the administrator"
+msgstr ""
+
+#. TRANSLATORS function to create link received empty (null) path
+#: /home/bperraud/code/nc-permalink/lib/Service/ShareService.php:125
+msgid "Please specify a file or folder path"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/lib/Service/ShareService.php:132
+msgid "Wrong path, file/folder does not exist"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/lib/Service/ShareService.php:141
+msgid "Could not create share"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialAppInfoFakeDummyForL10nScript.php:2
+msgid "Permalink"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialAppInfoFakeDummyForL10nScript.php:3
 msgid "permalink"
 msgstr ""
 
-#: src/components/Button.vue:77
-msgid "files_sharing"
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:118
+msgid "Error occurred while saving settings"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:201
+msgid "Permalink: "
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:207
+msgid "Create Permalink"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:351
+msgid "Link copied"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:374
+msgid "Permalink deleted"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:391
+msgid "Cannot copy, please copy the link manually"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/specialVueFakeDummyForL10nScript.js:393
+msgid "Copy permalink to clipboard"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Federation/Exceptions/ActionNotSupportedException.php:43
+#, php-format
+msgid "Action \"%s\" not supported or implemented."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Federation/Exceptions/AuthenticationFailedException.php:43
+msgid "Authentication failed, wrong token or provider ID given"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Federation/Exceptions/BadRequestException.php:52
+#, php-format
+msgid ""
+"Parameters missing in order to complete the request. Missing Parameters: "
+"\"%s\""
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Federation/Exceptions/ProviderAlreadyExistsException.php:47
+#, php-format
+msgid "ID \"%1$s\" already used by cloud federation provider \"%2$s\""
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Federation/Exceptions/ProviderDoesNotExistsException.php:44
+#, php-format
+msgid "Cloud Federation Provider with ID: \"%s\" does not exist."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Files/LockNotAcquiredException.php:46
+#, php-format
+msgid "Could not obtain lock type %d on \"%s\"."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Files/StorageAuthException.php:40
+#, php-format
+msgid "Storage unauthorized. %s"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Files/StorageBadConfigException.php:40
+#, php-format
+msgid "Storage incomplete configuration. %s"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Files/StorageConnectionException.php:40
+#, php-format
+msgid "Storage connection error. %s"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Files/StorageNotAvailableException.php:88
+msgid "Storage is temporarily not available"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/Files/StorageTimeoutException.php:40
+#, php-format
+msgid "Storage connection timeout. %s"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/FreePromptTaskType.php:56
+msgid "Free prompt"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/FreePromptTaskType.php:64
+msgid "Runs an arbitrary prompt through the language model."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/HeadlineTaskType.php:56
+msgid "Generate headline"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/HeadlineTaskType.php:64
+msgid "Generates a possible headline for a text."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/SummaryTaskType.php:56
+msgid "Summarize"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/SummaryTaskType.php:64
+msgid "Summarizes text by reducing its length without losing key information."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/TopicsTaskType.php:56
+msgid "Extract topics"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor/nextcloud/ocp/OCP/TextProcessing/TopicsTaskType.php:64
+msgid "Extracts topics from a text and outputs them separated by commas."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Application.php:189
+#, php-format
+msgid "Command \"%s\" already added"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Application.php:218
+#, php-format
+msgid "Command \"%s\" does not exist"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Application.php:414
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:359
+msgid "version"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Application.php:415
+msgid "Run `<command> --help` for specific help"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:96
+msgid "thrown in"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:106
+msgid "Stack Trace"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:116
+msgid "at"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:270
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:287
+msgid "Usage Examples"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:311
+#, php-format
+msgid "Command %s not found"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/OutputHelper.php:315
+#, php-format
+msgid "Did you mean %s?"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/Shell.php:103
+msgid "Required proc_open could not be found in your PHP setup."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/Shell.php:185
+msgid "Timeout occurred, process terminated."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/Shell.php:220
+msgid "Process is already running."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Helper/Shell.php:238
+msgid "Bad program could not be started."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/IO/Interactor.php:316
+msgid "Invalid value. Please try again!"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/IO/Interactor.php:374
+msgid "Choices (comma separated)"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:86
+msgid "Show help"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:87
+msgid "Show version"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:88
+msgid "Verbosity level"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:199
+msgid "Only last argument can be variadic"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:306
+#, php-format
+msgid "Option \"%s\" not registered"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:359
+msgid "Command"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:361
+msgid "Usage"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:361
+msgid "[OPTIONS...] [ARGUMENTS...]"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Command.php:365
+msgid "Legend: <required> [optional] variadic..."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Parameter.php:87
+#, php-format
+msgid "%1$s [default: %2$s]"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Parser.php:224
+#, php-format
+msgid "%1$s \"%2$s\" is required"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Input/Parser.php:266
+#, php-format
+msgid "The parameter \"%s\" is already registered"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/Color.php:201
+msgid "Trying to set empty or invalid style"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/Color.php:206
+msgid "Built-in styles cannot be invisible"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/Color.php:223
+msgid "Text required"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/Color.php:238
+#, php-format
+msgid "Style \"%s\" not defined"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/ProgressBar.php:137
+msgid "Configuration option value is required"
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/ProgressBar.php:167
+msgid "The progress total must be greater than zero."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/ProgressBar.php:172
+#, php-format
+msgid "The current (%1$d) is greater than the total (%2$d)."
+msgstr ""
+
+#: /home/bperraud/code/nc-permalink/vendor-bin/openapi-extractor/vendor/adhocore/cli/src/Output/Table.php:110
+#, php-format
+msgid "Rows must be array of assoc arrays, %s given"
 msgstr ""
