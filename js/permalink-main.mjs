@@ -12,8 +12,8 @@
 })();
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
-const appVersion = "1.1.2";
-import { n as normalizeComponent, c as cancelableClient, _, e as showSuccess, s as showError, C as CheckIcon, f as NcActionButton, g as NcActions, h as NcAvatar, t as translate, d as Vue } from "./style-CIX0O_73.chunk.mjs";
+const appVersion = "1.1.3";
+import { n as normalizeComponent, c as cancelableClient, _, e as showSuccess, s as showError, C as CheckIcon, f as NcActionButton, g as NcActions, h as NcAvatar, t as translate, d as Vue } from "./style-cxP5zKtV.chunk.mjs";
 /*! third party licenses: js/vendor.LICENSE.txt */
 const RequestMixin = {
   methods: {
@@ -352,7 +352,6 @@ const _sfc_main = {
             this.permalink = response.data.ocs.data.permalink;
             this.activeButtonComponent = "PermalinkVue";
           } else {
-            this.permalink = translate("permalink", "Create Permalink");
             this.activeButtonComponent = "CreateButton";
           }
         }
