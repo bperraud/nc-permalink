@@ -32,6 +32,6 @@ class Application extends App implements IBootstrap {
 
 	public function boot(IBootContext $context): void {
         Util::addScript(self::APP_ID, 'permalink-main');
-        Util::addStyle(self::APP_ID, 'permalink-main');
+        /* Util::addStyle(self::APP_ID, 'permalink-main'); */
 	}
 }
