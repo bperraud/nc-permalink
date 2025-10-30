@@ -13,7 +13,7 @@
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
 const appVersion = "1.1.3";
-import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, C as CheckIcon, N as NcLoadingIcon, a as NcSettingsInputText, b as NcSettingsSection, s as showError, d as Vue } from "./style-cxP5zKtV.chunk.mjs";
+import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, C as CheckIcon, N as NcLoadingIcon, a as NcSettingsInputText, b as NcSettingsSection, s as showError, d as Vue } from "./NcSelect-Oroh7Dvh.chunk.mjs";
 const _sfc_main$1 = {
   name: "AlertCircleIcon",
   emits: ["click"],

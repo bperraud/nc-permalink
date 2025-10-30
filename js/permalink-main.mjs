@@ -13,7 +13,7 @@
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
 const appVersion = "1.1.3";
-import { n as normalizeComponent, c as cancelableClient, _, e as showSuccess, s as showError, C as CheckIcon, f as NcActionButton, g as NcActions, h as NcAvatar, t as translate, d as Vue } from "./style-cxP5zKtV.chunk.mjs";
+import { n as normalizeComponent, c as cancelableClient, _, e as showSuccess, s as showError, C as CheckIcon, f as NcActionButton, g as NcActions, h as NcAvatar, t as translate, d as Vue } from "./NcSelect-Oroh7Dvh.chunk.mjs";
 /*! third party licenses: js/vendor.LICENSE.txt */
 const RequestMixin = {
   methods: {
