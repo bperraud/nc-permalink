@@ -93,8 +93,8 @@ class HttpRequestService {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
         // ❗ Disabling SSL certificate validation (use only in dev/test)
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable peer verification
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // Don't verify the host
+        /* curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable peer verification */
+        /* curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // Don't verify the host */
 
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -104,9 +104,6 @@ class HttpRequestService {
             curl_close($ch);
             return new DataResponse(['error' => 'Server Unreachable'], 503);
         }
-
-        $this->logger->error("return code");
-        $this->logger->error($httpCode);
 
         curl_close($ch);
         return new DataResponse(json_decode($response, true), (int) $httpCode);
