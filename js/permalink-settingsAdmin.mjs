@@ -1,4 +1,212 @@
-(function(){"use strict";try{if(typeof document<"u"){var t=document.createElement("style");t.appendChild(document.createTextNode(".form-error[data-v-39b55468]{color:#c40c0c;display:block}.status-icon[data-v-39b55468]{margin-left:6px}[data-v-39b55468] input#permalink-api-endpoint,[data-v-39b55468] input#jwt-secret-key{width:300px!important}.input-with-icon[data-v-39b55468]{display:flex;align-items:center}.input-with-icon .status-icon[data-v-39b55468]{margin-bottom:10px;display:flex;align-items:center}")),document.head.appendChild(t)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+(function() {
+  "use strict";
+  try {
+    if (typeof document != "undefined") {
+      var elementStyle = document.createElement("style");
+      elementStyle.appendChild(document.createTextNode(".form-error[data-v-e8c7e823] {\n  color: #c40c0c;\n  display: block;\n}\n.status-icon[data-v-e8c7e823] {\n  margin-left: 6px;\n}\n[data-v-e8c7e823] input#permalink-api-endpoint,[data-v-e8c7e823] input#jwt-secret-key {\n  width: 300px !important;\n}\n.input-with-icon[data-v-e8c7e823] {\n  display: flex;\n  align-items: center;\n}\n.input-with-icon .status-icon[data-v-e8c7e823] {\n  margin-bottom: 10px;\n  display: flex;\n  align-items: center;\n}"));
+      document.head.appendChild(elementStyle);
+    }
+  } catch (e) {
+    console.error("vite-plugin-css-injected-by-js", e);
+  }
+})();
 /*! third party licenses: js/vendor.LICENSE.txt */
-import{n as p,c as l,_ as c,t as r,V as d,C as g,N as u,a as m,b as S,s as o,d as h}from"./NcSelect-DgSET9cS.chunk.mjs";const k={name:"AlertCircleIcon",emits:["click"],props:{title:{type:String},fillColor:{type:String,default:"currentColor"},size:{type:Number,default:24}}};var y=function(){var t=this,e=t._self._c;return e("span",t._b({staticClass:"material-design-icon alert-circle-icon",attrs:{"aria-hidden":t.title?null:"true","aria-label":t.title,role:"img"},on:{click:function(i){return t.$emit("click",i)}}},"span",t.$attrs,!1),[e("svg",{staticClass:"material-design-icon__svg",attrs:{fill:t.fillColor,width:t.size,height:t.size,viewBox:"0 0 24 24"}},[e("path",{attrs:{d:"M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"}},[t.title?e("title",[t._v(t._s(t.title))]):t._e()])])])},w=[],v=p(k,y,w,!1,null,null);const A=v.exports;var a=(t=>(t.JwtSecretKey="jwt_secret_key",t.PermalinkApiEndpoint="permalink_api_endpoint",t))(a||{}),n=(t=>(t[t.Idle=0]="Idle",t[t.Updating=1]="Updating",t[t.Completed=2]="Completed",t[t.Error=3]="Error",t))(n||{});const C={data(){return{settings:null}},methods:{async fetchSettings(){try{const t=await l.get(c("/apps/permalink/settings"));t.data&&(this.settings=t.data)}catch(t){console.error(t.response)}},async getSettings(){return this.settings?this.settings:(await this.fetchSettings(),this.settings)},async getJwtSecret(){const t=await this.getSettings();return t&&t.jwtSecretKey?t.jwtSecretKey:""},async getPermalinkApiEndpoint(){const t=await this.getSettings();return t&&t.permalinkApiEndpoint?t.permalinkApiEndpoint:""}}},f={name:"AdminSettings",components:{NcSettingsSection:S,NcSettingsInputText:m,NcLoadingIcon:u,CheckIcon:g,AlertIcon:A},directives:{Tooltip:d},mixins:[C],data(){return{updating:{status:n.Idle,key:null},loading:!0,jwtSecretKey:"",permalinkApiEndpoint:"",deleteConflicts:!1}},computed:{UpdateState(){return n},SettingsKey(){return a}},async mounted(){this.loading=!0,this.jwtSecretKey=await this.getJwtSecret(),this.permalinkApiEndpoint=await this.getPermalinkApiEndpoint(),this.loading=!1},methods:{t:r,setUpdate(t,e){this.updating.status=e,this.updating.key=t},async onSecretKeySubmit(){await this.saveSettings(a.JwtSecretKey,this.jwtSecretKey)},async onApiEndpointSubmit(){await this.saveSettings(a.PermalinkApiEndpoint,this.permalinkApiEndpoint)},async onDeleteConflictsChange(t){await this.saveSettings(a.DeleteRemovedShareConflicts,t?"1":"0")},async saveSettings(t,e){const i={key:t,value:e};this.setUpdate(t,n.Updating);try{await l.post(c("/apps/permalink/settings/save"),i),this.setUpdate(t,n.Completed)}catch(s){s.response.data&&s.response.data.message?o(r("permalink",s.response.data.message)):(o(r("permalink","Error occurred while saving settings")),console.error(s.response)),this.setUpdate(t,n.Error)}}}};var E=function(){var t=this,e=t._self._c;return e("div",{attrs:{id:"permalink-admin-settings"}},[e("NcSettingsSection",{attrs:{name:t.t("permalink","API Endpoint"),description:t.t("permalink","Base URL of the external Permalink API that handles link creation")}},[e("div",{staticClass:"input-with-icon"},[e("h3",[t.updating.key===t.SettingsKey.PermalinkApiEndpoint?e("span",{staticClass:"status-icon"},[t.updating.status===t.UpdateState.Updating?e("NcLoadingIcon",{attrs:{name:t.t("permalink","Saving..."),size:20}}):t.updating.status===t.UpdateState.Completed?e("CheckIcon",{attrs:{size:20}}):t.updating.status===t.UpdateState.Error?e("AlertIcon",{attrs:{size:20}}):t._e()],1):t._e()]),e("NcSettingsInputText",{attrs:{id:"permalink-api-endpoint",label:"",value:t.permalinkApiEndpoint,disabled:t.updating.status===t.UpdateState.Updating||t.loading},on:{"update:value":function(i){t.permalinkApiEndpoint=i},submit:t.onApiEndpointSubmit}})],1)]),e("NcSettingsSection",{attrs:{name:t.t("permalink","Jwt secret key"),description:t.t("permalink","Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API's configuration")}},[e("div",{staticClass:"input-with-icon"},[e("h3",[t.updating.key===t.SettingsKey.JwtSecretKey?e("span",{staticClass:"status-icon"},[t.updating.status===t.UpdateState.Updating?e("NcLoadingIcon",{attrs:{name:t.t("permalink","Saving..."),size:20}}):t.updating.status===t.UpdateState.Completed?e("CheckIcon",{attrs:{size:20}}):t.updating.status===t.UpdateState.Error?e("AlertIcon",{attrs:{size:20}}):t._e()],1):t._e()]),e("NcSettingsInputText",{attrs:{id:"jwt-secret-key",label:"",value:t.jwtSecretKey,disabled:t.updating.status===t.UpdateState.Updating||t.loading},on:{"update:value":function(i){t.jwtSecretKey=i},submit:t.onSecretKeySubmit}})],1)])],1)},U=[],I=p(f,E,U,!1,null,"39b55468");const _=I.exports;console.debug("Permalink: SettingsAdmin init");const b=h.extend(_);new b().$mount("#permalink-admin-settings");
+const appName = "permalink";
+const appVersion = "1.1.7";
+import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, C as CheckIcon, N as NcLoadingIcon, a as NcSettingsInputText, b as NcSettingsSection, s as showError, d as Vue } from "./NcSelect-DeuD9YPm.chunk.mjs";
+const _sfc_main$1 = {
+  name: "AlertCircleIcon",
+  emits: ["click"],
+  props: {
+    title: {
+      type: String
+    },
+    fillColor: {
+      type: String,
+      default: "currentColor"
+    },
+    size: {
+      type: Number,
+      default: 24
+    }
+  }
+};
+var _sfc_render$1 = function render() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("span", _vm._b({ staticClass: "material-design-icon alert-circle-icon", attrs: { "aria-hidden": _vm.title ? null : "true", "aria-label": _vm.title, "role": "img" }, on: { "click": function($event) {
+    return _vm.$emit("click", $event);
+  } } }, "span", _vm.$attrs, false), [_c("svg", { staticClass: "material-design-icon__svg", attrs: { "fill": _vm.fillColor, "width": _vm.size, "height": _vm.size, "viewBox": "0 0 24 24" } }, [_c("path", { attrs: { "d": "M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" } }, [_vm.title ? _c("title", [_vm._v(_vm._s(_vm.title))]) : _vm._e()])])]);
+};
+var _sfc_staticRenderFns$1 = [];
+_sfc_render$1._withStripped = true;
+var __component__$1 = /* @__PURE__ */ normalizeComponent(
+  _sfc_main$1,
+  _sfc_render$1,
+  _sfc_staticRenderFns$1,
+  false,
+  null,
+  null
+);
+__component__$1.options.__file = "/home/bperraud/code/nc-permalink/node_modules/vue-material-design-icons/AlertCircle.vue";
+const AlertIcon = __component__$1.exports;
+/*! third party licenses: js/vendor.LICENSE.txt */
+var SettingsKey = /* @__PURE__ */ ((SettingsKey2) => {
+  SettingsKey2["JwtSecretKey"] = "jwt_secret_key";
+  SettingsKey2["PermalinkApiEndpoint"] = "permalink_api_endpoint";
+  return SettingsKey2;
+})(SettingsKey || {});
+/*! third party licenses: js/vendor.LICENSE.txt */
+var UpdateState = /* @__PURE__ */ ((UpdateState2) => {
+  UpdateState2[UpdateState2["Idle"] = 0] = "Idle";
+  UpdateState2[UpdateState2["Updating"] = 1] = "Updating";
+  UpdateState2[UpdateState2["Completed"] = 2] = "Completed";
+  UpdateState2[UpdateState2["Error"] = 3] = "Error";
+  return UpdateState2;
+})(UpdateState || {});
+/*! third party licenses: js/vendor.LICENSE.txt */
+const SettingsMixin = {
+  data() {
+    return {
+      settings: null
+    };
+  },
+  methods: {
+    async fetchSettings() {
+      try {
+        const response = await cancelableClient.get(
+          _("/apps/permalink/settings")
+        );
+        if (response.data) {
+          this.settings = response.data;
+        }
+      } catch (e) {
+        console.error(e.response);
+      }
+    },
+    async getSettings() {
+      if (this.settings) {
+        return this.settings;
+      } else {
+        await this.fetchSettings();
+        return this.settings;
+      }
+    },
+    async getJwtSecret() {
+      const settings = await this.getSettings();
+      return settings && settings.jwtSecretKey ? settings.jwtSecretKey : "";
+    },
+    async getPermalinkApiEndpoint() {
+      const settings = await this.getSettings();
+      return settings && settings.permalinkApiEndpoint ? settings.permalinkApiEndpoint : "";
+    }
+  }
+};
+/*! third party licenses: js/vendor.LICENSE.txt */
+const _sfc_main = {
+  name: "AdminSettings",
+  components: {
+    NcSettingsSection,
+    NcSettingsInputText,
+    NcLoadingIcon,
+    CheckIcon,
+    AlertIcon
+  },
+  directives: {
+    Tooltip: VTooltip
+  },
+  mixins: [SettingsMixin],
+  data() {
+    return {
+      updating: {
+        status: UpdateState.Idle,
+        key: null
+      },
+      loading: true,
+      jwtSecretKey: "",
+      permalinkApiEndpoint: "",
+      deleteConflicts: false
+    };
+  },
+  computed: {
+    UpdateState() {
+      return UpdateState;
+    },
+    SettingsKey() {
+      return SettingsKey;
+    }
+  },
+  async mounted() {
+    this.loading = true;
+    this.jwtSecretKey = await this.getJwtSecret();
+    this.permalinkApiEndpoint = await this.getPermalinkApiEndpoint();
+    this.loading = false;
+  },
+  methods: {
+    t: translate,
+    setUpdate(key, status) {
+      this.updating.status = status;
+      this.updating.key = key;
+    },
+    async onSecretKeySubmit() {
+      await this.saveSettings(SettingsKey.JwtSecretKey, this.jwtSecretKey);
+    },
+    async onApiEndpointSubmit() {
+      await this.saveSettings(SettingsKey.PermalinkApiEndpoint, this.permalinkApiEndpoint);
+    },
+    async onDeleteConflictsChange(value) {
+      await this.saveSettings(
+        SettingsKey.DeleteRemovedShareConflicts,
+        value ? "1" : "0"
+      );
+    },
+    async saveSettings(key, value) {
+      const data = {
+        key,
+        value
+      };
+      this.setUpdate(key, UpdateState.Updating);
+      try {
+        await cancelableClient.post(
+          _("/apps/permalink/settings/save"),
+          data
+        );
+        this.setUpdate(key, UpdateState.Completed);
+      } catch (e) {
+        if (e.response.data && e.response.data.message) {
+          showError(translate("permalink", e.response.data.message));
+        } else {
+          showError(
+            translate("permalink", "Error occurred while saving settings")
+          );
+          console.error(e.response);
+        }
+        this.setUpdate(key, UpdateState.Error);
+      }
+    }
+  }
+};
+var _sfc_render = function render2() {
+  var _vm = this, _c = _vm._self._c;
+  return _c("div", { attrs: { "id": "permalink-admin-settings" } }, [_c("NcSettingsSection", { attrs: { "name": _vm.t("permalink", "API Endpoint"), "description": _vm.t("permalink", "Base URL of the external Permalink API that handles link creation") } }, [_c("div", { staticClass: "input-with-icon" }, [_c("h3", [_vm.updating.key === _vm.SettingsKey.PermalinkApiEndpoint ? _c("span", { staticClass: "status-icon" }, [_vm.updating.status === _vm.UpdateState.Updating ? _c("NcLoadingIcon", { attrs: { "name": _vm.t("permalink", "Saving..."), "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Completed ? _c("CheckIcon", { attrs: { "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Error ? _c("AlertIcon", { attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()]), _c("NcSettingsInputText", { attrs: { "id": "permalink-api-endpoint", "label": "", "value": _vm.permalinkApiEndpoint, "disabled": _vm.updating.status === _vm.UpdateState.Updating || _vm.loading }, on: { "update:value": function($event) {
+    _vm.permalinkApiEndpoint = $event;
+  }, "submit": _vm.onApiEndpointSubmit } })], 1)]), _c("NcSettingsSection", { attrs: { "name": _vm.t("permalink", "Jwt secret key"), "description": _vm.t("permalink", "Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API's configuration") } }, [_c("div", { staticClass: "input-with-icon" }, [_c("h3", [_vm.updating.key === _vm.SettingsKey.JwtSecretKey ? _c("span", { staticClass: "status-icon" }, [_vm.updating.status === _vm.UpdateState.Updating ? _c("NcLoadingIcon", { attrs: { "name": _vm.t("permalink", "Saving..."), "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Completed ? _c("CheckIcon", { attrs: { "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Error ? _c("AlertIcon", { attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()]), _c("NcSettingsInputText", { attrs: { "id": "jwt-secret-key", "label": "", "value": _vm.jwtSecretKey, "disabled": _vm.updating.status === _vm.UpdateState.Updating || _vm.loading }, on: { "update:value": function($event) {
+    _vm.jwtSecretKey = $event;
+  }, "submit": _vm.onSecretKeySubmit } })], 1)])], 1);
+};
+var _sfc_staticRenderFns = [];
+_sfc_render._withStripped = true;
+var __component__ = /* @__PURE__ */ normalizeComponent(
+  _sfc_main,
+  _sfc_render,
+  _sfc_staticRenderFns,
+  false,
+  null,
+  "e8c7e823"
+);
+__component__.options.__file = "/home/bperraud/code/nc-permalink/src/components/AdminSettings.vue";
+const AdminSettings = __component__.exports;
+/*! third party licenses: js/vendor.LICENSE.txt */
+console.debug("Permalink: SettingsAdmin init");
+const View = Vue.extend(AdminSettings);
+new View().$mount("#permalink-admin-settings");
 //# sourceMappingURL=permalink-settingsAdmin.mjs.map
