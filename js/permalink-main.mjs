@@ -3,7 +3,7 @@
   try {
     if (typeof document != "undefined") {
       var elementStyle = document.createElement("style");
-      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.avatardiv[data-v-103bb8db] {\n  background-color: #c40c0c !important;\n}\n.list-item__wrapper[data-v-103bb8db] {\n  position: relative;\n  width: 100%;\n}\n.list-item-content__wrapper[data-v-103bb8db] {\n  padding-left: 0; /* or reduce this value */\n}\n.list-item[data-v-103bb8db] {\n  display: block;\n  position: relative;\n  flex: 0 0 auto;\n  justify-content: flex-start;\n  border-radius: 32px;\n  width: 100%;\n  transition: background-color var(--animation-quick) ease-in-out;\n  list-style: none;\n}\n.list-item-content__wrapper[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n}\n.list-item-content__wrapper--compact[data-v-103bb8db] {\n  height: 36px;\n}\n.list-item-content__wrapper--compact .line-one[data-v-103bb8db],\n.list-item-content__wrapper--compact .line-two[data-v-103bb8db] {\n  margin-top: -4px;\n  margin-bottom: -4px;\n}\n.list-item-content[data-v-103bb8db] {\n  display: flex;\n  flex: 1 1 auto;\n  justify-content: space-between;\n}\n.list-item-content__main[data-v-103bb8db] {\n  flex: 1 1 auto;\n  width: 0;\n  margin-left: auto 0;\n}\n.list-item-content__main--oneline[data-v-103bb8db] {\n  display: flex;\n}\n.list-item-content__actions[data-v-103bb8db] {\n  flex: 0 0 auto;\n  align-self: center;\n  justify-content: center;\n  margin-left: 4px;\n}\n.list-item__extra[data-v-103bb8db] {\n  margin-top: 4px;\n}\n.line-one[data-v-103bb8db] {\n  margin-top: 5px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  white-space: nowrap;\n  margin-left: 10px;\n  overflow: hidden;\n}\n.line-one__title[data-v-103bb8db] {\n  overflow: hidden;\n  flex-grow: 1;\n  text-overflow: ellipsis;\n  color: var(--color-main-text);\n  font-weight: normal;\n}\n.line-one__details[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n  font-weight: normal;\n  max-width: 200px; /* Adjust to your needs */\n  white-space: normal; /* Allows line breaks */\n  overflow-wrap: break-word; /* Ensures long words wrap */\n}\n.line-two[data-v-103bb8db] {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  white-space: nowrap;\n}\n.line-two--bold[data-v-103bb8db] {\n  font-weight: bold;\n}\n.line-two__subtitle[data-v-103bb8db] {\n  overflow: hidden;\n  flex-grow: 1;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--color-text-maxcontrast);\n}\n.line-two__additional_elements[data-v-103bb8db] {\n  margin: 2px 4px 0 4px;\n  display: flex;\n  align-items: center;\n}\n.line-two__indicator[data-v-103bb8db] {\n  margin: 0 5px;\n}\n.btn {\n	margin-top: 10px;\n}\n.sharingTab__additionalContent {\n    margin-top: 4px !important;\n}\n.sharingTab__additionalContent .sharing-entry__summary {\n    padding-inline-start: 0px !important;\n}"));
+      elementStyle.appendChild(document.createTextNode(".btn[data-v-d4e7d39f] {\n	margin-top: 10px;\n}\n.btn[data-v-103bb8db] {\n  margin-top: 10px;\n}\n.sharing-entry[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  min-height: 44px;\n}\n.sharing-entry__summary[data-v-103bb8db] {\n  padding: 8px;\n  padding-inline-start: 10px;\n  display: flex;\n  justify-content: space-between;\n  flex: 1 0;\n  min-width: 0;\n}\n.sharing-entry__desc[data-v-103bb8db] {\n  display: flex;\n  flex-direction: column;\n  line-height: 1.2em;\n}\n.sharing-entry__desc p[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n}\n.sharing-entry__desc__title[data-v-103bb8db] {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n}\n.sharing-entry__actions[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n  margin-inline-start: auto;\n}\n.sharing-entry:not(.sharing-entry--share) .sharing-entry__actions .new-share-link[data-v-103bb8db] {\n  border-top: 1px solid var(--color-border);\n}\n.sharing-entry[data-v-103bb8db] .avatar-link-share {\n  background-color: var(--color-primary-element);\n}\n.sharing-entry .sharing-entry__action--public-upload[data-v-103bb8db] {\n  border-bottom: 1px solid var(--color-border);\n}\n.sharing-entry__loading[data-v-103bb8db] {\n  width: 44px;\n  height: 44px;\n  margin: 0;\n  padding: 14px;\n  margin-inline-start: auto;\n}\n.sharing-entry .action-item ~ .action-item[data-v-103bb8db],\n.sharing-entry .action-item ~ .sharing-entry__loading[data-v-103bb8db] {\n  margin-inline-start: 0;\n}\n.sharing-entry .icon-checkmark-color[data-v-103bb8db] {\n  opacity: 1;\n  color: var(--color-success);\n}\n.qr-code-dialog[data-v-103bb8db] {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.qr-code-dialog__img[data-v-103bb8db] {\n  width: 100%;\n  height: auto;\n}\n.avatardiv[data-v-103bb8db] {\n  background-color: #c40c0c !important;\n}\n.list-item__wrapper[data-v-103bb8db] {\n  position: relative;\n  width: 100%;\n}\n.list-item-content__wrapper[data-v-103bb8db] {\n  padding-left: 0; /* or reduce this value */\n}\n.list-item[data-v-103bb8db] {\n  display: block;\n  position: relative;\n  flex: 0 0 auto;\n  justify-content: flex-start;\n  border-radius: 32px;\n  width: 100%;\n  transition: background-color var(--animation-quick) ease-in-out;\n  list-style: none;\n}\n.list-item-content__wrapper[data-v-103bb8db] {\n  display: flex;\n  align-items: center;\n}\n.list-item-content__wrapper--compact[data-v-103bb8db] {\n  height: 36px;\n}\n.list-item-content__wrapper--compact .line-one[data-v-103bb8db],\n.list-item-content__wrapper--compact .line-two[data-v-103bb8db] {\n  margin-top: -4px;\n  margin-bottom: -4px;\n}\n.list-item-content[data-v-103bb8db] {\n  display: flex;\n  flex: 1 1 auto;\n  justify-content: space-between;\n}\n.list-item-content__main[data-v-103bb8db] {\n  flex: 1 1 auto;\n  width: 0;\n  margin-left: auto 0;\n}\n.list-item-content__main--oneline[data-v-103bb8db] {\n  display: flex;\n}\n.list-item-content__actions[data-v-103bb8db] {\n  flex: 0 0 auto;\n  align-self: center;\n  justify-content: center;\n  margin-left: 4px;\n}\n.list-item__extra[data-v-103bb8db] {\n  margin-top: 4px;\n}\n.line-one[data-v-103bb8db] {\n  margin-top: 5px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  white-space: nowrap;\n  margin-left: 10px;\n  overflow: hidden;\n}\n.line-one__title[data-v-103bb8db] {\n  overflow: hidden;\n  flex-grow: 1;\n  text-overflow: ellipsis;\n  color: var(--color-main-text);\n  font-weight: normal;\n}\n.line-one__details[data-v-103bb8db] {\n  color: var(--color-text-maxcontrast);\n  font-weight: normal;\n  max-width: 200px; /* Adjust to your needs */\n  white-space: normal; /* Allows line breaks */\n  overflow-wrap: break-word; /* Ensures long words wrap */\n}\n.line-two[data-v-103bb8db] {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  white-space: nowrap;\n}\n.line-two--bold[data-v-103bb8db] {\n  font-weight: bold;\n}\n.line-two__subtitle[data-v-103bb8db] {\n  overflow: hidden;\n  flex-grow: 1;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  color: var(--color-text-maxcontrast);\n}\n.line-two__additional_elements[data-v-103bb8db] {\n  margin: 2px 4px 0 4px;\n  display: flex;\n  align-items: center;\n}\n.line-two__indicator[data-v-103bb8db] {\n  margin: 0 5px;\n}\n.btn {\n	margin-top: 10px;\n}\n.sharing-tab-external-section-legacy.sharingTab__additionalContent {\n    margin-top: 4px !important;\n}\n.sharingTab__additionalContent .sharing-entry__summary {\n    padding-inline-start: 0px !important;\n}"));
       document.head.appendChild(elementStyle);
     }
   } catch (e) {
@@ -382,45 +382,29 @@ var __component__ = /* @__PURE__ */ normalizeComponent(
 __component__.options.__file = "/home/bperraud/code/nc-permalink/src/components/Button.vue";
 const ShareLinkButton = __component__.exports;
 /*! third party licenses: js/vendor.LICENSE.txt */
-console.log("[permalink] script loaded");
 Vue.prototype.OCA = window.OCA;
 Vue.mixin({ methods: { t, n } });
 let sectionInstance = null;
 const View = Vue.extend(ShareLinkButton);
-function waitForValidElement(elGetter, timeout = 2e3, interval = 50) {
-  console.log("[permalink] waitForValidElement called. timeout =", timeout, "interval =", interval);
+function waitForValidElement(el, timeout = 2e3, interval = 50) {
   return new Promise((resolve, reject) => {
     let elapsed = 0;
     const check = () => {
-      let el;
-      try {
-        el = elGetter();
-      } catch (e) {
-        console.error("[permalink] elGetter threw", e);
-        return reject(e);
+      let target = null;
+      if (el instanceof HTMLElement) {
+        target = el;
       }
-      const isHTMLElement = el instanceof HTMLElement;
-      const hasLength = el && typeof el.length === "number";
-      const firstIsHTMLElement = hasLength && el[0] instanceof HTMLElement;
-      console.log("[permalink] waitForValidElement check:", {
-        elapsed,
-        el,
-        isHTMLElement,
-        hasLength,
-        firstIsHTMLElement,
-        length: hasLength ? el.length : void 0
-      });
-      if (isHTMLElement) {
-        console.log("[permalink] waitForValidElement: got plain HTMLElement");
-        return resolve(el);
+      if (!target && el && typeof el === "object" && "length" in el && el.length > 0 && el[0] instanceof HTMLElement) {
+        target = el[0];
       }
-      if (firstIsHTMLElement) {
-        console.log("[permalink] waitForValidElement: got array-like, returning el[0]");
-        return resolve(el[0]);
+      if (!target) {
+        target = document.querySelector(".sharing-tab-external-section-legacy");
+      }
+      if (target instanceof HTMLElement) {
+        return resolve(target);
       }
       if ((elapsed += interval) >= timeout) {
-        console.warn("[permalink] waitForValidElement timeout, el was:", el);
-        return reject(new Error("Timeout: el[0] not available"));
+        return reject(new Error("waitForTargetEl: no mount element found within timeout"));
       }
       setTimeout(check, interval);
     };
@@ -428,84 +412,26 @@ function waitForValidElement(elGetter, timeout = 2e3, interval = 50) {
   });
 }
 window.addEventListener("DOMContentLoaded", function() {
-  console.log("[permalink] DOMContentLoaded fired");
-  if (!window.OCA) {
-    console.warn("[permalink] OCA is not defined on window");
-    return;
-  }
-  console.log("[permalink] OCA keys:", Object.keys(window.OCA));
-  if (!OCA.Sharing) {
-    console.warn("[permalink] OCA.Sharing is not available");
-    return;
-  }
-  console.log("[permalink] OCA.Sharing keys:", Object.keys(OCA.Sharing));
-  if (!OCA.Sharing.ShareTabSections) {
-    console.warn("[permalink] OCA.Sharing.ShareTabSections is not available");
-    return;
-  }
-  console.log(
-    "[permalink] ShareTabSections object:",
-    OCA.Sharing.ShareTabSections,
-    "registerSection =",
-    OCA.Sharing.ShareTabSections.registerSection
-  );
-  try {
+  if (OCA.Sharing && OCA.Sharing.ShareTabSections) {
     OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
-      console.log("[permalink] registerSection callback called", {
-        el,
-        elType: typeof el,
-        elInstanceOfHTMLElement: el instanceof HTMLElement,
-        elHasLength: el && typeof el.length === "number",
-        elLength: el && typeof el.length === "number" ? el.length : void 0,
-        fileInfo
-      });
-      if (!fileInfo) {
-        console.warn("[permalink] registerSection: fileInfo missing, aborting");
-        return;
-      }
       waitForValidElement(() => el).then((targetEl) => {
-        console.log("[permalink] waitForValidElement resolved with:", targetEl, "instanceof HTMLElement =", targetEl instanceof HTMLElement);
+        console.log("targetEl:", targetEl);
         el = targetEl;
-        if (!el) {
-          console.warn("[permalink] resolved el is falsy, aborting");
-          return;
-        }
+        if (!el || !fileInfo) return;
         if (sectionInstance) {
-          console.log("[permalink] destroying previous sectionInstance");
-          try {
-            sectionInstance.$destroy();
-          } catch (e) {
-            console.error("[permalink] error during $destroy", e);
-          }
-          try {
-            sectionInstance.$el.remove();
-          } catch (e) {
-            console.error("[permalink] error removing $el", e);
-          }
+          console.log("sectionInstance: null");
+          sectionInstance.$destroy();
+          sectionInstance.$el.remove();
           sectionInstance = null;
         }
-        console.log("[permalink] creating new View instance with fileInfo:", fileInfo);
+        console.log("sectionInstance: mount new");
         sectionInstance = new View({ propsData: { fileInfo } });
-        try {
-          sectionInstance.$mount();
-          console.log("[permalink] sectionInstance mounted, $el =", sectionInstance.$el);
-        } catch (e) {
-          console.error("[permalink] error during $mount", e);
-          return;
-        }
-        try {
-          el.appendChild(sectionInstance.$el);
-          console.log("[permalink] sectionInstance appended into el");
-        } catch (e) {
-          console.error("[permalink] error appending $el to el", e);
-        }
+        sectionInstance.$mount();
+        el.appendChild(sectionInstance.$el);
       }).catch((err) => {
         console.warn("Could not find valid mount element:", err);
       });
     });
-    console.log("[permalink] registerSection call completed (callback registered)");
-  } catch (e) {
-    console.error("[permalink] error calling ShareTabSections.registerSection", e);
   }
 });
 //# sourceMappingURL=permalink-main.mjs.map
