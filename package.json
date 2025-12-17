@@ -60,6 +60,7 @@
         "esbuild": "^0.25.5",
         "eslint-config-prettier": "^10.1.1",
         "eslint-plugin-import": "^2.32.0",
+        "js-yaml": "^4.1.1",
         "prettier": "^3.5.3",
         "typescript": "~5.3.3",
         "vite": "^5.4.21",
