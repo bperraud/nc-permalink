@@ -29,15 +29,15 @@ version: 0.5.0
 license: GPL-3.0-or-later
 
 @nextcloud/capabilities
-version: 1.2.1
+version: 1.2.0
 license: GPL-3.0-or-later
 
 @nextcloud/dialogs
-version: 6.4.2
+version: 6.3.1
 license: AGPL-3.0-or-later
 
 @nextcloud/event-bus
-version: 3.3.3
+version: 3.3.2
 license: GPL-3.0-or-later
 
 @nextcloud/initial-state
@@ -45,15 +45,15 @@ version: 2.2.0
 license: GPL-3.0-or-later
 
 @nextcloud/l10n
-version: 3.4.1
+version: 3.4.0
 license: GPL-3.0-or-later
 
 @nextcloud/logger
-version: 3.0.3
+version: 3.0.2
 license: GPL-3.0-or-later
 
 @nextcloud/router
-version: 3.1.0
+version: 3.0.1
 license: GPL-3.0-or-later
 
 @nextcloud/timezones
@@ -61,7 +61,7 @@ version: 0.2.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue
-version: 8.35.0
+version: 8.33.0
 license: AGPL-3.0-or-later
 
 @nextcloud/vue-select
@@ -80,8 +80,12 @@ license: MIT
 version: 11.3.0
 license: MIT
 
+ansi-regex
+version: 6.1.0
+license: MIT
+
 axios
-version: 1.13.2
+version: 1.13.1
 license: MIT
 
 charenc
@@ -101,7 +105,7 @@ version: 2.2.0
 license: MIT
 
 dompurify
-version: 3.3.1
+version: 3.3.0
 license: (MPL-2.0 OR Apache-2.0)
 
 emoji-mart-vue-fast
@@ -121,11 +125,11 @@ version: 1.0.0-beta.19
 license: MIT
 
 focus-trap
-version: 7.6.6
+version: 7.6.5
 license: MIT
 
 ical.js
-version: 2.2.1
+version: 2.1.0
 license: MPL-2.0
 
 is-buffer
@@ -156,16 +160,24 @@ p-timeout
 version: 6.1.4
 license: MIT
 
+path-browserify
+version: 1.0.1
+license: MIT
+
 semver
-version: 7.7.3
+version: 7.7.2
 license: ISC
+
+strip-ansi
+version: 7.1.0
+license: MIT
 
 striptags
 version: 3.2.0
 license: MIT
 
 tabbable
-version: 6.3.0
+version: 6.2.0
 license: MIT
 
 toastify-js
