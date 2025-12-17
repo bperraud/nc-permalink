@@ -41,18 +41,13 @@ window.addEventListener('DOMContentLoaded', function() {
         OCA.Sharing.ShareTabSections.registerSection((el, fileInfo) => {
             waitForValidElement(() => el)
                 .then((targetEl) => {
-
-                    console.log("targetEl:", targetEl);
                     el = targetEl;
                     if (!el || !fileInfo) return
-
                     if (sectionInstance) {
-                        console.log("sectionInstance: null");
                         sectionInstance.$destroy()
                         sectionInstance.$el.remove()
                         sectionInstance = null
                     }
-                    console.log("sectionInstance: mount new");
                     sectionInstance = new View({ propsData: { fileInfo } })
                     sectionInstance.$mount()
                     el.appendChild(sectionInstance.$el)

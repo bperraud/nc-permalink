@@ -3,7 +3,7 @@
         'name' => 'nextcloud/permalink',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1ea287bfe33450fc3b0edccc7b60c4145d5cb35a',
+        'reference' => 'd8bf415b6e107f2c18840269721757a2242fa58b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'bamarni/composer-bin-plugin' => array(
-            'pretty_version' => '1.8.2',
-            'version' => '1.8.2.0',
-            'reference' => '92fd7b1e6e9cdae19b0d57369d8ad31a37b6a880',
+            'pretty_version' => '1.8.3',
+            'version' => '1.8.3.0',
+            'reference' => 'e7ef9e012667327516c24e5fad9903a3bc91389d',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../bamarni/composer-bin-plugin',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'nextcloud/ocp' => array(
             'pretty_version' => 'dev-stable29',
             'version' => 'dev-stable29',
-            'reference' => 'be97344a46d9a19169e20c10ab4f7b0a2b769df7',
+            'reference' => 'f8c70c8d28000510f865028e24bb5cfe562f8b77',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nextcloud/ocp',
             'aliases' => array(
@@ -42,7 +42,7 @@
         'nextcloud/permalink' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1ea287bfe33450fc3b0edccc7b60c4145d5cb35a',
+            'reference' => 'd8bf415b6e107f2c18840269721757a2242fa58b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -87,7 +87,7 @@
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-latest',
             'version' => 'dev-latest',
-            'reference' => '6c7e6e7ebf679f9228c82ec3f7a432b4e8df538e',
+            'reference' => '415fded4fc00cd3df267d36e384e3e7454b39c40',
             'type' => 'metapackage',
             'install_path' => null,
             'aliases' => array(
