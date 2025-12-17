@@ -95,7 +95,7 @@ export default {
 	margin-top: 10px;
 }
 
-.sharingTab__additionalContent {
+.sharing-tab-external-section-legacy.sharingTab__additionalContent {
     margin-top: 4px !important;
 }
 

@@ -86,12 +86,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextcloud/openapi-extractor.git",
-                "reference": "f2684605b03edee8ffb50b90ffe248f7c4a7c329"
+                "reference": "f9fd9430174081491c7a7a8c44dc4d0dfcbf315d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextcloud/openapi-extractor/zipball/f2684605b03edee8ffb50b90ffe248f7c4a7c329",
-                "reference": "f2684605b03edee8ffb50b90ffe248f7c4a7c329",
+                "url": "https://api.github.com/repos/nextcloud/openapi-extractor/zipball/f9fd9430174081491c7a7a8c44dc4d0dfcbf315d",
+                "reference": "f9fd9430174081491c7a7a8c44dc4d0dfcbf315d",
                 "shasum": ""
             },
             "require": {
@@ -102,9 +102,9 @@
                 "phpstan/phpdoc-parser": "^2.1"
             },
             "require-dev": {
-                "nextcloud/coding-standard": "^1.2",
+                "nextcloud/coding-standard": "^1.4.0",
                 "nextcloud/ocp": "dev-master",
-                "rector/rector": "^2.0"
+                "rector/rector": "^2.2.8"
             },
             "default-branch": true,
             "bin": [
@@ -142,20 +142,20 @@
                 "source": "https://github.com/nextcloud/openapi-extractor/tree/main",
                 "issues": "https://github.com/nextcloud/openapi-extractor/issues"
             },
-            "time": "2025-10-11T05:29:08+00:00"
+            "time": "2025-12-14T03:35:36+00:00"
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.6.2",
+            "version": "v5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3a454ca033b9e06b63282ce19562e892747449bb"
+                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3a454ca033b9e06b63282ce19562e892747449bb",
-                "reference": "3a454ca033b9e06b63282ce19562e892747449bb",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dca41cd15c2ac9d055ad70dbfd011130757d1f82",
+                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82",
                 "shasum": ""
             },
             "require": {
@@ -198,9 +198,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.2"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
             },
-            "time": "2025-10-21T19:32:17+00:00"
+            "time": "2025-12-06T11:56:16+00:00"
         },
         {
             "name": "phpstan/phpdoc-parser",

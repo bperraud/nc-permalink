@@ -105,9 +105,6 @@ class HttpRequestService {
             return new DataResponse(['error' => 'Server Unreachable'], 503);
         }
 
-        $this->logger->error("return code");
-        $this->logger->error($httpCode);
-
         curl_close($ch);
         return new DataResponse(json_decode($response, true), (int) $httpCode);
     }

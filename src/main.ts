@@ -7,18 +7,30 @@ Vue.mixin({ methods: { t, n } })
 let sectionInstance = null
 const View = Vue.extend(ShareLinkButton)
 
-function waitForValidElement(elGetter, timeout = 2000, interval = 50) {
+function waitForValidElement(el, timeout = 2000, interval = 50) {
     return new Promise((resolve, reject) => {
         let elapsed = 0
         const check = () => {
-            const el = elGetter()
-            if (el && el.length > 0 && el[0] instanceof HTMLElement) {
-                resolve(el[0])
-            } else if ((elapsed += interval) >= timeout) {
-                reject(new Error('Timeout: el[0] not available'))
-            } else {
-                setTimeout(check, interval)
+            let target = null
+            // Case 1: plain HTMLElement passed by NC
+            if (el instanceof HTMLElement) {
+                target = el
             }
+            // Case 2: old behaviour: jQuery-like / NodeList
+            if (!target && el && typeof el === 'object' && 'length' in el && el.length > 0 && el[0] instanceof HTMLElement) {
+                target = el[0]
+            }
+            // Case 3: fallback: DOM lookup
+            if (!target) {
+                target = document.querySelector('.sharing-tab-external-section-legacy')
+            }
+            if (target instanceof HTMLElement) {
+                return resolve(target)
+            }
+            if ((elapsed += interval) >= timeout) {
+                return reject(new Error('waitForTargetEl: no mount element found within timeout'))
+            }
+            setTimeout(check, interval)
         }
         check()
     })
@@ -31,7 +43,6 @@ window.addEventListener('DOMContentLoaded', function() {
                 .then((targetEl) => {
                     el = targetEl;
                     if (!el || !fileInfo) return
-
                     if (sectionInstance) {
                         sectionInstance.$destroy()
                         sectionInstance.$el.remove()
