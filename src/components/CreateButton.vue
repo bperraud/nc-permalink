@@ -48,7 +48,6 @@ export default {
 
             try {
                 const response = await axios.post(generateUrl('apps/permalink/api/link'), data)
-                console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink created'))
                 this.refreshSidebar(this.fileInfo)
                 this.$emit('refresh')

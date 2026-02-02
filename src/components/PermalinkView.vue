@@ -120,7 +120,6 @@ export default {
 
         async copyLink() {
             try {
-                console.log('Copied permalink : ', this.permalink)
                 await navigator.clipboard.writeText(this.permalink)
                 showSuccess(t('permalink', 'Link copied'))
                 // focus and show the tooltip
@@ -141,10 +140,8 @@ export default {
 
         async onDelete() {
             const link = encodeURIComponent(this.fullFilePath())
-            console.log('onDelete with link', link)
             try {
                 const response = await axios.delete(generateUrl('apps/permalink/api/link') + `?path=${link}`)
-                console.log('Response:', response)
                 showSuccess(t('permalink', 'Permalink deleted'))
                 this.refreshSidebar(this.fileInfo)
                 this.$emit('refresh')
