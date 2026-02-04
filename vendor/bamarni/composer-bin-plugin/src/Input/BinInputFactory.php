@@ -75,9 +75,9 @@ final class BinInputFactory
             array_map(
                 'trim',
                 [
-                    $matches[1],
                     '--working-dir=.',
-                    $matches[2] ?? '',
+                    $matches[1],
+                    $matches[2],
                     $matches[3] ?? '',
                 ]
             )

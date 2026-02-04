@@ -60,7 +60,7 @@ export default {
             const link = encodeURIComponent(this.fullFilePath())
 
             try {
-                await axios.get(generateUrl('apps/permalink/api/link') + `?path=${link}`)
+                const response = await axios.get(generateUrl('apps/permalink/api/link') + `?path=${link}`)
                 const validStatus = [200, 100, 400]
                 if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
                     const error = response.data.ocs.data.message

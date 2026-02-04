@@ -98,6 +98,7 @@ class BinCommand extends BaseCommand
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         // Switch to requireComposer() once Composer 2.3 is set as the minimum
+        // @phpstan-ignore function.alreadyNarrowedType
         $composer = method_exists($this, 'requireComposer')
             ? $this->requireComposer()
             : $this->getComposer();

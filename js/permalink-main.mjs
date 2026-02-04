@@ -55,8 +55,7 @@ const _sfc_main$5 = {
         path: this.fullFilePath
       };
       try {
-        const response = await cancelableClient.post(_("apps/permalink/api/link"), data);
-        console.log(response);
+        await cancelableClient.post(_("apps/permalink/api/link"), data);
         showSuccess(t("permalink", "Permalink created"));
         this.refreshSidebar(this.fileInfo);
         this.$emit("refresh");
@@ -250,8 +249,7 @@ const _sfc_main$1 = {
     async onDelete() {
       const link = encodeURIComponent(this.fullFilePath());
       try {
-        const response = await cancelableClient.delete(_("apps/permalink/api/link") + `?path=${link}`);
-        console.log(response);
+        await cancelableClient.delete(_("apps/permalink/api/link") + `?path=${link}`);
         showSuccess(translate("permalink", "Permalink deleted"));
         this.refreshSidebar(this.fileInfo);
         this.$emit("refresh");
@@ -338,7 +336,6 @@ const _sfc_main = {
       const link = encodeURIComponent(this.fullFilePath());
       try {
         const response = await cancelableClient.get(_("apps/permalink/api/link") + `?path=${link}`);
-        console.log("Response:", response);
         const validStatus = [200, 100, 400];
         if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
           const error = response.data.ocs.data.message ? response.data.ocs.data.message : response.data.ocs.data.detail;
@@ -394,7 +391,7 @@ function waitForValidElement(el, timeout = 2e3, interval = 50) {
         target = el[0];
       }
       if (!target) {
-        target = document.querySelector(".sharingTab__additionalContent");
+        target = document.querySelector(".sharing-tab-external-section-legacy");
       }
       if (target instanceof HTMLElement) {
         return resolve(target);

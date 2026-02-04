@@ -3,7 +3,7 @@
         'name' => 'nextcloud/permalink',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9485613dfe8f94805cab962447fe9dec22c88c05',
+        'reference' => '0e9844b143d64831fa8548d4167099f25ed3b6f0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'bamarni/composer-bin-plugin' => array(
-            'pretty_version' => '1.8.3',
-            'version' => '1.8.3.0',
-            'reference' => 'e7ef9e012667327516c24e5fad9903a3bc91389d',
+            'pretty_version' => '1.9.1',
+            'version' => '1.9.1.0',
+            'reference' => '641d0663f5ac270b1aeec4337b7856f76204df47',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../bamarni/composer-bin-plugin',
             'aliases' => array(),
@@ -42,7 +42,7 @@
         'nextcloud/permalink' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9485613dfe8f94805cab962447fe9dec22c88c05',
+            'reference' => '0e9844b143d64831fa8548d4167099f25ed3b6f0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -87,7 +87,7 @@
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-latest',
             'version' => 'dev-latest',
-            'reference' => 'e5034c4df32edeafb119b2c1e2b58876d0286ea8',
+            'reference' => '399080a2918c60a3add6eefecfa74f885e1cda2f',
             'type' => 'metapackage',
             'install_path' => null,
             'aliases' => array(
