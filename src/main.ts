@@ -22,6 +22,7 @@ function waitForValidElement(el, timeout = 2000, interval = 50) {
             }
             // Case 3: fallback: DOM lookup
             if (!target) {
+                // target = document.querySelector('.sharingTab__additionalContent') # for local debug
                 target = document.querySelector('.sharing-tab-external-section-legacy')
             }
             if (target instanceof HTMLElement) {

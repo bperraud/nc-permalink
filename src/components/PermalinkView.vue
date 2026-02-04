@@ -142,6 +142,7 @@ export default {
             const link = encodeURIComponent(this.fullFilePath())
             try {
                 const response = await axios.delete(generateUrl('apps/permalink/api/link') + `?path=${link}`)
+                console.log(response);
                 showSuccess(t('permalink', 'Permalink deleted'))
                 this.refreshSidebar(this.fileInfo)
                 this.$emit('refresh')

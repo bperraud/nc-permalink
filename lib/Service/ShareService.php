@@ -95,13 +95,20 @@ class ShareService {
 
         if (empty($shares)) {
             return null;
-        } 
-        return  $this->shareManager->getShareById('ocinternal:' . $shares[0]);;
+        }
+        # loop every shares until an external one
+        for ($i = 0; $i < count($shares); $i++) {
+            $share = $this->shareManager->getShareById('ocinternal:' . $shares[$i]);
+            if ($share->getToken()) {
+                return $share;
+            }
+        }
+        return $share;
     }
 
     public function getOrCreateSharelink(string $userId, string $filePath) : IShare {
         $share = $this->getSharelink($userId, $filePath);
-        if ($share === null) {
+        if ($share === null || $share->getToken() === null) {
             $share = $this->create($filePath, 3, $userId);
         }
         return $share;
@@ -211,9 +218,4 @@ class ShareService {
 			$this->lockedNode->unlock(ILockingProvider::LOCK_SHARED);
 		}
 	}
-
-
-
-
 }
-

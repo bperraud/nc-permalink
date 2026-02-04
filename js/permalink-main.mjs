@@ -18,13 +18,11 @@ import { n as normalizeComponent, c as cancelableClient, _, e as showSuccess, s 
 const RequestMixin = {
   methods: {
     refreshSidebar(fileInfo) {
-      console.log("refreshSidebar");
       const shareTab = OCA.Files.Sidebar.state.tabs.find(
         (e) => e.id === "sharing"
       );
       if (shareTab) {
         shareTab.update(fileInfo);
-        console.log("Permalink: Updated share tab");
       } else {
         console.log("Permalink: No share tab to update");
       }
@@ -58,7 +56,7 @@ const _sfc_main$5 = {
       };
       try {
         const response = await cancelableClient.post(_("apps/permalink/api/link"), data);
-        console.log("Response:", response);
+        console.log(response);
         showSuccess(t("permalink", "Permalink created"));
         this.refreshSidebar(this.fileInfo);
         this.$emit("refresh");
@@ -233,7 +231,6 @@ const _sfc_main$1 = {
     },
     async copyLink() {
       try {
-        console.log("Copied permalink : ", this.permalink);
         await navigator.clipboard.writeText(this.permalink);
         showSuccess(translate("permalink", "Link copied"));
         this.$refs.copyButton.$el.focus();
@@ -252,10 +249,9 @@ const _sfc_main$1 = {
     },
     async onDelete() {
       const link = encodeURIComponent(this.fullFilePath());
-      console.log("onDelete with link", link);
       try {
         const response = await cancelableClient.delete(_("apps/permalink/api/link") + `?path=${link}`);
-        console.log("Response:", response);
+        console.log(response);
         showSuccess(translate("permalink", "Permalink deleted"));
         this.refreshSidebar(this.fileInfo);
         this.$emit("refresh");
@@ -398,7 +394,7 @@ function waitForValidElement(el, timeout = 2e3, interval = 50) {
         target = el[0];
       }
       if (!target) {
-        target = document.querySelector(".sharing-tab-external-section-legacy");
+        target = document.querySelector(".sharingTab__additionalContent");
       }
       if (target instanceof HTMLElement) {
         return resolve(target);

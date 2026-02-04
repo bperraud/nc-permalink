@@ -9,14 +9,10 @@ use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\DataResponse;
 use OCP\AppFramework\OCSController;
 use OCP\AppFramework\Http;
-
-
 use OCP\AppFramework\OCS\OCSBadRequestException;
 use OCP\AppFramework\OCS\OCSException;
 use OCP\AppFramework\OCS\OCSForbiddenException;
 use OCP\AppFramework\OCS\OCSNotFoundException;
-
-
 use OCP\Files\IRootFolder;
 use OCP\IRequest;
 use OCP\Constants;
@@ -25,9 +21,8 @@ use OCP\IUserSession;
 use OCA\Permalink\Service\ShareService;
 use OCA\Permalink\Service\HttpRequestService;
 use OCP\IConfig;
-
+use Psr\Log\LoggerInterface;
 use OCA\Permalink\Enums\SettingsKey;
-
 
 class ApiController extends OCSController {
 
@@ -39,6 +34,7 @@ class ApiController extends OCSController {
 		private readonly IRootFolder $rootFolder,
 		private IConfig $config,
         private IUserSession $userSession,
+		private readonly LoggerInterface $logger
 	) {
 		parent::__construct($appName, $request, 'PUT, POST, OPTIONS');
 	}
@@ -52,17 +48,15 @@ class ApiController extends OCSController {
 
         $user = $this->userSession->getUser();
         $share = $this->shareService->getOrCreateSharelink($user->getUID(), $path);
+
         $sharelink = $this->fullSharelinkPathByToken($share->getToken());
-        
         $data = [
             "target_url" => $sharelink,
             "expiration" => $share->getExpirationDate()?->format(\DateTime::ATOM),
             "path" => $path,
             "uid" => $share->getId()
         ];
-
         $response = $this->httpService->curl_post("link/api/external/", $data);
-
         return $response;
 	}
 
@@ -71,23 +65,19 @@ class ApiController extends OCSController {
 	public function delete(string $path): DataResponse {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
-
         // no share means no permalink
-        if ($share === null) {
+        if ($share === null || $share->getToken() === null) {
             return new DataResponse(
                 ['permalink' => null]
             );
         }
 
         $sharelink_path = $this->fullSharelinkPathByToken($share->getToken());
-
         // delete permalink in django app
         $response = $this->httpService->curl_delete("link/api/external/?target_url=" . urlencode($sharelink_path));
-
         if ($response->getStatus() != 200) {
             throw new OCSNotFoundException('Delete Error');
         }
-		
         return $response;
     }
 
@@ -97,8 +87,9 @@ class ApiController extends OCSController {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
 
+        $this->logger->error("Current share: " . $share->getToken());
         // no share means no permalink
-        if ($share === null) {
+        if ($share === null || $share->getToken() === null) {
             return new DataResponse(
                 ['permalink' => null]
             );
@@ -109,7 +100,6 @@ class ApiController extends OCSController {
             "target_url" => $sharelink,
         ];
         $response = $this->httpService->curl_get("link/api/external/?target_url=" . urlencode($sharelink));
-
         return $response;
 	}
 
@@ -117,7 +107,4 @@ class ApiController extends OCSController {
         $currentOverwriteCliUrl = $this->config->getSystemValue('overwrite.cli.url', '');
         return $currentOverwriteCliUrl . "/index.php/s/" . $token;
     }
-
-
-
 }
