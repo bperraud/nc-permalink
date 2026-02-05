@@ -87,7 +87,6 @@ class ApiController extends OCSController {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
 
-        $this->logger->error("Current share: " . $share->getToken());
         // no share means no permalink
         if ($share === null || $share->getToken() === null) {
             return new DataResponse(
