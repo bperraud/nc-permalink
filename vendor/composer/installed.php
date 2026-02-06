@@ -3,7 +3,7 @@
         'name' => 'nextcloud/permalink',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '289c9cfdbf8f2d902389759bd57896c3e949b476',
+        'reference' => 'e4e67be94700acf5b8917747ca4e54eccf59abd9',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -42,7 +42,7 @@
         'nextcloud/permalink' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '289c9cfdbf8f2d902389759bd57896c3e949b476',
+            'reference' => 'e4e67be94700acf5b8917747ca4e54eccf59abd9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -87,7 +87,7 @@
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-latest',
             'version' => 'dev-latest',
-            'reference' => '399080a2918c60a3add6eefecfa74f885e1cda2f',
+            'reference' => '258cd5fdcb59c29f421927b2cf77f48de9458a98',
             'type' => 'metapackage',
             'install_path' => null,
             'aliases' => array(

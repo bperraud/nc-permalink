@@ -6,7 +6,10 @@ namespace OCA\Permalink\Controller;
 
 use OCP\AppFramework\Http\Attribute\ApiRoute;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
-use OCP\AppFramework\Http\DataResponse;
+
+use OCP\AppFramework\Http\Response;
+use OCP\AppFramework\Http\JSONResponse;
+
 use OCP\AppFramework\OCSController;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\OCS\OCSBadRequestException;
@@ -41,7 +44,7 @@ class ApiController extends OCSController {
 
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'POST', url: '/api/link')]
-	public function post(): DataResponse {
+	public function post(): JSONResponse {
         [
 			'path' => $path
 		] = $this->request->getParams();
@@ -56,18 +59,21 @@ class ApiController extends OCSController {
             "path" => $path,
             "uid" => $share->getId()
         ];
+        
+        $this->logger->warning('POST: share_id' . $share->getId());
+
         $response = $this->httpService->curl_post("link/api/external/", $data);
         return $response;
 	}
 
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'DELETE', url: '/api/link')]
-	public function delete(string $path): DataResponse {
+	public function delete(string $path): JSONResponse {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
         // no share means no permalink
         if ($share === null || $share->getToken() === null) {
-            return new DataResponse(
+            return new JSONResponse(
                 ['permalink' => null]
             );
         }
@@ -83,23 +89,20 @@ class ApiController extends OCSController {
 
 	#[NoAdminRequired]
 	#[ApiRoute(verb: 'GET', url: '/api/link')]
-	public function get(string $path): DataResponse {
+	public function get(string $path): JSONResponse {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
 
         // no share means no permalink
         if ($share === null || $share->getToken() === null) {
-            return new DataResponse(
+            return new JSONResponse(
                 ['permalink' => null]
             );
         }
-
-        $sharelink = $this->fullSharelinkPathByToken($share->getToken());
-        $data = [
-            "target_url" => $sharelink,
-        ];
-        $response = $this->httpService->curl_get("link/api/external/?target_url=" . urlencode($sharelink));
-        return $response;
+        $response = $this->httpService->curl_get("link/api/external/?uid=" . $share->getId());
+        return new JSONResponse(
+            $response->getData(),
+        );
 	}
 
     private function fullSharelinkPathByToken(string $token) : string {
