@@ -254,7 +254,7 @@ const _sfc_main$1 = {
         this.refreshSidebar(this.fileInfo);
         this.$emit("refresh");
       } catch (e) {
-        if (e.response && e.response.data && e.response.data.message) {
+        if (e.response?.data?.message) {
           console.error(e.response.data);
         } else {
           console.error(e);
@@ -336,9 +336,6 @@ const _sfc_main = {
       const link = encodeURIComponent(this.fullFilePath());
       try {
         const response = await cancelableClient.get(_("apps/permalink/api/link") + `?path=${link}`);
-        console.log(response);
-        console.log(response.data);
-        console.log(response.data.permalink);
         if (response.data.permalink) {
           this.permalink = response.data.permalink;
           this.activeButtonComponent = "PermalinkVue";
@@ -346,9 +343,9 @@ const _sfc_main = {
           this.activeButtonComponent = "CreateButton";
         }
       } catch (e) {
-        if (e.response && e.response.data && e.response.data.message) {
+        if (e.response?.data?.message) {
           console.error(e.response.data);
-          showError(translate("permalink", "Permalink: + error msg..."));
+          showError(translate("permalink", "Permalink: " + e.response.data.message));
         } else {
           console.error(e);
         }

@@ -172,7 +172,7 @@ const _sfc_main = {
         );
         this.setUpdate(key, UpdateState.Completed);
       } catch (e) {
-        if (e.response.data && e.response.data.message) {
+        if (e.response?.data?.message) {
           showError(translate("permalink", e.response.data.message));
         } else {
           showError(

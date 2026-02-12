@@ -68,7 +68,7 @@ export default {
                     this.activeButtonComponent = 'CreateButton'
                 }
             } catch (e) {
-                if (e.response && e.response.data && e.response.data.message) {
+                if (e.response?.data?.message) {
                     console.error(e.response.data)
                     showError(t('permalink', 'Permalink: ' + e.response.data.message))
                 } else {

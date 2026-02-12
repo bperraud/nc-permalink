@@ -60,9 +60,7 @@ class ApiController extends OCSController {
             "uid" => $share->getId()
         ];
         
-        $this->logger->warning('POST: share_id' . $share->getId());
-
-        $response = $this->httpService->curl_post("link/api/external/", $data);
+        $response = $this->httpService->curl_post("link/api/v1/", $data);
         return $response;
 	}
 
@@ -77,10 +75,8 @@ class ApiController extends OCSController {
                 ['permalink' => null]
             );
         }
-
-        $sharelink_path = $this->fullSharelinkPathByToken($share->getToken());
         // delete permalink in django app
-        $response = $this->httpService->curl_delete("link/api/external/?target_url=" . urlencode($sharelink_path));
+        $response = $this->httpService->curl_delete("link/api/v1/?uid=" . $share->getId());
         if ($response->getStatus() != 200) {
             throw new OCSNotFoundException('Delete Error');
         }
@@ -99,7 +95,7 @@ class ApiController extends OCSController {
                 ['permalink' => null]
             );
         }
-        $response = $this->httpService->curl_get("link/api/external/?uid=" . $share->getId());
+        $response = $this->httpService->curl_get("link/api/v1/?uid=" . $share->getId());
         return new JSONResponse(
             $response->getData(),
         );
