@@ -28,7 +28,7 @@ class ShareDeletedListener implements IEventListener {
 
         # delete permalink in django app
         $sharelink_path = $this->fullSharelinkPathByToken($share->getToken());
-        $response = $this->httpService->curl_delete("link/api/external/?target_url=" . urlencode($sharelink_path));
+        $response = $this->httpService->curl_delete("link/api/v1/?target_url=" . urlencode($sharelink_path));
 
         if ($response->getStatus() != 200) {
             $this->logger->error("Delete error: " . urlencode($sharelink_path) . " " . $response->getStatus());
