@@ -61,23 +61,16 @@ export default {
 
             try {
                 const response = await axios.get(generateUrl('apps/permalink/api/link') + `?path=${link}`)
-                const validStatus = [200, 100, 400]
-                if (!validStatus.includes(response.data.ocs.meta.statuscode)) {
-                    const error = response.data.ocs.data.message
-                        ? response.data.ocs.data.message
-                        : response.data.ocs.data.detail
-                    showError(t('permalink', 'Permalink: ' + error))
+                if (response.data.permalink) {
+                    this.permalink = response.data.permalink
+                    this.activeButtonComponent = 'PermalinkVue'
                 } else {
-                    if (response.data.ocs.data.permalink) {
-                        this.permalink = response.data.ocs.data.permalink
-                        this.activeButtonComponent = 'PermalinkVue'
-                    } else {
-                        this.activeButtonComponent = 'CreateButton'
-                    }
+                    this.activeButtonComponent = 'CreateButton'
                 }
             } catch (e) {
-                if (e.response && e.response.data && e.response.data.message) {
+                if (e.response?.data?.message) {
                     console.error(e.response.data)
+                    showError(t('permalink', 'Permalink: ' + e.response.data.message))
                 } else {
                     console.error(e)
                 }

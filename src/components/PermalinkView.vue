@@ -146,7 +146,7 @@ export default {
                 this.refreshSidebar(this.fileInfo)
                 this.$emit('refresh')
             } catch (e) {
-                if (e.response && e.response.data && e.response.data.message) {
+                if (e.response?.data?.message) {
                     console.error(e.response.data)
                 } else {
                     console.error(e)
