@@ -3,7 +3,7 @@
         'name' => 'nextcloud/permalink',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '51a4ca68a9233526684e67aeb1d4e6ec67ad6afc',
+        'reference' => '9f030a9d7a6a009ad4abbf51a003556090d1bdec',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'firebase/php-jwt' => array(
-            'pretty_version' => 'v6.11.1',
-            'version' => '6.11.1.0',
-            'reference' => 'd1e91ecf8c598d073d0995afa8cd5c75c6e19e66',
+            'pretty_version' => 'v7.0.3',
+            'version' => '7.0.3.0',
+            'reference' => '28aa0694bcfdfa5e2959c394d5a1ee7a5083629e',
             'type' => 'library',
             'install_path' => __DIR__ . '/../firebase/php-jwt',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'nextcloud/ocp' => array(
             'pretty_version' => 'dev-stable29',
             'version' => 'dev-stable29',
-            'reference' => 'b85f287380a30008cfc5264e8d56cbe6c8b58424',
+            'reference' => '6e97cdf621ae674246fec9efc7d12c9130346a60',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nextcloud/ocp',
             'aliases' => array(
@@ -42,7 +42,7 @@
         'nextcloud/permalink' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '51a4ca68a9233526684e67aeb1d4e6ec67ad6afc',
+            'reference' => '9f030a9d7a6a009ad4abbf51a003556090d1bdec',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -87,7 +87,7 @@
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-latest',
             'version' => 'dev-latest',
-            'reference' => '9ad81949d95f2c5abc5eee283ca8349db6b42be9',
+            'reference' => 'cd20769dbf60afc57ec72a8865aecaf78a95fc71',
             'type' => 'metapackage',
             'install_path' => null,
             'aliases' => array(
