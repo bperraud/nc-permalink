@@ -17,7 +17,8 @@ git archive --format=tar.gz --prefix="${APP_NAME}/" --output="$ARCHIVE_NAME" HEA
 echo "✅ Beta archive created: $ARCHIVE_NAME"
 
 git tag $VERSION
-git push origin main --tags
+git push origin main
+git push origin "$VERSION"
 
 gh release create $VERSION "${APP_NAME}.tar.gz"
 
