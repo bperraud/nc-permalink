@@ -49,14 +49,15 @@ class ExpirationNotification extends Command {
                     '7'
                 );
 
-                $days = max(1, $days);
-
                 $maxTime = clone $minTime;
                 $maxTime->add(new \DateInterval('P' . ($days - 1) . 'D'));
                 $maxTime->setTime(23, 59, 59);
 
                 $shares = $this->shareManager->getAllShares();
                 $now = $this->time->getDateTime();
+
+                $output->writeln('min: ' . $minTime->format('Y-m-d H:i:s'));
+                $output->writeln('max: ' . $maxTime->format('Y-m-d H:i:s'));
 
                 /** @var IShare $share */
                 foreach ($shares as $share) {
@@ -66,6 +67,9 @@ class ExpirationNotification extends Command {
                                 || !$this->orphanHelper->isShareValid($share->getSharedBy(), $share->getNodeId())) {
                                 continue;
                         }
+
+
+                        $output->writeln('notification for share ' . $share->getFullId());
 
                         $notification = $this->notificationManager->createNotification();
                         $notification->setApp('permalink')
