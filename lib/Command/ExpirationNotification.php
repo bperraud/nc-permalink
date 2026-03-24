@@ -18,8 +18,9 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use OCP\AppFramework\Services\IAppConfig;
+use OCA\Permalink\Enums\SettingsKey;
 
-class ExiprationNotification extends Command {
+class ExpirationNotification extends Command {
         public function __construct(
                 private ITimeFactory $time,
                 private NotificationManager $notificationManager,
@@ -33,7 +34,7 @@ class ExiprationNotification extends Command {
 
         protected function configure() {
                 $this
-                        ->setName('sharing:expiration-notification')
+                        ->setName('permalink:expiration-notification')
                         ->setDescription('Notify share initiators when a share will expire the next day.');
         }
 
@@ -43,15 +44,18 @@ class ExiprationNotification extends Command {
                 $minTime->add(new \DateInterval('P1D'));
                 $minTime->setTime(0, 0, 0);
 
+                $days = (int) $this->appConfig->getAppValueString(
+                    SettingsKey::FilesharingExpirationDays->value,
+                    '7'
+                );
+
+                $days = max(1, $days);
+
                 $maxTime = clone $minTime;
-
-                $maxTime = $this->appConfig->getAppValueString(SettingsKey::ExpirationDays->value, 7);
-                $maxTime->add(new \DateInterval('P7D'));
-
+                $maxTime->add(new \DateInterval('P' . ($days - 1) . 'D'));
                 $maxTime->setTime(23, 59, 59);
 
                 $shares = $this->shareManager->getAllShares();
-
                 $now = $this->time->getDateTime();
 
                 /** @var IShare $share */

@@ -13,7 +13,7 @@
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
 const appVersion = "1.2.3";
-import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, C as CheckIcon, N as NcLoadingIcon, a as NcSettingsInputText, b as NcSettingsSection, s as showError, d as Vue } from "./style-CucFT-I4.chunk.mjs";
+import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, N as NcInputField, C as CheckIcon, a as NcLoadingIcon, b as NcSettingsInputText, d as NcSettingsSection, s as showError, e as Vue } from "./style-CUKyT4PZ.chunk.mjs";
 const _sfc_main$1 = {
   name: "AlertCircleIcon",
   emits: ["click"],
@@ -114,7 +114,8 @@ const _sfc_main = {
     NcSettingsInputText,
     NcLoadingIcon,
     CheckIcon,
-    AlertIcon
+    AlertIcon,
+    NcInputField
   },
   directives: {
     Tooltip: VTooltip

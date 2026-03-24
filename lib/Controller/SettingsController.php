@@ -55,7 +55,7 @@ class SettingsController extends Controller {
 	public function fetch(): JSONResponse {
 		$settings = [
 			'jwtSecretKey' => $this->appConfig->getAppValueString(SettingsKey::JwtSecretKey->value, ""),
-			'permalinkApiEndpoint' => $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "")
+			'permalinkApiEndpoint' => $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, ""),
 			'filesharingExpirationDays' => $this->appConfig->getAppValueString(SettingsKey::FilesharingExpirationDays->value, "")
 		];
 

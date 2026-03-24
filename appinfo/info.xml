@@ -11,6 +11,9 @@
 	<namespace>Permalink</namespace>
 	<category>tools</category>
 	<bugs>https://github.com/bperraud/nc-permalink</bugs>
+    <commands>
+        <command>OCA\Permalink\Command\ExpirationNotification</command>
+    </commands>
 	<dependencies>
 		<nextcloud min-version="30" max-version="32"/>
 	</dependencies>

@@ -83,6 +83,7 @@ import {
     NcSettingsInputText,
     NcSettingsSection,
     Tooltip,
+    NcInputField,
 } from '@nextcloud/vue'
 
 import AlertIcon from 'vue-material-design-icons/AlertCircle.vue'
@@ -101,6 +102,7 @@ export default {
         NcLoadingIcon,
         CheckIcon,
         AlertIcon,
+        NcInputField
     },
 
     directives: {
