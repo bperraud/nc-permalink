@@ -84,6 +84,7 @@ class ComposerStaticInit0b6c35ea66854753554bf9c36d0de948
         'Firebase\\JWT\\SignatureInvalidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/SignatureInvalidException.php',
         'OCA\\Permalink\\AppInfo\\AppConstants' => __DIR__ . '/../..' . '/lib/AppInfo/AppConstants.php',
         'OCA\\Permalink\\AppInfo\\Application' => __DIR__ . '/../..' . '/lib/AppInfo/Application.php',
+        'OCA\\Permalink\\Command\\ExpirationNotification' => __DIR__ . '/../..' . '/lib/Command/ExpirationNotification.php',
         'OCA\\Permalink\\Controller\\ApiController' => __DIR__ . '/../..' . '/lib/Controller/ApiController.php',
         'OCA\\Permalink\\Controller\\PageController' => __DIR__ . '/../..' . '/lib/Controller/PageController.php',
         'OCA\\Permalink\\Controller\\SettingsController' => __DIR__ . '/../..' . '/lib/Controller/SettingsController.php',

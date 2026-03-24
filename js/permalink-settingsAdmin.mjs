@@ -3,7 +3,7 @@
   try {
     if (typeof document != "undefined") {
       var elementStyle = document.createElement("style");
-      elementStyle.appendChild(document.createTextNode(".form-error[data-v-e8c7e823] {\n  color: #c40c0c;\n  display: block;\n}\n.status-icon[data-v-e8c7e823] {\n  margin-left: 6px;\n}\n[data-v-e8c7e823] input#permalink-api-endpoint,[data-v-e8c7e823] input#jwt-secret-key {\n  width: 300px !important;\n}\n.input-with-icon[data-v-e8c7e823] {\n  display: flex;\n  align-items: center;\n}\n.input-with-icon .status-icon[data-v-e8c7e823] {\n  margin-bottom: 10px;\n  display: flex;\n  align-items: center;\n}"));
+      elementStyle.appendChild(document.createTextNode(".form-error[data-v-e8c7e823] {\n  color: #c40c0c;\n  display: block;\n}\n.status-icon[data-v-e8c7e823] {\n  margin-left: 6px;\n}\n[data-v-e8c7e823] input#permalink-api-endpoint,[data-v-e8c7e823] input#jwt-secret-key {\n  width: 300px !important;\n}\n[data-v-e8c7e823] input#expiration-window {\n  width: 50px !important;\n}\n.input-with-icon[data-v-e8c7e823] {\n  display: flex;\n  align-items: center;\n}\n.input-with-icon .status-icon[data-v-e8c7e823] {\n  margin-bottom: 10px;\n  display: flex;\n  align-items: center;\n}"));
       document.head.appendChild(elementStyle);
     }
   } catch (e) {
@@ -12,8 +12,8 @@
 })();
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
-const appVersion = "1.2.3";
-import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, N as NcInputField, C as CheckIcon, a as NcLoadingIcon, b as NcSettingsInputText, d as NcSettingsSection, s as showError, e as Vue } from "./style-CUKyT4PZ.chunk.mjs";
+const appVersion = "1.3.0";
+import { n as normalizeComponent, c as cancelableClient, _, t as translate, V as VTooltip, N as NcInputField, C as CheckIcon, a as NcLoadingIcon, b as NcSettingsInputText, d as NcSettingsSection, s as showError, e as Vue } from "./style-xCnadF2J.chunk.mjs";
 const _sfc_main$1 = {
   name: "AlertCircleIcon",
   emits: ["click"],
@@ -202,7 +202,7 @@ var _sfc_render = function render2() {
     _vm.permalinkApiEndpoint = $event;
   }, "submit": _vm.onApiEndpointSubmit } })], 1)]), _c("NcSettingsSection", { attrs: { "name": _vm.t("permalink", "Jwt secret key"), "description": _vm.t("permalink", "Secret key used to sign JWT tokens for authenticating requests to the Permalink API. Must match the API's configuration") } }, [_c("div", { staticClass: "input-with-icon" }, [_c("h3", [_vm.updating.key === _vm.SettingsKey.JwtSecretKey ? _c("span", { staticClass: "status-icon" }, [_vm.updating.status === _vm.UpdateState.Updating ? _c("NcLoadingIcon", { attrs: { "name": _vm.t("permalink", "Saving..."), "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Completed ? _c("CheckIcon", { attrs: { "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Error ? _c("AlertIcon", { attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()]), _c("NcSettingsInputText", { attrs: { "id": "jwt-secret-key", "label": "", "value": _vm.jwtSecretKey, "disabled": _vm.updating.status === _vm.UpdateState.Updating || _vm.loading }, on: { "update:value": function($event) {
     _vm.jwtSecretKey = $event;
-  }, "submit": _vm.onSecretKeySubmit } })], 1)]), _c("NcSettingsSection", { attrs: { "name": _vm.t("permalink", "File Sharing Expiration Days"), "description": _vm.t("permalink", "blabla") } }, [_c("div", { staticClass: "input-with-icon" }, [_c("h3", [_vm.updating.key === _vm.SettingsKey.FilesharingExpirationDays ? _c("span", { staticClass: "status-icon" }, [_vm.updating.status === _vm.UpdateState.Updating ? _c("NcLoadingIcon", { attrs: { "name": _vm.t("permalink", "Saving..."), "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Completed ? _c("CheckIcon", { attrs: { "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Error ? _c("AlertIcon", { attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()]), _c("NcInputField", { attrs: { "id": "expiration-window", "type": "number", "min": 1, "step": 1, "value": _vm.filesharingExpirationDays, "disabled": _vm.updating.status === _vm.UpdateState.Updating || _vm.loading }, on: { "update:value": function($event) {
+  }, "submit": _vm.onSecretKeySubmit } })], 1)]), _c("NcSettingsSection", { attrs: { "name": _vm.t("permalink", "File Sharing Expiration Days"), "description": _vm.t("permalink", "Notify users before a share expires (in days)") } }, [_c("div", { staticClass: "input-with-icon" }, [_c("h3", [_vm.updating.key === _vm.SettingsKey.FilesharingExpirationDays ? _c("span", { staticClass: "status-icon" }, [_vm.updating.status === _vm.UpdateState.Updating ? _c("NcLoadingIcon", { attrs: { "name": _vm.t("permalink", "Saving..."), "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Completed ? _c("CheckIcon", { attrs: { "size": 20 } }) : _vm.updating.status === _vm.UpdateState.Error ? _c("AlertIcon", { attrs: { "size": 20 } }) : _vm._e()], 1) : _vm._e()]), _c("NcInputField", { attrs: { "id": "expiration-window", "type": "number", "min": 1, "step": 1, "value": _vm.filesharingExpirationDays, "disabled": _vm.updating.status === _vm.UpdateState.Updating || _vm.loading }, on: { "update:value": function($event) {
     _vm.filesharingExpirationDays = $event;
   }, "change": _vm.onExpirationDaysSubmit } })], 1)])], 1);
 };

@@ -30,6 +30,7 @@ return array(
     'Firebase\\JWT\\SignatureInvalidException' => $vendorDir . '/firebase/php-jwt/src/SignatureInvalidException.php',
     'OCA\\Permalink\\AppInfo\\AppConstants' => $baseDir . '/lib/AppInfo/AppConstants.php',
     'OCA\\Permalink\\AppInfo\\Application' => $baseDir . '/lib/AppInfo/Application.php',
+    'OCA\\Permalink\\Command\\ExpirationNotification' => $baseDir . '/lib/Command/ExpirationNotification.php',
     'OCA\\Permalink\\Controller\\ApiController' => $baseDir . '/lib/Controller/ApiController.php',
     'OCA\\Permalink\\Controller\\PageController' => $baseDir . '/lib/Controller/PageController.php',
     'OCA\\Permalink\\Controller\\SettingsController' => $baseDir . '/lib/Controller/SettingsController.php',

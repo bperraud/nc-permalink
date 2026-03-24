@@ -12,8 +12,8 @@
 })();
 /*! third party licenses: js/vendor.LICENSE.txt */
 const appName = "permalink";
-const appVersion = "1.2.3";
-import { n as normalizeComponent, c as cancelableClient, _, f as showSuccess, s as showError, C as CheckIcon, g as NcActionButton, h as NcActions, i as NcAvatar, t as translate, e as Vue } from "./style-CUKyT4PZ.chunk.mjs";
+const appVersion = "1.3.0";
+import { n as normalizeComponent, c as cancelableClient, _, f as showSuccess, s as showError, C as CheckIcon, g as NcActionButton, h as NcActions, i as NcAvatar, t as translate, e as Vue } from "./style-xCnadF2J.chunk.mjs";
 /*! third party licenses: js/vendor.LICENSE.txt */
 const RequestMixin = {
   methods: {

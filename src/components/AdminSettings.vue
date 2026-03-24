@@ -45,7 +45,7 @@
 			</div>
 		</NcSettingsSection>
 		<NcSettingsSection :name="t('permalink', 'File Sharing Expiration Days')"
-			:description="t('permalink', 'blabla')">
+			:description="t('permalink', 'Notify users before a share expires (in days)')">
 			<div class="input-with-icon">
 				<h3>
 					<span v-if="updating.key === SettingsKey.FilesharingExpirationDays"
@@ -206,6 +206,10 @@ export default {
 ::v-deep(input#permalink-api-endpoint),
 ::v-deep(input#jwt-secret-key) {
 	width: 300px !important;
+}
+
+::v-deep(input#expiration-window) {
+	width: 50px !important;
 }
 
 .input-with-icon {
