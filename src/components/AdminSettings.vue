@@ -44,6 +44,31 @@
 					@submit="onSecretKeySubmit" />
 			</div>
 		</NcSettingsSection>
+		<NcSettingsSection :name="t('permalink', 'File Sharing Expiration Days')"
+			:description="t('permalink', 'blabla')">
+			<div class="input-with-icon">
+				<h3>
+					<span v-if="updating.key === SettingsKey.FilesharingExpirationDays"
+						class="status-icon">
+						<NcLoadingIcon v-if="updating.status === UpdateState.Updating"
+							:name="t('permalink', 'Saving...')"
+							:size="20" />
+						<CheckIcon v-else-if="updating.status === UpdateState.Completed"
+							:size="20" />
+						<AlertIcon v-else-if="updating.status === UpdateState.Error"
+							:size="20" />
+					</span>
+				</h3>
+				<NcInputField
+                    id="expiration-window"
+                    type="number"
+                    :min="1"
+                    :step="1"
+                    :value.sync="filesharingExpirationDays"
+                    :disabled="updating.status === UpdateState.Updating || loading"
+                    @change="onExpirationDaysSubmit" />
+			</div>
+		</NcSettingsSection>
 	</div>
 </template>
 
@@ -93,6 +118,7 @@ export default {
             loading: true,
             jwtSecretKey: '',
             permalinkApiEndpoint: '',
+            filesharingExpirationDays: '',
             deleteConflicts: false,
         }
     },
@@ -110,6 +136,7 @@ export default {
         this.loading = true
         this.jwtSecretKey = await this.getJwtSecret()
         this.permalinkApiEndpoint = await this.getPermalinkApiEndpoint()
+        this.filesharingExpirationDays = await this.getFilesharingExpirationDays()
         this.loading = false
     },
 
@@ -124,6 +151,9 @@ export default {
         },
         async onApiEndpointSubmit() {
             await this.saveSettings(SettingsKey.PermalinkApiEndpoint, this.permalinkApiEndpoint)
+        },
+        async onExpirationDaysSubmit() {
+            await this.saveSettings(SettingsKey.FilesharingExpirationDays, this.filesharingExpirationDays)
         },
         async onDeleteConflictsChange(value) {
             await this.saveSettings(

@@ -21,6 +21,7 @@ class PermalinksAdmin implements ISettings {
 		$parameters = [
 			'jwtSecretKey' => $this->appConfig->getAppValueString(SettingsKey::JwtSecretKey->value, ""),
 			'permalinkApiEndpoint' => $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "")
+			'filesharingExpirationDays' => $this->appConfig->getAppValueString(SettingsKey::FilesharingExpirationDays->value, "")
 		];
 
 		Util::addScript(Application::APP_ID, 'permalink-settingsAdmin');

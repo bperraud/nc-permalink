@@ -42,6 +42,10 @@ class SettingsController extends Controller {
                     $this->appConfig->setAppValueString($settings_key->value, $old_value);
                     return new JSONResponse(['message' => 'Error, endpoint is not reachable ' . $value], Http::STATUS_BAD_GATEWAY);
 					break;
+                case SettingsKey::FilesharingExpirationDays:
+                    $this->appConfig->setAppValueString($settings_key->value, $value);
+                    return new JSONResponse(['message' => 'Saved : ' . $value], Http::STATUS_OK);
+					break;
 			}
 		} catch (ValueError) {
 		}
@@ -52,6 +56,7 @@ class SettingsController extends Controller {
 		$settings = [
 			'jwtSecretKey' => $this->appConfig->getAppValueString(SettingsKey::JwtSecretKey->value, ""),
 			'permalinkApiEndpoint' => $this->appConfig->getAppValueString(SettingsKey::PermalinkApiEndpoint->value, "")
+			'filesharingExpirationDays' => $this->appConfig->getAppValueString(SettingsKey::FilesharingExpirationDays->value, "")
 		];
 
 		return new JSONResponse($settings, Http::STATUS_OK);

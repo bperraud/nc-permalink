@@ -42,5 +42,11 @@ export default {
                 ? settings.permalinkApiEndpoint
                 : ''
         },
+        async getFilesharingExpirationDays(): Promise<string> {
+            const settings = await this.getSettings()
+            return settings && settings.filesharingExpirationDays
+                ? settings.filesharingExpirationDays
+                : ''
+        },
     },
 }
