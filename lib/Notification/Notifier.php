@@ -16,12 +16,15 @@ use OCP\Share\IManager;
 use OCP\Share\IShare;
 use OCP\IL10N;
 
+use Psr\Log\LoggerInterface;
+
 class Notifier implements INotifier {
 
     public function __construct(
         private IFactory $l10nFactory,
         private IManager $shareManager,
         private IRootFolder $rootFolder,
+		private LoggerInterface $logger,
     ) {}
 
     public function getID(): string {
@@ -40,6 +43,8 @@ class Notifier implements INotifier {
 
         $l = $this->l10nFactory->get('permalink', $languageCode);
         $shareId = $notification->getObjectId();
+        
+        $this->logger->warning('prepare notification ');
 
         try {
             $share = $this->shareManager->getShareById($shareId, $notification->getUser());
@@ -63,7 +68,6 @@ class Notifier implements INotifier {
     ): INotification {
 
         $node = $share->getNode();
-
         $userFolder = $this->rootFolder->getUserFolder($notification->getUser());
         $relativePath = $userFolder->getRelativePath($node->getPath());
 
@@ -82,6 +86,8 @@ class Notifier implements INotifier {
                 ],
             ]
         );
+
+        $this->logger->warning('build notification');
 
         return $notification;
     }
