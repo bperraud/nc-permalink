@@ -37,6 +37,7 @@ return array(
     'OCA\\Permalink\\Enums\\LinkLabelMode' => $baseDir . '/lib/Enums/LinkLabelMode.php',
     'OCA\\Permalink\\Enums\\SettingsKey' => $baseDir . '/lib/Enums/SettingsKey.php',
     'OCA\\Permalink\\Listener\\ShareDeletedListener' => $baseDir . '/lib/Listener/ShareDeletedListener.php',
+    'OCA\\Permalink\\Notification\\Notifier' => $baseDir . '/lib/Notification/Notifier.php',
     'OCA\\Permalink\\Sections\\PermalinksAdmin' => $baseDir . '/lib/Sections/PermalinksAdmin.php',
     'OCA\\Permalink\\Service\\HttpRequestService' => $baseDir . '/lib/Service/HttpRequestService.php',
     'OCA\\Permalink\\Service\\ShareService' => $baseDir . '/lib/Service/ShareService.php',

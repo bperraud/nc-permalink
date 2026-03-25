@@ -91,6 +91,7 @@ class ComposerStaticInit0b6c35ea66854753554bf9c36d0de948
         'OCA\\Permalink\\Enums\\LinkLabelMode' => __DIR__ . '/../..' . '/lib/Enums/LinkLabelMode.php',
         'OCA\\Permalink\\Enums\\SettingsKey' => __DIR__ . '/../..' . '/lib/Enums/SettingsKey.php',
         'OCA\\Permalink\\Listener\\ShareDeletedListener' => __DIR__ . '/../..' . '/lib/Listener/ShareDeletedListener.php',
+        'OCA\\Permalink\\Notification\\Notifier' => __DIR__ . '/../..' . '/lib/Notification/Notifier.php',
         'OCA\\Permalink\\Sections\\PermalinksAdmin' => __DIR__ . '/../..' . '/lib/Sections/PermalinksAdmin.php',
         'OCA\\Permalink\\Service\\HttpRequestService' => __DIR__ . '/../..' . '/lib/Service/HttpRequestService.php',
         'OCA\\Permalink\\Service\\ShareService' => __DIR__ . '/../..' . '/lib/Service/ShareService.php',

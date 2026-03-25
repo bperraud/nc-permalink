@@ -13,6 +13,8 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\Share\Events\ShareDeletedEvent;
 use OCA\Permalink\Listener\ShareDeletedListener;
 
+use OCA\Permalink\Notification\Notifier;
+
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'permalink';
 
