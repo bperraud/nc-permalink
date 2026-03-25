@@ -75,7 +75,7 @@ class ExpirationNotification extends Command {
                         $notification->setApp('permalink')
                                 ->setDateTime($now)
                                 ->setObject('share', $share->getFullId())
-                                ->setSubject('expires next week');
+                                ->setSubject('expiresNextWeek');
 
                         // Only send to initiator for now
                         $notification->setUser($share->getSharedBy());

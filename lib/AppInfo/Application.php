@@ -27,6 +27,7 @@ class Application extends App implements IBootstrap {
 		 * Listen for ShareDeletedEvent (force recreation if link to a permalink)
 		 */
 		$context->registerEventListener(ShareDeletedEvent::class, ShareDeletedListener::class);
+        $context->registerNotifierService(Notifier::class);
 	}
 
 
