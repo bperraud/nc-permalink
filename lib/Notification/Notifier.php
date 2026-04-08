@@ -44,8 +44,6 @@ class Notifier implements INotifier {
         $l = $this->l10nFactory->get('permalink', $languageCode);
         $shareId = $notification->getObjectId();
         
-        $this->logger->warning('prepare notification ');
-
         try {
             $share = $this->shareManager->getShareById($shareId, $notification->getUser());
         } catch (ShareNotFound $e) {
@@ -86,8 +84,6 @@ class Notifier implements INotifier {
                 ],
             ]
         );
-
-        $this->logger->warning('build notification');
 
         return $notification;
     }
