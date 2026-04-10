@@ -77,9 +77,6 @@ class ApiController extends OCSController {
         }
         // delete permalink in django app
         $response = $this->httpService->curl_delete("link/api/v1/?uid=" . $share->getId());
-        if ($response->getStatus() != 200) {
-            throw new OCSNotFoundException('Delete Error');
-        }
         return $response;
     }
 

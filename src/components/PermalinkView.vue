@@ -146,12 +146,14 @@ export default {
                 this.refreshSidebar(this.fileInfo)
                 this.$emit('refresh')
             } catch (e) {
-                if (e.response?.data?.message) {
+                showError(t('permalink', 'Error deleting permalink'))
+                if (e.response && e.response.data && e.response.data.message) {
                     console.error(e.response.data)
                 } else {
                     console.error(e)
                 }
             }
+
         },
 
         copyLinkTooltip() {
@@ -373,3 +375,5 @@ export default {
 }
 
 </style>
+
+
