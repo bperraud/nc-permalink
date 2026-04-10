@@ -57,7 +57,7 @@
 /* eslint-disable no-console */
 
 import axios from '@nextcloud/axios'
-
+import { showError } from '@nextcloud/dialogs'
 import {
     NcAvatar
 } from '@nextcloud/vue'
