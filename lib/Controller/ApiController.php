@@ -56,7 +56,7 @@ class ApiController extends OCSController {
         $data = [
             "target_url" => $sharelink,
             "expiration" => $share->getExpirationDate()?->format(\DateTime::ATOM),
-            "path" => $path,
+            "path" => $share->getTarget(),
             "uid" => $share->getId()
         ];
         
