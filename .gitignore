@@ -1,13 +1,14 @@
 /.idea/
 /*.iml
 
-# /vendor/
+/vendor
 /vendor-bin
+
+/js
 
 /.php-cs-fixer.cache
 /tests/.phpunit.cache
 
 /node_modules/
-
 
 *.tar.gz

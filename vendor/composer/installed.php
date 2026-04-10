@@ -3,7 +3,7 @@
         'name' => 'nextcloud/permalink',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '32b586e989af411fb4d38277acbc335df64e0098',
+        'reference' => '90396201fe3e43fb8c5efb49109f325b9133b739',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -42,7 +42,7 @@
         'nextcloud/permalink' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '32b586e989af411fb4d38277acbc335df64e0098',
+            'reference' => '90396201fe3e43fb8c5efb49109f325b9133b739',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
