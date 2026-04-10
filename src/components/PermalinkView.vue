@@ -57,7 +57,6 @@
 /* eslint-disable no-console */
 
 import axios from '@nextcloud/axios'
-import { showError } from '@nextcloud/dialogs'
 import {
     NcAvatar
 } from '@nextcloud/vue'
@@ -65,7 +64,7 @@ import {
 import NcActionButton from '@nextcloud/vue/components/NcActionButton'
 import NcActions from '@nextcloud/vue/components/NcActions'
 
-import { showSuccess } from '@nextcloud/dialogs'
+import { showSuccess, showError} from '@nextcloud/dialogs'
 import { generateUrl } from '@nextcloud/router'
 import { t } from '@nextcloud/l10n'
 
