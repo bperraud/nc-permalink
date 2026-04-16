@@ -46,8 +46,12 @@ class ExpirationNotification extends Command {
 
                 $days = (int) $this->appConfig->getAppValueString(
                     SettingsKey::FilesharingExpirationDays->value,
-                    '7'
+                    '0'
                 );
+
+                if ($days === 0) {
+                    return 0;
+                }
 
                 $maxTime = clone $minTime;
                 $maxTime->add(new \DateInterval('P' . ($days - 1) . 'D'));
@@ -55,9 +59,6 @@ class ExpirationNotification extends Command {
 
                 $shares = $this->shareManager->getAllShares();
                 $now = $this->time->getDateTime();
-
-                $output->writeln('min: ' . $minTime->format('Y-m-d H:i:s'));
-                $output->writeln('max: ' . $maxTime->format('Y-m-d H:i:s'));
 
                 /** @var IShare $share */
                 foreach ($shares as $share) {
@@ -67,9 +68,6 @@ class ExpirationNotification extends Command {
                                 || !$this->orphanHelper->isShareValid($share->getSharedBy(), $share->getNodeId())) {
                                 continue;
                         }
-
-
-                        $output->writeln('notification for share ' . $share->getFullId());
 
                         $notification = $this->notificationManager->createNotification();
                         $notification->setApp('permalink')

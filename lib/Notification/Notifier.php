@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace OCA\Permalink\Notification;
 
+use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\Files\IRootFolder;
 use OCP\Files\NotFoundException;
 use OCP\L10N\IFactory;
@@ -24,6 +25,7 @@ class Notifier implements INotifier {
         private IFactory $l10nFactory,
         private IManager $shareManager,
         private IRootFolder $rootFolder,
+        private ITimeFactory $time,
 		private LoggerInterface $logger,
     ) {}
 
@@ -68,13 +70,25 @@ class Notifier implements INotifier {
         $node = $share->getNode();
         $userFolder = $this->rootFolder->getUserFolder($notification->getUser());
         $relativePath = $userFolder->getRelativePath($node->getPath());
+        
+        $now = $this->time->getDateTime()->getTimestamp();
+        $expiration = $share->getExpirationDate()->getTimeStamp();
+
+        $days = intdiv($expiration - $now, 86400) + 1;
 
         $notification->setParsedSubject(
             $l->t('Share will expire soon')
         );
 
+        if ($days > 1) {
+            $msg = 'will expire in ' . $days . ' days';
+        }
+        else {
+            $msg = 'will expire tomorrow';
+        }
+
         $notification->setRichMessage(
-            $l->t('Your share of {file} will expire soon'),
+            $l->t('Your share of {file} ' . $msg),
             [
                 'file' => [
                     'type' => 'file',
