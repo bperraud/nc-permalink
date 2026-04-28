@@ -41,8 +41,6 @@ class ExpirationNotification extends Command {
         public function execute(InputInterface $input, OutputInterface $output): int {
                 //Current time
                 $minTime = $this->time->getDateTime();
-                $minTime->add(new \DateInterval('P1D'));
-                $minTime->setTime(0, 0, 0);
 
                 $days = (int) $this->appConfig->getAppValueString(
                     SettingsKey::FilesharingExpirationDays->value,
