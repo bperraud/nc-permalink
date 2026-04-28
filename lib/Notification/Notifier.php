@@ -74,7 +74,7 @@ class Notifier implements INotifier {
         $now = $this->time->getDateTime()->getTimestamp();
         $expiration = $share->getExpirationDate()->getTimeStamp();
 
-        $days = intdiv($expiration - $now, 86400) + 1;
+        $days = intdiv($expiration - $now, 86400);
 
         $notification->setParsedSubject(
             $l->t('Share will expire soon')
