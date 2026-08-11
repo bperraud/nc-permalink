@@ -50,6 +50,9 @@ use Psr\Log\LoggerInterface;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 
 
+use OCP\IDBConnection;
+
+
 /***
  * Based on ShareAPIController (From Nextcloud's core app files_sharing)
  */
@@ -62,6 +65,7 @@ class ShareService {
 		private readonly IRootFolder $rootFolder,
 		private LoggerInterface $logger,
         private readonly IL10N $l10n,
+        private IDBConnection $db,
 	) {
 	}
 
@@ -73,7 +77,7 @@ class ShareService {
 
 
 	private function getSharesIdByPath(Node $node) : array {
-		$qb = \OC::$server->getDatabaseConnection()->getQueryBuilder();
+		$qb = $this->db->getQueryBuilder();
 		$cursor = $qb->select('id')
             ->from('share')
             ->andWhere($qb->expr()->eq('file_source', $qb->createNamedParameter($node->getId())))
