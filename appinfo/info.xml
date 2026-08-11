@@ -5,7 +5,7 @@
 	<name>Permalink</name>
 	<summary>permalink</summary>
 	<description>permalink</description>
-	<version>2.0.0</version>
+	<version>2.0.1</version>
 	<licence>agpl</licence>
 	<author mail="benjamin.perraudin@ulb.be" homepage="">Benjamin</author>
 	<namespace>Permalink</namespace>

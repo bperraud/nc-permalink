@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace OCA\Permalink\Controller;
 
-use OCP\AppFramework\Http\Attribute\ApiRoute;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 
 use OCP\AppFramework\Http\Response;
@@ -43,7 +42,6 @@ class ApiController extends OCSController {
 	}
 
 	#[NoAdminRequired]
-	#[ApiRoute(verb: 'POST', url: '/api/link')]
 	public function post(): JSONResponse {
         [
 			'path' => $path
@@ -65,7 +63,6 @@ class ApiController extends OCSController {
 	}
 
 	#[NoAdminRequired]
-	#[ApiRoute(verb: 'DELETE', url: '/api/link')]
 	public function delete(string $path): JSONResponse {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
@@ -81,7 +78,6 @@ class ApiController extends OCSController {
     }
 
 	#[NoAdminRequired]
-	#[ApiRoute(verb: 'GET', url: '/api/link')]
 	public function get(string $path): JSONResponse {
         $user = $this->userSession->getUser();
         $share = $this->shareService->getSharelink($user->getUID(), $path);
