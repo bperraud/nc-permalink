@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace OCA\Permalink\Controller;
 
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
-
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Http\JSONResponse;
 
-use OCP\AppFramework\OCSController;
+use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\OCS\OCSBadRequestException;
 use OCP\AppFramework\OCS\OCSException;
@@ -26,7 +25,7 @@ use OCP\IConfig;
 use Psr\Log\LoggerInterface;
 use OCA\Permalink\Enums\SettingsKey;
 
-class ApiController extends OCSController {
+class ApiController extends Controller {
 
     public function __construct(
 		string $appName,
