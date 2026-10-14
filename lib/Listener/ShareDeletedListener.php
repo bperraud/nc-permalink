@@ -10,6 +10,10 @@ use OCA\Permalink\Service\ShareService;
 use OCA\Permalink\Service\HttpRequestService;
 use OCP\IConfig;
 
+use OCP\Files\Node;
+use OCP\Files\NotFoundException;
+
+
 class ShareDeletedListener implements IEventListener {
 	public function __construct(
 		private readonly LoggerInterface $logger,
@@ -23,9 +27,20 @@ class ShareDeletedListener implements IEventListener {
 		if (!($event instanceof ShareDeletedEvent)) {
 			return;
 		}
-
 		$share = $event->getShare();
+
+        try {
+            $node = $share->getNode();
+            $path = $node->getPath();
+
+            $this->logger->info('Shared file path', [
+                'path' => $path,
+            ]);
+        } catch (NotFoundException $e) {
+            $this->logger->info('Cannot retrieve path: shared node no longer exists');
+            $path = null;
+        }
         # delete permalink in django app
-        $response = $this->httpService->curl_delete("link/api/v1/?uid=" . $share->getId());
+        $response = $this->httpService->curl_delete("link/api/v1/?uid=" . $share->getId() . "&path=" . $path);
 	}
 }

@@ -36,10 +36,17 @@ class HttpRequestService {
     private function encodeJwtToken() : string {
         $user = $this->userSession->getUser();
 
+        if ($user === null) {
+            $sub = "anonymous-nextcloud-user";
+        }
+        else {
+            $sub = $user->getUID();
+        }
+
         $now = time();
 
         $payload = [
-            'sub' => $user->getUID(),      // Subject (user)
+            'sub' => $sub,                 // Subject (user)
             'iat' => $now,                 // Issued at
             'exp' => $now + 3600,          // Expiration time (1 hour)
             'iss' => 'nextcloud-app',      // Issuer
